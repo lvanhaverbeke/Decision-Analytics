@@ -1,0 +1,21 @@
+{
+  "status": "PASS",
+  "sheets": [
+    "Overview",
+    "Inputs",
+    "Cash flow",
+    "Rent sensitivity",
+    "Variables",
+    "Regulations",
+    "Sources",
+    "Student budget",
+    "Risk sensitivity"
+  ],
+  "NPV_EUR": -803425.4648734634,
+  "IRR": 0.06506627017352862,
+  "simple_PBP_years": 18.24785717121529,
+  "discounted_PBP": "Not reached",
+  "formula_errors": [],
+  "note": "Python independently checks cached economics and workbook structure; no Excel or LibreOffice engine available for native recalculation.",
+  "SAVE_NOW": false
+}

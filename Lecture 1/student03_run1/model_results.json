@@ -1,0 +1,57 @@
+{
+  "npv": 179925425.7460371,
+  "irr": 0.33503129257441,
+  "simple_payback": 4.180691859889855,
+  "discounted_payback": 4.486151323582096,
+  "discount_rate": 0.043,
+  "scenarios": [
+    {
+      "scenario": "Requested assumptions",
+      "npv": 179925425.7460371,
+      "irr": 0.33503129257441,
+      "payback": 4.180691859889855,
+      "discounted_payback": 4.486151323582096,
+      "tests": "PASS"
+    },
+    {
+      "scenario": "Lower occupancy / no rent growth",
+      "npv": 58168178.73597095,
+      "irr": 0.23041616924485975,
+      "payback": 5.156565656565657,
+      "discounted_payback": 5.714448137887095,
+      "tests": "PASS"
+    },
+    {
+      "scenario": "Cost doubles",
+      "npv": 165234629.96463728,
+      "irr": 0.213383498787043,
+      "payback": 6.154915329359375,
+      "discounted_payback": 6.933069234702369,
+      "tests": "PASS"
+    },
+    {
+      "scenario": "Project risk +4 percentage points",
+      "npv": 89781625.59253375,
+      "irr": 0.33503129257441,
+      "payback": 4.180691859889855,
+      "discounted_payback": 4.82770114966562,
+      "tests": "PASS"
+    },
+    {
+      "scenario": "Combined stress",
+      "npv": 15499625.343058512,
+      "irr": 0.12838949662920796,
+      "payback": 8.313131313131313,
+      "discounted_payback": 13.220362069325763,
+      "tests": "PASS"
+    },
+    {
+      "scenario": "Cost feasibility stress: EUR 75k/room",
+      "npv": -40045244.21356048,
+      "irr": 0.06051145211559683,
+      "payback": 17.439439984558277,
+      "discounted_payback": "Not reached",
+      "tests": "FAIL"
+    }
+  ]
+}

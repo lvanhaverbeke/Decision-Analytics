@@ -1,0 +1,204 @@
+from pathlib import Path
+from openpyxl import Workbook, load_workbook
+from openpyxl.styles import Font, PatternFill, Alignment
+from openpyxl.chart import LineChart, Reference
+from openpyxl.worksheet.datavalidation import DataValidation
+from openpyxl.formatting.rule import CellIsRule
+from openpyxl.workbook.properties import CalcProperties
+from openpyxl.utils import get_column_letter as col
+import os, zipfile, xml.etree.ElementTree as ET, json, html
+ROOT=Path(__file__).resolve().parent
+if (ROOT/'SAVE_NOW.txt').exists() and (ROOT/'model.xlsx').exists():
+ print('SAVE_NOW found: preserving saved model; stopping.'); raise SystemExit
+wb=Workbook(); report=wb.active; report.title='Executive Report'
+a=wb.create_sheet('Inputs'); c=wb.create_sheet('Cash Flow'); sc=wb.create_sheet('Scenarios'); sens=wb.create_sheet('Sensitivity'); sources=wb.create_sheet('Sources & Method')
+caches={s.title:{} for s in wb}
+def put(sh,r,k,v,cache=None):
+ sh.cell(r,k,v)
+ if isinstance(v,str) and v.startswith('='): caches[sh.title][f'{col(k)}{r}']=cache
+money='#,##0;[Red](#,##0)'; pct='0.0%'; num='0.00'
+a.append(['BRUSSELS INVESTMENT | editable blue cells','Value','Basis / interpretation'])
+rows=[('Rooms',2000,'User requirement'),('Opening monthly rent EUR',450,'Maximum rent at opening; assumed exclusive of charges'),('Annual rent escalation',.05,'User scenario; not a guarantee of legally permitted indexation'),('Construction budget EUR',15000000,'User construction budget; excludes extra costs entered below'),('Construction years',2,'User requirement; opening at t=2, first annual receipt t=3'),('Operating years',30,'Assumption; no terminal resale value in base case'),('Occupancy',.95,'Assumption; constant stabilized occupancy from opening'),('Operating costs / collected rent',.30,'Assumption: management, utilities paid by owner, insurance, local property costs'),('Maintenance reserve / collected rent',.05,'Assumption; additional reserve, treated as a cash outflow'),('Belgian official reference yield',.043,'Belgian Federal Debt Agency: 10-year rate 4.30%, dated 14 October 2026'),('Maximum payback years from investment',10,'User limit; measured from t=0 commitment'),('Extra upfront costs EUR',0,'Enter land, acquisition, professional fees, VAT or other costs not in construction budget'),('Terminal value EUR',0,'Assumption; exclude speculative disposal proceeds'),('Project risk premium',0,'Assumption; 0% for requested official-rate test. Stress case adds 4 percentage points.'),('Effective nominal discount rate',None,'Official reference yield + project risk premium; sovereign yield is not property WACC'),('Total modeled funding EUR',None,'Construction + additional upfront costs'),('Construction budget per room EUR',None,'Construction cost only; requires independent contractor validation')]
+for r,(label,value,basis) in enumerate(rows,2):
+ a.append([label,value,basis])
+ if value is not None: a.cell(r,2).font=Font(color='0000FF')
+put(a,17,2,'=B11+B16',.043); put(a,18,2,'=B5+B13',15000000); put(a,19,2,'=B5/B2',7500)
+for r in [4,8,9,10,11,16,17]: a.cell(r,2).number_format=pct
+for r in [3,5,13,14,18,19]: a.cell(r,2).number_format=money
+for r,low,high,typ in [(2,1,100000,'whole'),(3,0,450,'decimal'),(4,0,.20,'decimal'),(5,1,1000000000,'decimal'),(6,1,10,'whole'),(7,1,50,'whole'),(8,0,1,'decimal'),(9,0,.95,'decimal'),(10,0,.95,'decimal'),(11,0,.5,'decimal'),(12,1,60,'decimal'),(13,0,1000000000,'decimal'),(14,0,1000000000,'decimal'),(16,0,.5,'decimal')]:
+ dv=DataValidation(type=typ,operator='between',formula1=low,formula2=high); dv.errorTitle='Input outside supported range'; dv.error='Use a value within the specified bounds.'; dv.showErrorMessage=True; a.add_data_validation(dv); dv.add(a.cell(r,2))
+
+def flows(cost=15000000,occ=.95,growth=.05,expense=.35,rate=.043,extra=0,terminal=0,years=30,construction=2):
+ out=[]
+ for y in range(61):
+  active=construction<y<=construction+years
+  rent=450*(1+growth)**(y-construction-1) if active else 0
+  gross=2000*rent*12*occ
+  cap=cost/construction if y<construction else 0
+  cap+=extra if y==0 else 0
+  tv=terminal if y==construction+years else 0
+  out.append(gross*(1-expense)-cap+tv)
+ return out
+
+def irr(cf):
+ if not any(v>0 for v in cf) or not any(v<0 for v in cf): return 'Not defined'
+ lo=-.8; hi=1.
+ def npv(rate): return sum(v/(1+rate)**y for y,v in enumerate(cf))
+ while npv(hi)>0 and hi<100: hi*=2
+ for _ in range(120):
+  mid=(lo+hi)/2
+  if npv(mid)>0: lo=mid
+  else: hi=mid
+ return (lo+hi)/2
+
+def payback(cf,rate=0):
+ cum=0
+ for y,v in enumerate(cf):
+  value=v/(1+rate)**y; prev=cum; cum+=value
+  if y>=2 and cum>=0 and prev<0: return y-1-prev/value
+ return 'Not reached'
+cf=flows(); rate=.043; pvs=[v/(1+rate)**y for y,v in enumerate(cf)]; npv=sum(pvs); ir=irr(cf); pb=payback(cf); dpb=payback(cf,rate)
+c.append(['Year t','Phase','Operating year','Monthly rent EUR','Collected rent EUR','Operating costs EUR','Maintenance reserve EUR','Construction + extras EUR','Terminal value EUR','Free cash flow EUR','Discount factor','Present value EUR','Cumulative cash flow EUR','Cumulative PV EUR','Simple payback crossing','Discounted payback crossing'])
+cc=cp=0
+for y in range(61):
+ r=y+2; active=2<y<=32; rent=450*1.05**(y-3) if active else 0; gross=2000*rent*12*.95; cap=7500000 if y<2 else 0
+ prevcc=cc; prevcp=cp; cc+=cf[y]; cp+=pvs[y]
+ values=[y,f'=IF(A{r}<Inputs!$B$6,"Construction",IF(A{r}=Inputs!$B$6,"Opening",IF(A{r}<=Inputs!$B$6+Inputs!$B$7,"Operations","Outside horizon")))',f'=IF(AND(A{r}>Inputs!$B$6,A{r}<=Inputs!$B$6+Inputs!$B$7),A{r}-Inputs!$B$6,0)',f'=IF(C{r}>0,Inputs!$B$3*(1+Inputs!$B$4)^(C{r}-1),0)',f'=Inputs!$B$2*D{r}*12*Inputs!$B$8',f'=E{r}*Inputs!$B$9',f'=E{r}*Inputs!$B$10',f'=IF(A{r}<Inputs!$B$6,Inputs!$B$5/Inputs!$B$6,0)+IF(A{r}=0,Inputs!$B$13,0)',f'=IF(A{r}=Inputs!$B$6+Inputs!$B$7,Inputs!$B$14,0)',f'=E{r}-F{r}-G{r}-H{r}+I{r}',f'=1/(1+Inputs!$B$17)^A{r}',f'=J{r}*K{r}',f'=SUM(J$2:J{r})',f'=SUM(L$2:L{r})']
+ cached=[y,'Construction' if y<2 else 'Opening' if y==2 else 'Operations' if active else 'Outside horizon',y-2 if active else 0,rent,gross,gross*.3,gross*.05,cap,0,cf[y],(1+rate)**(-y),pvs[y],cc,cp]
+ for k,(v,cv) in enumerate(zip(values,cached),1): put(c,r,k,v,cv)
+ for k,cum,prev,flow in [(15,cc,prevcc,cf[y]),(16,cp,prevcp,pvs[y])]:
+  cumcol='M' if k==15 else 'N'; flowcol='J' if k==15 else 'L'
+  f='=0' if y==0 else f'=IF(AND(A{r}>Inputs!$B$6,{cumcol}{r}>=0,{cumcol}{r-1}<0),A{r}-1-{cumcol}{r-1}/{flowcol}{r},0)'
+  cv=y-1-prev/flow if y>2 and cum>=0 and prev<0 else 0; put(c,r,k,f,cv)
+for r in range(35,63): c.row_dimensions[r].hidden=True
+report.append(['BRUSSELS | EXECUTIVE INVESTMENT REPORT','Result / decision','Criterion / explanation'])
+metrics=[('Net present value EUR',"=SUM('Cash Flow'!L2:L62)",npv,'Must be strictly positive'),('Unlevered project IRR',"=IFERROR(IRR('Cash Flow'!J2:J62),\"Not defined\")",ir,'Must exceed effective nominal discount rate'),('Simple payback years from t=0',"=IF(MAX('Cash Flow'!O2:O62)>0,MAX('Cash Flow'!O2:O62),\"Not reached\")",pb,'Maximum 10 years; fractional year interpolation'),('Discounted payback years from t=0',"=IF(MAX('Cash Flow'!P2:P62)>0,MAX('Cash Flow'!P2:P62),\"Not reached\")",dpb,'Supplementary conservative cash-recovery measure'),('Effective discount rate','=Inputs!B17',rate,'Official Belgian reference + editable project risk premium'),('Construction budget per room EUR','=Inputs!B19',7500,'EUR 15 million / 2,000 rooms'),('First operating year collected rent EUR',"=INDEX('Cash Flow'!E2:E62,Inputs!B6+2)",10260000,'95% occupancy assumption'),('First operating year net cash flow EUR',"=INDEX('Cash Flow'!J2:J62,Inputs!B6+2)",6669000,'After 30% operating costs and 5% maintenance reserve')]
+for r,(label,f,value,note) in enumerate(metrics,2): put(report,r,1,label); put(report,r,2,f,value); put(report,r,3,note)
+put(report,10,1,'Financial tests'); put(report,10,2,'=IF(AND(B2>0,ISNUMBER(B3),B3>B6,ISNUMBER(B4),B4<=Inputs!B12),"PASS","FAIL")','PASS'); put(report,10,3,'NPV, IRR and simple payback; excludes validation of physical feasibility')
+put(report,11,1,'Construction spending within budget'); put(report,11,2,'=IF(SUM(\'Cash Flow\'!H2:H62)-Inputs!B13<=Inputs!B5,"PASS","FAIL")','PASS'); put(report,11,3,'Cost is entered as budget, not independently estimated; this check is mechanical')
+put(report,12,1,'Input consistency'); put(report,12,2,'=IF(AND(Inputs!B3<=450,Inputs!B3>0,Inputs!B9+Inputs!B10<1,Inputs!B6+Inputs!B7<=60,Inputs!B8>0),"PASS","REVIEW INPUTS")','PASS'); put(report,12,3,'Rent cap, positive occupancy, expense ratios, supported horizon')
+notes=[('Recommendation','Proceed only to feasibility and cost validation. Financial screening passes, but do not approve construction on these assumptions.'),('Budget feasibility','EUR 7,500 per room is the stated budget implication, not a verified Brussels construction estimate. Confirm whether EUR 15m or 2,000 rooms needs revision.'),('Construction and timing','Build during t=0 to t=2; equal construction payments at t=0 and t=1. Opening at t=2; annual operating receipts at t=3 onward. No income during construction.'),('Rent interpretation','EUR 450 applies at opening; 5% growth begins in operating year 2. Year 30 rent is about EUR 1,852 per month; the affordability cap grows with the assumed inflation.'),('Belgian rate','4.30% is the Belgian Federal Debt Agency 10-year sovereign yield dated 14 October 2026, used as an official benchmark. It is not an authority-prescribed property discount rate.'),('Project risk','A zero premium is used to match the requested official benchmark. Add a lender/investor-approved risk premium before investment approval; see stress scenarios.'),('Indexation','Brussels residential indexation follows the health index and applicable lease requirements. Fixed 5% annual growth is a financial scenario, not an automatic contractual entitlement.'),('Operating assumptions','95% occupancy, 30% operating costs and 5% maintenance reserve are unverified assumptions. Occupancy is applied to all 12 months; no leasing ramp is assumed.'),('Model scope','Unlevered nominal pre-tax cash flows; no borrowing, income tax, or separately estimated land/VAT/professional costs. Enter omitted upfront costs in Inputs B13. Zero terminal value.'),('Payback method','Measured from t=0 including two construction years. Simple and discounted recovery use interpolation inside the crossing year; NPV uses end-of-year operating receipts.'),('Action before commitment','Validate land and planning capacity for 2,000 rooms, gross floor area, permits, procurement costs, VAT, financing, legal rent indexation and operating contracts.'),('Use and reproduction','Edit blue Inputs cells; Excel recalculates formulas. Supported range: up to 10 construction years and 50 operating years. Scenarios are explicit stresses, not forecasts. Code: build_model.py.')]
+for r,(label,note) in enumerate(notes,14): report.append([label,note]); report.row_dimensions[r].height=52
+sc.append(['Scenario','Construction cost EUR','Occupancy','Rent growth','Total expense share','Discount rate','NPV EUR','IRR','Simple payback yrs','Discounted payback yrs','Financial tests'])
+cases=[('Requested assumptions',1,.95,.05,.35,0),('Lower occupancy / no rent growth',1,.80,0,.45,0),('Cost doubles',2,.95,.05,.35,0),('Project risk +4 percentage points',1,.95,.05,.35,.04),('Combined stress',2,.80,0,.45,.04),('Cost feasibility stress: EUR 75k/room',10,.95,.05,.35,.04)]
+scenario_results=[]
+for r,(name,mult,occ,growth,exp,prem) in enumerate(cases,2):
+ scenario_cf=flows(cost=15000000*mult,occ=occ,growth=growth,expense=exp,rate=rate+prem)
+ snpv=sum(v/(1+rate+prem)**y for y,v in enumerate(scenario_cf)); sirr=irr(scenario_cf); spb=payback(scenario_cf); sdpb=payback(scenario_cf,rate+prem)
+ vals=[name,f'=Inputs!$B$5*{mult}', '=Inputs!$B$8' if r in [2,4,5,7] else occ, '=Inputs!$B$4' if r in [2,4,5,7] else growth,'=Inputs!$B$9+Inputs!$B$10' if r in [2,4,5,7] else exp,f'=Inputs!$B$17+{prem}']
+ for k,v in enumerate(vals,1): put(sc,r,k,v,[name,15000000*mult,occ,growth,exp,rate+prem][k-1])
+ for y in range(61):
+  k=12+y; letter=col(k); sc.cell(1,k,y)
+  f=f'=IF(AND({letter}$1>Inputs!$B$6,{letter}$1<=Inputs!$B$6+Inputs!$B$7),Inputs!$B$2*Inputs!$B$3*12*$C{r}*(1+$D{r})^({letter}$1-Inputs!$B$6-1)*(1-$E{r}),0)-IF({letter}$1<Inputs!$B$6,$B{r}/Inputs!$B$6,0)-IF({letter}$1=0,Inputs!$B$13,0)+IF({letter}$1=Inputs!$B$6+Inputs!$B$7,Inputs!$B$14,0)'
+  put(sc,r,k,f,scenario_cf[y]); sc.column_dimensions[letter].hidden=True
+ start='L'; end=col(72)
+ put(sc,r,7,f'=NPV(F{r},{col(13)}{r}:{end}{r})+L{r}',snpv); put(sc,r,8,f'=IFERROR(IRR(L{r}:{end}{r}),"Not defined")',sirr)
+ # Helper cumulative cash and crossing rows per scenario; visible formulas on Cash Flow use same method.
+ helper=15+(r-2)*5; sc.cell(helper,1,name+' | cumulative CF'); sc.cell(helper+1,1,'Payback crossing'); sc.cell(helper+2,1,'Cumulative PV'); sc.cell(helper+3,1,'Discounted crossing')
+ cum=dcum=0
+ for y,v in enumerate(scenario_cf):
+  k=12+y; letter=col(k); prevletter=col(k-1); prev=cum; dprev=dcum; cum+=v; dv=v/(1+rate+prem)**y; dcum+=dv
+  put(sc,helper,k,f'=SUM($L{r}:{letter}{r})',cum)
+  put(sc,helper+1,k,'=0' if y==0 else f'=IF(AND({letter}$1>Inputs!$B$6,{letter}{helper}>=0,{prevletter}{helper}<0),{letter}$1-1-{prevletter}{helper}/{letter}{r},0)',y-1-prev/v if y>2 and cum>=0 and prev<0 else 0)
+  put(sc,helper+2,k,f'={letter}{r}/(1+$F${r})^{letter}$1'+(f'+{prevletter}{helper+2}' if y>0 else ''),dcum)
+  put(sc,helper+3,k,'=0' if y==0 else f'=IF(AND({letter}$1>Inputs!$B$6,{letter}{helper+2}>=0,{prevletter}{helper+2}<0),{letter}$1-1-{prevletter}{helper+2}/({letter}{r}/(1+$F${r})^{letter}$1),0)',y-1-dprev/dv if y>2 and dcum>=0 and dprev<0 else 0)
+ for rr in range(helper,helper+5): sc.row_dimensions[rr].hidden=True
+ put(sc,r,9,f'=IF(MAX(L{helper+1}:{end}{helper+1})>0,MAX(L{helper+1}:{end}{helper+1}),"Not reached")',spb)
+ put(sc,r,10,f'=IF(MAX(L{helper+3}:{end}{helper+3})>0,MAX(L{helper+3}:{end}{helper+3}),"Not reached")',sdpb)
+ passed=snpv>0 and isinstance(sirr,float) and sirr>rate+prem and isinstance(spb,(int,float)) and spb<=10
+ put(sc,r,11,f'=IF(AND(G{r}>0,ISNUMBER(H{r}),H{r}>F{r},ISNUMBER(I{r}),I{r}<=Inputs!$B$12),"PASS","FAIL")','PASS' if passed else 'FAIL')
+ scenario_results.append({'scenario':name,'npv':snpv,'irr':sirr,'payback':spb,'discounted_payback':sdpb,'tests':'PASS' if passed else 'FAIL'})
+sc.cell(10,1,'All cases keep 2,000 rooms and EUR 450 opening rent. Cost cases are illustrative stresses, not verified market quotes.'); sc.merge_cells('A10:K10'); sc.row_dimensions[10].height=40
+sens.append(['NPV EUR | occupancy vs discount rate',.043,.063,.083,.103])
+for r,occ in enumerate([.6,.8,.9,.95,1],2):
+ sens.cell(r,1,occ)
+ for k,dr in enumerate([.043,.063,.083,.103],2):
+  letter=col(k)
+  formula=f'=SUMPRODUCT((\'Cash Flow\'!D2:D62*Inputs!$B$2*12*$A{r}*(1-Inputs!$B$9-Inputs!$B$10)-\'Cash Flow\'!H2:H62+\'Cash Flow\'!I2:I62)/(1+{letter}$1)^\'Cash Flow\'!A2:A62)'
+  v=sum((2000*450*1.05**(y-3)*12*occ*.65 if 2<y<=32 else -7500000 if y<2 else 0)/(1+dr)**y for y in range(61)); put(sens,r,k,formula,v)
+sens.cell(9,1,'Rates and occupancy are editable stress inputs; other assumptions follow Inputs. Positive NPV does not establish construction feasibility.'); sens.merge_cells('A9:E9'); sens.row_dimensions[9].height=45
+sources.append(['SOURCE / METHOD','Evidence / model use','URL / status'])
+sources.append(['Belgian Federal Debt Agency','10-year sovereign rate 4.30%; source observation dated 14 October 2026; accessed 14 October 2026. Used as nominal reference, not a mandated property hurdle rate.','https://www.debtagency.be/nl'])
+sources.append(['Brussels-Capital Region','Residential rent adjustment follows the health index, subject to lease registration, EPB and request requirements. Annual fixed 5% is modeled only as the user scenario.','https://be.brussels/en/housing/rental/lease-contracts/rental-price-indexation'])
+sources.append(['User requirements','2,000 rooms; EUR 15m construction budget; EUR 450 opening rent; 5% annual growth; 2-year build; NPV > 0; IRR > discount rate; payback <= 10 years.','Provided in task'])
+sources.append(['Analyst assumptions','30 operating years; 95% occupancy; costs 30% and reserve 5%; no terminal value; 0% project premium. All editable.','Not independently sourced'])
+sources.append(['Construction schedule','Equal payments at t=0 through t=construction years-1; opening at t=construction years; first annual rent receipt one year later.','Cash flow timing convention'])
+sources.append(['NPV and IRR','NPV = sum CF(t)/(1+r)^t, including t=0. IRR is the annual rate setting NPV to zero; nominal cash flows use a nominal rate.','Excel formulas; initial cached values calculated independently in Python'])
+sources.append(['Payback','Fractional crossing = preceding year + unrecovered balance / crossing-year cash flow. Discounted version uses PV cash flows. No recovery returns Not reached.','From first commitment, not from opening'])
+sources.append(['Funding and tax','Construction allocation sums to EUR 15m. Additional costs increase total funding and can exceed this amount. No financing, corporate tax or independently estimated VAT/land costs.','Pre-tax, unlevered scope'])
+sources.append(['Recalculation','Workbook stores numeric formula caches for immediate viewing; Excel recalculates after edits. Supported construction 1–10 years, operation 1–50 years.','Rebuild with python3 build_model.py; needs openpyxl'])
+for sh in wb:
+ sh.freeze_panes='B2'; sh.sheet_view.showGridLines=False; sh.row_dimensions[1].height=35
+ sh.auto_filter.ref=sh.dimensions if sh in [a,c,sources] else 'A1:K7' if sh==sc else sh.dimensions
+ sh.sheet_properties.pageSetUpPr.fitToPage=True; sh.page_setup.orientation='landscape'; sh.page_setup.paperSize=sh.PAPERSIZE_A4; sh.page_setup.fitToWidth=1; sh.page_setup.fitToHeight=0
+ for cell in sh[1]: cell.fill=PatternFill('solid',fgColor='17365D'); cell.font=Font(color='FFFFFF',bold=True); cell.alignment=Alignment(wrap_text=True,vertical='center')
+ for row in sh.iter_rows(min_row=2):
+  for cell in row:
+   cell.alignment=Alignment(vertical='top',wrap_text=True)
+   if cell.data_type=='f' or isinstance(cell.value,(int,float)): cell.number_format=money if cell.number_format=='General' else cell.number_format
+   if cell.row%2==0: cell.fill=PatternFill('solid',fgColor='EDF3F8')
+ sh.column_dimensions['A'].width=43 if sh in [report,a,sources] else 30 if sh==sc else 20
+ for k in range(2,min(sh.max_column,16)+1): sh.column_dimensions[col(k)].width=21
+report.column_dimensions['B'].width=82; report.column_dimensions['C'].width=49
+for r in range(2,13): report.row_dimensions[r].height=38
+for r in [3,6]: report.cell(r,2).number_format=pct
+for r in [4,5]: report.cell(r,2).number_format=num
+for sh in [a,sources]:
+ sh.column_dimensions['B'].width=24 if sh==a else 85; sh.column_dimensions['C'].width=94
+ for r in range(2,sh.max_row+1): sh.row_dimensions[r].height=44 if sh==a else 60
+for r in range(2,8):
+ sc.row_dimensions[r].height=48
+ for k in [3,4,5,6,8]: sc.cell(r,k).number_format=pct
+ for k in [9,10]: sc.cell(r,k).number_format=num
+for k in range(2,6): sens.cell(1,k).number_format=pct
+for r in range(2,7): sens.cell(r,1).number_format=pct
+for r in range(2,63):
+ c.row_dimensions[r].height=30
+ c.cell(r,11).number_format='0.0000'
+ for k in [15,16]: c.cell(r,k).number_format=num
+for sh,ranges in [(report,['B10:B12']),(sc,['K2:K7'])]:
+ for rr in ranges: sh.conditional_formatting.add(rr,CellIsRule(operator='equal',formula=['"FAIL"'],fill=PatternFill('solid',fgColor='FFC7CE')))
+chart=LineChart(); chart.title='Cumulative cash recovery'; chart.y_axis.title='EUR'; chart.x_axis.title='Years from investment'; chart.add_data(Reference(c,min_col=13,max_col=14,min_row=1,max_row=34),titles_from_data=True); chart.set_categories(Reference(c,min_col=1,min_row=2,max_row=34)); chart.height=10; chart.width=25; report.add_chart(chart,'A28')
+report.print_area='A1:C47'; sc.print_area='A1:K10'; sens.print_area='A1:E9'; a.print_area='A1:C19'; c.print_area='A1:P34'; sources.print_area='A1:C10'
+wb.calculation=CalcProperties(calcId=191029,fullCalcOnLoad=True)
+tmp=ROOT/'model.tmp.xlsx'; wb.save(tmp)
+# Insert valid cached formula results without replacing Excel formulas.
+ns={'m':'http://schemas.openxmlformats.org/spreadsheetml/2006/main'}; ET.register_namespace('',ns['m']); patched=ROOT/'model.cached.tmp.xlsx'
+with zipfile.ZipFile(tmp) as zin,zipfile.ZipFile(patched,'w',zipfile.ZIP_DEFLATED) as zout:
+ for entry in zin.infolist():
+  data=zin.read(entry.filename)
+  if entry.filename.startswith('xl/worksheets/sheet') and entry.filename.endswith('.xml'):
+   index=int(entry.filename.rsplit('sheet',1)[1].split('.')[0])-1; sh=wb.worksheets[index]; tree=ET.fromstring(data)
+   for cell in tree.findall('.//m:c',ns):
+    if cell.find('m:f',ns) is not None:
+     cached=caches[sh.title].get(cell.attrib['r'])
+     if cached is None: continue
+     value=cell.find('m:v',ns)
+     if value is None: value=ET.SubElement(cell,'{'+ns['m']+'}v')
+     if isinstance(cached,str): cell.set('t','str'); value.text=cached
+     else: cell.attrib.pop('t',None); value.text=str(cached)
+   data=ET.tostring(tree,encoding='utf-8',xml_declaration=True)
+  zout.writestr(entry,data)
+# Verify both formula and cached-data views before atomic replacement.
+fcheck=load_workbook(patched,data_only=False); vcheck=load_workbook(patched,data_only=True)
+assert len(fcheck.sheetnames)==6 and abs(vcheck['Executive Report']['B2'].value-npv)<.01
+assert fcheck['Executive Report']['B2'].data_type=='f'
+assert abs(sum(vcheck['Cash Flow'].cell(r,8).value for r in range(2,63))-15000000)<.01
+assert abs(sum(cf[y]/(1+ir)**y for y in range(61)))<.01
+assert all(vcheck['Cash Flow'].cell(r,5).value==0 for r in range(2,5))
+os.replace(patched,ROOT/'model.xlsx'); tmp.unlink(missing_ok=True)
+metrics={'npv':npv,'irr':ir,'simple_payback':pb,'discounted_payback':dpb,'discount_rate':rate,'scenarios':scenario_results}
+(ROOT/'model_results.json').write_text(json.dumps(metrics,indent=2))
+print(json.dumps(metrics,indent=2)); print('ATOMIC SAVE COMPLETE; SAVE_NOW:',(ROOT/'SAVE_NOW.txt').exists())
+if (ROOT/'SAVE_NOW.txt').exists(): raise SystemExit
+# Standalone executive report; values are a snapshot of the delivered base model.
+paragraphs=[f'At the stated EUR 15 million construction budget, the model returns NPV EUR {npv:,.0f}, project IRR {ir:.1%}, simple payback {pb:.2f} years and discounted payback {dpb:.2f} years from initial investment. The three requested financial tests pass at a 4.30% discount rate.', 'Recommendation: proceed to a feasibility and contractor cost assessment before committing to construction. The budget is EUR 7,500 per room; it is an input, not an independently supported construction estimate.', 'The project builds for two years with EUR 7.5 million paid at t=0 and t=1. It opens at t=2, with first full-year rental cash received at t=3. Opening rent is EUR 450 per room per month and grows 5% each operating year. At 95% occupancy, the first operating year generates EUR 10.26 million rent and EUR 6.669 million cash after 30% operating costs and a 5% maintenance reserve.', 'The model uses 30 operating years, zero terminal proceeds, and no borrowing or income tax. Land, VAT, professional fees and other omitted upfront items must be entered in Inputs B13. A risk premium can be added in Inputs B16. The sovereign yield is an official reference, not an authority-prescribed real-estate investment discount rate.', 'A fixed 5% rent escalation is the user scenario. Brussels residential indexation depends on the health index and lease requirements; it is not automatically a fixed 5% increase. Opening rent is capped at EUR 450; subsequent affordability limits are assumed to rise with inflation.', 'Next steps: validate site and planning capacity, floor area, permits, all-in construction costs, land and tax treatment, occupancy, owner-paid utilities and operating contracts; then rerun the financial and payback tests.']
+body=''.join('<p>'+html.escape(p)+'</p>' for p in paragraphs)
+body+='<h2>Illustrative stresses</h2><table><tr><th>Case</th><th>NPV EUR</th><th>IRR</th><th>Payback years</th><th>Tests</th></tr>'
+for item in scenario_results:
+ fmtpb=f"{item['payback']:.2f}" if isinstance(item['payback'],(int,float)) else item['payback']
+ body+=f"<tr><td>{html.escape(item['scenario'])}</td><td>{item['npv']:,.0f}</td><td>{item['irr']:.1%}</td><td>{fmtpb}</td><td>{item['tests']}</td></tr>"
+body+='</table><p>Stress construction costs are illustrative, not market quotations. Payback is measured from the first investment and interpolated within the recovery year.</p><p>Sources: <a href="https://www.debtagency.be/nl">Belgian Federal Debt Agency</a>, 10-year yield 4.30% dated 14 October 2026; <a href="https://be.brussels/en/housing/rental/lease-contracts/rental-price-indexation">Brussels-Capital Region rent indexation guidance</a>. Accessed 14 October 2026.</p>'
+reporthtml='<!doctype html><html lang="en"><meta charset="utf-8"><title>Brussels investment — executive report</title><style>body{font:16px/1.55 Arial;max-width:1050px;margin:45px auto;color:#17324d}h1{font-size:29px}table{border-collapse:collapse;width:100%;font-size:14px}th,td{padding:10px;border-bottom:1px solid #dce5ee;text-align:left}th{background:#edf3f8}@media print{body{margin:15px;font-size:11pt}}</style><h1>Brussels room investment: executive report</h1><p>14 October 2026 | Pre-tax, unlevered feasibility screening</p>'+body+'</html>'
+htmp=ROOT/'executive_report.tmp.html'; htmp.write_text(reporthtml); os.replace(htmp,ROOT/'executive_report.html')
+print('Executive report saved; SAVE_NOW:',(ROOT/'SAVE_NOW.txt').exists())

@@ -1,0 +1,164 @@
+{
+  "status": "RESEARCHED SCREENING MODEL — 14 October 2026; sourced context, explicit investment assumptions",
+  "inputs": {
+    "20": {
+      "value": 0.2438,
+      "note": "S1: VUB Facts & Figures 2024–2025: 24.38% from abroad, 24,199 students; university-wide, not housing demand or this site's catchment."
+    },
+    "10": {
+      "value": 650,
+      "note": "EUR650 private new-build rent assumption, excluding utilities. S10: VUB standard room 2026–2027 EUR449.30 including listed costs; S2 historical private average EUR550. Premium and achievable rent require local comparables."
+    },
+    "21": {
+      "value": 14000,
+      "note": "Illustrative annual total resources, NOT observed average earnings. S3: certain non-EU students must prove EUR1,062/month in 2026–2027 (=EUR12,744/year); visa benchmark is not wages."
+    },
+    "22": {
+      "value": 0.16,
+      "note": "S9: contextual proxy ONLY, not VUB-specific: 16% first-year bachelor dropout among Flemish 2023–2024 starters; published 2026-03-31, provisional. No direct link to housing vacancy."
+    }
+  },
+  "sources": [
+    [
+      "S1",
+      "VUB: Facts & Figures 2024–2025",
+      "https://www.vub.be/en/news/vub-launches-facts-figures-2024-2025",
+      "Published 2025-12-16; accessed 2026-10-14",
+      "24,199 students; 24.38% from abroad; 151 nationalities. University-wide, not a local housing-demand count."
+    ],
+    [
+      "S2",
+      "VUB: 2025 study cost sheet",
+      "https://www.vub.be/sites/default/files/2025-03/2025_Hoeveel_kost_studeren_kostenplaatje_1BA_Business_economics_ENG_0.pdf",
+      "2025 sheet; housing benchmark Brik 2023; accessed 2026-10-14",
+      "Private room average EUR550/month excluding charges; VUB standard room EUR408.30 including costs. Historical benchmark, not 2026 market evidence."
+    ],
+    [
+      "S3",
+      "Belgian FPS Foreign Affairs: student sponsorship",
+      "https://verenigdkoninkrijk.diplomatie.belgium.be/en/travel-belgium/financial-guarantee-student-sponsorship",
+      "Academic year 2026–2027; accessed 2026-10-14",
+      "Student means-of-subsistence requirement EUR1,062 net/month; EUR12,744 annual equivalent. Applies to relevant third-country students, not all VUB students or average wages."
+    ],
+    [
+      "S4",
+      "Student At Work / Belgian social security: hours package",
+      "https://www.studentatwork.be/en/hours-package-and-impact.html",
+      "Since 2025-01-01; accessed 2026-10-14",
+      "650 annual hours with reduced social contributions; student contribution 2.71%; may work beyond quota with ordinary contributions. Not guaranteed work or income."
+    ],
+    [
+      "S5",
+      "Brussels Housing: reference rents",
+      "https://be.brussels/fr/logement/location/bail-dhabitation/loyers-de-reference",
+      "Rule effective 2025-05-01; accessed 2026-10-14",
+      "Reference rent must be in residential leases. Rent over reference by more than 20% presumed excessive, rebuttable by specific comforts; defects can also establish excessiveness. Verify room applicability."
+    ],
+    [
+      "S6",
+      "Brussels Housing: quality and safety",
+      "https://be.brussels/fr/logement/location/conformite-logement/normes-et-securite",
+      "2026 standards; accessed 2026-10-14",
+      "Official page links applicable standards and comparison before/after 2026-01-01; 2025 smoke detection rules. Design must be checked against actual legal text."
+    ],
+    [
+      "S7",
+      "Brussels Housing: student housing quality label",
+      "https://be.brussels/fr/logement/location/conformite-logement/label-logement-etudiant",
+      "Accessed 2026-10-14",
+      "Quality label valid 5 years, renewable; application involves compliance declaration, student lease or commitment, and valid EPB certificate. Does not replace permits."
+    ],
+    [
+      "S8",
+      "Brussels Housing: rental process",
+      "https://be.brussels/nl/huisvesting/huren-en-verhuren/de-verschillende-stappen-van-het-huren-en-verhuren",
+      "Accessed 2026-10-14",
+      "Housing quality, disclosures and registration obligations; check current process and documents before leasing."
+    ],
+    [
+      "S9",
+      "Statistics Flanders: dropout in higher education",
+      "https://www.vlaanderen.be/statistiek-vlaanderen/onderwijs-en-vorming/drop-out-in-het-hoger-onderwijs",
+      "Published 2026-03-31; cohort 2023–2024; accessed 2026-10-14",
+      "16% first-year bachelor dropout (8,881 entrants); figure provisional. Flemish academic and professional bachelors, not VUB-specific. Obtain VUB cohort data before treating as a VUB estimate."
+    ],
+    [
+      "A1",
+      "Author scenario assumptions",
+      "",
+      "2026-10-14",
+      "Construction costs, acquisition, expenses, timing, discount rate, exit cap rate, occupancy, student resources and price response are unsourced illustrative assumptions. Obtain parcel, cost, tax and letting evidence before investment."
+    ],
+    [
+      "S10",
+      "VUB: current practical housing information",
+      "https://www.vub.be/en/studying-vub/practical-info-for-students/student-housing/practical-housing-information",
+      "2026–2027; updated 2026-09-18; accessed 2026-10-14",
+      "Standard VUB room EUR449.30/month including energy, internet, fire insurance, repairs and communal cleaning. Demand exceeds availability; allocation conditions apply. Not a private new-build market comparable."
+    ],
+    [
+      "S11",
+      "FPS Employment: student employment remuneration",
+      "https://emploi.belgique.be/fr/themes/contrats-de-travail/contrats-de-travail-particuliers/contrat-doccupation-detudiants",
+      "Rates effective 2026-07-01; accessed 2026-10-14",
+      "Sector collective agreement governs pay. Where not applicable, age-adjusted interprofessional minimum; indicative hourly rates at 38h/week: age18 EUR10.7158;19 EUR11.5297;20 EUR12.2079;21 EUR13.5644. Annual student income depends on actual hours."
+    ],
+    [
+      "S12",
+      "Brussels Housing: comparison of minimum requirements",
+      "https://admin.be.brussels/sites/default/files/2025-06/Tableau%20comparatif%20AGRBC%202003-2023%20FR.pdf",
+      "2026 rules, right-hand column; pp.13–14; accessed 2026-10-14",
+      "Student housing surface: 12 m² for one person, 18 m² for two. Habitable rooms at least 70% of dwelling area. Collective common rooms allocated by maximum residents using them. These are housing-code minima; planning/fire rules can be stricter."
+    ]
+  ],
+  "regulations": [
+    [
+      "Planning and location",
+      "Search near VUB Main Campus, Pleinlaan 2, 1050 Brussels, in Ixelles / Etterbeek. No parcel secured. Verify ownership, land use, planning permit, municipal conditions and any campus agreement.",
+      "2-year development estimate includes approvals and construction; illustrative, not confirmed. No entitlement to build on VUB land.",
+      "A1; municipality / urban.brussels review required"
+    ],
+    [
+      "Housing quality from 2026",
+      "Apply Brussels safety, sanitation and equipment standards effective 2026-01-01. Architect must validate private room area, daylight, ventilation, sanitary/kitchen capacity and common spaces against applicable rules.",
+      "28 m² gross per room includes circulation and shared spaces; it does not demonstrate minimum compliant net area.",
+      "S6"
+    ],
+    [
+      "Rent and reference rent",
+      "Include required reference rent. Since 2025-05-01 landlords must avoid excessive rents; >20% above reference is rebuttably presumed excessive, and quality defects can matter below this threshold.",
+      "EUR650 is an assumption, not legal clearance. Establish the relevant room category and lawful rent before pricing; rent-reduction risk not quantified.",
+      "S5"
+    ],
+    [
+      "Student tenancy",
+      "Use a compliant Brussels student lease, verify student status, notices, deposit, disclosures and registration at letting. Obtain current specialist advice on the applicable regime.",
+      "Model assumes 12 chargeable months and 95% occupancy; early termination / summer voids could reduce income.",
+      "S8; contract review required"
+    ],
+    [
+      "Indexation / energy",
+      "Check registration and EPB conditions and the current lawful indexation mechanism before each annual adjustment.",
+      "2% yearly growth is a forecast, not a guaranteed legal increase. Tax, EPB and retrofit impacts require site review.",
+      "S5 / S8; detailed indexation check pending"
+    ],
+    [
+      "Fire and access",
+      "Validate smoke detection, fire-service requirements, evacuation, accessibility and EPB with architect and competent authority.",
+      "Fees and contingency are preliminary; final scope may increase cost and delay opening.",
+      "S6; project-specific approval required"
+    ],
+    [
+      "Quality label",
+      "Consider the Brussels student-housing quality label: 5-year renewable validity; compliance declaration, student lease/commitment and valid EPB among application documents.",
+      "Label may help marketing; not a substitute for planning permission or compliant construction.",
+      "S7"
+    ],
+    [
+      "Student housing minimum surface",
+      "2026 housing-code rules: student dwelling minimum 12 m² for one person, 18 m² for two. Habitable rooms must cover at least 70% of dwelling area. Collective common rooms counted pro rata by maximum residents using them.",
+      "Do not equate 12 m² with a universal private-bedroom minimum. Architect must calculate qualifying area and apply stricter planning/fire rules; 28 m² gross allocation is not compliance proof.",
+      "S12, pp.13–14, right-hand column"
+    ]
+  ]
+}

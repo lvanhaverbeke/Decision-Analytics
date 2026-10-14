@@ -1,0 +1,2 @@
+Validated 377 formula results; finite values; cached NPV matches.
+{'Initial investment': 2984600.0, '20-year NPV': -1239139.4491415757, 'Project IRR': 0.025799788069299612, 'Year 2 net operating income': 97166.68000000001, 'Year 2 net cash yield': 0.02912171815318636, 'Simple operating payback': 'Not reached in 20 years', 'Monthly tenant housing cost': 650.0, 'Housing share of student budget': 0.5, 'Terminal PV share of benefits': 0.39548550815120675}

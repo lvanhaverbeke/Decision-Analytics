@@ -1,0 +1,5 @@
+Saved [model.xlsx](model.xlsx) with 120 beds, three room types, demand and competitor research, financing, cash flows and sensitivity analysis.
+
+The base case is **not financially viable**: NPV is approximately **−€5.2 million**. Official property-specific reference rents remain unverified and are clearly flagged.
+
+All code is saved in the current folder. The class spreadsheet was not provided.

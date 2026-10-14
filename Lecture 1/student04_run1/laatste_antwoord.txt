@@ -1,0 +1,5 @@
+Saved [model.xlsx](model.xlsx) and [executive_report.md](executive_report.md). The workbook includes editable assumptions, financial scenarios, environmental and social analysis, legal checks, and linked sources. Formulas and cached results were validated.
+
+Base case: **€2.985 million investment**, **−€1.239 million NPV**, and **2.58% IRR**. Recommendation: renegotiate costs before proceeding; property-specific legal approvals remain unverified.
+
+The reference year is assumed to be **2026**. All supporting code is saved locally. `SAVE_NOW.txt` was detected, so work stopped after the final save.
