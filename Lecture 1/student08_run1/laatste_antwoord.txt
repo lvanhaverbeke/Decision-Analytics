@@ -1,0 +1,3 @@
+Opgeslagen als [model.xlsx](model.xlsx), met drie verhuurscenario’s, twintig jaar kasstromen, NCW, IRR en grafieken.
+
+Alle 711 formules zijn gecontroleerd. Onbekende bedragen en percentages staan als aanpasbare, fictieve aannames in het tabblad **Invoer**. De benodigde Pythoncode staat ook in de huidige map.

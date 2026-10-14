@@ -1,0 +1,13 @@
+{
+  "status": "PASS",
+  "formula_cells_with_numeric_caches": 278,
+  "checks": [
+    "sources equal uses",
+    "debt balances reconcile",
+    "base sensitivity equals NPV",
+    "IRR residual zero",
+    "independent Year 1 NOI and cash-flow calculation",
+    "project cost cross-check"
+  ],
+  "excel_recalculation": "No Excel/LibreOffice runtime available; formulas and cached values checked with Python."
+}

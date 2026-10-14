@@ -1,0 +1,12 @@
+{
+  "errors": [],
+  "status": "PASS",
+  "sheets": 11,
+  "formula_cells": 2501,
+  "scenario_npvs": {
+    "Base": 11863873.188833976,
+    "Downside": -434136.47076156456,
+    "Upside": 21205887.102730893
+  },
+  "SAVE_NOW": false
+}

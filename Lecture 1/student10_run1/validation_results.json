@@ -1,0 +1,42 @@
+{
+  "formula_cells_checked": 1134,
+  "checks": [
+    "total costs reconcile",
+    "no revenue before opening",
+    "project cash flows reconcile",
+    "debt draw reconciles",
+    "sensitivity base equals intermediate NPV",
+    "all formula cells cached",
+    "workbook reopens with formulas and cached values"
+  ],
+  "results": {
+    "Bad": {
+      "npv": -3274165.872944373,
+      "irr": -0.04466067194296702,
+      "payback": "Beyond 20",
+      "discounted_payback": "Beyond 20",
+      "cost": 4226250.0,
+      "min_dscr": 0.2256911291822409,
+      "operating_only_payback": "Beyond 20"
+    },
+    "Intermediate": {
+      "npv": -2166675.535159221,
+      "irr": 0.012656466694086599,
+      "payback": 20,
+      "discounted_payback": "Beyond 20",
+      "cost": 3918000.0,
+      "min_dscr": 0.5865155704294132,
+      "operating_only_payback": "Beyond 20"
+    },
+    "Optimal": {
+      "npv": -1170564.5507942487,
+      "irr": 0.036540788757833176,
+      "payback": 20,
+      "discounted_payback": "Beyond 20",
+      "cost": 3720000.0,
+      "min_dscr": 0.7712432484826722,
+      "operating_only_payback": "Beyond 20"
+    }
+  },
+  "limitations": "Independent Python calculations verify default assumptions; Excel recalculates on editing. No property-specific legal clearance or tax advice."
+}

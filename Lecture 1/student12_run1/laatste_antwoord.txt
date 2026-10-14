@@ -1,0 +1,3 @@
+Opgeslagen als [model.xlsx](model.xlsx), met de LLM-prompt, invoerparameters, kostenoverzicht, kasstromen over 20 jaar en resultaten voor NPV, IRR en terugverdientijd.
+
+De 460 formules zijn gecontroleerd. Financiële bedragen en reistijden zijn voorbeeld­aannames; juridische bronnen en nog te bevestigen voorwaarden staan in het bestand.
