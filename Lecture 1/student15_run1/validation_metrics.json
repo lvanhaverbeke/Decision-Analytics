@@ -1,0 +1,10 @@
+{
+  "initial_cost": 11538752.0,
+  "all_in_blended_rent": 530.01,
+  "affordable_threshold": 250.04999999999998,
+  "NPV": -5367708.16580499,
+  "IRR": 0.034478350972612426,
+  "payback": 27.099085056175266,
+  "discounted_payback": null,
+  "operating_only_recovered": true
+}

@@ -1,0 +1,5 @@
+Opgeslagen: [model.xlsx](model.xlsx).
+
+Het model optimaliseert winst binnen het budget, verwerkt verhuurvertraging en controleert Brusselse minimumvereisten. Het bevat een gesorteerde shortlist, portefeuilleselectie en tegenvallend scenario.
+
+Zonder bronspreadsheet zijn de voorbeelden fictief. Vijf scenariotests zijn geslaagd; alle benodigde code staat in de huidige map.

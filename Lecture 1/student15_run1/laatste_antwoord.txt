@@ -1,0 +1,10 @@
+Saved [model.xlsx](model.xlsx) and [Executive report](Executive_report.md).
+
+The illustrative case gives:
+
+- **NPV:** −€5.37 million
+- **IRR:** 3.45%
+- **Payback:** 27.10 years
+- **Recommendation:** defer investment.
+
+Official benchmarks are cited; unavailable project-specific costs are clearly marked as assumptions. The workbook includes affordability, utility billing, regulations, sensitivities, and checked investment formulas.
