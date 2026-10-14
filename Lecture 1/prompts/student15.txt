@@ -1,0 +1,28 @@
+Sirine, Alva, [unclear name].
+
+Building project for student housing
+-> Prompt for LLM
+
+-> Threshold for affordable student housing within whole thing.
+
+- Reliable data & prices & available rooms.
+- Price ranges.
+- Demand & Supply.
+- Price range of students.
+- Costs of building.
+- Period of stay for students.
+- Average deposit.
+- Difference in utility payment -> in rent included or not.
+- Maintenance cost of the building.
+- Regulations of student housing.
+- Prefered location.
+
+Using all information above can
+
+Using official statistics provided by the government of Belgium regarding student housing in Brussels, I want you to build a spreadsheet investment model that takes into account all the factors listed above:
+- Consider which variables are important for the analysis.
+- For the final output, I want a spreadsheet model as well as an Executive report that considers Net Present Value, IRR, PBP.
+- On the executive report, I also want you to advise whether building a new student accommodation is worth it. Consider all advantages and drawbacks.
+- Make sure all the data for the variables/constants are based on official sources and all calculations are based on this data. Make sure to respect the original formula for all the calculations.
+
+[Crossed-out wording omitted.]

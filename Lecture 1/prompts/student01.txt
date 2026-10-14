@@ -1,0 +1,31 @@
+Context: Student housing in Brussels!
+
+Investment → Certain threshold about the price.
+
+Write a prompt.
+
+Result? Pitfall? …
+
+Result:
+- Affordable price for students.
+- Minimum investment for investors.
+- Estimate the construction time: minimum time and maximum long-term use for students.
+
+Output:
+- For investors: NPV, IRR, PBP.
+- For students: Price (P).
+
+Input:
+- Discount rate.
+- Fixed costs and variable costs:
+  - Construction.
+  - Facilities.
+  - Utilities.
+  - Operation.
+  - Wage.
+  - Maintenance.
+- Uncertain costs (force majeure).
+- Corruption.
+
+Prompt:
+To get these results [that] are listed above, gather all inputs to calculate and estimate. Also optimize the output to give the correct number and recommend output.

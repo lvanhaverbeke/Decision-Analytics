@@ -1,0 +1,20 @@
+Student housing in Brussels
+
+Project: Investment for a student housing project, in the VUB.
+
+Prompt: Keeping in mind regulations concerning student housing in Brussels; generate an overview of how this investment will turn out. Include factors like:
+- % of international students.
+- Minimum wage/income an average VUB student has per year.
+- Rent/month.
+- Location of construction.
+- % of dropouts.
+
+The spreadsheet should present:
+- Time needed.
+- NPV.
+- IRR.
+- PBP.
+
+For all of these include type of variable classification.
+
+Also include a visual representation of a graph that shows increase in rent and % of students leaving.

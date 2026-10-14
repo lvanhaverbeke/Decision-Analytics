@@ -1,0 +1,8 @@
+For our course of decision analytics we need to construct a spreadsheet investment model for student housing in brussel, we would like to construct a new building near the vub campus with a capacity that you can decide taking this into account:
+- Need to be something that makes sense.
+- That takes the actual demand of housing into account.
+- That looks at the construction project of concurrents.
+
+For the price of the dorms you need to stay in the thresholds set by the government but we would like to have different rooms options: normal dorm, shared studio, studio 1 person.
+
+(Would import the excel given in class with the [unclear project name] project [unclear].) Inspire you with what we did in class.

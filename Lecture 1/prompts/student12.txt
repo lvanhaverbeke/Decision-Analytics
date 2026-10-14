@@ -1,0 +1,27 @@
+Hendrie, Aube, Quentin [first name uncertain].
+
+Decision Analytics
+
+Project: Student Housing Investment project
+-> Write a LLM prompt.
+
+Context: In brussel with certain % of social student rooms in collaboration with higher education institutions.
+
+Prompt:
+
+Hi, for the VUB master course 'Decision Analytics' we need to provide an excel for a student Housing investment project.
+
+The general aim of the project is a cashflow analysis over a period of 20 years. By means of simple cash flow analysis: Net Present Value, Internal Rate of Return & payback period.
+
+The Context: We want to invest in basic student housing in the Brussels region. The location should minimize student travel time to higher education institutions. Be in conform with the laws regarding the minimum ratio of social student housing & also in collaboration with higher education institutions.
+
+Make different tabs:
+- Summary of all types of relevant costs.
+- Inputs of the model.
+- Model (mathematical model):
+  - Costs.
+  - Benefit.
+  - Cash flow.
+  Also make it cumulative.
+
+Finally we want a last tab with the results of the general aim.

@@ -1,0 +1,15 @@
+Prompt:
+
+We need a spreadsheet investment model for student housing in Brussels. In this spreadsheet we need estimations for the IRR, PBP, NPV. Next to this, we also have a few parameters that need to be considered:
+- We want to build on an empty ground close to university/public transport and [unclear] (location).
+- Architect costs to design the building.
+- Building costs, including pipes etc.;
+  sanitary system and kitchen;
+  interior: important furniture (bed, closet, tables, ...).
+- The laws of the location also need to be taken into account (e.g. affordable housing threshold [unclear] and its cost).
+- Maintenance and reparation costs as margin.
+- Insurance.
+
+Provide this in an Excel.
+
+Who? Anne-Laure, [unclear], Robbe d.

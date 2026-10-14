@@ -1,0 +1,9 @@
+AI prompt: Nisa, Maite, Ilias [names uncertain].
+
+Design a spreadsheet model and executive report as a project for our course decision analytics about student housing investments in brussels.
+
+Problem: Today, Brussels is the most expensive city in Belgium for students to find housing in. Students have difficulties finding affordable places to rent, while more luxury housing arises.
+
+(1) Keep in mind that each Municipality in Brussels has a different minimum threshold of new housing that must be affordable.
+
+(2) Use an agile development strategy in which you go through multiple model iterations, each of which is evaluated and invested in the next iteration.

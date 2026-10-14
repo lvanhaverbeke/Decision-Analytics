@@ -1,0 +1,7 @@
+- Limit budget: max 450 - standard room (inflation 5% every year).
+- NPV > 0; IRR > discounted rate.
+- Construction: 2 yrs.
+- Payback period: max. 10 yrs.
+- 2,000 rooms - budget: EUR 15M.
+
+Generate a spreadsheet model and executive report for investment in building in Brussels we have the max budget of EUR 450 for monthly rent and it will be increased by 5% yearly because of inflation. Our project has to have to NPV > 0 & IRR > discount rate. & discounted rate will be taken from Belgian Authority. Expected construction period for 2 years, & we expect the PBP of max 10 years. Our budget is EUR 15m to construct & the volume of 2,000 rooms.
