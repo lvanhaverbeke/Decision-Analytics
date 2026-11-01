@@ -1,0 +1,3 @@
+Validated all 256 portfolios; selected mask 11; capital EUR 1,786,750; base NPV EUR 188,913.
+Delay and compliance exclusions passed. Downside no better than base. Formula cells retain recalculation.
+Workbook reopened successfully. 1634 formulas retained; cached initial numerical outputs checked. Five scenario tests passed (tests.txt).

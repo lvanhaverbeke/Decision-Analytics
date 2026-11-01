@@ -1,0 +1,15 @@
+{
+  "selected": [
+    "D",
+    "E",
+    "F",
+    "G"
+  ],
+  "investment": 14500000,
+  "beds": 350,
+  "affordable_beds": 172,
+  "npv": 11863873.188833974,
+  "feasible_combinations": 75,
+  "formula_cells": 2501,
+  "save_now": false
+}

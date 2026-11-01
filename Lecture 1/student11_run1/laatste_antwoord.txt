@@ -1,0 +1,7 @@
+Opgeslagen: [model.xlsx](model.xlsx) en [executive report](executive_report.md).
+
+Het model bevat kasstromen, 256 investeringscombinaties, scenario’s, gemeentelijke drempels en een agile iteratielog. De controles zijn geslaagd.
+
+De illustratieve aanbeveling levert 350 kamers, waarvan 172 betaalbaar, voor €14,5 miljoen. Onbevestigde gemeentelijke eisen zijn expliciet gemarkeerd.
+
+Bij `SAVE_NOW.txt` is direct atomair opgeslagen en het werk gestopt.

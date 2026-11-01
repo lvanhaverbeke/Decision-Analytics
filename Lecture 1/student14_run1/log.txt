@@ -1,0 +1,547 @@
+OpenAI Codex v0.162.0
+--------
+workdir: /Users/lvanhaverbeke/Library/CloudStorage/OneDrive-VrijeUniversiteitBrussel/Teaching/2026-2027/Decision Analytics/AI Experiment/experiment/runs/student14_run1
+model: gpt-6.1-sol
+provider: openai
+approval: never
+sandbox: workspace-write [workdir, /tmp, $TMPDIR]
+reasoning effort: medium
+reasoning summaries: none
+session id: 01a13bea-2c04-7b00-a3f5-dfad13b9ffc7
+--------
+user
+Prompt:
+
+We need a spreadsheet investment model for student housing in Brussels. In this spreadsheet we need estimations for the IRR, PBP, NPV. Next to this, we also have a few parameters that need to be considered:
+- We want to build on an empty ground close to university/public transport and [unclear] (location).
+- Architect costs to design the building.
+- Building costs, including pipes etc.;
+  sanitary system and kitchen;
+  interior: important furniture (bed, closet, tables, ...).
+- The laws of the location also need to be taken into account (e.g. affordable housing threshold [unclear] and its cost).
+- Maintenance and reparation costs as margin.
+- Insurance.
+
+Provide this in an Excel.
+
+Who? Anne-Laure, [unclear], Robbe d.
+
+
+---
+Sla het eindresultaat op als model.xlsx in de huidige map. Sla eerst een bruikbare basisversie op, voordat je uitgebreid onderzoek of verdere verbeteringen uitvoert. Sla daarna elke verbetering direct op. Gebruik een tijdelijk .xlsx-bestand en vervang model.xlsx atomair na een geslaagde save. Bewaar alle benodigde code in de huidige map, niet uitsluitend in /tmp. Controleer na iedere stap of SAVE_NOW.txt bestaat; zo ja, stop onderzoek en uitbreidingen, sla de huidige spreadsheet onmiddellijk op en rond af. De save-deadline is 6 minuten 30 seconden; na 7 minuten wordt het proces gestopt.
+
+Save deadline (UTC): 2026-10-14T19:42:34.612334+00:00. Save model.xlsx before this deadline; save a basic version immediately and update it incrementally. Check SAVE_NOW.txt after each step.
+
+codex
+Ik maak eerst een bruikbaar Excelmodel met aanpasbare aannames en berekeningen voor IRR, terugverdientijd en NPV. Daarna vul ik het aan met Brusselse bronnen en aandachtspunten voor vergunningen en kosten, en sla ik elke verbetering meteen op.
+
+exec
+/bin/zsh -lc "pwd; rg --files -g 'AGENTS.md' -g 'SAVE_NOW.txt' -g '*.py' -g '*.xlsx' -g 'README*' ." in /Users/lvanhaverbeke/Library/CloudStorage/OneDrive-VrijeUniversiteitBrussel/Teaching/2026-2027/Decision Analytics/AI Experiment/experiment/runs/student14_run1
+ exited 1 in 0ms:
+/Users/lvanhaverbeke/Library/CloudStorage/OneDrive-VrijeUniversiteitBrussel/Teaching/2026-2027/Decision Analytics/AI Experiment/experiment/runs/student14_run1
+
+exec
+/bin/zsh -lc 'python -c "import openpyxl; print(openpyxl.__version__)"' in /Users/lvanhaverbeke/Library/CloudStorage/OneDrive-VrijeUniversiteitBrussel/Teaching/2026-2027/Decision Analytics/AI Experiment/experiment/runs/student14_run1
+ exited 127 in 0ms:
+zsh:1: command not found: python
+
+exec
+/bin/zsh -lc 'python3 -c "import openpyxl; print(openpyxl.__version__)"; which libreoffice; ls -a' in /Users/lvanhaverbeke/Library/CloudStorage/OneDrive-VrijeUniversiteitBrussel/Teaching/2026-2027/Decision Analytics/AI Experiment/experiment/runs/student14_run1
+ succeeded in 437ms:
+3.1.5
+libreoffice not found
+.
+..
+log.txt
+
+exec
+/bin/zsh -lc 'python3 -c "import xlsxwriter, numpy; print(xlsxwriter.__version__)"' in /Users/lvanhaverbeke/Library/CloudStorage/OneDrive-VrijeUniversiteitBrussel/Teaching/2026-2027/Decision Analytics/AI Experiment/experiment/runs/student14_run1
+ exited 1 in 0ms:
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+ModuleNotFoundError: No module named 'xlsxwriter'
+
+exec
+/bin/zsh -lc "cat > build_model.py <<'PY'
+from pathlib import Path
+from datetime import datetime
+import os, math, zipfile, re, json
+from openpyxl import Workbook, load_workbook
+from openpyxl.styles import Font, PatternFill, Alignment, Border, Side
+from openpyxl.utils import get_column_letter
+from openpyxl.workbook.properties import CalcProperties
+ROOT=Path(__file__).resolve().parent
+wb=Workbook(); wb.remove(wb.active)
+navy='17365D'; teal='007F86'; blue='1565C0'; pale='E8F1FA'
+cache={}
+def sheet(name, headers):
+ w=wb.create_sheet(name); w.append(headers); w.freeze_panes='B5'; w.sheet_view.showGridLines=False
+ for c in w[1]: c.fill=PatternFill('solid',fgColor=navy); c.font=Font(color='FFFFFF',bold=True,size=13)
+ w.row_dimensions[1].height=28
+ return w
+def f(w,cell,formula,val=None):
+ w[cell]=formula
+ if val is not None: cache[(w.title,cell)]=val
+ w[cell].font=Font(color='000000')
+def atomic_save():
+ tmp=ROOT/'model.tmp.xlsx'; wb.save(tmp)
+ # Cache base-case formula results so the workbook is readable before Excel recalculates.
+ with zipfile.ZipFile(tmp) as z: contents={n:z.read(n) for n in z.namelist()}
+ for i,w in enumerate(wb.worksheets,1):
+  name=f'xl/worksheets/sheet{i}.xml'; s=contents[name].decode()
+  def patch(m):
+   cell=m.group(1); xml=m.group(0); v=cache.get((w.title,cell))
+   if v is None:return xml
+   xml=re.sub(r'<v>.*?</v>', '<v>'+str(v)+'</v>',xml)
+   return xml
+  s=re.sub(r'<c\\b["'^>]*r="([''^"]+)"[''^>]*>.*?</c>'"',patch,s);contents[name]=s.encode()
+ with zipfile.ZipFile(tmp,'w',zipfile.ZIP_DEFLATED) as z:
+  for n,b in contents.items():z.writestr(n,b)
+ load_workbook(tmp,data_only=False).close();os.replace(tmp,ROOT/'model.xlsx')
+ print('Saved model.xlsx',flush=True)
+def stop_requested():return (ROOT/'SAVE_NOW.txt').exists()
+a=sheet('Inputs',['BRUSSELS STUDENT HOUSING | editable assumptions','Value','Unit','Basis / caution'])
+rows=[
+('Model basis','Unlevered, nominal, pre-income-tax','', 'EUR. No financing or corporate income tax; not an equity IRR.'),
+('Location','Brussels-Capital Region; site TBD','','Empty site near university and public transport; exact municipality and plot not supplied.'),
+('Rooms',40,'rooms','Illustrative; replace with architect feasibility study.'),
+('Gross floor area',1200,'m²','Includes circulation and shared spaces; 30 m² gross per room.'),
+('Land price',800000,'EUR','Illustrative empty plot; not a valuation or listing.'),
+('Land transfer duty',0.125,'%','Provisional Brussels ordinary registration duty; tax treatment must be checked.'),
+('Land legal / acquisition fees',20000,'EUR','Allowance excluding transfer duty; obtain notarial quote.'),
+('Structure / envelope / finishes',1450,'EUR/m² net VAT','Planning allowance, not a contractor quote.'),
+('MEP / pipes / electrical / heating',350,'EUR/m² net VAT','Separate from structure; avoid double counting in quotations.'),
+('Bathrooms / sanitary fixtures',4500,'EUR/room net VAT','Fixtures and fit-out; distribution pipes in MEP.'),
+('Kitchens',60000,'EUR net VAT','Shared kitchen allowance; clarify room-by-room vs shared layout.'),
+('Furniture',2500,'EUR/room net VAT','Bed, mattress, wardrobe, desk, chair; initial equipment.'),
+('Site works / utility connections',80000,'EUR net VAT','External works and connections; soil issues excluded.'),
+('Architect fee',0.08,'% of hard works','Illustrative planning allowance.'),
+('Studies / permits / other consultants',45000,'EUR net VAT','Engineering, survey, permits; excludes unknown remediation.'),
+('Construction contingency',0.10,'% of hard works + design','Cost margin; distinct from operating maintenance.'),
+('Construction VAT',0.21,'%','Provisional standard VAT; assumed non-recoverable. Confirm reduced rate / recovery eligibility.'),
+('Affordable-room share',0,'%','User-controlled scenario. Zero means no assumed mandatory threshold; verify site rules.'),
+('Monthly market rent',750,'EUR/room/month','Illustrative base rent excluding tenant-paid utilities.'),
+('Affordable rent discount',0.25,'%','Assumption applied only to affordable-room share.'),
+('Occupancy',0.95,'%','Collected occupancy; 12-month annual leases assumed.'),
+('Rent growth',0.02,'%/year','Nominal assumption; actual indexation and lease rules may differ.'),
+('Maintenance / repairs',0.06,'% of collected rent','Routine reserve/expense, excluding planned large replacements below.'),
+('Management',0.05,'% of collected rent','Third-party or internal management allowance.'),
+('Annual building insurance',6000,'EUR/year','Assumption; obtain insurer quote.'),
+('Annual property tax',10000,'EUR/year','Placeholder; depends on cadastral income and municipal/regional charges.'),
+('Annual common utilities / cleaning',18000,'EUR/year','Owner-borne, net of assumed zero tenant reimbursements.'),
+('Annual administration / compliance',4000,'EUR/year','Inspections, accountancy and operational administration.'),
+('Operating cost growth',0.02,'%/year','Applies to fixed costs and replacement costs.'),
+('Discount rate',0.065,'%/year','Nominal unlevered required return; investor assumption.'),
+('Exit capitalization rate',0.055,'%','Market assumption; applied to following-year net operating income.'),
+('Selling costs',0.02,'% of gross sale','Allowance; excludes sale-specific income/capital-gains tax.'),
+('Annual recurring replacement reserve',0.01,'% of initial net hard works','Annual cash reserve treated as spent cash; no reserve asset recovered on exit.'),
+('Furniture replacement interval',10,'years','Furniture renewed after each 10 operating years except exit year.'),
+('Affordable / planning additional capital cost',0,'EUR net VAT','Site-specific obligation or planning charge; enter if confirmed.'),
+('Construction share paid at time 0',0.50,'%','Land at t0; construction balance at t1. First operations at t2.'),
+]
+for r in rows:a.append(r)
+# Inputs row mapping begins at 2.
+I={r[0]:i+2 for i,r in enumerate(rows)}
+V={r[0]:r[1] for r in rows}
+def ir(key):return f\"Inputs"'!$B${I[key]}"
+def val(k):return V[k]
+c=sheet('"'Development',['DEVELOPMENT BUDGET','EUR','Treatment',''])
+hard=val('Gross floor area')*(val('Structure / envelope / finishes')+val('MEP / pipes / electrical / heating'))+val('Rooms')*val('Bathrooms / sanitary fixtures')+val('Kitchens')+val('Furniture')*val('Rooms')+val('Site works / utility connections')
+architect=hard*val('Architect fee');pre=hard+architect+val('Studies / permits / other consultants')+val('Affordable / planning additional capital cost');cont=pre*val('Construction contingency');net=pre+cont;vat=net*val('Construction VAT');build=net+vat;land=val('Land price')*(1+val('Land transfer duty'))+val('Land legal / acquisition fees');total=land+build
+budget=[('Land price',f'={ir(\"Land price\")}',val('Land price')),
+('Land transfer duty',f'={ir(\"Land price\")}*{ir(\"Land transfer duty\")}',val('Land price')*val('Land transfer duty')),
+('Other acquisition fees',f'={ir(\"Land legal / acquisition fees\")}',val('Land legal / acquisition fees')),
+('Structure / envelope / finishes',f'={ir(\"Gross floor area\")}*{ir(\"Structure / envelope / finishes\")}',val('Gross floor area')*val('Structure / envelope / finishes')),
+('MEP / pipes / electrical / heating',f'={ir(\"Gross floor area\")}*{ir(\"MEP / pipes / electrical / heating\")}',val('Gross floor area')*val('MEP / pipes / electrical / heating')),
+('Bathrooms / sanitary fixtures',f'={ir(\"Rooms\")}*{ir(\"Bathrooms / sanitary fixtures\")}',val('Rooms')*val('Bathrooms / sanitary fixtures')),
+('Kitchens',f'={ir(\"Kitchens\")}',val('Kitchens')),
+('Furniture',f'={ir(\"Furniture\")}*{ir(\"Rooms\")}',val('Furniture')*val('Rooms')),
+('Site works / utility connections',f'={ir(\"Site works / utility connections\")}',val('Site works / utility connections')),
+('Hard works subtotal','=SUM(B5:B10)',hard),
+('Architect fee',f'=B11*{ir(\"Architect fee\")}',architect),
+('Studies / permits / consultants',f'={ir(\"Studies / permits / other consultants\")}',val('Studies / permits / other consultants')),
+('Affordable / planning extra cost',f'={ir(\"Affordable / planning additional capital cost\")}',val('Affordable / planning additional capital cost')),
+('Contingency',f'=SUM(B11:B14)*{ir(\"Construction contingency\")}',cont),
+('Construction budget net VAT','=SUM(B11:B15)',net),
+('Non-recoverable construction VAT',f'=B16*{ir(\"Construction VAT\")}',vat),
+('Construction budget gross VAT','=B16+B17',build),
+('Land acquisition total','=SUM(B2:B4)',land),
+('TOTAL INITIAL DEVELOPMENT COST','=B18+B19',total),
+('Development cost per room',f'=B20/{ir(\"Rooms\")}',total/val('Rooms'))]
+for row,(label,formula,v) in enumerate(budget,2):c.cell(row,1,label);f(c,f'B{row}',formula,v)
+p=sheet('Cash flows',['ANNUAL CASH FLOWS | EUR, nominal']+[f't={i}' for i in range(32)])
+labels={2:'Time from purchase (years)',3:'Operating year (0 = construction)',5:'Land acquisition',6:'Construction spending',8:'Collected rental income',9:'Maintenance / repairs',10:'Management',11:'Insurance',12:'Property tax',13:'Common utilities / cleaning',14:'Administration / compliance',15:'Net operating income (NOI)',16:'Recurring replacement reserve / cash expense',17:'Furniture replacement',18:'Operating free cash flow',20:'Gross terminal sale (next-year NOI / cap rate)',21:'Selling costs',22:'Net terminal sale',24:'TOTAL PROJECT CASH FLOW',25:'Discount factor',26:'Discounted project cash flow',28:'Cumulative cash flow including exit',29:'Cumulative operating cash flow excluding exit',30:'Cumulative discounted cash flow including exit',31:'Cumulative discounted cash flow excluding exit'}
+for r,l in labels.items():p.cell(r,1,l)
+flows=[];opexflows=[];cum=0;cumop=0;dcum=0;dcumop=0
+for t in range(32):
+ col=get_column_letter(t+2);prev=get_column_letter(t+1);op=max(0,t-1);p.cell(2,t+2,t);p.cell(3,t+2,op)
+ landcf=-land if t==0 else 0;buildcf=-build*(val('Construction share paid at time 0') if t==0 else 1-val('Construction share paid at time 0')) if t<=1 else 0
+ f(p,f'{col}5', '= -Development"'!$B$19'"' if t==0 else '=0',landcf)
+ f(p,f'{col}6',f'=-Development"'!$B$18*{ir("Construction share paid at time 0")}'"' if t==0 else (f'=-Development"'!$B$18*(1-{ir("Construction share paid at time 0")})'"' if t==1 else '=0'),buildcf)
+ rent=val('Rooms')*12*val('Monthly market rent')*(1-val('Affordable-room share')*val('Affordable rent discount'))*val('Occupancy')*(1+val('Rent growth'))**(op-1) if op else 0
+ f(p,f'{col}8',f'=IF({col}"'$3=0,0,{ir("Rooms")}*12*{ir("Monthly market rent")}*(1-{ir("Affordable-room share")}*{ir("Affordable rent discount")} )*{ir("Occupancy")}*(1+{ir("Rent growth")})''^({col}$3-1))'"',rent)
+ costs={9:rent*val('Maintenance / repairs'),10:rent*val('Management')}
+ for r,k in [(9,'Maintenance / repairs'),(10,'Management')]:f(p,f'{col}{r}',f'=-{col}8*{ir(k)}',-costs[r])
+ for r,k in [(11,'Annual building insurance'),(12,'Annual property tax'),(13,'Annual common utilities / cleaning'),(14,'Annual administration / compliance')]:
+  costs[r]=val(k)*(1+val('Operating cost growth'))**(op-1) if op else 0
+  f(p,f'{col}{r}',f'=IF({col}"'$3=0,0,-{ir(k)}*(1+{ir("Operating cost growth")})''^({col}$3-1))'"',-costs[r])
+ noi=rent-sum(costs.values());f(p,f'{col}15',f'=SUM({col}8:{col}14)',noi)
+ reserve=hard*val('Annual recurring replacement reserve')*(1+val('Operating cost growth'))**(op-1) if op else 0
+ furn=val('Furniture')*val('Rooms')*(1+val('Construction VAT'))*(1+val('Operating cost growth'))**(op-1) if op and op%val('Furniture replacement interval')==0 and t<31 else 0
+ f(p,f'{col}16',f'=IF({col}"'$3=0,0,-Development!$B$11*{ir("Annual recurring replacement reserve")}*(1+{ir("Operating cost growth")})''^({col}$3-1))'"',-reserve)
+ f(p,f'{col}17',f'=IF(AND({col}"'$3>0,MOD({col}$3,{ir("Furniture replacement interval")})=0,{col}$2<31),-{ir("Furniture")}*{ir("Rooms")}*(1+{ir("Construction VAT")})*(1+{ir("Operating cost growth")})''^({col}$3-1),0)'"',-furn)
+ ocf=noi-reserve-furn;f(p,f'{col}18',f'=SUM({col}15:{col}17)',ocf)
+ sale=((rent*(1+val('Rent growth'))*(1-val('Maintenance / repairs')-val('Management'))-sum(costs[r] for r in range(11,15))*(1+val('Operating cost growth')))/val('Exit capitalization rate')) if t==31 else 0
+ f(p,f'{col}20',f'=({col}8*(1+{ir(\"Rent growth\")})*(1-{ir(\"Maintenance / repairs\")}-{ir(\"Management\")})+SUM({col}11:{col}14)*(1+{ir(\"Operating cost growth\")}))/{ir(\"Exit capitalization rate\")}' if t==31 else '=0',sale)
+ fee=-sale*val('Selling costs');f(p,f'{col}21',f'=-{col}20*{ir(\"Selling costs\")}',fee);f(p,f'{col}22',f'=SUM({col}20:{col}21)',sale+fee)
+ cf=landcf+buildcf+ocf+sale+fee;opcf=landcf+buildcf+ocf;flows.append(cf);opexflows.append(opcf)
+ factor=(1+val('Discount rate'))**(-t);cum+=cf;cumop+=opcf;dcum+=cf*factor;dcumop+=opcf*factor
+ for r,formula,value in [(24,f'=SUM({col}5:{col}6)+{col}18+{col}22',cf),(25,f'=1/(1+{ir(\"Discount rate\")})"'^{col}$2'"',factor),(26,f'={col}24*{col}25',cf*factor),(28,f'=SUM("'$B24:{col}24)'"',cum),(29,f'={col}28-SUM("'$B22:{col}22)'"',cumop),(30,f'=SUM("'$B26:{col}26)'"',dcum),(31,f'={col}30-SUMPRODUCT("'$B22:{col}22,$B25:{col}25)'"',dcumop)]:f(p,f'{col}{r}',formula,value)
+def npv(rate):return sum(cf/(1+rate)**t for t,cf in enumerate(flows))
+lo=-0.5;hi=1.0
+for _ in range(100):
+ mid=(lo+hi)/2
+ if npv(mid)>0:lo=mid
+ else:hi=mid
+irr=(lo+hi)/2
+s=sheet('Summary',['INVESTMENT DASHBOARD','Base case','Interpretation'])
+s.append(['Status','Illustrative feasibility model','Replace all blue assumptions with quotes and site data.'])
+s.append(['Horizon','31 years from land acquisition','t0 land + construction deposit; t1 balance; t2–t31 operations; sale at t31.'])
+s.append(['NPV',None,'EUR at selected nominal discount rate; includes terminal sale.']);f(s,'B4',f\"=NPV({ir('Discount rate')},'Cash flows'"'!C24:AG24)+'"'Cash flows'"'!B24",npv(val('"'Discount rate')))
+s.append(['Project IRR',None,'Unlevered, pre-income-tax; annual equally spaced periods; includes exit.']);f(s,'B5',\"=IFERROR(IRR('Cash flows'"'!B24:AG24),'"\\\"No IRR\\\")\",irr)
+s.append(['Total development cost',None,'Includes assumed non-recoverable VAT, transfer duty and contingency.']);f(s,'B6','=Development"'!B20'"',total)
+s.append(['First operating year NOI',None,'Before recurring replacement reserve and furniture replacement.']);f(s,'B7',\"='Cash flows'"'!D15",cache[('"'Cash flows','D15')])
+s.append(['Initial NOI yield on development cost',None,'First operating-year NOI / total development cost.']);f(s,'B8','=B7/B6',cache[('Cash flows','D15')]/total)
+# Payback helper rows avoid array formulas and handle non-recovery explicitly.
+for r,source,desc in [(33,28,'Payback helper incl. exit'),(34,29,'Payback helper excl. exit'),(35,30,'Discounted helper incl. exit'),(36,31,'Discounted helper excl. exit')]:
+ p.cell(r,1,desc)
+ for t in range(32):
+  col=get_column_letter(t+2);prev=get_column_letter(t+1)
+  formula='=999' if t==0 else f'=IF(AND({prev}{source}<0,{col}{source}>=0),{prev}"'$2+(-{prev}{source})/({col}{source}-{prev}{source}),999)'"'
+  cv=999 if t==0 else (t-1-cache[('Cash flows',f'{prev}{source}')]/(cache[('Cash flows',f'{col}{source}')]-cache[('Cash flows',f'{prev}{source}')]) if cache[('Cash flows',f'{prev}{source}')]<0<=cache[('Cash flows',f'{col}{source}')] else 999)
+  f(p,f'{col}{r}',formula,cv)
+for row,helper,label in [(9,33,'Simple PBP including sale'),(10,34,'Simple PBP from operations only'),(11,35,'Discounted PBP including sale'),(12,36,'Discounted PBP from operations only')]:
+ s.cell(row,1,label);s.cell(row,3,'Years from t0. Fractional year assumes cash arrives evenly; exit occurs at t31.')
+ # Report sale-dependent recovery at actual exit date, not fractional sale proceeds.
+ vals=[cache[('Cash flows',f'{get_column_letter(t+2)}{helper}')] for t in range(32)];best=min(vals)
+ form=f'=IF(MIN(\\'Cash flows\\'"'!B{helper}:AG{helper})=999,"Not reached",'"'+(f'IF(MIN(\\'Cash flows\\'"'!B{helper}:AG{helper})>30,31,MIN('"\\'Cash flows\\'"'!B{helper}:AG{helper})))'"' if helper in (33,35) else f'MIN(\\'Cash flows\\'"'!B{helper}:AG{helper}))'"')
+ f(s,f'B{row}',form,None if best==999 else (31 if helper in (33,35) and best>30 else best))
+ if best==999:cache[('Summary',f'B{row}')]='Not reached'
+s.cell(14,1,'Discount rate');f(s,'B14',f'={ir(\"Discount rate\")}',val('Discount rate'))
+s.cell(15,1,'Net sale proceeds at t31');f(s,'B15',\"='Cash flows'"'!AG22",cache[('"'Cash flows','AG22')]);s.cell(15,3,'Residual value has a material impact on IRR and NPV.')
+s.cell(17,1,'Decision');f(s,'B17','=IF(B4>=0,\"Meets required return\",\"Below required return\")');s.cell(17,3,'NPV is the primary accept/reject criterion, subject to feasibility and risk.')
+n=sheet('Read me',['HOW TO USE / LIMITATIONS','Details'])
+notes=[('Purpose','Feasibility model for construction of student housing on an empty plot in Brussels. Prepared for Anne-Laure, Robbe d. and an unidentified team member.'),('Edit','Blue text on Inputs = editable. Black text = formulas. Currency EUR. Annual cash flows are year-end except t0. Excel recalculates on opening.'),('Immediate base version','Financial model saved before external research. Assumptions are illustrative, not sourced market quotes.'),('Location','University/transit proximity is a search criterion. No address, plot size, municipality, zoning or acquisition agreement supplied; no plot feasibility is established.'),('Return definition','Project IRR and NPV are unlevered and before income/capital gains tax. Debt, financing costs, grants and equity returns excluded.'),('Timing','One full construction year after t0, completion at t1, first operating-year cash received at t2. 30 operating years; fixed horizon.'),('Cash costs','Land duty assumed, construction VAT assumed non-recoverable; VAT on land sale is not modeled. Seller/site tax regime could materially alter cost.'),('Rent','12 monthly rents at occupied fraction. Rent excludes tenant-paid private utilities; shared utility costs retained by owner. 10-month leases require annual rent adjustment.'),('Reserves','Maintenance margin plus recurring replacement cash expense. Furniture replacements separate every 10 operating years, excluding sale year. Avoid duplication when refining budgets.'),('Terminal value','Capitalized following-year NOI, before major replacement reserves, less sale costs. No appreciation assumption added separately.'),('Payback','Simple and discounted payback reported both with and without sale. Sale-dependent recovery shown at year 31. Not reached means not recovered within this horizon.'),('Unknown affordable rule','Affordable share and additional planning cost remain editable placeholders. No universal mandatory percentage is assumed. Verify the actual permit, zone and scheme.'),('Excluded','Site contamination, unusual foundations, demolition, financing, corporate income tax, sale taxes, rental VAT exceptions, development delays and vacancy during refurbishment.'),('Sources','Research notes will be added incrementally after the base workbook has been saved.')]
+for r in notes:n.append(r)
+l=sheet('Legal & sources',['Topic','Requirement / research note','Official source / reference','Status / date'])
+l.append(['Site and permits','Confirm student-housing use, density, height, plot constraints, fire access and municipal rules before purchase.','','Pending verification'])
+l.append(['Affordable housing','No universal percentage is assumed; confirm obligations for selected project.','','Pending verification'])
+# Presentation and input guardrails.
+from openpyxl.worksheet.datavalidation import DataValidation
+for w in wb:
+ w.column_dimensions['A'].width=43
+ for col in range(2,w.max_column+1):w.column_dimensions[get_column_letter(col)].width=19 if w.title=='Cash flows' else (25 if col==2 else 60)
+ w.auto_filter.ref=w.dimensions if w.title in ('Inputs','Legal & sources') else 'A1:A1'
+ for row in w.iter_rows(min_row=2):
+  for cell in row:
+   cell.alignment=Alignment(vertical='top',wrap_text=w.title"'!='"'Cash flows')
+   if cell.row%2==0:cell.fill=PatternFill('solid',fgColor='F3F6FA')
+   if isinstance(cell.value,(float,int)) or cell.data_type=='f':cell.number_format='#,##0.00;[Red](#,##0.00);–'
+  if w.title"'!='"'Cash flows':w.row_dimensions[row[0].row].height=34
+for row in range(2,a.max_row+1):
+ a.cell(row,2).font=Font(color=blue,bold=True);a.cell(row,2).fill=PatternFill('solid',fgColor=pale)
+ if a.cell(row,3).value=='%' or str(a.cell(row,3).value).startswith('%'):a.cell(row,2).number_format='0.0%'
+ if isinstance(a.cell(row,2).value,(int,float)):
+  dv=DataValidation(type='decimal',operator='between',formula1=0,formula2=1 if str(a.cell(row,3).value).startswith('%') else 100000000);dv.errorTitle='Invalid assumption';dv.error='Enter a non-negative value within the allowed range.';dv.showErrorMessage=True;a.add_data_validation(dv);dv.add(a.cell(row,2))
+for key in ['Rooms','Gross floor area','Monthly market rent','Discount rate','Exit capitalization rate','Furniture replacement interval']:
+ # positive denominator / physical input checks shown rather than hidden
+ pass
+s['B5'].number_format=s['B8'].number_format=s['B14'].number_format='0.00%'
+for col in range(2,34):p.cell(25,col).number_format='0.0000'
+for w,rows_bold in [(s,[4,5,6,9,10,11,12,17]),(c,[11,16,18,19,20]),(p,[15,18,22,24,26,28,29,30,31])]:
+ for row in rows_bold:
+  for cell in w[row]:cell.font=Font(bold=True,color=navy);cell.fill=PatternFill('solid',fgColor='DCEAF5')
+wb._sheets=[s,a,c,p,n,l]
+wb.calculation=CalcProperties(calcId=191029,fullCalcOnLoad=True)
+# Cache writer supports text-formula outcomes.
+_old_save=atomic_save
+def atomic_save():
+ tmp=ROOT/'model.tmp.xlsx';wb.save(tmp)
+ with zipfile.ZipFile(tmp) as z:contents={name:z.read(name) for name in z.namelist()}
+ for i,w in enumerate(wb.worksheets,1):
+  name=f'xl/worksheets/sheet{i}.xml';xml=contents[name].decode()
+  def patch(m):
+   value=cache.get((w.title,m.group(1)))
+   if value is None:return m.group(0)
+   cell=m.group(0)
+   if isinstance(value,str):
+    from xml.sax.saxutils import escape
+    cell=re.sub(r'(<c\\b["'^>]*)(>)'"',r'\\1 t=\"str\"\\2',cell,count=1);value=escape(value)
+   return re.sub(r'<v>.*?</v>',f'<v>{value}</v>',cell)
+  contents[name]=re.sub(r'<c\\b["'^>]*r="([''^"]+)"[''^>]*>.*?</c>'"',patch,xml).encode()
+ with zipfile.ZipFile(tmp,'w',zipfile.ZIP_DEFLATED) as z:
+  for name,data in contents.items():z.writestr(name,data)
+ load_workbook(tmp,data_only=False).close();os.replace(tmp,ROOT/'model.xlsx');print('Saved model.xlsx',flush=True)
+atomic_save()
+print(json.dumps({'IRR':irr,'NPV':npv(val('Discount rate')),'cost':total,'stop':stop_requested()}))
+PY
+python3 build_model.py" in /Users/lvanhaverbeke/Library/CloudStorage/OneDrive-VrijeUniversiteitBrussel/Teaching/2026-2027/Decision Analytics/AI Experiment/experiment/runs/student14_run1
+ succeeded in 280ms:
+Saved model.xlsx
+{"IRR": 0.06727959146923934, "NPV": 172795.36650203937, "cost": 4688593.4, "stop": false}
+
+web search: 
+web search: site.be.brussels student housing urban planning permit housing student Brussels charges urbanisme logements étudiants ...
+exec
+/bin/zsh -lc 'test -f SAVE_NOW.txt && echo STOP || true' in /Users/lvanhaverbeke/Library/CloudStorage/OneDrive-VrijeUniversiteitBrussel/Teaching/2026-2027/Decision Analytics/AI Experiment/experiment/runs/student14_run1
+ succeeded in 0ms:
+codex
+De basisversie is opgeslagen. Met de voorlopige aannames bedraagt de investering circa €4,69 miljoen, de project-IRR 6,73% en de NPV €173.000 bij een discontovoet van 6,5%. Ik voeg nu officiële Brusselse bronnen en gevoeligheidsanalyses toe; de kosten en huurprijzen blijven duidelijk gemarkeerde aannames.
+
+web search: 
+web search: site.urban.brussels charges urbanisme logements étudiants 2024 2025 2026 ...
+exec
+/bin/zsh -lc 'test -f SAVE_NOW.txt && echo STOP || true' in /Users/lvanhaverbeke/Library/CloudStorage/OneDrive-VrijeUniversiteitBrussel/Teaching/2026-2027/Decision Analytics/AI Experiment/experiment/runs/student14_run1
+ succeeded in 0ms:
+exec
+/bin/zsh -lc "cat >> build_model.py <<'PY'
+if stop_requested():
+ print('SAVE_NOW detected; finished after base save.');raise SystemExit(0)
+# Official sources checked on 14 October 2026. Costs/rents are retained as assumptions.
+l.delete_rows(2,l.max_row)
+sources=[
+('Land transfer duty','Ordinary Brussels registration duty is 12.5%. Model applies it to assumed land price; ask notary to confirm market-value tax base and VAT interaction. No homebuyer abatement assumed.', 'https://be.brussels/en/taxes-finances/taxes/property-related-taxes/registration-duties/abatement','Verified ordinary rate; project treatment pending'),
+('Construction VAT','Federal guidance states 21% VAT for new construction. Model assumes all budgeted construction/professional VAT is non-recoverable; confirm project-specific exemptions or reduced rates.', 'https://finances.belgium.be/fr/particuliers/habitation/construire-renover/renover/renover-taux-de-tva','Verified standard rate; tax advice pending'),
+('Planning / zoning','Regional planning rules govern buildings and housing habitability; municipality and urban.brussels must confirm use, plot constraints, room layout, height and permit requirements.', 'https://be.brussels/fr/developpement-urbain/urbanisme','Site unknown; permit feasibility not assessed'),
+('Permit application','MyPermit is the official platform for regional and municipal planning applications. Obtain architect and authority advice before acquisition.', 'https://mypermit.urban.brussels/','Official application route'),
+('Housing quality / fire','Official housing page references housing safety, health and equipment requirements applicable from 1 January 2026, and smoke-detection rules from 1 January 2025. Design compliance and SIAMU advice must be priced by architect.', 'https://be.brussels/fr/logement/location/conformite-logement/normes-et-securite','Current official standards page; design review pending'),
+('Student lease term','Regional rental guidance describes the student lease as 12 months. Model assumes a fully contracted year, adjusted for 95% collected occupancy. Account for termination and non-collection when refining occupancy.', 'https://be.brussels/fr/logement/location/les-differentes-etapes-de-la-location','Official rental guidance'),
+('Lease / rent indexation','Regional lease guidance covers rent, indexation and repair obligations. Fixed 2% rent growth is a financial assumption, not an automatic legal entitlement.', 'https://be.brussels/fr/logement/location/bail-dhabitation','Lease-specific applicability pending'),
+('Student housing label','Regional label requires housing-code compliance, an appropriate student lease and a valid energy certificate; label lasts five years and is renewable. The label does not establish a universal affordable-room quota.', 'https://be.brussels/fr/logement/location/conformite-logement/label-logement-etudiant','Optional label to assess'),
+('Affordable threshold / planning charges','User wording is unclear. No region-wide quota has been established by this research. Request the actual municipal policy, permit conditions and subsidy terms. Enter share, discount and additional capital cost on Inputs; zero is a modeling placeholder.', 'https://be.brussels/fr/developpement-urbain/urbanisme','UNRESOLVED — confirm exact plot and scheme'),
+('Location / market evidence','University and transit proximity remains a screening criterion. Brik provides student housing information; obtain comparable available-room rents for exact area and amenities before using EUR 750 as underwriting evidence.', 'https://www.brik.be/en','Rent, land and construction prices are illustrative'),
+('Insurance','EUR 6,000 annual owner building insurance is an allowance; request quotes covering fire, water damage, liability and loss of rent. Verify tenant insurance obligations separately.', '', 'No insurer quote; allowance only'),
+('Architect / construction / maintenance','All cost rates and reserve margins are analyst planning assumptions, not official tariffs or quotations. Verify area take-off and bids; MEP, fixtures, kitchens and furniture are itemized separately.', '', 'Quote required'),
+]
+for topic,note,url,status in sources:
+ l.append([topic,note,url,status+' | checked 2026-10-14'])
+ for cell in l[l.max_row]:cell.alignment=Alignment(wrap_text=True,vertical='top')
+ l.row_dimensions[l.max_row].height=88
+ if url:l.cell(l.max_row,3).hyperlink=url;l.cell(l.max_row,3).font=Font(color=blue,underline='single')
+l.column_dimensions['A'].width=29;l.column_dimensions['B'].width=85;l.column_dimensions['C'].width=55;l.column_dimensions['D'].width=45;l.auto_filter.ref=l.dimensions
+n['B4']='Financial model saved before external research; official sources added afterwards. Costs/rent remain illustrative. Research date: 14 October 2026.'
+a.cell(I['Land transfer duty'],4,'Ordinary Brussels rate verified in Legal & sources; confirm specific land transaction and market-value tax base.')
+a.cell(I['Construction VAT'],4,'Federal standard new-build rate verified; non-recovery is an assumption. Confirm project-specific treatment.')
+s.cell(19,1,'Affordable / planning rule');s.cell(19,2,'Unresolved');s.cell(19,3,'Confirm municipality, zoning and permit conditions. Inputs contain affordable share, rent discount and additional cost.')
+s['C19'].alignment=Alignment(wrap_text=True);s.row_dimensions[19].height=48
+cache[('Summary','B17')]='Meets required return' if npv(val('Discount rate'))>=0 else 'Below required return'
+atomic_save()
+if stop_requested():print('SAVE_NOW detected; finished after source save.');raise SystemExit(0)
+g=sheet('Sensitivity',['NPV SENSITIVITY | EUR','Exit cap rate →'])
+g.cell(2,1,'Monthly market rent ↓');g.cell(9,1,'Method');g.cell(9,2,'Rent and exit cap vary; all other inputs fixed. Affordable discount and occupancy remain at Inputs values.');g.merge_cells('B9:F9');g.row_dimensions[9].height=48
+basecap=val('Exit capitalization rate');baserent=val('Monthly market rent');baseNPV=npv(val('Discount rate'))
+pvrent=sum(cache[('Cash flows',f'{get_column_letter(t+2)}8')]*cache[('Cash flows',f'{get_column_letter(t+2)}25')] for t in range(2,32));margin=1-val('Maintenance / repairs')-val('Management')
+for j,mult in enumerate([0.8,0.9,1,1.1,1.2],2):
+ col=get_column_letter(j);f(g,f'{col}2',f'={ir(\"Exit capitalization rate\")}*{mult}',basecap*mult);g.cell(2,j).number_format='0.00%'
+ for i,rmult in enumerate([0.8,0.9,1,1.1,1.2],3):
+  if j==2:f(g,f'A{i}',f'={ir(\"Monthly market rent\")}*{rmult}',baserent*rmult)
+  cap=basecap*mult;delta=(rmult-1)*pvrent*margin
+  terminal=(cache[('Cash flows','AG20')]*basecap/cap+(rmult-1)*cache[('Cash flows','AG8')]*(1+val('Rent growth'))*margin/cap)*(1-val('Selling costs'))
+  result=baseNPV+delta+(terminal-cache[('Cash flows','AG22')])*cache[('Cash flows','AG25')]
+  form=f'=Summary"'!$B$4+($A{i}/{ir("Monthly market rent")}-1)*(1-{ir("Maintenance / repairs")}-{ir("Management")})*SUMPRODUCT('"\\'Cash flows\\'"'!$D$8:$AG$8,'"\\'Cash flows\\'"'!$D$25:$AG$25)+(('"\\'Cash flows\\'"'!$AG$20*{ir("Exit capitalization rate")}/{col}$2+($A{i}/{ir("Monthly market rent")}-1)*'"\\'Cash flows\\'"'!$AG$8*(1+{ir("Rent growth")})*(1-{ir("Maintenance / repairs")}-{ir("Management")})/{col}$2)*(1-{ir("Selling costs")})-'"\\'Cash flows\\'"'!$AG$22)*'"\\'Cash flows\\'"'!$AG$25'"'
+  f(g,f'{col}{i}',form,result)
+from openpyxl.formatting.rule import ColorScaleRule
+g.conditional_formatting.add('B3:F7',ColorScaleRule(start_type='min',start_color='F8696B',mid_type='num',mid_value=0,mid_color='FFEB84',end_type='max',end_color='63BE7B'))
+g.column_dimensions['A'].width=34
+for j in range(2,7):g.column_dimensions[get_column_letter(j)].width=21
+for row in g.iter_rows(min_row=2,max_row=7):
+ for cell in row:cell.number_format='0.0%' if cell.row==2 and cell.column>1 else '#,##0;[Red](#,##0)'
+from openpyxl.chart import LineChart, Reference
+chart=LineChart();chart.title='Cumulative project cash flow';chart.y_axis.title='EUR';chart.x_axis.title='Years from acquisition';chart.height=9;chart.width=22
+# Cash flow rows as series; time is numeric categories.
+for row in [28,29]:chart.add_data(Reference(p,min_col=1,max_col=33,min_row=row,max_row=row),from_rows=True,titles_from_data=True)
+chart.set_categories(Reference(p,min_col=2,max_col=33,min_row=2,max_row=2));s.add_chart(chart,'A22')
+# Visible safeguards for assumptions that would create division errors.
+s.cell(20,1,'Input validity');valid=all(val(k)>0 for k in ['Rooms','Gross floor area','Monthly market rent','Exit capitalization rate','Furniture replacement interval'])
+f(s,'B20',f'=IF(AND({ir(\"Rooms\")}>0,{ir(\"Gross floor area\")}>0,{ir(\"Monthly market rent\")}>0,{ir(\"Exit capitalization rate\")}>0,{ir(\"Furniture replacement interval\")}>0),\"OK\",\"Correct positive inputs\")','OK' if valid else 'Correct positive inputs')
+for key in ['Rooms','Furniture replacement interval']:
+ dv=DataValidation(type='whole',operator='between',formula1=1,formula2=10000);dv.showErrorMessage=True;dv.error='Enter a positive whole number.'
+ # Replace the permissive validator for these two rows.
+ target=f'B{I[key]}'
+ for old in list(a.data_validations.dataValidation):
+  if str(old.sqref)==target:a.data_validations.dataValidation.remove(old)
+ a.add_data_validation(dv);dv.add(a[target])
+for key in ['Gross floor area','Exit capitalization rate']:
+ target=f'B{I[key]}'
+ for old in list(a.data_validations.dataValidation):
+  if str(old.sqref)==target:a.data_validations.dataValidation.remove(old)
+ dv=DataValidation(type='decimal',operator='between',formula1=0.0001,formula2=1 if key=='Exit capitalization rate' else 1000000);dv.showErrorMessage=True;dv.error='Enter a positive value.';a.add_data_validation(dv);dv.add(a[target])
+atomic_save()
+print('Stop flag:',stop_requested())
+PY
+python3 build_model.py" in /Users/lvanhaverbeke/Library/CloudStorage/OneDrive-VrijeUniversiteitBrussel/Teaching/2026-2027/Decision Analytics/AI Experiment/experiment/runs/student14_run1
+ succeeded in 386ms:
+Saved model.xlsx
+{"IRR": 0.06727959146923934, "NPV": 172795.36650203937, "cost": 4688593.4, "stop": false}
+Saved model.xlsx
+Saved model.xlsx
+Stop flag: False
+
+exec
+/bin/zsh -lc "python3 - <<'PY'
+from openpyxl import load_workbook
+from pathlib import Path
+w=load_workbook('model.xlsx',data_only=True)
+print(w.sheetnames)
+for row in range(4,13): print(w['Summary'].cell(row,1).value, w['Summary'].cell(row,2).value)
+assert abs(w['Sensitivity']['D5'].value-w['Summary']['B4'].value)<0.01
+assert abs(w['Development']['B20'].value+w['Cash flows']['B24'].value+w['Cash flows']['C24'].value)<0.01
+assert w['Summary']['B20'].value=='OK'
+assert w['Cash flows']['AG3'].value==30
+assert w['Cash flows']['M17'].value<0 and w['Cash flows']['W17'].value<0 and w['Cash flows']['AG17'].value==0
+f=load_workbook('model.xlsx',data_only=False)
+errors=[]
+for s in w:
+ for row in s:
+  for c in row:
+   if c.data_type=='e': errors.append((s.title,c.coordinate,c.value))
+assert not errors, errors
+print('Checks passed: budget reconciles, sensitivity base matches NPV, 30 operating years, replacement timing, no cached Excel errors.')
+print('Workbook bytes:',Path('model.xlsx').stat().st_size,'SAVE_NOW:',Path('SAVE_NOW.txt').exists())
+PY" in /Users/lvanhaverbeke/Library/CloudStorage/OneDrive-VrijeUniversiteitBrussel/Teaching/2026-2027/Decision Analytics/AI Experiment/experiment/runs/student14_run1
+ exited 1 in 355ms:
+Traceback (most recent call last):
+  File "<stdin>", line 6, in <module>
+TypeError: unsupported operand type(s) for -: 'NoneType' and 'NoneType'
+['Summary', 'Inputs', 'Development', 'Cash flows', 'Read me', 'Legal & sources', 'Sensitivity']
+NPV None
+Project IRR None
+Total development cost None
+First operating year NOI None
+Initial NOI yield on development cost None
+Simple PBP including sale None
+Simple PBP from operations only None
+Discounted PBP including sale None
+Discounted PBP from operations only None
+
+exec
+/bin/zsh -lc "python3 - <<'PY'
+import zipfile
+with zipfile.ZipFile('model.xlsx') as z:
+ s=z.read('xl/worksheets/sheet1.xml').decode()
+ print(s[s.index('r=\"B4\"')-20:s.index('r=\"B4\"')+220])
+PY" in /Users/lvanhaverbeke/Library/CloudStorage/OneDrive-VrijeUniversiteitBrussel/Teaching/2026-2027/Decision Analytics/AI Experiment/experiment/runs/student14_run1
+ succeeded in 0ms:
+>NPV</t></is></c><c r="B4" s="5"><f>NPV(Inputs!$B$31,'Cash flows'!C24:AG24)+'Cash flows'!B24</f><v /></c><c r="C4" s="4" t="inlineStr"><is><t>EUR at selected nominal discount rate; includes terminal sale.</t></is></c></row><row r="5" ht="34
+
+exec
+/bin/zsh -lc "python3 - <<'PY'
+p='build_model.py'
+s=open(p).read().replace(\"r'<v>.*?</v>'\", \"r'<v(?:\\\\s*/>|>.*?</v>)'\")
+open(p,'w').write(s)
+PY
+python3 build_model.py
+python3 - <<'PY'
+from openpyxl import load_workbook
+from pathlib import Path
+w=load_workbook('model.xlsx',data_only=True)
+for row in range(4,13): print(w['Summary'].cell(row,1).value, w['Summary'].cell(row,2).value)
+assert abs(w['Sensitivity']['D5'].value-w['Summary']['B4'].value)<0.01
+assert abs(w['Development']['B20'].value+w['Cash flows']['B24'].value+w['Cash flows']['C24'].value)<0.01
+assert w['Summary']['B20'].value=='OK'
+assert w['Cash flows']['AG3'].value==30
+assert w['Cash flows']['M17'].value<0 and w['Cash flows']['W17'].value<0 and w['Cash flows']['AG17'].value==0
+errors=[(s.title,c.coordinate,c.value) for s in w for row in s for c in row if c.data_type=='e']
+assert not errors, errors
+print('Checks passed; workbook bytes:',Path('model.xlsx').stat().st_size,'SAVE_NOW:',Path('SAVE_NOW.txt').exists())
+PY" in /Users/lvanhaverbeke/Library/CloudStorage/OneDrive-VrijeUniversiteitBrussel/Teaching/2026-2027/Decision Analytics/AI Experiment/experiment/runs/student14_run1
+ succeeded in 1141ms:
+Saved model.xlsx
+{"IRR": 0.06727959146923934, "NPV": 172795.36650203937, "cost": 4688593.4, "stop": false}
+Saved model.xlsx
+Saved model.xlsx
+Stop flag: False
+NPV 172795.36650203937
+Project IRR 0.06727959146923934
+Total development cost 4688593.4
+First operating year NOI 266380.0
+Initial NOI yield on development cost 0.0568144808632798
+Simple PBP including sale 18.05549786226993
+Simple PBP from operations only 18.05549786226993
+Discounted PBP including sale 31
+Discounted PBP from operations only Not reached
+Checks passed; workbook bytes: 37487 SAVE_NOW: False
+
+codex
+Het model bevat nu officiële bronverwijzingen, een NPV-gevoeligheidsanalyse en terugverdientijden met en zonder verkoop van het gebouw. De kosten sluiten aan op de kasstromen en de berekeningen zijn gecontroleerd. De exacte locatie en eventuele betaalbaarheidsverplichtingen blijven open punten in het bestand.
+
+exec
+/bin/zsh -lc "cat >> build_model.py <<'PY'
+if stop_requested():print('SAVE_NOW detected; finished after sensitivity save.');raise SystemExit(0)
+# Final readability pass, immediately persisted.
+n.column_dimensions['A'].width=34;n.column_dimensions['B'].width=115
+for row in range(2,n.max_row+1):n.row_dimensions[row].height=58
+s.column_dimensions['A'].width=45;s.column_dimensions['B'].width=27;s.column_dimensions['C'].width=83
+for row in range(2,21):s.row_dimensions[row].height=39
+s.row_dimensions[19].height=52
+a.column_dimensions['A'].width=44;a.column_dimensions['B'].width=31;a.column_dimensions['C'].width=26;a.column_dimensions['D'].width=94
+for row in range(2,a.max_row+1):a.row_dimensions[row].height=42
+s.print_options.horizontalCentered=True;s.sheet_properties.pageSetUpPr.fitToPage=True;s.page_setup.orientation='landscape';s.page_setup.paperSize=s.PAPERSIZE_A3;s.page_setup.fitToWidth=1;s.page_setup.fitToHeight=1;s.print_area='A1:C40'
+atomic_save()
+print('Final stop flag:',stop_requested())
+PY
+cat > validate_model.py <<'PY'
+from openpyxl import load_workbook
+from pathlib import Path
+import math
+w=load_workbook('model.xlsx',data_only=True)
+f=load_workbook('model.xlsx',data_only=False)
+cf=[w['Cash flows'].cell(24,c).value for c in range(2,34)]
+r=w['Summary']['B14'].value
+npv=sum(v/(1+r)**t for t,v in enumerate(cf))
+irr=w['Summary']['B5'].value
+assert abs(npv-w['Summary']['B4'].value)<0.01
+assert abs(sum(v/(1+irr)**t for t,v in enumerate(cf)))<0.01
+assert abs(w['Sensitivity']['D5'].value-npv)<0.01
+assert abs(w['Development']['B20'].value+cf[0]+cf[1])<0.01
+assert w['Cash flows']['AG3'].value==30
+assert w['Cash flows']['M17'].value<0 and w['Cash flows']['W17'].value<0 and w['Cash flows']['AG17'].value==0
+assert w['Summary']['B20'].value=='OK'
+for s in w:
+ for row in s:
+  for c in row:assert c.data_type"'!='"'e',(s.title,c.coordinate,c.value)
+for s in f:
+ for row in s:
+  for c in row:
+   if c.data_type=='f':
+    assert w[s.title][c.coordinate].value is not None,(s.title,c.coordinate,'missing cached result')
+assert abs(w['Cash flows']['AG28'].value-sum(cf))<0.01
+print(f'PASS: NPV {npv:,.2f}, IRR {irr:.4%}, budget/cash-flow reconciliation, sensitivity, replacement timing and formula caches.')
+print('SAVE_NOW:',Path('SAVE_NOW.txt').exists())
+PY
+python3 build_model.py
+python3 validate_model.py" in /Users/lvanhaverbeke/Library/CloudStorage/OneDrive-VrijeUniversiteitBrussel/Teaching/2026-2027/Decision Analytics/AI Experiment/experiment/runs/student14_run1
+ succeeded in 696ms:
+Saved model.xlsx
+{"IRR": 0.06727959146923934, "NPV": 172795.36650203937, "cost": 4688593.4, "stop": false}
+Saved model.xlsx
+Saved model.xlsx
+Stop flag: False
+Saved model.xlsx
+Final stop flag: False
+PASS: NPV 172,795.37, IRR 6.7280%, budget/cash-flow reconciliation, sensitivity, replacement timing and formula caches.
+SAVE_NOW: False
+
+codex
+[Download model.xlsx](model.xlsx)
+
+Bevat aanpasbare aannames, bouw- en exploitatiekosten, IRR, NPV, terugverdientijd, gevoeligheidsanalyse en Brusselse bronverwijzingen.
+
+Voorlopige uitkomst: **IRR 6,73%**, **NPV €172.795**, **terugverdientijd 18,1 jaar**. Locatie, offertes en betaalbaarheidsverplichtingen moeten nog worden bevestigd.
+tokens used
+56.996
+[Download model.xlsx](model.xlsx)
+
+Bevat aanpasbare aannames, bouw- en exploitatiekosten, IRR, NPV, terugverdientijd, gevoeligheidsanalyse en Brusselse bronverwijzingen.
+
+Voorlopige uitkomst: **IRR 6,73%**, **NPV €172.795**, **terugverdientijd 18,1 jaar**. Locatie, offertes en betaalbaarheidsverplichtingen moeten nog worden bevestigd.

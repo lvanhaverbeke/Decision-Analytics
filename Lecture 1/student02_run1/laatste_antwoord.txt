@@ -1,0 +1,10 @@
+Opgeslagen: [model.xlsx](model.xlsx).
+
+Basisscenario: 100 kamers, €650 huur per maand.
+
+- Ontwikkeltijd: 2 jaar
+- NPV bij 7%: **−€803.425**
+- IRR: **6,51%**
+- Terugverdientijd: **18,25 jaar**
+
+Het bestand bevat bronnen, Brusselse regelgeving, variabelenclassificaties en de gevraagde grafiek. Onzekere cijfers en het hypothetische verband tussen huurverhoging en vertrek zijn expliciet gemarkeerd.

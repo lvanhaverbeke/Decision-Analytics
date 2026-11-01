@@ -1,0 +1,5 @@
+Saved [model.xlsx](model.xlsx) and the [executive report](executive_report.html) in the current folder, with all supporting code.
+
+The illustrative case requires **€2.77 million equity** and produces a **5.4% IRR**, below the assumed 9% target. Formula and financial reconciliation checks passed.
+
+The report lists the assumptions to confirm and the Brussels regulatory checks. The exact property address is needed to complete municipal compliance review.

@@ -1,0 +1,12 @@
+PROMPT
+
+We are masters' students and we have to do a project for a student housing near VUB/ULB (Ixelles/Etterbeek), well connected to public transport.
+The subject for the project is Decision Analytics, so the project has to have certain features:
+- Environmental analysis.
+- Financial analysis e.g. investment costs, payback period, Net Present Value, [text cut off at right edge].
+- Economic analysis -> price of [unclear], furnishing, various services, ...
+- Social analysis -> neighbourhood, living wage...
+- Legal analysis -> Belgian law & town hall laws...
+All the project has to be based on real and actual conditions and situations in Brussels (1st Oct. 202[year cut off at right edge]).
+
+Following these instructions, give us a coherent/clear spreadsheet model & executive report that has to be presented. Explain the main points clearly.

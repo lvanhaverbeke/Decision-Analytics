@@ -1,0 +1,3 @@
+Saved [model.xlsx](model.xlsx) with the reusable prompt, three 20-year scenarios, NPV, IRR, payback, additional KPIs, affordability checks, sensitivities, and regulatory sources.
+
+The illustrative assumptions produce negative NPV in all scenarios. Replace them with property-specific evidence before making an investment decision.

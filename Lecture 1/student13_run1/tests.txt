@@ -1,0 +1,5 @@
+Zero budget selects nothing PASS
+Live mode rejects demonstration evidence PASS
+Unknown evidence blocks project PASS
+One-project cap respected PASS
+Longer completion lowers NPV PASS

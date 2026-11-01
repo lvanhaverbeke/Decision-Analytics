@@ -1,0 +1,9 @@
+Opgeslagen als [model.xlsx](model.xlsx), met aanpasbare inputs, NPV, IRR, terugverdientijd, huurprijs, scenario’s, bronnen en een herbruikbare prompt.
+
+De illustratieve basisberekening geeft:
+- NPV: **−€2,28 miljoen**
+- IRR: **4,27%**
+- Terugverdientijd: **21,3 jaar**
+- Benodigde huur voor NPV = 0: **€714,48 per maand**
+
+Bij een huurgrens van €650 ontbreekt circa **€1,28 miljoen** aan financiering. De berekeningen zijn gecontroleerd; projectkosten en planning moeten nog met offertes worden onderbouwd.

@@ -1,0 +1,62 @@
+{
+  "Beds reconcile": {
+    "actual": 0,
+    "expected": 0,
+    "pass": true
+  },
+  "Sources = funding": {
+    "actual": 0.0,
+    "expected": 0,
+    "pass": true
+  },
+  "Debt fully drawn": {
+    "actual": 0.0,
+    "expected": 0,
+    "pass": true
+  },
+  "Unlevered spend matches budget": {
+    "actual": 0.0,
+    "expected": 0,
+    "pass": true
+  },
+  "Equity invested": {
+    "actual": 0.0,
+    "expected": 0,
+    "pass": true
+  },
+  "Base scenario NPV reconciles": {
+    "actual": 1.862645149230957e-09,
+    "expected": 0,
+    "pass": true
+  },
+  "Rent references supplied": {
+    "actual": 0,
+    "expected": 3,
+    "pass": false
+  },
+  "Occupancy bounds": {
+    "actual": 0,
+    "expected": 0,
+    "pass": true
+  },
+  "Candidate capacity reconciliation": {
+    "actual": 0,
+    "expected": 0,
+    "pass": true
+  },
+  "Capacity option cost reconciliation": {
+    "actual": 1.862645149230957e-09,
+    "expected": 0,
+    "pass": true
+  },
+  "Dashboard B3": 120,
+  "Dashboard B6": 13118821.25789,
+  "Dashboard B8": 0.03523197510767362,
+  "Dashboard B9": -5223424.748954908,
+  "Dashboard B10": 0.03815739619420444,
+  "Dashboard B11": -4166047.7488172865,
+  "Dashboard B12": 0.031977438370682454,
+  "Dashboard B13": 0.9733766536728187,
+  "Dashboard B20": 0.9749912348005079,
+  "Dashboard B23": "HOLD: financial and/or rent-reference gate unmet"
+}

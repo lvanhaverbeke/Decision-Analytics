@@ -1,0 +1,5 @@
+[Download model.xlsx](model.xlsx)
+
+Bevat aanpasbare aannames, bouw- en exploitatiekosten, IRR, NPV, terugverdientijd, gevoeligheidsanalyse en Brusselse bronverwijzingen.
+
+Voorlopige uitkomst: **IRR 6,73%**, **NPV €172.795**, **terugverdientijd 18,1 jaar**. Locatie, offertes en betaalbaarheidsverplichtingen moeten nog worden bevestigd.

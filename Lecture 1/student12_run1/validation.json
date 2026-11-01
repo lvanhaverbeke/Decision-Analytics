@@ -1,0 +1,26 @@
+{
+  "formula_cells": 460,
+  "tabs": [
+    "Read me",
+    "Cost summary",
+    "Inputs",
+    "Model",
+    "Locations",
+    "Sources",
+    "LLM prompt",
+    "Results"
+  ],
+  "NPV_EUR": 3173941.7812295035,
+  "IRR": 0.10516992116250246,
+  "payback_years": 11.883620902950039,
+  "discounted_payback_years": 19.14914706834052,
+  "NPV_without_exit_EUR": -355456.0305407401,
+  "checks": [
+    "xlsx archive integrity",
+    "all formula caches populated",
+    "20-year horizon",
+    "cash-flow totals reconcile",
+    "IRR root checked by improve_model.py"
+  ],
+  "caveat": "Independent numeric baseline checks; no Excel calculation engine available in environment."
+}

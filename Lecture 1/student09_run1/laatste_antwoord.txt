@@ -1,0 +1,8 @@
+Saved and checked both deliverables:
+
+- [Spreadsheet model](model.xlsx)
+- [Executive report](executive_report.docx)
+
+The illustrative example selects **40 rooms**, costing **€4.96 million**, with **€3.22 million equity**. Rent is **€475 + €100 charges/month**. Estimated net operating yield is **3.27%**, with project payback in **year 27**, assuming growth and a two-year development period.
+
+This misses the assumed **4.5% return target**. Brussels’ legal rent assessment is dwelling-specific; the report explains the threshold, affordability comparisons, calculations and next steps. All code is saved in the current folder.

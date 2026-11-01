@@ -1,0 +1,5 @@
+[Heading at top partly cut off: student housing.]
+
+Prompt: design a model whereby based on a spreadsheet you can optimize the investment opportunities within the student housing in Brussels. Focus on profit. Very importantly the facilities need to adhere to the minimum requirements (look [text cut off at right edge]). When evaluating, also keep in mind the time needed for a project to be finished and ready to rent out. The results should be reported clearly with the best opportunities listed, you determine which are worth putting in the report & which not. Report should be a structured similar to Vanguard reports.
+
+[Crossed-out wording omitted. Some text at the right edge is cut off.]

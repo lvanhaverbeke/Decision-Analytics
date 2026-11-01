@@ -1,0 +1,20 @@
+Decision Analytics
+- AI reflections
+
+Student Housing model
+
+- I want you to make a investment spreadsheet model for student housing in brussels. I want a spreadsheet model and executive report as output.
+- Think like you have 220 IQ and have a lot of knowledge in this subject.
+- It has to be a sustainable project.
+- Be affordable, so 10% of the housing.
+- Think about all cost and benefit.
+- Be creative.
+- Think about what student housing is.
+- Be clear about what the readers of the spreadsheet need and make it understandable.
+- AD KPI's like NPV, IRR, PBP, ...
+- Ad relevant, insightfull graphs and tables.
+- I want a summary and executive report as output also.
+- Be concise, give a clear overview.
+- Make also a lot of simulations.
+
+[Crossed-out wording omitted.]
