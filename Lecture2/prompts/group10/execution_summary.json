@@ -1,0 +1,21 @@
+{
+  "start_epoch": 1793255657.7132201,
+  "limit_seconds": 420,
+  "task": "group10",
+  "prompt": "prompt_group10.txt",
+  "end_epoch": 1793256049.5563788,
+  "elapsed_seconds": 391.84315967559814,
+  "completed": true,
+  "outputs": [
+    "model.xlsx",
+    "Executive_Report.pdf",
+    "completion_summary.txt"
+  ],
+  "limitations": [
+    "Pre-tax; corporate/exit taxes excluded",
+    "No legal/site clearance",
+    "Sensitivity snapshots require regeneration",
+    "Report charts not reproduced; workbook charts present",
+    "No native Excel application test"
+  ]
+}

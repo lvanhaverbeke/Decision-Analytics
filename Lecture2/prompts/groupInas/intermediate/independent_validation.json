@@ -1,0 +1,13 @@
+{
+  "independent_annual_NPV": -3705687.7270906665,
+  "best_grid_NPV": -2460613.932699317,
+  "best_rooms": 120,
+  "best_rent": 650,
+  "checks": "Base and optimal NPV reconciled to independent annual cash flow; price/demand and cost shocks tested; first 40 MC rows reconciled; affordability/debt/capacity/histogram passed",
+  "limitations": [
+    "Native Excel execution not performed",
+    "Triangular endpoints and independence subjective",
+    "All costs and site demand require validation",
+    "No floor plan or studio mix optimization"
+  ]
+}

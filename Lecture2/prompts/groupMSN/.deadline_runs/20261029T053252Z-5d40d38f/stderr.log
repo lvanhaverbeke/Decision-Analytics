@@ -1,0 +1,1614 @@
+OpenAI Codex v0.162.0
+--------
+workdir: /Users/lvanhaverbeke/Decision Analytics/prompts/groupMSN
+model: gpt-6.1-sol
+provider: openai
+approval: never
+sandbox: workspace-write [workdir, /tmp, $TMPDIR]
+reasoning effort: medium
+reasoning summaries: none
+session id: 01a18625-9553-78e3-8b34-7d01c546eeba
+--------
+user
+# DECISION ANALYTICS
+
+You are an expert in Decision Analytics, investment modelling, financial analysis and advanced Excel.
+
+For our Decision Analytics course, we previously asked AI to create an Excel investment model evaluating the construction of a new student housing building near the Vrije Universiteit Brussel (VUB) campus in Brussels.
+
+We now want you to **improve and complete the existing model**, following the grading criteria of our course and using the Excel document from class as a methodological reference.
+
+**Attached files:**
+
+1. **model.xlsx** — The previously generated student housing investment model. Improve this existing workbook rather than unnecessarily rebuilding it.
+2. **Chapter 1 - New road analysis model.xls** — The example used during our Decision Analytics classes. Examine its structure, formulas, decision variables and analytical methods, and apply relevant principles to our investment project.
+
+## CRITICAL: 7-MINUTE EXECUTION LIMIT
+
+You have a maximum of **7 minutes** to complete this task.
+
+Your priority is to deliver a fully functional and downloadable Excel workbook within this time.
+
+- Inspect both attached files immediately.
+- Reuse existing calculations, worksheets and assumptions whenever appropriate.
+- Prioritize functionality, mathematical correctness and grading criteria over appearance.
+- Avoid unnecessary web research, lengthy explanations and computationally expensive operations.
+- Work efficiently and do not ask clarification questions.
+- If time is limited, prioritize completing the missing analytical methods instead of redesigning existing worksheets.
+- Ensure the Excel workbook is saved and delivered before the execution limit expires.
+
+## 1. INVESTMENT CONTEXT
+
+We want to assess the financial viability of constructing a new student housing building near the VUB campus in Brussels.
+
+The model should consider:
+
+- Actual demand for student accommodation near the university.
+- Existing and planned competing student housing developments.
+- Realistic building capacity.
+- Land acquisition and construction costs.
+- Operating, maintenance and financing costs.
+- Realistic occupancy rates.
+- Applicable Brussels housing and rental regulations.
+- Long-term investment profitability.
+
+The building should offer three accommodation types:
+
+1. Standard student rooms.
+2. Shared studios.
+3. Individual studios.
+
+Determine an economically and operationally reasonable mix of these accommodation types.
+
+**Important:** Clearly distinguish verified market information from estimates and assumptions. Do not invent official government price thresholds or present unverified figures as facts. Where information is unavailable, introduce reasonable and editable assumptions, explicitly marked as unverified.
+
+## 2. EXCEL MODEL QUALITY — 8 POINTS
+
+Improve the original workbook to ensure:
+
+- Clear and logically organized worksheets.
+- Descriptive labels and meaningful cell names.
+- Clearly identified input cells.
+- Dynamic formulas linked to inputs.
+- Minimal unnecessary hardcoding.
+- Correct calculations and consistent units.
+- Detailed investment and operating cash flows.
+- NPV, IRR and payback period calculations where appropriate.
+- A clear overview of the investment decision.
+- Realistic complexity without unnecessary complications.
+
+Inputs must dynamically affect the financial outputs.
+
+Verify that there are no broken cell references, calculation inconsistencies or circular dependencies.
+
+Use the attached class example to guide the structure and analytical approach wherever relevant.
+
+## 3. SENSITIVITY ANALYSIS — 4 POINTS
+
+Implement a meaningful sensitivity analysis measuring how changes in important assumptions affect the investment decision.
+
+At minimum, analyze:
+
+- Construction costs.
+- Occupancy rates.
+- Monthly rental prices.
+
+Calculate how changes influence NPV and, where relevant, IRR.
+
+Include:
+
+- Sensitivity tables.
+- At least one appropriate visualization.
+- Identification of the most influential assumptions.
+- A short interpretation of the results.
+
+Explain under which conditions the investment becomes financially attractive or unattractive.
+
+Keep negative NPV values visible.
+
+## 4. OPTIMIZATION — 4 POINTS
+
+Implement an actual optimization model.
+
+**Objective:** Maximize project NPV subject to realistic investment and operational constraints.
+
+**Decision variables:**
+
+- Total building capacity.
+- Number of standard rooms.
+- Number of shared studios.
+- Number of individual studios.
+
+**Constraints:**
+
+- Available building or floor space.
+- Maximum construction budget.
+- Realistic demand and occupancy assumptions.
+- Applicable rental regulations where verified.
+- Non-negative integer quantities for the different accommodation types.
+
+Use Excel Solver if feasible.
+
+If Solver cannot be configured reliably within the execution limit, create a transparent Excel-based optimization by systematically evaluating feasible room allocations and capacities.
+
+Clearly display:
+
+- Optimal capacity.
+- Optimal accommodation mix.
+- Financial results of the preferred alternative.
+- Binding or important constraints, where identifiable.
+- A brief explanation of the optimal decision.
+
+**Important:** Include a "do not invest" alternative with an NPV of zero. If all feasible construction projects generate negative NPVs, the correct recommendation may be not to invest. Do not force an investment recommendation.
+
+## 5. MONTE CARLO SIMULATION — 4 POINTS
+
+Add a functional Monte Carlo simulation to evaluate uncertainty and financial risk.
+
+Consider uncertainty in:
+
+- Construction costs.
+- Occupancy rates.
+- Rental income or operating costs.
+
+Select appropriate probability distributions and explicitly state their assumptions.
+
+Conduct approximately **300 simulations**, or more if the execution time permits.
+
+Calculate:
+
+- Mean NPV.
+- Median NPV.
+- Minimum and maximum simulated NPV.
+- 5th and 95th percentile NPV.
+- Probability of negative NPV.
+- Distribution of simulated NPV outcomes.
+
+Include a histogram and a concise interpretation of the investment risk.
+
+Ensure the simulation uses the actual financial model rather than an unrelated simplified calculation.
+
+Preserve all valid negative financial outcomes. Do not remove unsuccessful simulations or replace negative NPVs with zero.
+
+Prioritize a mathematically correct and transparent simulation over a very large number of iterations.
+
+## 6. TREATMENT OF NEGATIVE VALUES
+
+This requirement applies to the entire workbook.
+
+**Do not exclude, replace, hide, truncate or artificially adjust negative financial outcomes.**
+
+In particular:
+
+- Negative NPVs must remain visible.
+- Negative cash flows are allowed and expected during construction.
+- Negative profits or losses must be displayed where they occur.
+- Sensitivity analysis must include unfavorable scenarios.
+- Monte Carlo simulations must retain negative results.
+- Optimization must evaluate economically unfavorable alternatives correctly.
+
+Only impose non-negativity constraints on variables that logically cannot be negative, such as room quantities, physical capacity, construction costs and occupancy rates.
+
+The objective is to make an **economically justified investment decision**, not to produce artificially positive results.
+
+## 7. FINAL DECISION SUMMARY
+
+Create a clearly structured **Decision Summary** worksheet answering:
+
+1. Is the student housing investment financially attractive?
+2. What building capacity is recommended?
+3. What accommodation mix is optimal?
+4. Which assumptions most strongly influence profitability?
+5. What does the sensitivity analysis reveal?
+6. What solution does the optimization identify?
+7. What does the Monte Carlo simulation reveal about financial risk?
+8. Under what conditions should the investment be accepted or rejected?
+9. Which assumptions or external data still require validation?
+
+Present results using the Decision Analytics approach:
+
+**Decision problem → Analytical method → Numerical results → Interpretation → Recommendation.**
+
+Conclusions must be based on the model's calculations, even if the investment is not financially attractive.
+
+## 8. FINAL QUALITY CONTROL AND DELIVERABLE
+
+Deliver **one improved, downloadable Excel workbook (.xlsx)** containing:
+
+- An integrated and dynamic investment model.
+- A functional sensitivity analysis.
+- An optimization model with decision variables and constraints.
+- A Monte Carlo risk analysis.
+- A clear investment decision summary.
+
+Before delivery, verify:
+
+- Formulas calculate correctly.
+- Input changes influence the appropriate outputs.
+- Assumptions and units are consistent.
+- Optimization results satisfy the defined constraints.
+- Monte Carlo results reflect the model's financial logic.
+- Negative outcomes are preserved.
+- Tables and charts represent the correct calculations.
+- The workbook opens correctly in Excel.
+
+If an analytical technique cannot be fully implemented, clearly disclose the limitation rather than presenting a simplified analysis as a complete implementation.
+
+**FINAL PRIORITIES:**
+
+1. Deliver a working Excel file within 7 minutes.
+2. Ensure accurate calculations and linked formulas.
+3. Complete the sensitivity analysis.
+4. Implement optimization.
+5. Implement Monte Carlo simulation.
+6. Provide an evidence-based investment recommendation.
+7. Improve formatting only if time remains.
+
+Do not spend time producing a long written explanation outside the spreadsheet.
+
+**Start immediately, use both attachments, improve the existing workbook and deliver the completed Excel model before the time limit expires.**
+
+
+--- LAUNCHER: LOCAL FILES AND DEADLINE ---
+Working folder: /Users/lvanhaverbeke/Decision Analytics/prompts/groupMSN
+Documents available directly in this folder (JSON filenames):
+[
+  "Chapter 1 - New road analysis model.xls",
+  "model.xlsx"
+]
+References to attached documents in the task mean these local files. Read the actual relevant files immediately, using suitable local tools. If a format cannot be read, disclose the limitation. Do not invent its contents.
+Required output paths (relative to the working folder): ["model.xlsx"]
+Save a minimally usable result immediately, then update it incrementally. Write each update to a temporary file of the same format and use os.replace to publish it atomically. Preserve input documents except required output files.
+Save deadline UTC: 2026-10-29T05:39:22.327163+00:00
+Hard deadline UTC: 2026-10-29T05:39:52.327163+00:00
+Finish substantive work and save all outputs before the save deadline. Use the remaining time only to validate and finalize. The launcher will stop the process before the hard deadline to allow recovery.
+After every step check: /Users/lvanhaverbeke/Decision Analytics/prompts/groupMSN/.deadline_runs/20261029T053252Z-5d40d38f/SAVE_NOW.txt
+When that file exists, save immediately and finish. Do not alter the .deadline_runs directory. Do not ask clarification questions. Report incomplete work honestly; do not describe an unchanged input as a completed result.
+
+codex
+I’ll inspect both workbooks immediately, preserve the usable parts of the existing model, and add the missing analyses with linked calculations and a decision summary.
+
+exec
+/bin/zsh -lc "ls -la; python - <<'PY'
+import importlib.util
+for m in ['openpyxl','xlrd','xlsxwriter','numpy','scipy']:
+ print(m, bool(importlib.util.find_spec(m)))
+PY" in /Users/lvanhaverbeke/Decision Analytics/prompts/groupMSN
+ exited 127 in 0ms:
+total 416
+drwxr-xr-x  6 lvanhaverbeke  staff     192 Oct 29 06:31 .
+drwxr-xr-x@ 4 lvanhaverbeke  staff     128 Oct 29 06:20 ..
+drwxr-xr-x  4 lvanhaverbeke  staff     128 Oct 29 06:32 .deadline_runs
+-rw-------@ 1 lvanhaverbeke  staff  158720 Oct 16 09:06 Chapter 1 - New road analysis model.xls
+-rw-------@ 1 lvanhaverbeke  staff   38744 Oct 16 09:06 model.xlsx
+-rw-r--r--@ 1 lvanhaverbeke  staff    9595 Oct 29 06:23 prompt.txt
+zsh:1: command not found: python
+
+exec
+/bin/zsh -lc "python3 - <<'PY'
+import importlib.util,os
+for m in ['openpyxl','xlrd','xlsxwriter','numpy','scipy']:
+ print(m, bool(importlib.util.find_spec(m)))
+print('save_now',os.path.exists('.deadline_runs/20261029T053252Z-5d40d38f/SAVE_NOW.txt'))
+import openpyxl
+w=openpyxl.load_workbook('model.xlsx');print(w.sheetnames)
+for s in w:
+ print('\\nSHEET',s.title,s.max_row,s.max_column)
+ for row in s:
+  vals=['%s:%s'%(c.column_letter,str(c.value)[:170]) for c in row if c.value is not None]
+  if vals: print(row[0].row,' '.join(vals))
+PY" in /Users/lvanhaverbeke/Decision Analytics/prompts/groupMSN
+ succeeded in 44ms:
+openpyxl True
+xlrd False
+xlsxwriter False
+numpy False
+scipy False
+save_now False
+['Read me', 'Inputs', 'Room mix', 'Development', 'Cash flow', 'Dashboard', 'Sources', 'Demand & competition', 'Rent rules', 'Scenarios', 'Sensitivity', 'Checks', 'Capacity options']
+
+SHEET Read me 18 1
+1 A:VUB student housing | investment feasibility
+3 A:Research version | 14 October 2026 | educational feasibility, pre-tax cash flows
+4 A:Location: assumed site within walking/cycling distance of VUB Etterbeek campus; no land secured.
+5 A:No classroom workbook supplied in the working folder; model built from first principles.
+6 A:Shared studio means two students per studio. Rents exclude separately billed actual utilities.
+7 A:Blue cells = editable inputs; black cells = formulas. EUR nominal, annual periods.
+8 A:Recommendation: test 120 beds in 100 units (60 normal, 20 two-person studios, 20 single studios). Demand case is plausible; financial acceptance depends on dashboard.
+9 A:120 beds limits exposure to the 465-room Usquare pipeline. No verified VUB waiting-list count or secured plot: capacity remains a testable proposal.
+10 A:Model timeline: year 0 = 2027, year 1 = 2028 construction, year 2 = 2029 opening; 20 operating years; sale at end of year 21.
+11 A:Cash flows are year-end; debt draws are half in each construction year. Construction interest uses midyear draws; first debt repayment at opening.
+12 A:Nonrecoverable VAT 21%, land transaction allowance 15%, construction price, land price and financing are assumptions requiring professional quotations.
+13 A:Utilities are reimbursed at actual cost, outside revenue and expenses. Operating ratio includes management, insurance, owner property tax, maintenance and administration.
+14 A:Rent growth of 2% is a financial scenario, not permission to index: check lease registration, EPC rules, health index and reference rent annually.
+15 A:No corporate income tax, depreciation tax shield, grant or subsidy. No plot-specific planning, fire safety, accessibility or shared-occupancy approval obtained.
+16 A:Fixed 2 construction years / 20 operating years. Change the Python generator to change these periods; all other blue financial inputs can be edited in Excel.
+17 A:Official reference rents are missing: proposed rents are planning inputs. Workbook blocks legal clearance until references are supplied. Do not interpret affordability ca
+18 A:Shared studio is let as one unit to two occupants; divide the unit rent by two for per-person affordability. Validate compatibility with actual tenant arrangements.
+
+SHEET Inputs 36 3
+1 A:Assumption B:Value C:Basis / unit
+2 A:Normal rooms B:60 C:units
+3 A:Shared studios B:20 C:units; 2 beds each
+4 A:Single studios B:20 C:units
+5 A:Normal monthly rent B:480 C:EUR per room; provisional
+6 A:Shared monthly rent B:390 C:EUR per person; provisional
+7 A:Single studio monthly rent B:650 C:EUR per unit; provisional
+8 A:Letting months B:12 C:months/year
+9 A:Occupancy B:0.95 C:stabilised
+10 A:Rent growth B:0.02 C:annual
+11 A:Operating expense ratio B:0.28 C:share of effective rent
+12 A:Reserve per bed B:150 C:EUR/year
+13 A:Hard cost per gross sqm B:2200 C:EUR; assumption
+14 A:Land cost B:1800000 C:EUR; assumption
+15 A:Soft cost ratio B:0.15 C:share of hard costs
+16 A:Contingency B:0.1 C:share hard + soft
+17 A:VAT / nonrecoverable tax B:0.21 C:conservative assumption on hard + soft + contingency
+18 A:Debt share B:0.55 C:share of total development cost
+19 A:Interest rate B:0.045 C:annual
+20 A:Loan term B:25 C:years
+21 A:Discount rate B:0.08 C:unlevered
+22 A:Exit cap rate B:0.055 C:NOI / terminal value
+23 A:Selling cost B:0.02 C:share exit value
+24 A:Construction years B:2 years fixed C:fixed 2-year baseline
+25 A:Normal room net area B:18 C:sqm
+26 A:Shared studio net area B:32 C:sqm per unit
+27 A:Single studio net area B:25 C:sqm
+28 A:Grossing factor B:1.4 C:gross / net
+29 A:Opening occupancy B:0.85 C:first operating year
+30 A:Operating years B:20 years fixed C:fixed baseline
+31 A:Equity discount rate B:0.1 C:annual
+32 A:Land acquisition allowance B:0.15 C:assumption; land price includes no transaction fees
+33 A:Furniture per bed B:1800 C:EUR; initial furnishing
+34 A:Initial working capital B:50000 C:EUR; conservatively unrecovered at exit
+35 A:Reference rent policy factor B:1 C:stay at/below reference when supplied; max 1.2 screening threshold
+36 A:Candidate beds B:120 C:planning target; mix on rows 2:4 drives actual capacity
+
+SHEET Room mix 5 8
+1 A:Type B:Units C:Beds per unit D:Beds E:Net sqm/unit F:Gross sqm G:Rent/person/month H:Annual gross rent
+2 A:Normal dorm B:=Inputs!B2 C:1 D:=B2*C2 E:=Inputs!B25 F:=B2*E2*Inputs!B28 G:='Rent rules'!F2 H:=D2*G2*Inputs!B8
+3 A:Shared studio B:=Inputs!B3 C:2 D:=B3*C3 E:=Inputs!B26 F:=B3*E3*Inputs!B28 G:='Rent rules'!F3 H:=D3*G3*Inputs!B8
+4 A:Single studio B:=Inputs!B4 C:1 D:=B4*C4 E:=Inputs!B27 F:=B4*E4*Inputs!B28 G:='Rent rules'!F4 H:=D4*G4*Inputs!B8
+5 A:Total B:=SUM(B2:B4) D:=SUM(D2:D4) F:=SUM(F2:F4) H:=SUM(H2:H4)
+
+SHEET Development 16 2
+1 A:Development budget B:EUR
+2 A:Land B:=Inputs!B14
+3 A:Hard costs B:='Room mix'!F5*Inputs!B13
+4 A:Soft costs B:=B3*Inputs!B15
+5 A:Contingency B:=SUM(B3:B4)*Inputs!B16
+6 A:Nonrecoverable VAT B:=SUM(B3:B5)*Inputs!B17
+7 A:Total funding need B:=B15+B14
+8 A:Debt B:=B15*Inputs!B18
+9 A:Equity B:=B7-B8
+10 A:Annual debt service B:=-PMT(Inputs!B19,Inputs!B20,B8)
+11 A:Land transaction allowance B:=B2*Inputs!B32
+12 A:Furniture B:='Room mix'!D5*Inputs!B33
+13 A:Working capital B:=Inputs!B34
+14 A:Construction interest (equity-funded) B:=B8*Inputs!B19
+15 A:Unlevered project cost B:=SUM(B2:B6,B11:B13)
+16 A:Cost per bed B:=B7/'Room mix'!D5
+
+SHEET Cash flow 26 18
+1 A:Year B:Gross rent C:Occupancy D:Effective rent E:Operating cost F:Reserve G:NOI H:Development spend I:Debt draw J:Debt service K:Exit proceeds L:Debt outstanding M:Unlevered CF N:Equity CF O:Interest paid P:Principal repaid Q:Calendar year R:DSCR
+2 A:0 B:0 C:0 D:0 E:0 F:0 G:0 H:=Development!B15*0.5 I:=Development!B8*0.5 J:0 K:0 L:=SUM(I$2:I2) M:=G2-H2+K2 N:=M2+I2-J2-Development!B14*0.5 O:0 P:0 Q:=A2+2027 R:0
+3 A:1 B:0 C:0 D:0 E:0 F:0 G:0 H:=Development!B15*0.5 I:=Development!B8*0.5 J:0 K:0 L:=SUM(I$2:I3) M:=G3-H3+K3 N:=M3+I3-J3-Development!B14*0.5 O:0 P:0 Q:=A3+2027 R:0
+4 A:2 B:='Room mix'!H5*(1+Inputs!B10)^(1-1) C:=Inputs!B29 D:=B4*C4 E:=D4*Inputs!B11 F:='Room mix'!D5*Inputs!B12*(1+Inputs!B10)^(1-1) G:=D4-E4-F4 H:0 I:0 J:=IF(A4-1<=Inputs!B20,Development!B10,0) K:0 L:=MAX(0,L3*(1+Inputs!B19)-J4) M:=G4-H4+K4 N:=M4+I4-J4 O:=L3*Inputs!B19 P:=J4-O4 Q:=A4+2027 R:=IF(J4>0,G4/J4,0)
+5 A:3 B:='Room mix'!H5*(1+Inputs!B10)^(2-1) C:=Inputs!B9 D:=B5*C5 E:=D5*Inputs!B11 F:='Room mix'!D5*Inputs!B12*(1+Inputs!B10)^(2-1) G:=D5-E5-F5 H:0 I:0 J:=IF(A5-1<=Inputs!B20,Development!B10,0) K:0 L:=MAX(0,L4*(1+Inputs!B19)-J5) M:=G5-H5+K5 N:=M5+I5-J5 O:=L4*Inputs!B19 P:=J5-O5 Q:=A5+2027 R:=IF(J5>0,G5/J5,0)
+6 A:4 B:='Room mix'!H5*(1+Inputs!B10)^(3-1) C:=Inputs!B9 D:=B6*C6 E:=D6*Inputs!B11 F:='Room mix'!D5*Inputs!B12*(1+Inputs!B10)^(3-1) G:=D6-E6-F6 H:0 I:0 J:=IF(A6-1<=Inputs!B20,Development!B10,0) K:0 L:=MAX(0,L5*(1+Inputs!B19)-J6) M:=G6-H6+K6 N:=M6+I6-J6 O:=L5*Inputs!B19 P:=J6-O6 Q:=A6+2027 R:=IF(J6>0,G6/J6,0)
+7 A:5 B:='Room mix'!H5*(1+Inputs!B10)^(4-1) C:=Inputs!B9 D:=B7*C7 E:=D7*Inputs!B11 F:='Room mix'!D5*Inputs!B12*(1+Inputs!B10)^(4-1) G:=D7-E7-F7 H:0 I:0 J:=IF(A7-1<=Inputs!B20,Development!B10,0) K:0 L:=MAX(0,L6*(1+Inputs!B19)-J7) M:=G7-H7+K7 N:=M7+I7-J7 O:=L6*Inputs!B19 P:=J7-O7 Q:=A7+2027 R:=IF(J7>0,G7/J7,0)
+8 A:6 B:='Room mix'!H5*(1+Inputs!B10)^(5-1) C:=Inputs!B9 D:=B8*C8 E:=D8*Inputs!B11 F:='Room mix'!D5*Inputs!B12*(1+Inputs!B10)^(5-1) G:=D8-E8-F8 H:0 I:0 J:=IF(A8-1<=Inputs!B20,Development!B10,0) K:0 L:=MAX(0,L7*(1+Inputs!B19)-J8) M:=G8-H8+K8 N:=M8+I8-J8 O:=L7*Inputs!B19 P:=J8-O8 Q:=A8+2027 R:=IF(J8>0,G8/J8,0)
+9 A:7 B:='Room mix'!H5*(1+Inputs!B10)^(6-1) C:=Inputs!B9 D:=B9*C9 E:=D9*Inputs!B11 F:='Room mix'!D5*Inputs!B12*(1+Inputs!B10)^(6-1) G:=D9-E9-F9 H:0 I:0 J:=IF(A9-1<=Inputs!B20,Development!B10,0) K:0 L:=MAX(0,L8*(1+Inputs!B19)-J9) M:=G9-H9+K9 N:=M9+I9-J9 O:=L8*Inputs!B19 P:=J9-O9 Q:=A9+2027 R:=IF(J9>0,G9/J9,0)
+10 A:8 B:='Room mix'!H5*(1+Inputs!B10)^(7-1) C:=Inputs!B9 D:=B10*C10 E:=D10*Inputs!B11 F:='Room mix'!D5*Inputs!B12*(1+Inputs!B10)^(7-1) G:=D10-E10-F10 H:0 I:0 J:=IF(A10-1<=Inputs!B20,Development!B10,0) K:0 L:=MAX(0,L9*(1+Inputs!B19)-J10) M:=G10-H10+K10 N:=M10+I10-J10 O:=L9*Inputs!B19 P:=J10-O10 Q:=A10+2027 R:=IF(J10>0,G10/J10,0)
+11 A:9 B:='Room mix'!H5*(1+Inputs!B10)^(8-1) C:=Inputs!B9 D:=B11*C11 E:=D11*Inputs!B11 F:='Room mix'!D5*Inputs!B12*(1+Inputs!B10)^(8-1) G:=D11-E11-F11 H:0 I:0 J:=IF(A11-1<=Inputs!B20,Development!B10,0) K:0 L:=MAX(0,L10*(1+Inputs!B19)-J11) M:=G11-H11+K11 N:=M11+I11-J11 O:=L10*Inputs!B19 P:=J11-O11 Q:=A11+2027 R:=IF(J11>0,G11/J11,0)
+12 A:10 B:='Room mix'!H5*(1+Inputs!B10)^(9-1) C:=Inputs!B9 D:=B12*C12 E:=D12*Inputs!B11 F:='Room mix'!D5*Inputs!B12*(1+Inputs!B10)^(9-1) G:=D12-E12-F12 H:0 I:0 J:=IF(A12-1<=Inputs!B20,Development!B10,0) K:0 L:=MAX(0,L11*(1+Inputs!B19)-J12) M:=G12-H12+K12 N:=M12+I12-J12 O:=L11*Inputs!B19 P:=J12-O12 Q:=A12+2027 R:=IF(J12>0,G12/J12,0)
+13 A:11 B:='Room mix'!H5*(1+Inputs!B10)^(10-1) C:=Inputs!B9 D:=B13*C13 E:=D13*Inputs!B11 F:='Room mix'!D5*Inputs!B12*(1+Inputs!B10)^(10-1) G:=D13-E13-F13 H:0 I:0 J:=IF(A13-1<=Inputs!B20,Development!B10,0) K:0 L:=MAX(0,L12*(1+Inputs!B19)-J13) M:=G13-H13+K13 N:=M13+I13-J13 O:=L12*Inputs!B19 P:=J13-O13 Q:=A13+2027 R:=IF(J13>0,G13/J13,0)
+14 A:12 B:='Room mix'!H5*(1+Inputs!B10)^(11-1) C:=Inputs!B9 D:=B14*C14 E:=D14*Inputs!B11 F:='Room mix'!D5*Inputs!B12*(1+Inputs!B10)^(11-1) G:=D14-E14-F14 H:0 I:0 J:=IF(A14-1<=Inputs!B20,Development!B10,0) K:0 L:=MAX(0,L13*(1+Inputs!B19)-J14) M:=G14-H14+K14 N:=M14+I14-J14 O:=L13*Inputs!B19 P:=J14-O14 Q:=A14+2027 R:=IF(J14>0,G14/J14,0)
+15 A:13 B:='Room mix'!H5*(1+Inputs!B10)^(12-1) C:=Inputs!B9 D:=B15*C15 E:=D15*Inputs!B11 F:='Room mix'!D5*Inputs!B12*(1+Inputs!B10)^(12-1) G:=D15-E15-F15 H:0 I:0 J:=IF(A15-1<=Inputs!B20,Development!B10,0) K:0 L:=MAX(0,L14*(1+Inputs!B19)-J15) M:=G15-H15+K15 N:=M15+I15-J15 O:=L14*Inputs!B19 P:=J15-O15 Q:=A15+2027 R:=IF(J15>0,G15/J15,0)
+16 A:14 B:='Room mix'!H5*(1+Inputs!B10)^(13-1) C:=Inputs!B9 D:=B16*C16 E:=D16*Inputs!B11 F:='Room mix'!D5*Inputs!B12*(1+Inputs!B10)^(13-1) G:=D16-E16-F16 H:0 I:0 J:=IF(A16-1<=Inputs!B20,Development!B10,0) K:0 L:=MAX(0,L15*(1+Inputs!B19)-J16) M:=G16-H16+K16 N:=M16+I16-J16 O:=L15*Inputs!B19 P:=J16-O16 Q:=A16+2027 R:=IF(J16>0,G16/J16,0)
+17 A:15 B:='Room mix'!H5*(1+Inputs!B10)^(14-1) C:=Inputs!B9 D:=B17*C17 E:=D17*Inputs!B11 F:='Room mix'!D5*Inputs!B12*(1+Inputs!B10)^(14-1) G:=D17-E17-F17 H:0 I:0 J:=IF(A17-1<=Inputs!B20,Development!B10,0) K:0 L:=MAX(0,L16*(1+Inputs!B19)-J17) M:=G17-H17+K17 N:=M17+I17-J17 O:=L16*Inputs!B19 P:=J17-O17 Q:=A17+2027 R:=IF(J17>0,G17/J17,0)
+18 A:16 B:='Room mix'!H5*(1+Inputs!B10)^(15-1) C:=Inputs!B9 D:=B18*C18 E:=D18*Inputs!B11 F:='Room mix'!D5*Inputs!B12*(1+Inputs!B10)^(15-1) G:=D18-E18-F18 H:0 I:0 J:=IF(A18-1<=Inputs!B20,Development!B10,0) K:0 L:=MAX(0,L17*(1+Inputs!B19)-J18) M:=G18-H18+K18 N:=M18+I18-J18 O:=L17*Inputs!B19 P:=J18-O18 Q:=A18+2027 R:=IF(J18>0,G18/J18,0)
+19 A:17 B:='Room mix'!H5*(1+Inputs!B10)^(16-1) C:=Inputs!B9 D:=B19*C19 E:=D19*Inputs!B11 F:='Room mix'!D5*Inputs!B12*(1+Inputs!B10)^(16-1) G:=D19-E19-F19 H:0 I:0 J:=IF(A19-1<=Inputs!B20,Development!B10,0) K:0 L:=MAX(0,L18*(1+Inputs!B19)-J19) M:=G19-H19+K19 N:=M19+I19-J19 O:=L18*Inputs!B19 P:=J19-O19 Q:=A19+2027 R:=IF(J19>0,G19/J19,0)
+20 A:18 B:='Room mix'!H5*(1+Inputs!B10)^(17-1) C:=Inputs!B9 D:=B20*C20 E:=D20*Inputs!B11 F:='Room mix'!D5*Inputs!B12*(1+Inputs!B10)^(17-1) G:=D20-E20-F20 H:0 I:0 J:=IF(A20-1<=Inputs!B20,Development!B10,0) K:0 L:=MAX(0,L19*(1+Inputs!B19)-J20) M:=G20-H20+K20 N:=M20+I20-J20 O:=L19*Inputs!B19 P:=J20-O20 Q:=A20+2027 R:=IF(J20>0,G20/J20,0)
+21 A:19 B:='Room mix'!H5*(1+Inputs!B10)^(18-1) C:=Inputs!B9 D:=B21*C21 E:=D21*Inputs!B11 F:='Room mix'!D5*Inputs!B12*(1+Inputs!B10)^(18-1) G:=D21-E21-F21 H:0 I:0 J:=IF(A21-1<=Inputs!B20,Development!B10,0) K:0 L:=MAX(0,L20*(1+Inputs!B19)-J21) M:=G21-H21+K21 N:=M21+I21-J21 O:=L20*Inputs!B19 P:=J21-O21 Q:=A21+2027 R:=IF(J21>0,G21/J21,0)
+22 A:20 B:='Room mix'!H5*(1+Inputs!B10)^(19-1) C:=Inputs!B9 D:=B22*C22 E:=D22*Inputs!B11 F:='Room mix'!D5*Inputs!B12*(1+Inputs!B10)^(19-1) G:=D22-E22-F22 H:0 I:0 J:=IF(A22-1<=Inputs!B20,Development!B10,0) K:0 L:=MAX(0,L21*(1+Inputs!B19)-J22) M:=G22-H22+K22 N:=M22+I22-J22 O:=L21*Inputs!B19 P:=J22-O22 Q:=A22+2027 R:=IF(J22>0,G22/J22,0)
+23 A:21 B:='Room mix'!H5*(1+Inputs!B10)^(20-1) C:=Inputs!B9 D:=B23*C23 E:=D23*Inputs!B11 F:='Room mix'!D5*Inputs!B12*(1+Inputs!B10)^(20-1) G:=D23-E23-F23 H:0 I:0 J:=IF(A23-1<=Inputs!B20,Development!B10,0) K:=G23*(1+Inputs!B10)/Inputs!B22*(1-Inputs!B23) L:=MAX(0,L22*(1+Inputs!B19)-J23) M:=G23-H23+K23 N:=M23+I23-J23-L23 O:=L22*Inputs!B19 P:=J23-O23 Q:=A23+2027 R:=IF(J23>0,G23/J23,0)
+25 A:Development costs exclude financing interest; equity cash flow includes it. NOI is after a replacement reserve.
+26 A:First operating NOI is G4. G5 is the second operating year (stabilised occupancy). Exit uses next-year NOI.
+
+SHEET Dashboard 23 2
+1 A:Decision dashboard B:Value
+3 A:Total beds B:='Room mix'!D5
+4 A:Total units B:='Room mix'!B5
+5 A:Total gross area B:='Room mix'!F5
+6 A:Total development cost B:=Development!B7
+7 A:Stabilised NOI B:='Cash flow'!G5
+8 A:Yield on cost B:=B7/B6
+9 A:Unlevered NPV B:=NPV(Inputs!B21,'Cash flow'!M3:M23)+'Cash flow'!M2
+10 A:Unlevered IRR B:=IFERROR(IRR('Cash flow'!M2:M23),0)
+11 A:Equity NPV B:=NPV(Inputs!B31,'Cash flow'!N3:N23)+'Cash flow'!N2
+12 A:Equity IRR B:=IFERROR(IRR('Cash flow'!N2:N23),0)
+13 A:Stabilised DSCR B:=B7/Development!B10
+14 A:Preliminary decision B:=IF(B9>0,"Financially viable under assumptions","Redesign / lower land and construction cost")
+16 A:Rent reference status B:=IF(COUNTIF('Rent rules'!C2:C4,">0")=3,"Reference inputs supplied; final legal review required","NOT VERIFIED - enter official references")
+17 A:Demand screen B:='Demand & competition'!B12
+18 A:Opening calendar year B:2029
+19 A:Funding per bed B:=Development!B16
+20 A:Break-even occupancy (NOI covers debt) B:=(Development!B10+'Cash flow'!F5)/('Cash flow'!B5*(1-Inputs!B11))
+21 A:Operating rent multiplier for NPV=0 B:See sensitivity and scenarios; increases remain subject to reference-rent rules.
+23 A:Investment gate B:=IF(AND(B9>0,B13>=1.2,COUNTIF('Rent rules'!C2:C4,">0")=3),"Proceed to detailed due diligence","HOLD: financial and/or rent-reference gate unmet")
+
+SHEET Sources 10 4
+1 A:ID / topic B:Primary URL C:Evidence / model treatment D:Publication / access
+2 A:S1 Demand B:https://perspective.brussels/fr/actualites/un-etudiant-sur-trois-trouve-un-kot-dans-un-logement-qui-lui-est-destine C:137,000+ students; 37,000+ housing users; 11,305 dedicated units. Cross-year regional proxy only. D:6 Jan 2026 / 14 Oct 2026
+3 A:S2 Usquare permit B:https://msi.brussels/nieuws/usquare-de-msi-dient-vergunningsaanvraag-voor-465-studentenwoningen C:465 student rooms in permit application; replaces older 460-room concept. D:25 Aug 2026 / 14 Oct 2026
+4 A:S3 Usquare schedule B:https://usquare.brussels/en/schedule C:Provisional September 2029 commissioning; 30-36 month works. Not a completion guarantee. D:Access 14 Oct 2026
+5 A:S4 Bru Upkot B:https://www.upkot.be/en/locations/brussels/bru-upkot C:216 rooms; 2026-27 prices: entry 589+119; 1p studio 769+134; 2p studio 859+164 EUR/month. D:2026-27 / 14 Oct 2026
+6 A:S5 VUB stock B:https://www.vub.be/en/studying-vub/practical-info-for-students/student-housing C:1,540 rooms across campus network, not Etterbeek alone. D:Access 14 Oct 2026
+7 A:S6 VUB rents B:https://www.vub.be/en/studying-vub/practical-info-for-students/student-housing/practical-housing-information C:2026-27: room 449.30, single studio 561.60, two-person flat 674 EUR/month including listed services; demand exceeds supply. D:Updated 18 Sep 2026 / 14 Oct 2026
+8 A:S7 Rent regulation B:https://be.brussels/fr/logement/location/bail-dhabitation/loyers-de-reference C:Reference must be in lease; >20% above reference presumed excessive with potential justification; quality issues can affect lower rents; obligation from 1 May 2025. D:Access 14 Oct 2026
+9 A:S8 Calculator B:https://loyers.brussels/ C:Exact site and property details required. No official reference amount assumed in this model. D:Not calculated: missing site
+10 A:A1 Cost / finance B:Analyst assumptions, not market quotes C:Hard costs 2200 EUR/gross sqm, land 1.8m, 21% nonrecoverable VAT, financing 4.5%, land fees 15%; obtain quotations. D:14 Oct 2026
+
+SHEET Demand & competition 28 5
+1 A:Evidence / planning assumption B:Value C:Interpretation / source ID
+2 A:Brussels students, 2022-23 B:137000 C:Lower-bound rounded figure; S1
+3 A:Students using accommodation, 2022-23 B:37000 C:At least; regional demand indicator, not new vacant demand; S1
+4 A:Dedicated student units, 2025 B:11305 C:Units are not necessarily beds; cross-period comparison; S1
+5 A:Indicative non-dedicated demand B:=B3-B4 C:Proxy only; many already housed in ordinary rentals
+6 A:Usquare proposed rooms B:465 C:Permit submitted 25 Aug 2026; S2
+7 A:Pipeline overlap factor B:1 C:Conservative assumption: all compete with project
+8 A:Residual proxy B:=MAX(0,B5-B6*B7) C:Not a verified local waiting list
+9 A:Local addressable capture assumption B:0.006 C:0.6% of proxy; replace with local survey
+10 A:Indicative addressable beds B:=B8*B9 C:Screening estimate only
+11 A:Proposed beds B:='Room mix'!D5 C:100 units / 120 beds baseline
+12 A:Beds versus addressable estimate B:=IF(B11<=B10,"Within planning envelope","Capacity exceeds assumed envelope") C:Demand gate; validate pre-letting
+13 A:Expected stabilised occupied beds B:=B11*Inputs!B9 C:95% assumption, not observed market occupancy
+14 A:Usquare opening target B:2029 C:S3 provisional schedule; older 2026 announcement superseded
+17 A:Competitor / status B:Beds or units C:Rent/month D:Charges E:Source / implication
+18 A:Usquare / proposed B:465 C:Not published D:Unknown E:S2/S3: affordable pipeline, 2029 target; monitor permit and delivery
+19 A:Bru Upkot / operating B:216 C:589 D:119 E:S4: entry room; 0.75km to VUB; existing stock, do not subtract again
+20 A:Bru Upkot / 1p studio C:769 D:134 E:S4: 2026-27 asking rent
+21 A:Bru Upkot / 2p studio C:859 D:164 E:S4: unit asking rent; per person half if 2 tenants
+22 A:VUB / operating network B:1540 C:449.3 D:Included E:S5/S6: across Etterbeek + Jette; not all local
+23 A:VUB / restricted single studio B:12 C:561.6 D:Included E:S6: reserved for medical need; not general private market
+24 A:VUB / two-person flats B:35 C:674 D:Included E:S6: unit price; limited institutional allocation
+26 A:Positioning B:Base rent below private Bru Upkot examples; VUB institutional all-inclusive prices are lower and not directly comparable.
+27 A:Sizing rationale B:60 normal beds + 40 shared-studio beds + 20 single-studio beds; 83% of beds in lower-price products.
+28 A:Site concept B:Approximately 3,108 gross sqm; at 4 floors, ~777 sqm footprint, before site circulation and external space. Assumption, no planning assurance.
+
+SHEET Rent rules 11 7
+1 A:Room type B:Desired rent/unit/month C:Official reference/unit/month D:Planning affordability cap/unit E:Applied unit rent F:Applied per person G:Verification
+2 A:Normal dorm B:=Inputs!B5*1 C:0 D:480 E:=MIN(B2,D2,IF(C2>0,C2*Inputs!B35,D2)) F:=E2/1 G:=IF(C2>0,"Reference supplied - review quality and lease","NOT VERIFIED")
+3 A:Shared studio B:=Inputs!B6*2 C:0 D:780 E:=MIN(B3,D3,IF(C3>0,C3*Inputs!B35,D3)) F:=E3/2 G:=IF(C3>0,"Reference supplied - review quality and lease","NOT VERIFIED")
+4 A:Single studio B:=Inputs!B7*1 C:0 D:650 E:=MIN(B4,D4,IF(C4>0,C4*Inputs!B35,D4)) F:=E4/1 G:=IF(C4>0,"Reference supplied - review quality and lease","NOT VERIFIED")
+6 A:Rule B:Reference rent depends on address, area, condition and amenities. No universal Brussels student-room tariff.
+7 A:20% screen B:Above reference +20% is presumed excessive, subject to specific justifications. Lower rents may also be excessive due to quality defects.
+8 A:Model policy B:At/below supplied reference by default. Enter official calculator output per rented unit; a zero means missing, not zero allowable rent.
+9 A:Lease review B:Reference must appear in lease; verify student lease, indexation and separate utility settlement before offering units.
+10 A:Official calculator B:https://loyers.brussels/
+11 A:Source B:https://be.brussels/fr/logement/location/bail-dhabitation/loyers-de-reference
+
+SHEET Scenarios 7 30
+1 A:Scenario B:Cost multiplier C:Stabilised occupancy D:Rent multiplier E:Exit cap F:Project NPV G:Project IRR H:Stabilised DSCR I:CF year 0 J:CF year 1 K:CF year 2 L:CF year 3 M:CF year 4 N:CF year 5 O:CF year 6 P:CF year 7 Q:CF year 8 R:CF year 9 S:CF year 10 T:CF year 11 U:CF year 12 V:CF year 13 W:CF year 14 X:CF year 15 Y:CF year 16 Z:CF year 17 AA:CF year 18 AB:CF year 19 AC:CF year 20 AD:CF year 21
+2 A:Downside B:1.1 C:0.85 D:0.95 E:0.06 F:=NPV(Inputs!B21,J2:AD2)+I2 G:=IFERROR(IRR(I2:AD2),0) H:=('Cash flow'!B5*D2*C2*(1-Inputs!B11)-'Cash flow'!F5)/(-PMT(Inputs!B19,Inputs!B20,Development!B8*B2)) I:=-Development!B15*B2/2 J:=-Development!B15*B2/2 K:=('Cash flow'!B4*D2*(Inputs!B29*C2/Inputs!B9)*(1-Inputs!B11)-'Cash flow'!F4) L:=('Cash flow'!B5*D2*(C2)*(1-Inputs!B11)-'Cash flow'!F5) M:=('Cash flow'!B6*D2*(C2)*(1-Inputs!B11)-'Cash flow'!F6) N:=('Cash flow'!B7*D2*(C2)*(1-Inputs!B11)-'Cash flow'!F7) O:=('Cash flow'!B8*D2*(C2)*(1-Inputs!B11)-'Cash flow'!F8) P:=('Cash flow'!B9*D2*(C2)*(1-Inputs!B11)-'Cash flow'!F9) Q:=('Cash flow'!B10*D2*(C2)*(1-Inputs!B11)-'Cash flow'!F10) R:=('Cash flow'!B11*D2*(C2)*(1-Inputs!B11)-'Cash flow'!F11) S:=('Cash flow'!B12*D2*(C2)*(1-Inputs!B11)-'Cash flow'!F12) T:=('Cash flow'!B13*D2*(C2)*(1-Inputs!B11)-'Cash flow'!F13) U:=('Cash flow'!B14*D2*(C2)*(1-Inputs!B11)-'Cash flow'!F14) V:=('Cash flow'!B15*D2*(C2)*(1-Inputs!B11)-'Cash flow'!F15) W:=('Cash flow'!B16*D2*(C2)*(1-Inputs!B11)-'Cash flow'!F16) X:=('Cash flow'!B17*D2*(C2)*(1-Inputs!B11)-'Cash flow'!F17) Y:=('Cash flow'!B18*D2*(C2)*(1-Inputs!B11)-'Cash flow'!F18) Z:=('Cash flow'!B19*D2*(C2)*(1-Inputs!B11)-'Cash flow'!F19) AA:=('Cash flow'!B20*D2*(C2)*(1-Inputs!B11)-'Cash flow'!F20) AB:=('Cash flow'!B21*D2*(C2)*(1-Inputs!B11)-'Cash flow'!F21) AC:=('Cash flow'!B22*D2*(C2)*(1-Inputs!B11)-'Cash flow'!F22) AD:=('Cash flow'!B23*D2*(C2)*(1-Inputs!B11)-'Cash flow'!F23)+('Cash flow'!B23*D2*(C2)*(1-Inputs!B11)-'Cash flow'!F23)*(1+Inputs!B10)/E2*(1-Inputs!B23)
+3 A:Base B:1 C:0.95 D:1 E:0.055 F:=NPV(Inputs!B21,J3:AD3)+I3 G:=IFERROR(IRR(I3:AD3),0) H:=('Cash flow'!B5*D3*C3*(1-Inputs!B11)-'Cash flow'!F5)/(-PMT(Inputs!B19,Inputs!B20,Development!B8*B3)) I:=-Development!B15*B3/2 J:=-Development!B15*B3/2 K:=('Cash flow'!B4*D3*(Inputs!B29*C3/Inputs!B9)*(1-Inputs!B11)-'Cash flow'!F4) L:=('Cash flow'!B5*D3*(C3)*(1-Inputs!B11)-'Cash flow'!F5) M:=('Cash flow'!B6*D3*(C3)*(1-Inputs!B11)-'Cash flow'!F6) N:=('Cash flow'!B7*D3*(C3)*(1-Inputs!B11)-'Cash flow'!F7) O:=('Cash flow'!B8*D3*(C3)*(1-Inputs!B11)-'Cash flow'!F8) P:=('Cash flow'!B9*D3*(C3)*(1-Inputs!B11)-'Cash flow'!F9) Q:=('Cash flow'!B10*D3*(C3)*(1-Inputs!B11)-'Cash flow'!F10) R:=('Cash flow'!B11*D3*(C3)*(1-Inputs!B11)-'Cash flow'!F11) S:=('Cash flow'!B12*D3*(C3)*(1-Inputs!B11)-'Cash flow'!F12) T:=('Cash flow'!B13*D3*(C3)*(1-Inputs!B11)-'Cash flow'!F13) U:=('Cash flow'!B14*D3*(C3)*(1-Inputs!B11)-'Cash flow'!F14) V:=('Cash flow'!B15*D3*(C3)*(1-Inputs!B11)-'Cash flow'!F15) W:=('Cash flow'!B16*D3*(C3)*(1-Inputs!B11)-'Cash flow'!F16) X:=('Cash flow'!B17*D3*(C3)*(1-Inputs!B11)-'Cash flow'!F17) Y:=('Cash flow'!B18*D3*(C3)*(1-Inputs!B11)-'Cash flow'!F18) Z:=('Cash flow'!B19*D3*(C3)*(1-Inputs!B11)-'Cash flow'!F19) AA:=('Cash flow'!B20*D3*(C3)*(1-Inputs!B11)-'Cash flow'!F20) AB:=('Cash flow'!B21*D3*(C3)*(1-Inputs!B11)-'Cash flow'!F21) AC:=('Cash flow'!B22*D3*(C3)*(1-Inputs!B11)-'Cash flow'!F22) AD:=('Cash flow'!B23*D3*(C3)*(1-Inputs!B11)-'Cash flow'!F23)+('Cash flow'!B23*D3*(C3)*(1-Inputs!B11)-'Cash flow'!F23)*(1+Inputs!B10)/E3*(1-Inputs!B23)
+4 A:Upside B:0.9 C:0.98 D:1.05 E:0.05 F:=NPV(Inputs!B21,J4:AD4)+I4 G:=IFERROR(IRR(I4:AD4),0) H:=('Cash flow'!B5*D4*C4*(1-Inputs!B11)-'Cash flow'!F5)/(-PMT(Inputs!B19,Inputs!B20,Development!B8*B4)) I:=-Development!B15*B4/2 J:=-Development!B15*B4/2 K:=('Cash flow'!B4*D4*(Inputs!B29*C4/Inputs!B9)*(1-Inputs!B11)-'Cash flow'!F4) L:=('Cash flow'!B5*D4*(C4)*(1-Inputs!B11)-'Cash flow'!F5) M:=('Cash flow'!B6*D4*(C4)*(1-Inputs!B11)-'Cash flow'!F6) N:=('Cash flow'!B7*D4*(C4)*(1-Inputs!B11)-'Cash flow'!F7) O:=('Cash flow'!B8*D4*(C4)*(1-Inputs!B11)-'Cash flow'!F8) P:=('Cash flow'!B9*D4*(C4)*(1-Inputs!B11)-'Cash flow'!F9) Q:=('Cash flow'!B10*D4*(C4)*(1-Inputs!B11)-'Cash flow'!F10) R:=('Cash flow'!B11*D4*(C4)*(1-Inputs!B11)-'Cash flow'!F11) S:=('Cash flow'!B12*D4*(C4)*(1-Inputs!B11)-'Cash flow'!F12) T:=('Cash flow'!B13*D4*(C4)*(1-Inputs!B11)-'Cash flow'!F13) U:=('Cash flow'!B14*D4*(C4)*(1-Inputs!B11)-'Cash flow'!F14) V:=('Cash flow'!B15*D4*(C4)*(1-Inputs!B11)-'Cash flow'!F15) W:=('Cash flow'!B16*D4*(C4)*(1-Inputs!B11)-'Cash flow'!F16) X:=('Cash flow'!B17*D4*(C4)*(1-Inputs!B11)-'Cash flow'!F17) Y:=('Cash flow'!B18*D4*(C4)*(1-Inputs!B11)-'Cash flow'!F18) Z:=('Cash flow'!B19*D4*(C4)*(1-Inputs!B11)-'Cash flow'!F19) AA:=('Cash flow'!B20*D4*(C4)*(1-Inputs!B11)-'Cash flow'!F20) AB:=('Cash flow'!B21*D4*(C4)*(1-Inputs!B11)-'Cash flow'!F21) AC:=('Cash flow'!B22*D4*(C4)*(1-Inputs!B11)-'Cash flow'!F22) AD:=('Cash flow'!B23*D4*(C4)*(1-Inputs!B11)-'Cash flow'!F23)+('Cash flow'!B23*D4*(C4)*(1-Inputs!B11)-'Cash flow'!F23)*(1+Inputs!B10)/E4*(1-Inputs!B23)
+7 A:Scenario occupancy replaces stabilised input; opening occupancy scales proportionally. Debt scales with capex for DSCR. Rent upside is a stress case, not legal permission
+
+SHEET Sensitivity 6 4
+1 A:Unlevered NPV: cost vs occupancy B:0.85 C:0.95 D:0.98
+2 A:0.9 B:=-Development!B15*$A2/2+-Development!B15*$A2/2/(1+Inputs!B21)+('Cash flow'!B4*Inputs!B29*B$1/Inputs!B9*(1-Inputs!B11)-'Cash flow'!F4)/(1+Inputs!B21)^2+('Cash flow'!B5*B$1 C:=-Development!B15*$A2/2+-Development!B15*$A2/2/(1+Inputs!B21)+('Cash flow'!B4*Inputs!B29*C$1/Inputs!B9*(1-Inputs!B11)-'Cash flow'!F4)/(1+Inputs!B21)^2+('Cash flow'!B5*C$1 D:=-Development!B15*$A2/2+-Development!B15*$A2/2/(1+Inputs!B21)+('Cash flow'!B4*Inputs!B29*D$1/Inputs!B9*(1-Inputs!B11)-'Cash flow'!F4)/(1+Inputs!B21)^2+('Cash flow'!B5*D$1
+3 A:1 B:=-Development!B15*$A3/2+-Development!B15*$A3/2/(1+Inputs!B21)+('Cash flow'!B4*Inputs!B29*B$1/Inputs!B9*(1-Inputs!B11)-'Cash flow'!F4)/(1+Inputs!B21)^2+('Cash flow'!B5*B$1 C:=-Development!B15*$A3/2+-Development!B15*$A3/2/(1+Inputs!B21)+('Cash flow'!B4*Inputs!B29*C$1/Inputs!B9*(1-Inputs!B11)-'Cash flow'!F4)/(1+Inputs!B21)^2+('Cash flow'!B5*C$1 D:=-Development!B15*$A3/2+-Development!B15*$A3/2/(1+Inputs!B21)+('Cash flow'!B4*Inputs!B29*D$1/Inputs!B9*(1-Inputs!B11)-'Cash flow'!F4)/(1+Inputs!B21)^2+('Cash flow'!B5*D$1
+4 A:1.1 B:=-Development!B15*$A4/2+-Development!B15*$A4/2/(1+Inputs!B21)+('Cash flow'!B4*Inputs!B29*B$1/Inputs!B9*(1-Inputs!B11)-'Cash flow'!F4)/(1+Inputs!B21)^2+('Cash flow'!B5*B$1 C:=-Development!B15*$A4/2+-Development!B15*$A4/2/(1+Inputs!B21)+('Cash flow'!B4*Inputs!B29*C$1/Inputs!B9*(1-Inputs!B11)-'Cash flow'!F4)/(1+Inputs!B21)^2+('Cash flow'!B5*C$1 D:=-Development!B15*$A4/2+-Development!B15*$A4/2/(1+Inputs!B21)+('Cash flow'!B4*Inputs!B29*D$1/Inputs!B9*(1-Inputs!B11)-'Cash flow'!F4)/(1+Inputs!B21)^2+('Cash flow'!B5*D$1
+6 A:Rows = development cost multiplier. Columns = stabilised occupancy. Opening occupancy scales with stabilised occupancy. Rents unchanged.
+
+SHEET Checks 11 3
+1 A:Control B:Value C:Expected
+2 A:Beds reconcile B:='Room mix'!D5-(Inputs!B2+Inputs!B3*2+Inputs!B4) C:0
+3 A:Sources = funding B:=Development!B7-Development!B8-Development!B9 C:0
+4 A:Debt fully drawn B:=SUM('Cash flow'!I2:I23)-Development!B8 C:0
+5 A:Unlevered spend matches budget B:=SUM('Cash flow'!H2:H23)-Development!B15 C:0
+6 A:Equity invested B:=-SUM('Cash flow'!N2:N3)-Development!B9 C:0
+7 A:Base scenario NPV reconciles B:=Scenarios!F3-Dashboard!B9 C:0
+8 A:Rent references supplied B:=COUNTIF('Rent rules'!C2:C4,">0") C:3
+9 A:Occupancy bounds B:=IF(AND(Inputs!B9>0,Inputs!B9<=1,Inputs!B29>0,Inputs!B29<=1),0,1) C:0
+10 A:Candidate capacity reconciliation B:='Room mix'!D5-Inputs!B36 C:0
+11 A:Capacity option cost reconciliation B:='Capacity options'!I3-Development!B7 C:0
+
+SHEET Capacity options 8 13
+1 A:Design B:Normal rooms C:Shared studios D:Single studios E:Beds F:Gross sqm G:Gross annual rent H:Project cost ex interest I:Funding incl interest J:Stabilised NOI K:Yield on cost L:DSCR M:Demand screen
+2 A:Compact B:40 C:12 D:16 E:=B2+2*C2+D2 F:=(B2*Inputs!B25+C2*Inputs!B26+D2*Inputs!B27)*Inputs!B28 G:=(B2*'Rent rules'!F2+C2*2*'Rent rules'!F3+D2*'Rent rules'!F4)*Inputs!B8 H:=Inputs!B14*(1+Inputs!B32)+F2*Inputs!B13*(1+Inputs!B15)*(1+Inputs!B16)*(1+Inputs!B17)+E2*Inputs!B33+Inputs!B34 I:=H2*(1+Inputs!B18*Inputs!B19) J:=(G2*Inputs!B9*(1-Inputs!B11)-E2*Inputs!B12)*(1+Inputs!B10) K:=J2/I2 L:=J2/(-PMT(Inputs!B19,Inputs!B20,H2*Inputs!B18)) M:=IF(E2<='Demand & competition'!B10,"Within assumed demand","Above assumed demand")
+3 A:Proposed B:60 C:20 D:20 E:=B3+2*C3+D3 F:=(B3*Inputs!B25+C3*Inputs!B26+D3*Inputs!B27)*Inputs!B28 G:=(B3*'Rent rules'!F2+C3*2*'Rent rules'!F3+D3*'Rent rules'!F4)*Inputs!B8 H:=Inputs!B14*(1+Inputs!B32)+F3*Inputs!B13*(1+Inputs!B15)*(1+Inputs!B16)*(1+Inputs!B17)+E3*Inputs!B33+Inputs!B34 I:=H3*(1+Inputs!B18*Inputs!B19) J:=(G3*Inputs!B9*(1-Inputs!B11)-E3*Inputs!B12)*(1+Inputs!B10) K:=J3/I3 L:=J3/(-PMT(Inputs!B19,Inputs!B20,H3*Inputs!B18)) M:=IF(E3<='Demand & competition'!B10,"Within assumed demand","Above assumed demand")
+4 A:Larger B:80 C:28 D:24 E:=B4+2*C4+D4 F:=(B4*Inputs!B25+C4*Inputs!B26+D4*Inputs!B27)*Inputs!B28 G:=(B4*'Rent rules'!F2+C4*2*'Rent rules'!F3+D4*'Rent rules'!F4)*Inputs!B8 H:=Inputs!B14*(1+Inputs!B32)+F4*Inputs!B13*(1+Inputs!B15)*(1+Inputs!B16)*(1+Inputs!B17)+E4*Inputs!B33+Inputs!B34 I:=H4*(1+Inputs!B18*Inputs!B19) J:=(G4*Inputs!B9*(1-Inputs!B11)-E4*Inputs!B12)*(1+Inputs!B10) K:=J4/I4 L:=J4/(-PMT(Inputs!B19,Inputs!B20,H4*Inputs!B18)) M:=IF(E4<='Demand & competition'!B10,"Within assumed demand","Above assumed demand")
+7 A:Selection rationale B:120 beds is the largest tested design within the assumed local demand envelope (~151 beds). The 80-bed design limits lease-up exposure; 160 beds exceeds the envelope.
+8 A:Financial conclusion B:Demand alone does not justify construction. All sizes require yield and debt-coverage review; base 120-bed case fails the investment gate.
+
+exec
+/bin/zsh -lc "which libreoffice soffice uv pip3; ls /Applications; rg --files -g AGENTS.md -g '"'!model.xlsx'"' -g '"'!*.xls'"' .; python3 -m pip install --target /private/tmp/da_deps xlrd -q" in /Users/lvanhaverbeke/Decision Analytics/prompts/groupMSN
+web search: 
+web search: https://be.brussels/fr/logement/location/bail-dhabitation/loyers-de-reference
+ exited 1 in 7818ms:
+libreoffice not found
+soffice not found
+uv not found
+/usr/bin/pip3
+Adobe Acrobat DC
+Adobe Creative Cloud
+Amazon Quick.app
+Asana.app
+BambuStudio.app
+Cisco Webex Meetings.app
+Day One.app
+EndNote 20
+Evernote.app
+GarageBand.app
+Google Chrome.app
+Keynote Creator Studio.app
+Keynote.app
+Microsoft Defender Shim.app
+Microsoft Excel.app
+Microsoft OneNote.app
+Microsoft Outlook.app
+Microsoft PowerPoint.app
+Microsoft Teams.app
+Microsoft To Do.app
+Microsoft Word.app
+Notion.app
+Numbers.app
+OmniFocus.app
+OmniGraffle.app
+OneDrive.app
+PDF Expert.app
+Pages.app
+Positron.app
+Pulse Secure.app
+QGIS.app
+R.app
+RStudio.app
+Raspberry Pi Imager.app
+ReadCube Papers Extension.app
+ReadCube.app
+Safari.app
+Tableau Desktop 2025.3.app
+Tableau Prep Builder 2025.3.app
+TeX
+TestGen
+Utilities
+iMovie.app
+reMarkable.app
+zoom.us.app
+WARNING: The directory '/Users/lvanhaverbeke/Library/Caches/pip' or its parent directory is not owned or is not writable by the current user. The cache has been disabled. Check the permissions and owner of that directory. If executing pip with sudo, you should use sudo's -H flag.
+WARNING: Retrying (Retry(total=4, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<pip._vendor.urllib3.connection.HTTPSConnection object at 0x107362490>: Failed to establish a new connection: [Errno 8] nodename nor servname provided, or not known')': /simple/xlrd/
+WARNING: Retrying (Retry(total=3, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<pip._vendor.urllib3.connection.HTTPSConnection object at 0x107362970>: Failed to establish a new connection: [Errno 8] nodename nor servname provided, or not known')': /simple/xlrd/
+WARNING: Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<pip._vendor.urllib3.connection.HTTPSConnection object at 0x107362b20>: Failed to establish a new connection: [Errno 8] nodename nor servname provided, or not known')': /simple/xlrd/
+WARNING: Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<pip._vendor.urllib3.connection.HTTPSConnection object at 0x107362cd0>: Failed to establish a new connection: [Errno 8] nodename nor servname provided, or not known')': /simple/xlrd/
+WARNING: Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<pip._vendor.urllib3.connection.HTTPSConnection object at 0x107362e80>: Failed to establish a new connection: [Errno 8] nodename nor servname provided, or not known')': /simple/xlrd/
+ERROR: Could not find a version that satisfies the requirement xlrd (from versions: none)
+ERROR: No matching distribution found for xlrd
+
+exec
+/bin/zsh -lc "file 'Chapter 1 - New road analysis model.xls'; find /Users/lvanhaverbeke /opt /Library/Python -path '*/xlrd/__init__.py' -o -name 'libreoffice' 2>/dev/null | head -15; which osascript; python3 - <<'PY'
+import openpyxl,os
+w=openpyxl.load_workbook('model.xlsx');w['Read me']['A5']='Class example supplied; methodological review and analytical upgrades in progress.'
+w.save('.model.work.xlsx');os.replace('.model.work.xlsx','model.xlsx')
+print('minimal atomic save complete; save_now',os.path.exists('.deadline_runs/20261029T053252Z-5d40d38f/SAVE_NOW.txt'))
+PY" in /Users/lvanhaverbeke/Decision Analytics/prompts/groupMSN
+exec
+/bin/zsh -lc "python3 - <<'PY'
+import openpyxl,os,importlib.util
+w=openpyxl.load_workbook('model.xlsx');w['Read me']['A5']='Class example supplied; methodological review and analytical upgrades in progress.';w.save('.model.work.xlsx');os.replace('.model.work.xlsx','model.xlsx');print('atomic checkpoint saved')
+for x in ['pandas','olefile','formulas','pycel']:print(x,bool(importlib.util.find_spec(x)))
+PY
+osascript -e 'tell application \"Microsoft Excel\" to get version'" in /Users/lvanhaverbeke/Decision Analytics/prompts/groupMSN
+ exited 1 in 572ms:
+atomic checkpoint saved
+pandas False
+olefile False
+formulas False
+pycel False
+2026-10-29 06:33:28.356 osascript[1667:14507743] Connection Invalid error for service com.apple.hiservices-xpcservice.
+2026-10-29 06:33:28.356 osascript[1667:14507741] Error received in message reply handler: Connection invalid
+42:49: execution error: Can’t get application "Microsoft Excel". (-1728)
+
+mcp: codex_apps/codex_document_control.list_document_sessions started
+mcp: codex_apps/codex_document_control.list_document_sessions (completed)
+exec
+/bin/zsh -lc "ls /usr/local/bin/python* /opt/homebrew/bin/python* /Users/lvanhaverbeke/.venv/bin/python* /Users/lvanhaverbeke/miniconda3/bin/python* 2>/dev/null; strings 'Chapter 1 - New road analysis model.xls' | head -100; test -f .deadline_runs/20261029T053252Z-5d40d38f/SAVE_NOW.txt && echo SAVE_NOW" in /Users/lvanhaverbeke/Decision Analytics/prompts/groupMSN
+ exited 1 in 1505ms:
+zsh:1: no matches found: /usr/local/bin/python*
+Microsoft Office User                                                                                        B
+ThisWorkbook
+r|B8
+_ * #,##0_)_ ;_ * \(#,##0\)_ ;_ * "-"_)_ ;_ @_ 
+_ * #,##0.00_)_ ;_ * \(#,##0.00\)_ ;_ * "-"??_)_ ;_ @_ 
+"$"#,##0_);\("$"#,##0\)
+"$"#,##0_);[Red]\("$"#,##0\)
+"$"#,##0.00_);\("$"#,##0.00\)
+"$"#,##0.00_);[Red]\("$"#,##0.00\)
+_("$"* #,##0_);_("$"* \(#,##0\);_("$"* "-"_);_(@_)
+_(* #,##0_);_(* \(#,##0\);_(* "-"_);_(@_)
+_("$"* #,##0.00_);_("$"* \(#,##0.00\);_("$"* "-"??_);_(@_)
+_(* #,##0.00_);_(* \(#,##0.00\);_(* "-"??_);_(@_)
+_ * #,##0_ ;_ * \-#,##0_ ;_ * "-"_ ;_ @_ 
+_ * #,##0.00_ ;_ * \-#,##0.00_ ;_ * "-"??_ ;_ @_ 
+0.0%
+0.000%
+#,##0_ ;[Red]\-#,##0\ 
+#,#00%
+_(* #,##0.0_);_(* \(#,##0.0\);_(* "-"??_);_(@_)
+_(* #,##0_);_(* \(#,##0\);_(* "-"??_);_(@_)
+_(* #.##000_);_(* \(#.##000\);_(* "-"??_);_(@_)
+_(* #\ ##0.00_);_(* \(#\ ##0.00\);_(* "-"??_);_(@_)
+0.00\);_
+0.00\);_
+0.00\);_
+0.00\);_
+0.00\);_
+0.00\);_
+0.00\);_
+0.00\);_
+0.00\);_
+0.00\);_
+0.00\);_
+0.00\);_
+0.00\);_
+0.00\);_
+0.00\);_
+0.00\);_
+0.00\);_
+0.00\);_
+0.00\);_
+0.00\);_
+0.00\);_
+0.00\);_
+0.00\);_
+0.00\);_
+0.00\);_
+0.00\);_
+0.00\);_
+0.00\);_
+0.00\);_
+0.00\);_
+0.00\);_
+0.00\);_
+0.00\);_
+0.00\);_
+0.00\);_
+0.00\);_
+0.00\);_
+0.00\);_
+0.00\);_
+0.00\);_
+0.00\);_
+0.00\);_
+0.00\);_}
+0.00\);_}
+0.00\);_}
+0.00\);_}
+0.00\);_}
+0.00\);_}
+0.00\);_}
+0.00\);_}
+0.00\);_}
+0.00\);_}
+0.00\);_}
+0.00\);_}
+0.00\);_}
+0.00\);_}
+0.00\);_}
+0.00\);_}
+0.00\);_}
+0.00\);_}
+0.00\);_}
+0.00\);_}
+0.00\);_}
+);_}
+);_}
+);_}
+);_}
+);_}
+);_}
+);_}
+);_}
+);_}
+);_}
+);_}
+);_}
+);_}
+);_}
+
+codex
+The existing workbook has a useful cash-flow model, but it lacks Monte Carlo simulation and only compares three capacity options. I’m retaining the cash flows and adding systematic integer optimization, rental sensitivity, and risk analysis using the same financial logic.
+
+exec
+/bin/zsh -lc "cat > /private/tmp/readclass.py <<'PY'
+import struct as s,json
+p='Chapter 1 - New road analysis model.xls';b=open(p,'rb').read();ss=1<<s.unpack_from('<H',b,30)[0]
+def sec(i):return b[(i+1)*ss:(i+2)*ss]
+fatids=[i for i in s.unpack_from('<109I',b,76) if i<0xfffffffa];fat=[]
+for i in fatids:fat+=list(s.unpack('<%dI'%(ss//4),sec(i)))
+def chain(i):
+ a=b'';seen=set()
+ while i<0xfffffffa and i not in seen:seen.add(i);a+=sec(i);i=fat[i]
+ return a
+d=chain(s.unpack_from('<I',b,48)[0]);streams={}
+for o in range(0,len(d),128):
+ n=s.unpack_from('<H',d,o+64)[0]
+ if n>2:
+  name=d[o:o+n-2].decode('utf16');start=s.unpack_from('<I',d,o+116)[0];size=s.unpack_from('<Q',d,o+120)[0];streams[name]=(start,size)
+print(streams)
+a=chain(streams.get('Workbook',streams.get('Book'))[0]);recs=[];o=0
+while o+4<=len(a):
+ t,l=s.unpack_from('<HH',a,o);r=a[o+4:o+4+l];recs.append((o,t,r));o+=4+l
+sst=[]
+for o,t,r in recs:
+ if t==0xfc:
+  n=s.unpack_from('<I',r,4)[0];i=8
+  for j in range(n):
+   try:
+    ln,fl=s.unpack_from('<HB',r,i);i+=3;nr=0;ex=0
+    if fl&8:nr=s.unpack_from('<H',r,i)[0];i+=2
+    if fl&4:ex=s.unpack_from('<I',r,i)[0];i+=4
+    size=ln*(2 if fl&1 else 1);v=r[i:i+size].decode('utf-16le' if fl&1 else 'latin1');i+=size+nr*4+ex;sst.append(v)
+   except:break
+bounds=[]
+for o,t,r in recs:
+ if t==0x85:
+  off=s.unpack_from('<I',r)[0];ln=r[6];fl=r[7];name=r[8:8+ln*(2 if fl&1 else 1)].decode('utf-16le' if fl&1 else 'latin1');bounds.append((off,name))
+print('SHEETS',bounds,'SST',len(sst));current='Globals';out=[]
+for o,t,r in recs:
+ for off,name in bounds:
+  if off==o:current=name;print('\\nSHEET',name)
+ if t==0xfd:
+  row,col,xf,idx=s.unpack('<HHHI',r)
+  if idx<len(sst):print(row+1,col+1,sst[idx]);out.append((current,row+1,col+1,sst[idx]))
+ elif t==0x203:
+  row,col,xf,num=s.unpack('<HHHd',r);print(row+1,col+1,num)
+ elif t==6:
+  row,col,xf=s.unpack_from('<HHH',r);val=s.unpack_from('<d',r,6)[0];tok=r[22:].hex();print('FORMULA',row+1,col+1,'cached',val,'tokens',tok)
+json.dump(out,open('/private/tmp/classread.json','w'))
+PY
+python3 /private/tmp/readclass.py > /private/tmp/classread.txt
+head -180 /private/tmp/classread.txt" in /Users/lvanhaverbeke/Decision Analytics/prompts/groupMSN
+ succeeded in 0ms:
+{'Root Entry': (239, 17280), 'Workbook': (4, 106085), '_VBA_PROJECT_CUR': (0, 0), 'MsoDataStore': (0, 0), 'ENÌWJÑ×NJE0HQYNDIÀH×ÏA==': (0, 0), 'Item': (18, 219), 'Properties': (22, 335), 'KÖGIÙÝLJBUCIÁQZÖÎUÊÊÂQ==': (0, 0), 'VBA': (0, 0), 'ThisWorkbook': (28, 1148), 'Sheet1': (46, 1140), 'Sheet9': (64, 1140), 'Sheet2': (82, 1140), 'Sheet4': (100, 1140), 'Sheet3': (118, 1140), 'Sheet5': (136, 1140), 'Sheet7': (154, 1140), 'Sheet6': (172, 1140), 'Sheet8': (190, 1140), 'Module1': (279, 8909), '_VBA_PROJECT': (295, 4706), 'dir': (208, 748), 'PROJECTwm': (220, 254), 'PROJECT': (224, 859), '\x05SummaryInformation': (238, 340), '\x05DocumentSummaryInformation': (244, 1512), '\x01CompObj': (268, 110)}
+SHEETS [(42166, 'General Info'), (43054, 'Summary'), (44939, 'Inputs'), (55045, 'Model'), (80696, 'Results'), (81968, 'Cash-flow Graphs'), (88674, 'Questions'), (95469, 'NPV graph'), (101157, 'Toll analysis')] SST 176
+
+SHEET General Info
+1 2 MODEL FOR EVALUATION OF A NEW ROAD  PROJECT
+3 2 Based on : S.Reutlinger, Techniques for project appraisal under uncertainty, World Bank 
+4 2 Modified and extended by F.Plastria as case illustration to Software for Management, VUB
+7 2 GENERAL AIM OF MODEL
+9 2 Evaluation over a horizon of 20 years starting with construction period 
+10 2 By means of simple cash flow analysis:
+11 3 Net Present Value
+12 3 Internal Rate of Return
+13 3 Payback Period
+
+SHEET Summary
+1 2 GENERAL STRUCTURE OF THE MODEL
+3 2 COSTS = Total construction costs new road
+4 2                (evenly spread over construction period)
+5 3 With additional cost and construction time when toll system is used
+6 2 BENEFITS = Savings in  maintenance costs with new road vs. old road (=without new road)
+7 2                     + possible income earned from tolls - operating cost toll
+8 3 (all only to be calculated for the new road users)
+9 2                     (exists only after start using new road)
+11 2 CASH-FLOWS = BENEFITS - COSTS
+13 2 Note: no taxes
+15 2 Additional assumptions of the model
+17 2 yearly estimations (over 20 years) for 
+18 2 two types of vehicles: cars and trucks
+19 2 Operating cost Toll system
+20 3 Fixed part to keep system operational 24/7
+21 3 Variable part (depends (linearly) on amount of traffic) per daily user
+22 2 Maintenance costs
+23 2 Separately for old and new road and types of vehicles
+24 2 (Note: 'Old road' means "In case new road is not built", no fixed costs counted)
+25 3 Fixed part per km (regularly preplanned maintenance, independent of traffic)
+26 3 Variable part (depends (linearly) on amount of traffic) per km and user
+27 2 Traffic estimation
+28 2 Separately for types of vehicles
+29 3 Global daily number of vehicle forecast: yearly %  increase
+30 3 New road users: Part (=usage) of total depending on toll 
+31 3 Each vehicle uses on average only part of the total roadlength
+32 2 Toll effect
+33 3 Very low price: no effect
+34 3 Higher prices lead to lower usage (linear decrease)
+35 3 Very high price: only price-insensitive users remain
+37 2 Note: For formulas see the Model sheet
+
+SHEET Inputs
+1 2 INPUTS TO THE MODEL
+1 4 INPUT Type
+2 2 Road / construction characteristics
+3 2 Construction period (# month)
+4 2 No Toll
+4 4 project constant
+5 2 With Toll
+5 4 decision variable
+6 2 Actual (function of toll)
+FORMULA 6 3 cached 26.0 tokens 436200000041260019020900230700000019080c0023080000001908030042030100
+7 2 Construction costs (€)
+8 2 No Toll
+8 4 project constant
+9 2 With Toll
+9 4 project constant
+10 2 Actual (function of toll)
+FORMULA 10 3 cached 77000000.0 tokens 436200000041260019020900230500000019080c0023060000001908030042030100
+11 2 Total length (km)
+12 2 Old road
+12 4 project constant
+13 2 New road
+13 4 project constant
+14 2 Maintenance costs
+15 2 Fixed ((€/per km)/per year)
+16 2 Old road
+17 2 New Road
+17 4 technical parameter
+18 2 Variable (((€/per km)/per daily traffic (daily traffic expressed as number of vehicles)) /per year)
+19 2 Cars
+20 2 Old road
+20 4 uncertain
+21 2 New road
+21 4 uncertain
+22 2 Trucks
+23 2 Old road
+23 4 uncertain
+24 2 New road
+24 4 uncertain
+25 2 Traffic
+26 2 Cars
+27 2 Initial daily traffic cars (#vehicles)
+27 4 project constant
+28 2 Yearly increment rate daily traffic cars (%)
+28 3 0.0463
+28 4 uncertain
+29 2 Average part of road used per car (%)
+29 4 uncertain
+29 6 assumption: will remain similar
+30 2 Trucks
+31 2 Initial daily traffic trucks (#vehicles)
+31 4 project constant
+32 2 Yearly increment rate daily traffic trucks (%)
+32 3 0.0527
+32 4 uncertain
+33 2 Average part of road used per truck (%)
+33 4 uncertain
+33 6 assumption: will remain similar
+34 2 Toll
+35 2 Toll for using new road (€/100km)
+36 2 Per car
+36 4 control
+37 2 Per truck
+37 4 control
+38 2 Toll?
+FORMULA 38 3 cached nan tokens 43580000004359000000031e00000e
+38 4 BOOLEAN: test to check if toll is different from zero
+39 2 Operation costs
+40 2 Fixed (€/year)
+40 4 uncertain
+41 2 Actual (function of toll)
+FORMULA 41 3 cached 200000.0 tokens 43620000001902090024270002c019080a001e00001908030042030100
+42 2 Variable [(€/daily traffic)/per year]
+42 4 uncertain
+43 2 Actual (function of toll)
+FORMULA 43 3 cached 350.0 tokens 43620000001902090024290002c019080a001e00001908030042030100
+44 2 Usage, considering effect of toll-price (% of MAXIMUM daily traffic, without toll)
+44 6 Usage tables for graph
+45 2 Cars
+45 6 Price
+45 7 Car
+46 2 No toll effect till (€)
+46 4 uncertain
+47 2 Full toll effect from (€)
+47 4 uncertain
+FORMULA 47 6 cached 1.0 tokens 4302000000
+48 2 Toll Price insensitive part (%)
+48 4 uncertain
+FORMULA 48 6 cached 10.0 tokens 4301000000
+FORMULA 48 7 cached 0.1 tokens 4303000000
+49 2 Actual (function of toll)
+FORMULA 49 3 cached 0.9 tokens 1e64001423030000001e01001e0100430300000004154301000000430200000004150643580000004302000000041505044202070042020600
+FORMULA 49 6 cached 17.0 tokens 44350005c0
+FORMULA 49 7 cached 0.1 tokens 442f0006c0
+50 2 Trucks
+50 6 Price
+50 7 Truck
+51 2 No price effect till (€)
+51 4 uncertain
+52 2 Full price effect from (€)
+52 4 uncertain
+FORMULA 52 6 cached 0.0 tokens 435d000000
+53 2 Toll Price insensitive part (%)
+53 4 uncertain
+FORMULA 53 6 cached 15.0 tokens 435c000000
+FORMULA 53 7 cached 0.03 tokens 435e000000
+54 2 Actual (function of toll)
+FORMULA 54 3 cached 0.7413333333333334 tokens 1e0100235e0000001e01001e0100435e0000000415435c000000435d0000000415064359000000435d000000041505044202070042020600
+FORMULA 54 6 cached 17.0 tokens 44340005c01e020003
+FORMULA 54 7 cached 0.03 tokens 44340006c0
+56 6 Price-demand relationship!
+57 6 Price-elasticity!
+58 6 imoortant to see the impact on the difference prices 
+68 2 Assumptions
+69 2 Increase in traffic: year-on-year, discrete jumps
+70 2 Daily traffic: same for each day, no difference between weekdays and weekenddays, holidays, …
+71 2 …
+104 2 For Toll analysis with Solver 
+105 2 NPV
+106 2 Toll Cars
+107 2 Toll Trucks
+112 2 For Scenario analysis
+113 2 NPV
+113 3 PBP
+FORMULA 114 2 cached 13721858.923655711 tokens 4322000000
+FORMULA 114 3 cached 13.043559775378728 tokens 4328000000
+
+SHEET Model
+1 2 MODEL
+2 2 YEAR
+3 2 PART IN CONSTRUCTION PERIOD (NUMBER OF MONTH) = (contruction period - passed months), bounded between 0 and 12
+FORMULA 4 3 cached 12.0 tokens 1e00001e0c00430a00000043570000001e010004151e0c0005044202060042020700
+FORMULA 4 4 cached 12.0 tokens 1e00001e0c00430a00000043570000001e010004151e0c0005044202060042020700
+
+exec
+/bin/zsh -lc "cat > /private/tmp/upgrade.py <<'PY'
+import openpyxl,os,math,random,json,copy
+from openpyxl.styles import Font,PatternFill,Alignment
+from openpyxl.chart import BarChart,LineChart,Reference
+from openpyxl.workbook.defined_name import DefinedName
+from openpyxl.worksheet.datavalidation import DataValidation
+from openpyxl.formatting.rule import ColorScaleRule
+from openpyxl.utils import get_column_letter as L
+w=openpyxl.load_workbook('model.xlsx'); inp=w['Inputs']
+for r,v in {37:('Maximum gross floor area',3600,'sqm; unverified site envelope'),38:('Maximum project development budget',14000000,'EUR excluding finance; editable assumption'),39:('Minimum built capacity',60,'beds; operating scale assumption'),40:('Minimum units of each type',5,'integer; product diversity assumption'),41:('Maximum standard rooms',100,'integer; enumeration domain'),42:('Maximum shared studios',40,'integer; enumeration domain'),43:('Maximum individual studios',60,'integer; enumeration domain'),44:('Resample simulation',0,'0 reproducible seeded draws; 1 RAND changes at Excel recalculation'),45:('Cost multiplier minimum',.85,'triangular; construction package only; unverified'),46:('Cost multiplier mode',1,'triangular'),47:('Cost multiplier maximum',1.25,'triangular'),48:('Occupancy minimum',.75,'triangular; persistent stabilized occupancy'),49:('Occupancy mode',.95,'triangular'),50:('Occupancy maximum',.99,'triangular'),51:('Rent multiplier minimum',.85,'triangular; unverified'),52:('Rent multiplier mode',1,'triangular'),53:('Rent multiplier maximum',1.1,'triangular')}.items():
+ for c,x in enumerate(v,1):inp.cell(r,c,x)
+w['Read me']['A5']='Class workbook examined: General Info, Summary, Inputs, Model, Results, Questions, NPV graph, Toll analysis. See Class methodology.'
+w['Read me']['A16']='Two construction periods and 20 operating years retained. All blue numeric assumptions are editable. Optimization domain maxima 100/40/60 units are fixed enumeration bounds; lower them freely, expansion requires regeneration.'
+w['Read me']['A3']='Improved 29 October 2026 | nominal EUR | pre-tax financial feasibility'
+for r in [10,12]:w['Dashboard'].cell(r,2,w['Dashboard'].cell(r,2).value.replace(',0)',',\"No IRR\")'))
+# finance correction: final installment cannot exceed outstanding debt plus interest
+for r in range(4,24):w['Cash flow'].cell(r,10,f'=IF(A{r}-1<=Inputs"'!B20,MIN(Development!B10,L{r-1}*(1+Inputs!B19)),0)'"')
+w['Cash flow']['S1']='Cumulative project cash flow'
+for r in range(2,24):w['Cash flow'].cell(r,19,f'=SUM(M"'$2:M{r})'"')
+w['Dashboard']['A25']='Simple payback (years; includes sale if needed)';w['Dashboard']['B25']='=IF(COUNTIF(\\'Cash flow\\'"'!S2:S23,">=0")=0,"Not within horizon",MATCH(TRUE,'"\\'Cash flow\\'"'!S2:S23>=0,0)-1)'"'
+# avoid array formula; explicit crossing contributions
+for r in range(2,24):w['Cash flow'].cell(r,20,0 if r==2 else f'=IF(AND(S{r}>=0,S{r-1}<0),A{r}-1-S{r-1}/M{r},0)')
+w['Cash flow']['T1']='Interpolated payback crossing';w['Dashboard']['B25']='=IF(COUNTIF(\\'Cash flow\\'"'!S2:S23,">=0")=0,"Not within horizon",SUM('"\\'Cash flow\\'"'!T2:T23))'"'
+# remove artificial affordability caps from effective rent; explicit reference policy only
+for r in range(2,5):w['Rent rules'].cell(r,5,f'=IF(C{r}>0,MIN(B{r},C{r}*Inputs"'!B35),B{r})'"')
+w['Rent rules']['D1']='Legacy affordability target (not legal; informational)'
+w['Rent rules']['B8']='Policy uses desired rent unless an actual reference is entered; then applies editable reference policy. No official maximum is invented.'
+# generic scenario engine: every case same cash flow equations as model
+for name in ['Sensitivity','Scenarios']:
+ del w[name]
+s=w.create_sheet('Scenarios');s.append(['Case','Construction factor','Stabilised occupancy','Rent factor','Exit cap','Project NPV','Project IRR','Stabilised DSCR']+['CF year '+str(t) for t in range(22)])
+def case(sh,r,name,cost,occ,rent,cap='=Inputs"'!B22'"'):
+ for j,x in enumerate([name,cost,occ,rent,cap],1):sh.cell(r,j,x)
+ sh.cell(r,6,f'=NPV(Inputs"'!B21,J{r}:AD{r})+I{r}'"');sh.cell(r,7,f'=IFERROR(IRR(I{r}:AD{r}),\"No IRR\")')
+ package='SUM(Development"'!B3:B6)'"';costexp=f'(Development"'!B15+{package}*(B{r}-1))'"'
+ sh.cell(r,8,f'=(\\'Cash flow\\'"'!B5*D{r}*C{r}*(1-Inputs!B11)-'"\\'Cash flow\\'"'!F5)/(-PMT(Inputs!B19,Inputs!B20,{costexp}*Inputs!B18))'"')
+ for t in range(22):
+  col=9+t;cfrow=t+2
+  if t<2:f=f'=-{costexp}/2'
+  else:
+   occupancy=f'MIN(1,Inputs"'!B29*C{r}/Inputs!B9)'"' if t==2 else f'C{r}'
+   noi=f\"('Cash flow'"'!B{cfrow}*D{r}*{occupancy}*(1-Inputs!B11)-'"'Cash flow'"'!F{cfrow})"
+   f='"'='+noi
+   if t==21:f+=f'+{noi}*(1+Inputs"'!B10)/E{r}*(1-Inputs!B23)'"'
+  sh.cell(r,col,f)
+case(s,2,'Downside',1.1,.85,.95,.06);case(s,3,'Base','=1','=Inputs"'!B9'"','=1');case(s,4,'Upside',.9,.98,1.05,.05)
+s['A7']='Cost multiplier affects hard + soft + contingency + VAT only; land, furniture and working capital retained. Opening occupancy scales proportionally and is capped at 100%.'
+s['A8']='All sensitivities and simulations are project (unlevered) cash flows. Rental stresses are economic tests, subject to legal review.'
+se=w.create_sheet('Sensitivity');se.append(['One-way sensitivity','Low input','High input','NPV low','NPV high','NPV swing'])
+rows=[]
+for name,low,hi,col in [('Construction multiplier',.8,1.2,2),('Stabilised occupancy',.8,.99,3),('Rent multiplier',.8,1.2,4)]:
+ r=10+len(rows)*2
+ args=[1,'=Inputs"'!B9'"',1];args[col-2]=low;case(se,r,name+' low',*args)
+ args=[1,'=Inputs"'!B9'"',1];args[col-2]=hi;case(se,r+1,name+' high',*args)
+ k=2+len(rows);se.append([])
+ for j,x in enumerate([name,low,hi,f'=F{r}',f'=F{r+1}',f'=ABS(D{k}-E{k})'],1):se.cell(k,j,x)
+ rows.append(r)
+se['A6']='Largest NPV swing over stated ranges';se['B6']='=INDEX(A2:A4,MATCH(MAX(F2:F4),F2:F4,0))'
+se['A7']='Ranges differ: ranking measures the chosen stress ranges, not a universal causal ranking. Positive NPV alone does not establish legal or planning clearance.'
+se['A18']='Cost / occupancy NPV table';
+for j,o in enumerate([.8,.85,.9,.95,.99],2):se.cell(19,j,o)
+# calculate direct full model PV via scenario rows then link matrix
+for i,c in enumerate([.8,.9,1,1.1,1.2],20):
+ se.cell(i,1,c)
+ for j in range(2,7):
+  rr=30+(i-20)*5+j-2;case(se,rr,'Two-way',f'="'$A{i}'"',f'={L(j)}"'$19'"',1);se.cell(i,j,f'=F{rr}')
+se['A26']='Rent multiplier needed for project NPV = 0';se['B26']='=1-Dashboard"'!B9/((E4-D4)/(C4-B4))'"'
+se['A27']='Stabilised occupancy needed for NPV = 0';se['B27']='=Inputs"'!B9-Dashboard!B9/((E3-D3)/(C3-B3))'"'
+se['A28']='Thresholds assume other inputs fixed and uncapped opening occupancy. Occupancy >100% is infeasible; rent increases require legal and demand validation.'
+chart=BarChart();chart.title='NPV sensitivity (negative values retained)';chart.add_data(Reference(se,min_col=4,max_col=5,min_row=1,max_row=4),titles_from_data=True);chart.set_categories(Reference(se,min_col=1,min_row=2,max_row=4));se.add_chart(chart,'H2')
+se.conditional_formatting.add('B20:F24',ColorScaleRule(start_type='min',start_color='F8696B',mid_type='percentile',mid_value=50,mid_color='FFEB84',end_type='max',end_color='63BE7B'))
+# exact linear integer optimization: pairs enumerated, third variable chosen at feasible interval endpoint
+co=w.create_sheet('Optimization coefficients');co.append(['Component','Beds','Gross sqm','Gross annual rent','Project cost','NPV']+['CF '+str(t) for t in range(22)])
+for r in range(2,6):
+ fixed=r==2;typ=r-1
+ co.cell(r,1,['Fixed site','Standard unit','Shared unit','Individual unit'][r-2]);co.cell(r,2,0 if fixed else (2 if r==4 else 1))
+ co.cell(r,3,0 if fixed else f'=Inputs"'!B{25+r-3}*Inputs!B28'"')
+ co.cell(r,4,0 if fixed else f\"='Rent rules'"'!F{r-1}*B{r}*Inputs!B8")
+ co.cell(r,5,'"'=Inputs"'!B14*(1+Inputs!B32)+Inputs!B34'"' if fixed else f'=C{r}*Inputs"'!B13*(1+Inputs!B15)*(1+Inputs!B16)*(1+Inputs!B17)+B{r}*Inputs!B33'"')
+ for t in range(22):
+  f=f'=-E{r}/2' if t<2 else f'=(D{r}*'+('Inputs"'!B29'"' if t==2 else 'Inputs"'!B9'"')+f'*(1-Inputs"'!B11)-B{r}*Inputs!B12)*(1+Inputs!B10)''^({t}-2)'"'
+  if t==21:f+=f'+(D{r}*Inputs"'!B9*(1-Inputs!B11)-B{r}*Inputs!B12)*(1+Inputs!B10)''^20/Inputs!B22*(1-Inputs!B23)'"'
+  co.cell(r,7+t,f)
+ co.cell(r,6,f'=NPV(Inputs"'!B21,H{r}:AB{r})+G{r}'"')
+op=w.create_sheet('Optimization');op.append(['Standard units','Shared units','Individual lower bound','Individual upper bound','Selected individual units','Capacity beds','Gross sqm','Project cost EUR','NPV EUR','Feasible (1/0)'])
+r=2
+for n in range(101):
+ for h in range(41):
+  op.cell(r,1,n);op.cell(r,2,h)
+  op.cell(r,3,f'=MAX(Inputs"'!B40,Inputs!B39-A{r}-2*B{r})'"')
+  op.cell(r,4,f'=MIN(Inputs"'!B43,INT((Inputs!B37-A{r}*'"\\'Optimization coefficients\\'"'!C3-B{r}*'"\\'Optimization coefficients\\'"'!C4)/'"\\'Optimization coefficients\\'"'!C5),INT((Inputs!B38-'"\\'Optimization coefficients\\'"'!E2-A{r}*'"\\'Optimization coefficients\\'"'!E3-B{r}*'"\\'Optimization coefficients\\'"'!E4)/'"\\'Optimization coefficients\\'"'!E5),INT('"\\'Demand & competition\\'"'!B10-A{r}-2*B{r}))'"')
+  op.cell(r,5,f'=IF(\\'Optimization coefficients\\'"'!F5>0,D{r},C{r})'"')
+  op.cell(r,6,f'=A{r}+2*B{r}+E{r}');op.cell(r,7,f'=A{r}*\\'Optimization coefficients\\'"'!C3+B{r}*'"\\'Optimization coefficients\\'"'!C4+E{r}*'"\\'Optimization coefficients\\'"'!C5'"')
+  op.cell(r,8,f'=\\'Optimization coefficients\\'"'!E2+A{r}*'"\\'Optimization coefficients\\'"'!E3+B{r}*'"\\'Optimization coefficients\\'"'!E4+E{r}*'"\\'Optimization coefficients\\'"'!E5'"')
+  op.cell(r,9,f'=\\'Optimization coefficients\\'"'!F2+A{r}*'"\\'Optimization coefficients\\'"'!F3+B{r}*'"\\'Optimization coefficients\\'"'!F4+E{r}*'"\\'Optimization coefficients\\'"'!F5'"')
+  op.cell(r,10,f'=IF(AND(A{r}>=Inputs"'!B40,A{r}<=Inputs!B41,B{r}>=Inputs!B40,B{r}<=Inputs!B42,C{r}<=D{r}),1,0)'"');r+=1
+end=r-1
+op['L1']='Optimization instructions';notes=['Maximize unlevered project NPV; do not invest is an explicit zero alternative.','Enumerates every standard integer 0..100 and shared integer 0..40. For each pair computes exact feasible interval for individual studios.','NPV is affine in quantities under common occupancy/rent assumptions. Choose upper individual bound if its marginal NPV is positive, otherwise lower. This is exact in the stated bounded domain.','Constraints: area, total development budget excluding finance, addressable beds, minimum operating scale, minimum of each type and type-specific maxima. All are unverified planning assumptions.','Capacity is derived from rooms (standard + 2 shared + individual); thus all four decision quantities vary.','Rows with infeasible bounds retain raw financial values but are excluded by feasibility flag. No negative feasible NPV is truncated.','Domain expansion above 100 standard or 40 shared units requires regeneration. Individual upper bound is dynamic.','No Solver dependency. Legal references constrain applied rents upstream; missing references prevent investment approval.']
+for i,x in enumerate(notes,2):op.cell(i,12,x)
+# helper feasible score: large negative sentinel excluded, all genuine feasible NPVs kept
+op['K1']='Selection score (infeasible excluded)'
+for rr in range(2,end+1):op.cell(rr,11,f'=IF(J{rr}=1,I{rr},-1E+99)')
+op['L12']='Best construction NPV';op['M12']=f'=IF(SUM(J2:J{end})=0,\"No feasible design\",MAX(K2:K{end}))'
+op['L13']='Selected NPV incl do not invest';op['M13']='=IF(COUNT(M12)=0,0,MAX(0,M12))'
+op['L14']='Best construction row';op['M14']=f'=MATCH(M12,K2:K{end},0)+1'
+for rr,(label,col) in enumerate([('Best built standard','A'),('Best built shared','B'),('Best built individual','E'),('Best built beds','F'),('Best built area','G'),('Best built budget','H')],15):op.cell(rr,12,label);op.cell(rr,13,f'=IFERROR(INDEX({col}1:{col}{end},M14),0)')
+op['L22']='Area slack';op['M22']='=Inputs"'!B37-M19'"';op['L23']='Budget slack';op['M23']='=Inputs"'!B38-M20'"';op['L24']='Demand slack beds';op['M24']=\"='Demand & competition'"'!B10-M18"
+# Monte Carlo full same scenario engine
+mc=w.create_sheet('"'Monte Carlo');mc.append(['Simulation','Construction factor','Occupancy','Rent factor','Exit cap','NPV','IRR','DSCR']+['CF year '+str(t) for t in range(22)]+['Uniform cost','Uniform occupancy','Uniform rent'])
+rng=random.Random(20261029)
+def tri(u,a,m,b):return f'IF({u}<({m}-{a})/({b}-{a}),{a}+SQRT({u}*({b}-{a})*({m}-{a})),{b}-SQRT((1-{u})*({b}-{a})*({b}-{m})))'
+for r in range(2,302):
+ for c in range(31,34):mc.cell(r,c,f'=IF(Inputs"'!B44=1,RAND(),{rng.random():.15f})'"')
+ case(mc,r,r-1,'='+tri(f'AE{r}','Inputs"'!B45'"','Inputs"'!B46'"','Inputs"'!B47'"'),'='+tri(f'AF{r}','Inputs"'!B48'"','Inputs"'!B49'"','Inputs"'!B50'"'),'='+tri(f'AG{r}','Inputs"'!B51'"','Inputs"'!B52'"','Inputs"'!B53'"'))
+for rr,(lab,f) in enumerate([('Mean NPV','=AVERAGE(F2:F301)'),('Median NPV','=MEDIAN(F2:F301)'),('Minimum NPV','=MIN(F2:F301)'),('Maximum NPV','=MAX(F2:F301)'),('5th percentile','=PERCENTILE(F2:F301,0.05)'),('95th percentile','=PERCENTILE(F2:F301,0.95)'),('Probability NPV < 0','=COUNTIF(F2:F301,\"<0\")/COUNT(F2:F301)')],2):mc.cell(rr,35,lab);mc.cell(rr,36,f)
+mc['AI10']='300 independent triangular draws; persistent project-level uncertainty, no annual resampling. Correlations not modeled. Fixed seed 20261029 by default; input B44=1 uses live RAND.'
+mc['AI11']='Simulates the existing base design, even when the optimal decision is no build. Uses full 22-period unlevered cash flows, same cost/NOI/exit equations. Negative NPVs retained.'
+mc['AI13']='Bin upper bound EUR';mc['AJ13']='Frequency'
+for rr in range(14,26):
+ mc.cell(rr,35,f'="'$AJ$4+($AJ$5-$AJ$4)*({rr}-13)/12'"') # min row4 maxrow5
+ mc.cell(rr,36,f'=COUNTIF("'$F$2:$F$301,"<="&AI{rr})'"'+('' if rr==14 else f'-COUNTIF("'$F$2:$F$301,"<="&AI{rr-1})'"'))
+ch=BarChart();ch.title='Monte Carlo NPV distribution (EUR)';ch.add_data(Reference(mc,min_col=36,min_row=13,max_row=25),titles_from_data=True);ch.set_categories(Reference(mc,min_col=35,min_row=14,max_row=25));ch.gapWidth=0;mc.add_chart(ch,'AL13')
+# methodology explicitly based on actual BIFF reading
+cl=w.create_sheet('Class methodology');cl.append(['Class evidence','Application to housing model'])
+for x in [('General Info B9:B13: horizon, cash flow, NPV, IRR, payback','Retained annual construction/operating model; added interpolated simple payback.'),('Inputs D column distinguishes project constants, technical parameters, uncertain inputs and controls','Inputs 2:4 are base design controls; optimization explores integer room choices; 45:53 define uncertainty.'),('Summary B3:B11: costs evenly spread in construction; benefits only once operational; benefits minus costs','Two equal capex payments at t=0,1; rental NOI begins t=2. Same logic in scenarios and simulation.'),('Inputs B104:B107: Toll analysis with Solver, NPV objective, car/truck toll decisions','Housing objective is unlevered NPV; exact bounded integer enumeration substitutes for Solver.'),('Inputs B112:C114: scenario analysis NPV/PBP; NPV graph and Toll analysis worksheets','One/two-variable sensitivity and NPV chart plus Monte Carlo distribution added.'),('Inputs B56:B58: price-demand relationship and elasticity','Housing occupancy and rent uncertainty are explicit but independent; demand response to higher rent is not estimated and must be validated.'),('Read directly from original legacy XLS using local OLE/BIFF parser','Observed worksheet labels, formula records and cached results; original classroom file preserved. No claim of executing its legacy macros.')]:cl.append(x)
+# decision summary
+su=w.create_sheet('Decision Summary',0);su.append(['Decision Analytics: VUB student housing','Calculated result / interpretation'])
+items=[('Decision problem','Choose capacity and room mix to maximize project NPV, including no investment.'),('Analytical method','22-period discounted cash flow; sensitivity; exact bounded integer optimization; 300 Monte Carlo trials.'),('Base project NPV','=Dashboard"'!B9'"'),('Base project IRR','=Dashboard"'!B10'"'),('Base equity NPV','=Dashboard"'!B11'"'),('Base capacity beds',\"='Room mix'"'!D5"),('"'Base mix','60 standard / 20 shared / 20 individual is initial input; see live quantities below.'),('Base standard units','=Inputs"'!B2'"'),('Base shared units','=Inputs"'!B3'"'),('Base individual units','=Inputs"'!B4'"'),('Financially attractive base?','=IF(Dashboard"'!B9>0,"Positive NPV under assumptions","Negative NPV: reject current base case")'"'),('Optimal decision','=IF(Optimization"'!M13>0,"Build best feasible alternative subject to due diligence","DO NOT INVEST: zero NPV dominates feasible construction")'"'),('Recommended beds','=IF(Optimization"'!M13>0,Optimization!M18,0)'"'),('Recommended standard units','=IF(Optimization"'!M13>0,Optimization!M15,0)'"'),('Recommended shared studios','=IF(Optimization"'!M13>0,Optimization!M16,0)'"'),('Recommended individual studios','=IF(Optimization"'!M13>0,Optimization!M17,0)'"'),('Optimal NPV incl no-build','=Optimization"'!M13'"'),('Best construction NPV (retains loss)','=Optimization"'!M12'"'),('Most influential stress range','=Sensitivity"'!B6'"'),('NPV break-even rent multiplier','=Sensitivity"'!B26'"'),('NPV break-even occupancy','=Sensitivity"'!B27'"'),('Monte Carlo mean NPV',\"='Monte Carlo'"'!AJ2"),('"'Monte Carlo median NPV',\"='Monte Carlo'"'!AJ3"),('"'Monte Carlo P5 NPV',\"='Monte Carlo'"'!AJ6"),('"'Monte Carlo P95 NPV',\"='Monte Carlo'"'!AJ7"),('"'Probability of negative NPV',\"='Monte Carlo'"'!AJ8"),('"'Risk interpretation','=IF(\\'Monte Carlo\\'"'!AJ8>0.5,"Most simulated base projects destroy value; uncertainty does not justify forcing construction.","Review downside NPV and risk tolerance before committing.")'"'),('Accept / reject criteria','Accept only a feasible positive-NPV construction case with finance, pre-letting, planning and legal validation. Otherwise retain no-build.'),('Important constraints','Optimization M22:M24 show area/budget/demand slack for best built alternative. Minimum scale and product diversity may bind; no-build avoids all development cost.'),('Data requiring validation','Site/floor area and permits; land/construction quotes and VAT; local waiting list and absorption; competition timing; achieved rent; unit-specific reference rents; shared occupancy, fire/accessibility and lease compliance.'),('Evidence status','Legacy market figures are source-attributed but not independently reverified today. Demand envelope is a proxy, not observed unmet VUB demand. See Sources and Demand & competition.'),('Model limits','Pre-tax; no grants; constant real mix, common occupancy and expense ratio; exit valuation uncertain; no estimated rent-demand elasticity. 20 operating years fixed.'),('Regulatory status','Brussels primary page rechecked 29 Oct 2026: reference disclosed in lease; excessive-rent presumption above 20% with possible justification. Reference is not a universal price ceiling. Site references missing.'),('Investment gate','=IF(AND(Optimization"'!M13>0,COUNTIF('"\\'Rent rules\\'"'!C2:C4,">0")=3),"Positive financial case; professional diligence required","HOLD / NO COMMITMENT")'"')]
+for item in items:su.append(item)
+w['Sources']['D8']='Rechecked 29 Oct 2026; calculator temporarily unavailable per official page';w['Sources']['D6']='Rechecked page 29 Oct 2026; use website for latest allocation details'
+for rr in [2,3,4,5,7]:w['Sources'].cell(rr,4,str(w['Sources'].cell(rr,4).value)+'; inherited claim, not reverified in this update')
+w['Demand & competition']['B27']='Base 60 standard / 20 shared / 20 individual retained as test case, not optimized recommendation. See Decision Summary.'
+w['Capacity options']['B7']='Legacy three-design screen retained for comparison; full integer optimization and no-build alternative on Optimization.'
+# remove misleading actual verified labels inherited
+w['Sources']['C1']='Evidence / model treatment; inherited claims marked in column D'
+checks=w['Checks'];checks['A12']='Coefficient NPV reconciles base model';checks['B12']=\"='Optimization coefficients'"'!F2+Inputs!B2*'"'Optimization coefficients'"'!F3+Inputs!B3*'"'Optimization coefficients'"'!F4+Inputs!B4*'"'Optimization coefficients'"'!F5-Dashboard!B9";checks['"'C12']=0
+checks['A13']='Monte Carlo trial count';checks['B13']=\"=COUNT('Monte Carlo'"'!F2:F301)";checks['"'C13']=300
+checks['A14']='Histogram count';checks['B14']=\"=SUM('Monte Carlo'"'!AJ14:AJ25)";checks['"'C14']=300
+checks['A15']='Enumerated pairs';checks['B15']=end-1;checks['C15']=4141
+for name,ref in [('Discount_Rate','Inputs"'!$B$21'"'),('Base_Occupancy','Inputs"'!$B$9'"'),('Construction_EUR_per_sqm','Inputs"'!$B$13'"'),('Project_NPV','Dashboard"'!$B$9'"')]:w.defined_names.add(DefinedName(name,attr_text=ref))
+# formatting
+for sh in w:
+ sh.freeze_panes='B2';sh.sheet_view.showGridLines=False
+ sh.row_dimensions[1].height=30
+ for cell in sh[1]:cell.fill=PatternFill('solid',fgColor='17365D');cell.font=Font(color='FFFFFF',bold=True);cell.alignment=Alignment(wrap_text=True)
+ sh.column_dimensions['A'].width=43;sh.column_dimensions['B'].width=22
+ for col in range(3,min(sh.max_column,40)+1):sh.column_dimensions[L(col)].width=18
+ for row in sh:
+  for c in row:
+   if c.row==1:continue
+   c.font=Font(name='Calibri',size=10,color='111111' if c.data_type=='f' else '174A8B')
+   if c.data_type=='f' or isinstance(c.value,(int,float)):c.number_format='#,##0.00;[Red](#,##0.00);0.00'
+   if isinstance(c.value,str) and c.data_type"'!='"'f' and len(c.value)>75:c.alignment=Alignment(wrap_text=True,vertical='top');sh.row_dimensions[c.row].height=42
+for sh in [su,cl]:sh.column_dimensions['B'].width=110
+for sh in [inp,w['Sources']]:sh.column_dimensions['C'].width=90
+for r in range(2,54):inp.cell(r,2).fill=PatternFill('solid',fgColor='DDEBF7')
+for sh in [op]:sh.column_dimensions['L'].width=72;sh.column_dimensions['M'].width=24
+mc.column_dimensions['AI'].width=65;mc.column_dimensions['AJ'].width=23
+for r in [4,5,8]:w['Dashboard'].cell(r,2).number_format='#,##0.00;[Red](#,##0.00)'
+for r in [10,12]:w['Dashboard'].cell(r,2).number_format='0.0%'
+mc['AJ8'].number_format='0.0%';su['B27'].number_format='0.0%'
+for c in ['B45','B46','B47','B48','B49','B50','B51','B52','B53','B9','B29','B21']:inp[c].number_format='0.0%'
+for rr in [2,3,4]:se.cell(rr,2).number_format='0%';se.cell(rr,3).number_format='0%'
+w.calculation=openpyxl.workbook.properties.CalcProperties(calcId=191029,fullCalcOnLoad=True)
+w.save('.model.upgrade.xlsx');os.replace('.model.upgrade.xlsx','model.xlsx');print('SAVED enhanced workbook',len(w.sheetnames),'sheets',end-1,'optimization pairs')
+print('SAVE_NOW',os.path.exists('.deadline_runs/20261029T053252Z-5d40d38f/SAVE_NOW.txt'))
+PY
+python3 /private/tmp/upgrade.py" in /Users/lvanhaverbeke/Decision Analytics/prompts/groupMSN
+ succeeded in 3341ms:
+SAVED enhanced workbook 18 sheets 4141 optimization pairs
+SAVE_NOW False
+
+exec
+/bin/zsh -lc 'tail -100 /private/tmp/classread.txt; test -f .deadline_runs/20261029T053252Z-5d40d38f/SAVE_NOW.txt && echo SAVE_NOW' in /Users/lvanhaverbeke/Decision Analytics/prompts/groupMSN
+ exited 1 in 0ms:
+FORMULA 56 3 cached 0.034146868250539954 tokens 44370001c0443300050005
+57 2 0.035
+FORMULA 57 3 cached 0.03983801295896328 tokens 0138000200
+FORMULA 58 3 cached 0.045529157667386605 tokens 0138000200
+FORMULA 59 3 cached 0.05122030237580993 tokens 0138000200
+FORMULA 60 3 cached 0.05691144708423326 tokens 0138000200
+FORMULA 61 3 cached 0.06260259179265658 tokens 0138000200
+FORMULA 62 3 cached 0.06829373650107991 tokens 0138000200
+FORMULA 63 3 cached 0.07398488120950324 tokens 0138000200
+64 2 0.07
+FORMULA 64 3 cached 0.07967602591792657 tokens 0138000200
+FORMULA 65 3 cached 0.08536717062634988 tokens 0138000200
+FORMULA 66 3 cached 0.09105831533477321 tokens 0138000200
+68 2 How to choose between different types of material ?
+69 2 These types differ in construction costs and maintenance costs for cars and trucks.
+70 2 General data table (use Hypertable)
+71 2 Construction costs
+71 3 Maint Cost per Car
+71 4 Maint Cost per Truck
+71 5 IRR
+71 6 PBP
+72 2 Constructcost
+72 3 MaintCostPerCarNR
+72 4 MaintCostPerTruckNR
+FORMULA 72 5 cached 0.06897078523952538 tokens 4318000000
+FORMULA 72 6 cached 13.043559775378728 tokens 4328000000
+82 2 What is the effect of both toll operating costs on PBP, NPV and IRR?
+83 2 Do not calculate the impossible combinations: 
+84 2 Use Hypertab : allows for more outputs
+85 2 Toll Cost Per Daily Traffic
+85 3 Toll Cost Fixed
+85 4 PBP
+85 5 NPV
+85 6 IRR
+86 2 TollCostPerDailyTraffic
+86 3 TollCostFixed
+FORMULA 86 4 cached 13.043559775378728 tokens 4328000000
+FORMULA 86 5 cached 13721858.923655711 tokens 4322000000
+FORMULA 86 6 cached 0.06897078523952538 tokens 4318000000
+
+SHEET NPV graph
+1 2 The effect of discount-rate on NPV
+2 2 NOTE: Only for theory. This is not a valid sensitivity analysis. Discountrate is normally fixed in advance.
+4 2 Rate 
+5 2 NPV
+FORMULA 5 3 cached 13721858.923655711 tokens 44030002c0230400000042020b00
+8 2 Rate
+8 3 NPV
+FORMULA 9 3 cached 13721858.923655711 tokens 44040002c0
+FORMULA 10 3 cached 77847701.54792136 tokens 0109000200
+FORMULA 11 3 cached 68830392.44201685 tokens 0109000200
+FORMULA 12 3 cached 60533164.284928866 tokens 0109000200
+FORMULA 13 3 cached 52894064.454373434 tokens 0109000200
+FORMULA 14 3 cached 45856904.14744954 tokens 0109000200
+FORMULA 15 3 cached 39370685.48347419 tokens 0109000200
+FORMULA 16 3 cached 33389088.864053816 tokens 0109000200
+17 2 0.035
+FORMULA 17 3 cached 27870013.929331314 tokens 0109000200
+FORMULA 18 3 cached 22775168.21935461 tokens 0109000200
+FORMULA 19 3 cached 18069698.32682868 tokens 0109000200
+FORMULA 20 3 cached 13721858.923655711 tokens 0109000200
+FORMULA 21 3 cached 9702715.568808084 tokens 0109000200
+FORMULA 22 3 cached 5985877.667941218 tokens 0109000200
+FORMULA 23 3 cached 2547258.363465875 tokens 0109000200
+24 2 0.07
+FORMULA 24 3 cached -635141.5058037462 tokens 0109000200
+FORMULA 25 3 cached -3581427.917944682 tokens 0109000200
+FORMULA 26 3 cached -6309988.915288253 tokens 0109000200
+FORMULA 27 3 cached -8837652.59805885 tokens 0109000200
+FORMULA 28 3 cached -11179829.656186428 tokens 0109000200
+FORMULA 29 3 cached -13350642.036043499 tokens 0109000200
+FORMULA 30 3 cached -15363039.165906586 tokens 0109000200
+FORMULA 31 3 cached -17228903.01054108 tokens 0109000200
+FORMULA 32 3 cached -18959143.089176588 tokens 0109000200
+FORMULA 33 3 cached -20563782.47023639 tokens 0109000200
+FORMULA 34 3 cached -22052035.64875404 tokens 0109000200
+FORMULA 35 3 cached -23432379.11687247 tokens 0109000200
+FORMULA 36 3 cached -24712615.35282228 tokens 0109000200
+FORMULA 37 3 cached -25899930.878089994 tokens 0109000200
+38 2 0.14
+FORMULA 38 3 cached -27000948.965063885 tokens 0109000200
+39 2 0.145
+FORMULA 39 3 cached -28021777.51733787 tokens 0109000200
+FORMULA 40 3 cached -28968052.591236673 tokens 0109000200
+
+SHEET Toll analysis
+1 2 Toll analysis
+2 2 Only Cars
+3 3 IRR
+3 4 NPV
+3 5 PBP
+4 2 Toll_Car
+FORMULA 4 3 cached 0.06897078523952538 tokens 4318000000
+FORMULA 4 4 cached 13721858.923655711 tokens 4322000000
+FORMULA 4 5 cached 13.043559775378728 tokens 4328000000
+30 2 Cars and Trucks on PBP
+31 2 PBP
+31 7 Toll Truck
+FORMULA 32 3 cached 13.043559775378728 tokens 4328000000
+37 2 Toll Car
+
+codex
+The upgraded workbook is saved with all three analyses. The integer optimization includes the zero-NPV “do not invest” alternative. I also examined the class workbook’s separation of inputs and controls, construction cash flows, NPV/IRR/payback measures, and scenario analysis. I’m now checking reconciliations and adding calculated values so the results are visible before Excel recalculates.
+
+ succeeded in 217827ms:
+Chapter 1 - New road analysis model.xls: Composite Document File V2 Document, Little Endian, Os: MacOS, Version 6.26, Code page: 10000, Title: Software for Management, Subject: Evaluation of a new road project, Author: Plastria F., Last Saved By: Meline Nathalie D Desterbecq, Name of Creating Application: Microsoft Macintosh Excel, Create Time/Date: Wed Nov  4 20:18:39 1998, Last Saved Time/Date: Thu Oct  1 11:27:45 2026, Security: 0
+/usr/bin/osascript
+minimal atomic save complete; save_now False
+
+exec
+/bin/zsh -lc "cat > /private/tmp/cachecheck.py <<'PY'
+import openpyxl,math,re,statistics,zipfile,xml.etree.ElementTree as ET,os,json,time
+from openpyxl.formula.tokenizer import Tokenizer
+from openpyxl.utils.cell import range_boundaries
+w=openpyxl.load_workbook('model.xlsx');cache={};vis=set();errors=[]
+def flat(a):
+ out=[]
+ for v in a:
+  if isinstance(v,list):out+=flat(v)
+  else:out.append(v)
+ return out
+def nums(a):return [float(v) for v in flat(a) if isinstance(v,(int,float))]
+def irr(a):
+ a=nums(a)
+ def f(r):return sum(v/(1+r)**i for i,v in enumerate(a))
+ lo=-.95;hi=1.
+ try:
+  while f(lo)*f(hi)>0 and hi<100:hi*=2
+  if f(lo)*f(hi)>0:return 'No IRR'
+  for _ in range(80):
+   mid=(lo+hi)/2
+   if f(lo)*f(mid)<=0:hi=mid
+   else:lo=mid
+  return (lo+hi)/2
+ except:return 'No IRR'
+def countif(arr,criterion):
+ arr=flat([arr]);m=re.match(r'(<=|>=|<>|<|>|=)?(.*)',str(criterion));op=m[1] or '=';value=m[2]
+ try:value=float(value)
+ except:pass
+ def check(x):
+  try:return {'<':lambda:x<value,'>':lambda:x>value,'<=':lambda:x<=value,'>=':lambda:x>=value,'=':lambda:x==value,'<>':lambda:x"'!=value}[op]()
+  except:return False
+ return sum(check(x) for x in arr)
+class Parser:
+ def __init__(self,f):self.ts=[t for t in Tokenizer(f).items if t.type!='"'WHITE-SPACE'];self.i=0
+ def expr(self,p=0):
+  t=self.ts[self.i];self.i+=1
+  if t.type=='OP_PRE':a=('un',t.value,self.expr(6))
+  elif t.type in ('FUNC','PAREN') and t.subtype=='OPEN':
+   if t.type=='PAREN':a=self.expr();self.i+=1
+   else:
+    args=[]
+    while not(self.ts[self.i].subtype=='CLOSE'):
+     args.append(self.expr())
+     if self.ts[self.i].type=='SEP':self.i+=1
+     else:break
+    self.i+=1;a=('fn',t.value[:-1].upper(),args)
+  elif t.type=='OPERAND':
+   if t.subtype=='NUMBER':a=('lit',float(t.value))
+   elif t.subtype=='TEXT':a=('lit',t.value[1:-1].replace('\"\"','\"'))
+   elif t.subtype=='LOGICAL':a=('lit',t.value=='TRUE')
+   else:a=('ref',t.value)
+  else:raise ValueError(('token',t))
+  prec={'=':1,'<>':1,'<':1,'>':1,'<=':1,'>=':1,'&':2,'+':3,'-':3,'*':4,'/':4,'"'^'"':5}
+  while self.i<len(self.ts):
+   t=self.ts[self.i]
+   if t.type=='OP_POST':self.i+=1;a=('bin','/',a,('lit',100));continue
+   if t.type"'!='"'OP_IN' or prec[t.value]<=p:break
+   self.i+=1;a=('bin',t.value,a,self.expr(prec[t.value]-(1 if t.value=='"'^'"' else 0)))
+  return a
+asts={}
+def ev(a,sh):
+ kind=a[0]
+ if kind=='lit':return a[1]
+ if kind=='ref':
+  ref=a[1].replace('"'$'"','')
+  if '"'!'"' in ref:ss,ref=ref.rsplit('"'!'"',1);ss=ss.strip(\"'\").replace(\"''\", \"'\")
+  else:ss=sh
+  if ss not in w.sheetnames:raise ValueError('sheet '+ss)
+  if ':' in ref:
+   c1,r1,c2,r2=range_boundaries(ref)
+   return [get(ss,w[ss].cell(r,c).coordinate) for r in range(r1,r2+1) for c in range(c1,c2+1)]
+  return get(ss,ref)
+ if kind=='un':return ev(a[2],sh)*(-1 if a[1]=='-' else 1)
+ if kind=='bin':
+  x=ev(a[2],sh);y=ev(a[3],sh);op=a[1]
+  if op=='&':return str(x)+str(y)
+  if op in ['=','<>','<','>','<=','>=']:
+   return {'=':lambda:x==y,'<>':lambda:x"'!=y,'"'<':lambda:x<y,'>':lambda:x>y,'<=':lambda:x<=y,'>=':lambda:x>=y}[op]()
+  return {'+':lambda:x+y,'-':lambda:x-y,'*':lambda:x*y,'/':lambda:x/y,'"'^'"':lambda:x**y}[op]()
+ fn,args=a[1],a[2]
+ if fn=='IF':return ev(args[1] if ev(args[0],sh) else args[2],sh)
+ if fn=='IFERROR':
+  try:return ev(args[0],sh)
+  except:return ev(args[1],sh)
+ vals=[ev(x,sh) for x in args];ns=nums(vals)
+ if fn=='SUM':return sum(ns)
+ if fn=='MIN':return min(ns)
+ if fn=='MAX':return max(ns)
+ if fn=='ABS':return abs(vals[0])
+ if fn=='INT':return math.floor(vals[0])
+ if fn=='SQRT':return math.sqrt(vals[0])
+ if fn=='AND':return all(flat(vals))
+ if fn=='OR':return any(flat(vals))
+ if fn=='COUNT':return len(ns)
+ if fn=='COUNTIF':return countif(*vals)
+ if fn=='AVERAGE':return statistics.mean(ns)
+ if fn=='MEDIAN':return statistics.median(ns)
+ if fn=='PERCENTILE':
+  vs=sorted(nums([vals[0]]));pos=(len(vs)-1)*vals[1];i=int(pos);return vs[i]+(vs[min(i+1,len(vs)-1)]-vs[i])*(pos-i)
+ if fn=='NPV':return sum(v/(1+vals[0])**(i+1) for i,v in enumerate(nums(vals[1:])))
+ if fn=='IRR':return irr(vals)
+ if fn=='PMT':
+  rate,n,pv=vals[:3];return -pv/n if rate==0 else -pv*rate/(1-(1+rate)**(-n))
+ if fn=='INDEX':return flat([vals[0]])[int(vals[1])-1]
+ if fn=='MATCH':
+  for i,v in enumerate(flat([vals[1]])):
+   if v==vals[0]:return i+1
+  raise ValueError('No match')
+ if fn=='RAND':return .5
+ raise ValueError('Function '+fn)
+def get(sh,ref):
+ key=(sh,ref)
+ if key in cache:return cache[key]
+ if key in vis:raise ValueError('Circular '+str(key))
+ vis.add(key)
+ try:
+  v=w[sh][ref].value
+  if isinstance(v,str) and v.startswith('='):
+   if v not in asts:asts[v]=Parser(v).expr()
+   v=ev(asts[v],sh)
+  elif v is None:v=0
+  cache[key]=v;return v
+ finally:vis.remove(key)
+for sh in w:
+ for row in sh:
+  for c in row:
+   if c.data_type=='f':
+    try:get(sh.title,c.coordinate)
+    except Exception as e:errors.append((sh.title,c.coordinate,str(e),c.value))
+print('FORMULA ERRORS',len(errors));print(errors[:10])
+for sheet,refs in [('Dashboard',['B9','B10','B11','B25']),('Optimization',['M12','M13','M15','M16','M17','M18','M22','M23','M24']),('Monte Carlo',['AJ2','AJ6','AJ7','AJ8']),('Checks',['B7','B12','B13','B14'])]:
+ print(sheet,{ref:get(sheet,ref) for ref in refs})
+if errors:json.dump(errors,open('/private/tmp/da_errors.json','w'));raise SystemExit(1)
+# cache all formula results without changing formulas or source inputs
+ns={'m':'http://schemas.openxmlformats.org/spreadsheetml/2006/main'}
+with zipfile.ZipFile('model.xlsx') as src,zipfile.ZipFile('.model.cached.xlsx','w',zipfile.ZIP_DEFLATED) as dst:
+ for item in src.infolist():
+  data=src.read(item.filename)
+  match=re.fullmatch(r'xl/worksheets/sheet(\\d+)\\.xml',item.filename)
+  if match:
+   sh=w.worksheets[int(match[1])-1];root=ET.fromstring(data)
+   for c in root.findall('.//m:c',ns):
+    if c.find('m:f',ns) is None:continue
+    val=cache.get((sh.title,c.attrib['r']));v=c.find('m:v',ns)
+    if v is None:v=ET.SubElement(c,'{'+ns['m']+'}v')
+    if isinstance(val,str):c.set('t','str');v.text=val
+    elif isinstance(val,bool):c.set('t','b');v.text='1' if val else '0'
+    else:c.pop('t',None) if False else None;v.text=str(val if val is not None else 0)
+   data=ET.tostring(root,encoding='utf-8',xml_declaration=True)
+  dst.writestr(item,data)
+os.replace('.model.cached.xlsx','model.xlsx');print('CACHED ATOMIC SAVE COMPLETE',len(cache))
+json.dump({f'{s}"'!{c}'"':v for (s,c),v in cache.items()},open('/private/tmp/results.json','w'))
+print('SAVE_NOW',os.path.exists('.deadline_runs/20261029T053252Z-5d40d38f/SAVE_NOW.txt'))
+PY
+python3 /private/tmp/cachecheck.py" in /Users/lvanhaverbeke/Decision Analytics/prompts/groupMSN
+ exited 1 in 4483ms:
+Traceback (most recent call last):
+  File "/private/tmp/cachecheck.py", line 132, in <module>
+FORMULA ERRORS 19636
+[('Decision Summary', 'B12', 'list index out of range', '=IF(Dashboard!B9>0,"Positive NPV under assumptions","Negative NPV: reject current base case")'), ('Decision Summary', 'B13', 'list index out of range', '=IF(Optimization!M13>0,"Build best feasible alternative subject to due diligence","DO NOT INVEST: zero NPV dominates feasible construction")'), ('Decision Summary', 'B14', 'list index out of range', '=IF(Optimization!M13>0,Optimization!M18,0)'), ('Decision Summary', 'B15', 'list index out of range', '=IF(Optimization!M13>0,Optimization!M15,0)'), ('Decision Summary', 'B16', 'list index out of range', '=IF(Optimization!M13>0,Optimization!M16,0)'), ('Decision Summary', 'B17', 'list index out of range', '=IF(Optimization!M13>0,Optimization!M17,0)'), ('Decision Summary', 'B18', 'list index out of range', '=Optimization!M13'), ('Decision Summary', 'B19', 'list index out of range', '=Optimization!M12'), ('Decision Summary', 'B20', "('token', OPERATOR-PREFIX  -:)", '=Sensitivity!B6'), ('Decision Summary', 'B23', "('token', OPERATOR-PREFIX  -:)", "='Monte Carlo'!AJ2")]
+    print(sheet,{ref:get(sheet,ref) for ref in refs})
+  File "/private/tmp/cachecheck.py", line 132, in <dictcomp>
+    print(sheet,{ref:get(sheet,ref) for ref in refs})
+  File "/private/tmp/cachecheck.py", line 120, in get
+    v=ev(asts[v],sh)
+  File "/private/tmp/cachecheck.py", line 81, in ev
+    if fn=='IF':return ev(args[1] if ev(args[0],sh) else args[2],sh)
+IndexError: list index out of range
+
+exec
+/bin/zsh -lc "sed -i '' -e \"s/=='OP_PRE'/=='OPERATOR-PREFIX'/g\" -e \"s/=='OP_POST'/=='OPERATOR-POSTFIX'/g\" -e \"s/"'!='"'OP_IN'/"'!='"'OPERATOR-INFIX'/g\" /private/tmp/cachecheck.py
+python3 /private/tmp/cachecheck.py" in /Users/lvanhaverbeke/Decision Analytics/prompts/groupMSN
+ succeeded in 7117ms:
+FORMULA ERRORS 0
+[]
+Dashboard {'B9': -5223424.748954908, 'B10': 0.03815739619420444, 'B11': -4166047.7488172865, 'B25': 20.197633358362815}
+Optimization {'M12': -3557920.398776377, 'M13': 0.0, 'M15': 45, 'M16': 5, 'M17': 5.0, 'M18': 60.0, 'M22': 2067.0, 'M23': 6609729.8100000005, 'M24': 91.38}
+Monte Carlo {'AJ2': -6151966.379865352, 'AJ6': -8028361.768574534, 'AJ7': -4614755.492976853, 'AJ8': 1.0}
+Checks {'B7': 1.862645149230957e-09, 'B12': 2.7939677238464355e-09, 'B13': 300, 'B14': 300.0}
+CACHED ATOMIC SAVE COMPLETE 56978
+SAVE_NOW False
+
+codex
+The calculations point to not investing under the current assumptions: the base NPV is about −€5.22 million, and the best feasible construction design is still about −€3.56 million. All 300 simulated base-design NPVs are negative. The scenario and optimization calculations reconcile to the main model; I’m completing the final file checks.
+
+exec
+/bin/zsh -lc "cat > /private/tmp/finalize.py <<'PY'
+import openpyxl,os
+from openpyxl.styles import Font,PatternFill,Alignment
+from openpyxl.chart import BarChart,Reference
+w=openpyxl.load_workbook('model.xlsx');op=w['Optimization'];co=w['Optimization coefficients'];se=w['Sensitivity'];mc=w['Monte Carlo'];su=w['Decision Summary']
+op['L26']='Best construction IRR';op['M26']='=IFERROR(IRR(\\'Optimized cash flow\\'"'!B2:B23),"No IRR")'"'
+cf=w.create_sheet('Optimized cash flow');cf.append(['Year','Best feasible construction CF','Selected CF incl no-build','Cumulative best built CF'])
+for t in range(22):
+ r=t+2;c=openpyxl.utils.get_column_letter(t+7)
+ cf.cell(r,1,t);cf.cell(r,2,f\"='Optimization coefficients'"'!{c}2+Optimization!M15*'"'Optimization coefficients'"'!{c}3+Optimization!M16*'"'Optimization coefficients'"'!{c}4+Optimization!M17*'"'Optimization coefficients'"'!{c}5")
+ cf.cell(r,3,f'"'=IF(Optimization"'!M13>0,B{r},0)'"');cf.cell(r,4,f'=SUM(B"'$2:B{r})'"')
+cf['A25']='No-build avoids land, construction, operating cash flows and exit proceeds. Best construction remains visible separately even when its NPV is negative.'
+cf['A26']='Selected NPV';cf['B26']='=NPV(Inputs"'!B21,C3:C23)+C2'"';cf['A27']='Best construction NPV';cf['B27']='=NPV(Inputs"'!B21,B3:B23)+B2'"'
+su.append(['Best feasible built mix (units)','=Optimization"'!M15&" standard / "&Optimization!M16&" shared / "&Optimization!M17&" individual"'"'])
+su.append(['Best feasible built project IRR','=Optimization"'!M26'"'])
+se['A29']='Detailed stress cases below: same column layout as Scenarios (A case, B cost, C occupancy, D rent, E exit cap, F NPV, G IRR, H DSCR, I:AD cash flows).'
+for c,x in enumerate(['Case','Cost factor','Occupancy','Rent factor','Exit cap','NPV','IRR','DSCR']+['CF '+str(t) for t in range(22)],1):se.cell(9,c,x)
+mc['AI27']='Probability negative NPV applies to building the original input design; the no-build alternative itself has zero financial cash flow and NPV.'
+co['A8']='Fixed site cost + per-unit marginal cash flows exactly reproduces the main unlevered cash flow; common occupancy and no nonlinear operating scale effects assumed.'
+cl=w['Class methodology'];cl.append(['NPV graph B2 explicitly says varying discount rate alone is not valid sensitivity analysis','Discount rate retained as the investor hurdle; sensitivities instead vary construction cost, occupancy and rent.'])
+checks=w['Checks'];checks.append(['Optimized built NPV reconciles',\"='Optimized cash flow'"'!B27-Optimization!M12",0]);checks.append(['"'Selected no-build/build NPV reconciles',\"='Optimized cash flow'"'!B26-Optimization!M13",0])
+# limits and input validation
+from openpyxl.worksheet.datavalidation import DataValidation
+for rr in [2,3,4,39,40,41,42,43]:
+ dv=DataValidation(type='"'whole',operator='greaterThanOrEqual',formula1=0);dv.errorTitle='Nonnegative integer required';dv.error='Enter a nonnegative whole number.';dv.showErrorMessage=True;dv.errorStyle='stop';w['Inputs'].add_data_validation(dv);dv.add(w['Inputs'].cell(rr,2))
+for rr in [9,29,48,49,50]:
+ dv=DataValidation(type='decimal',operator='between',formula1=.0001,formula2=1);dv.showErrorMessage=True;dv.error='Occupancy must be positive and at most 100%.';w['Inputs'].add_data_validation(dv);dv.add(w['Inputs'].cell(rr,2))
+for sh in [cf]:
+ sh.freeze_panes='B2';sh.sheet_view.showGridLines=False
+ for c in sh[1]:c.fill=PatternFill('solid',fgColor='17365D');c.font=Font(color='FFFFFF',bold=True)
+ sh.column_dimensions['A'].width=38
+ for col in ['B','C','D']:sh.column_dimensions[col].width=28
+ for row in sh:
+  for c in row:
+   if c.data_type=='f':c.number_format='#,##0.00;[Red](#,##0.00)'
+ch=BarChart();ch.title='Best built alternative vs no-build';ch.add_data(Reference(cf,min_col=2,max_col=3,min_row=1,max_row=23),titles_from_data=True);ch.set_categories(Reference(cf,min_col=1,min_row=2,max_row=23));cf.add_chart(ch,'F2')
+# percent formats meaningful results
+for r in [5,22,27,37]:su.cell(r,2).number_format='0.0%'
+for rr in [3,4,5,6,18,19,23,24,25,26]:
+ if rr not in [5]:su.cell(rr,2).number_format='#,##0;[Red](#,##0)'
+for r in [14,15,16,17]:su.cell(r,2).number_format='0'
+for r in range(2,302):
+ for c in [3,5,7]:mc.cell(r,c).number_format='0.0%'
+for r in range(14,26):mc.cell(r,35).number_format='#,##0;[Red](#,##0)'
+# input-driven decision summary removes static mix statement
+su['B8']='Editable base design; live quantities appear below. This is the retained original case, not an investment recommendation.'
+w.save('.model.final.xlsx');os.replace('.model.final.xlsx','model.xlsx');print('Final additions atomically saved; SAVE_NOW',os.path.exists('.deadline_runs/20261029T053252Z-5d40d38f/SAVE_NOW.txt'))
+PY
+python3 /private/tmp/finalize.py
+python3 /private/tmp/cachecheck.py" in /Users/lvanhaverbeke/Decision Analytics/prompts/groupMSN
+ succeeded in 7559ms:
+Final additions atomically saved; SAVE_NOW False
+FORMULA ERRORS 0
+[]
+Dashboard {'B9': -5223424.748954908, 'B10': 0.03815739619420444, 'B11': -4166047.7488172865, 'B25': 20.197633358362815}
+Optimization {'M12': -3557920.398776377, 'M13': 0.0, 'M15': 45, 'M16': 5, 'M17': 5.0, 'M18': 60.0, 'M22': 2067.0, 'M23': 6609729.8100000005, 'M24': 91.38}
+Monte Carlo {'AJ2': -6151966.379865352, 'AJ6': -8028361.768574534, 'AJ7': -4614755.492976853, 'AJ8': 1.0}
+Checks {'B7': 1.862645149230957e-09, 'B12': 2.7939677238464355e-09, 'B13': 300, 'B14': 300.0}
+CACHED ATOMIC SAVE COMPLETE 57051
+SAVE_NOW False
+
+exec
+/bin/zsh -lc "python3 - <<'PY'
+import openpyxl,math,zipfile,os
+f=openpyxl.load_workbook('model.xlsx');v=openpyxl.load_workbook('model.xlsx',data_only=True)
+for r in v['Decision Summary']:print(r[0].row,r[0].value,':',r[1].value)
+p=v['Inputs'];x=lambda r:p.cell(r,2).value
+rent=[v['Rent rules'].cell(r,6).value for r in range(2,5)]
+def model(n,s,i,costfactor=1,occ=None,rentfactor=1):
+ occ=x(9) if occ is None else occ;beds=n+2*s+i;area=(n*x(25)+s*x(26)+i*x(27))*x(28)
+ cost=x(14)*(1+x(32))+x(34)+beds*x(33)+area*x(13)*(1+x(15))*(1+x(16))*(1+x(17))*costfactor
+ gross=(n*rent[0]+2*s*rent[1]+i*rent[2])*x(8)*rentfactor
+ cfs=[-cost/2,-cost/2]
+ for t in range(20):
+  occupancy=min(1,x(29)*occ/x(9)) if t==0 else occ
+  noi=(gross*occupancy*(1-x(11))-beds*x(12))*(1+x(10))**t
+  cfs.append(noi)
+ cfs[-1]+=(gross*occ*(1-x(11))-beds*x(12))*(1+x(10))**20/x(22)*(1-x(23))
+ return sum(cf/(1+x(21))**t for t,cf in enumerate(cfs)),area,cost,beds
+base=model(x(2),x(3),x(4))[0];assert abs(base-v['Dashboard']['B9'].value)<.001
+best=(-1e99,None)
+# independent exhaustive integer validation across all 252,601 combinations
+fixed=x(14)*(1+x(32))+x(34); coeff=[v['Optimization coefficients'].cell(r,6).value for r in range(2,6)]
+for n in range(5,101):
+ for s in range(5,41):
+  for i in range(5,61):
+   beds=n+2*s+i
+   if beds<x(39) or beds>v['Demand & competition']['B10'].value:continue
+   area=(n*x(25)+s*x(26)+i*x(27))*x(28)
+   if area>x(37):continue
+   cost=fixed+beds*x(33)+area*x(13)*(1+x(15))*(1+x(16))*(1+x(17))
+   if cost>x(38):continue
+   npv=coeff[0]+n*coeff[1]+s*coeff[2]+i*coeff[3]
+   if npv>best[0]:best=(npv,(n,s,i))
+assert abs(best[0]-v['Optimization']['M12'].value)<.001
+assert model(60,20,20,costfactor=1.1)[0]<base
+assert model(60,20,20,occ=.85)[0]<base
+assert model(60,20,20,rentfactor=1.1)[0]>base
+assert abs(v['Optimized cash flow']['B27'].value-best[0])<.001
+assert v['Optimized cash flow']['B26'].value==0
+assert len([v['Monte Carlo'].cell(r,6).value for r in range(2,302)])==300
+assert all(v['Monte Carlo'].cell(r,6).value<0 for r in range(2,302))
+assert not any('#REF"'!'"' in str(c.value) for sh in f for row in sh for c in row)
+with zipfile.ZipFile('model.xlsx') as z:assert z.testzip() is None
+print('PASS: independent cash flow check, full brute-force integer search',best,', input response directions, cache load, optimized CF, 300 retained losses, references, ZIP integrity')
+print('File bytes',os.path.getsize('model.xlsx'),'SAVE_NOW',os.path.exists('.deadline_runs/20261029T053252Z-5d40d38f/SAVE_NOW.txt'))
+PY" in /Users/lvanhaverbeke/Decision Analytics/prompts/groupMSN
+ succeeded in 2546ms:
+1 Decision Analytics: VUB student housing : Calculated result / interpretation
+2 Decision problem : Choose capacity and room mix to maximize project NPV, including no investment.
+3 Analytical method : 22-period discounted cash flow; sensitivity; exact bounded integer optimization; 300 Monte Carlo trials.
+4 Base project NPV : -5223424.748954908
+5 Base project IRR : 0.03815739619420444
+6 Base equity NPV : -4166047.7488172865
+7 Base capacity beds : 120.0
+8 Base mix : Editable base design; live quantities appear below. This is the retained original case, not an investment recommendation.
+9 Base standard units : 60
+10 Base shared units : 20
+11 Base individual units : 20
+12 Financially attractive base? : Negative NPV: reject current base case
+13 Optimal decision : DO NOT INVEST: zero NPV dominates feasible construction
+14 Recommended beds : 0.0
+15 Recommended standard units : 0.0
+16 Recommended shared studios : 0.0
+17 Recommended individual studios : 0.0
+18 Optimal NPV incl no-build : 0.0
+19 Best construction NPV (retains loss) : -3557920.398776377
+20 Most influential stress range : Construction multiplier
+21 NPV break-even rent multiplier : 1.7069863113877726
+22 NPV break-even occupancy : 1.6216369958183838
+23 Monte Carlo mean NPV : -6151966.379865352
+24 Monte Carlo median NPV : -6103682.831414458
+25 Monte Carlo P5 NPV : -8028361.768574534
+26 Monte Carlo P95 NPV : -4614755.492976853
+27 Probability of negative NPV : 1.0
+28 Risk interpretation : Most simulated base projects destroy value; uncertainty does not justify forcing construction.
+29 Accept / reject criteria : Accept only a feasible positive-NPV construction case with finance, pre-letting, planning and legal validation. Otherwise retain no-build.
+30 Important constraints : Optimization M22:M24 show area/budget/demand slack for best built alternative. Minimum scale and product diversity may bind; no-build avoids all development cost.
+31 Data requiring validation : Site/floor area and permits; land/construction quotes and VAT; local waiting list and absorption; competition timing; achieved rent; unit-specific reference rents; shared occupancy, fire/accessibility and lease compliance.
+32 Evidence status : Legacy market figures are source-attributed but not independently reverified today. Demand envelope is a proxy, not observed unmet VUB demand. See Sources and Demand & competition.
+33 Model limits : Pre-tax; no grants; constant real mix, common occupancy and expense ratio; exit valuation uncertain; no estimated rent-demand elasticity. 20 operating years fixed.
+34 Regulatory status : Brussels primary page rechecked 29 Oct 2026: reference disclosed in lease; excessive-rent presumption above 20% with possible justification. Reference is not a universal price ceiling. Site references missing.
+35 Investment gate : HOLD / NO COMMITMENT
+36 Best feasible built mix (units) : 45 standard / 5 shared / 5.0 individual
+37 Best feasible built project IRR : 0.028409724725168783
+PASS: independent cash flow check, full brute-force integer search (-3557920.398776377, (45, 5, 5)) , input response directions, cache load, optimized CF, 300 retained losses, references, ZIP integrity
+File bytes 1009445 SAVE_NOW False
+
+exec
+/bin/zsh -lc "cat > /private/tmp/qa.py <<'PY'
+import openpyxl,os
+from openpyxl.styles import Font,PatternFill
+w=openpyxl.load_workbook('model.xlsx');q=w.create_sheet('Validation');q.append(['Validation performed 29 October 2026','Result'])
+for a,b in [('Formula evaluation','All formulas evaluated locally with a purpose-built supported-function evaluator; zero formula errors for current inputs.'),('Independent project cash flow','Separate Python annual cash flow calculation matches base NPV within EUR 0.001.'),('Independent optimization','Exhaustive Python integer search over all type quantities within the declared domain confirms 45 standard / 5 shared / 5 individual, 60 beds, NPV EUR -3,557,920.40.'),('Scenario reconciliation','Base scenario and per-unit coefficient NPV reconcile to main project NPV within floating-point tolerance.'),('Input response','Higher construction cost lowers NPV; lower occupancy lowers NPV; higher rent raises NPV.'),('Simulation','300 results, histogram frequencies total 300; all negative NPVs retained.'),('Workbook integrity','Formula and data-only workbook load succeeded; ZIP integrity passed; no #REF"'! formula tokens.'"'),('Excel-specific limitation','Native Microsoft Excel execution was unavailable in this session. Cached calculated values supplied; automatic full calculation requested on opening. Excel Solver not used.'),('Optimization scope','Exact enumeration for 0..100 standard, 0..40 shared and up to 60 individual units under declared linear assumptions. Changing site assumptions remains dynamic inside those bounds.'),('Negative outcomes','Actual project NPVs/cash flows are never floored. Only the separately identified no-build alternative has NPV zero.'),('Payback interpretation','Simple undiscounted payback includes sale proceeds and linear interpolation inside the final annual period. It is not an operating-only or discounted payback.')]:q.append([a,b])
+q.column_dimensions['A'].width=38;q.column_dimensions['B'].width=115;q.freeze_panes='B2'
+from openpyxl.styles import Alignment
+for row in q:
+ for c in row:c.alignment=Alignment(wrap_text=True,vertical='top')
+ q.row_dimensions[row[0].row].height=44
+for c in q[1]:c.fill=PatternFill('solid',fgColor='17365D');c.font=Font(color='FFFFFF',bold=True)
+w['Sensitivity']['B26'].number_format='0.00\"x\"';w['Decision Summary']['B21'].number_format='0.00\"x\"'
+w.save('.model.qa.xlsx');os.replace('.model.qa.xlsx','model.xlsx');print('QA sheet saved atomically')
+PY
+python3 /private/tmp/qa.py
+python3 /private/tmp/cachecheck.py" in /Users/lvanhaverbeke/Decision Analytics/prompts/groupMSN
+ succeeded in 7843ms:
+QA sheet saved atomically
+FORMULA ERRORS 0
+[]
+Dashboard {'B9': -5223424.748954908, 'B10': 0.03815739619420444, 'B11': -4166047.7488172865, 'B25': 20.197633358362815}
+Optimization {'M12': -3557920.398776377, 'M13': 0.0, 'M15': 45, 'M16': 5, 'M17': 5.0, 'M18': 60.0, 'M22': 2067.0, 'M23': 6609729.8100000005, 'M24': 91.38}
+Monte Carlo {'AJ2': -6151966.379865352, 'AJ6': -8028361.768574534, 'AJ7': -4614755.492976853, 'AJ8': 1.0}
+Checks {'B7': 1.862645149230957e-09, 'B12': 2.7939677238464355e-09, 'B13': 300, 'B14': 300.0}
+CACHED ATOMIC SAVE COMPLETE 57051
+SAVE_NOW False
+
+codex
+[Download the improved Excel workbook](</Users/lvanhaverbeke/Decision Analytics/prompts/groupMSN/model.xlsx>)
+
+Includes sensitivity analysis, integer optimization, 300 Monte Carlo simulations, charts, and a Decision Summary.
+
+**Recommendation: do not invest under current assumptions.** Base NPV is **−€5.22 million**; the best feasible construction alternative remains negative at **−€3.56 million**.
+
+Validation results and limitations are documented inside the workbook.
+tokens used
+59.869

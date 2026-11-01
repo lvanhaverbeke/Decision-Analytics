@@ -1,0 +1,17 @@
+{
+  "base_NPV": -3054753.7151673855,
+  "base_equity_NPV": -2696876.940920394,
+  "maximum_acquisition": 1284663.3642956573,
+  "maximum_works": 1496227.822072025,
+  "minimum_occupancy_NPV": 1.225438297029657,
+  "funding_gap_at_8pct": 3054753.7151673855,
+  "delay12month_NPV": -3256423.848955456,
+  "validation": "All three project/equity NPVs and every annual project cash flow independently reconciled; quarterly sources/uses/debt and affordability passed; input direction tests passed",
+  "limitations": [
+    "All site/permit and construction inputs unverified",
+    "Pre-tax; corporate/exit tax excluded",
+    "Static sensitivity snapshots; regenerate from script",
+    "No native Excel execution",
+    "Unverified municipal fire/accessibility/PEB details and subsidies; no commitment recommended"
+  ]
+}

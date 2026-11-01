@@ -1,0 +1,69 @@
+[
+  [
+    "Student housing near VUB - investment decision",
+    [
+      "Valuation: 29 October 2026. All figures nominal, pre-tax. Hypothetical site; no investment commitment.",
+      "Base project NPV: EUR -4,384,562. Project IRR: 4.95%.",
+      "Best constructed case NPV: EUR -2,769,706. Selected NPV including no investment: EUR 0.",
+      "Do not invest: zero NPV dominates",
+      "Best built strategy index 1 (1=A,2=B,3=C); gates for DSCR and sustainability still require approval. No-build avoids negative investment NPV."
+    ]
+  ],
+  [
+    "Evidence and assumptions",
+    [
+      "VUB standard 2026-27 institutional room: EUR 449.30/month including services. Brukot city ordinary-room median: EUR 590/month including charges. Private residence rents can be higher. These do not establish achieved rent for this site.",
+      "Brussels property-specific reference rent and planning review remain outstanding. The 20% excessive-rent presumption is qualified, not a universal price ceiling.",
+      "Construction EUR 2200/m2, demand 125 students, elasticity 1.2, land EUR 1.5m and 4.5% borrowing are editable management assumptions, not observed site data."
+    ]
+  ],
+  [
+    "Business model and reliability",
+    [
+      "Demand = 125 * demand shock * exp[-1.2*(rent/590 - 1)]. Occupied market rooms are capped at available rooms. Affordable rooms have separate prices and demand.",
+      "One period of development at year 0, twenty annual operating periods. NOI, replacement capex, debt amortization and terminal proceeds are separate. No corporate income taxes or tax shields.",
+      "Project discount rate 8%, equity hurdle 10%, common nominal growth 2%, exit cap 5.5% are unverified investor assumptions."
+    ]
+  ],
+  [
+    "Managerial decisions - optimization and break-even",
+    [
+      "Capacity and rent: systematic integer search finds best built 110 rooms, EUR 650/month market rent. No-build remains available.",
+      "Maximum viable development spend at base operating economics: EUR 9,599,877. This is a ceiling, not a minimum required investment.",
+      "Undiscounted payback including sale: 19.070634212891168; discounted payback: Beyond horizon.",
+      "Optimization uses capacities 40-140, EUR 10 rent steps, floor area and budget limits, and 10% affordable rooms. A continuous global optimum and plot-specific feasibility are not claimed."
+    ]
+  ],
+  [
+    "Sensitivity and uncertainty",
+    [
+      "Largest NPV swing over stated input envelopes: Hard cost EUR/m2. Comparing different ranges does not establish statistical causality.",
+      "5000 independent persistent triangular trials: mean NPV EUR -5,110,182, P5 EUR -7,293,373, P95 EUR -3,106,171.",
+      "Probability of negative NPV: 100.0%. This probability is conditional on subjective distributions, not a forecast calibrated to market history.",
+      "Cost factor 0.85/1/1.25; demand 0.75/1/1.15; opex 0.9/1/1.2; exit cap 4.5/5.5/7%. Triangular distributions reflect judgmental min/mode/max. Correlated adverse shocks and delays could worsen tails.",
+      "Fifth simultaneous uncertainty: common annual rent/opex growth, triangular 0.5%/2%/3.5%. Mean project IRR 4.45%; undefined IRRs 0; fraction meeting 8% hurdle 0.0%. Full static trial IRRs in CSV appendix; rerun after changes."
+    ]
+  ],
+  [
+    "Affordability, sustainability and recommendation",
+    [
+      "Affordable share 10.0%. Affordable rent EUR 449.30 including services. At least 10% is an explicit management constraint; eligibility assumed means-tested enrolled students.",
+      "Illustrative annual operational carbon: 6.5 tonnes; energy 216,000 kWh. Energy and emissions factors are not measured or certified.",
+      "Obtain a secured site, itemized construction bids, achievable rent survey, pre-letting evidence, planning/fire/EPC review and lender terms before approval. Reject projects with nonpositive NPV or failed constraints.",
+      "Do not force profitability. Student review of financial assumptions, sources and formula logic remains required.",
+      "A/B/C modelled energy = 2400/1800/1100 kWh per room; construction premiums 0%/6%/12%; affordable shares 10%/10%/20%. Illustrative engineering alternatives, not certifications."
+    ]
+  ],
+  [
+    "References and implementation limits",
+    [
+      "https://www.vub.be/en/studying-vub/practical-info-for-students/student-housing/practical-housing-information",
+      "https://www.brukot.be/en/student-guide/rent-stats",
+      "https://be.brussels/fr/logement/location/bail-dhabitation/loyers-de-reference",
+      "https://abex.be/en/abex-index/?v=910955a907e7",
+      "https://www.nbb.be/en/statistics/topics/financial-institutions/banks/interest-rates-loans-and-deposits",
+      "Formula-based sensitivity and finite grid optimization implemented; native Excel Data Tables and Solver not configured. Cached values supplied by a local supported-function evaluator. Microsoft Excel/Word/PowerPoint desktop execution not performed. Report and slides are concise text-based documents; charts are in the workbook.",
+      "Full requested rubric is not complete: financing choice, delays, native tables/Solver and empirical calibration remain. Source benchmarks are verified; group review and exact tax/legal conclusions are outstanding."
+    ]
+  ]
+]

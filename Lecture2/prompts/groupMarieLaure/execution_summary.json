@@ -1,0 +1,21 @@
+{
+  "start_epoch": 1793255146.59842,
+  "limit_seconds": 420,
+  "task": "groupMarieLaure",
+  "prompt": "prompt_AnneLaure.txt",
+  "end_epoch": 1793255355.599829,
+  "elapsed_seconds": 209.0014090538025,
+  "completed": true,
+  "outputs": [
+    "model.xlsx",
+    "Executive_Report.pdf",
+    "completion_summary.txt"
+  ],
+  "limitations": [
+    "Quota applicability unverified; no site legal clearance",
+    "No native Excel desktop or Solver execution",
+    "Pre-tax: corporate income taxes excluded",
+    "Commute times and land budgets unverified",
+    "Occupancy independent of rent in this basic course model; no demand elasticity calibration"
+  ]
+}

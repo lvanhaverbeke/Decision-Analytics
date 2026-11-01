@@ -1,0 +1,10 @@
+CORE SAVED: model.xlsx and intermediate/model_core.xlsx; synthetic inputs, official sources, tax/debt/year20 formulas and missing attachment disclosure.
+VALIDATED base financial formulas against independent Python annual cash-flow engine, for all3 properties. Beginning50000 paired trials per conditionally feasible example.
+CHECKPOINT: 10000 complete paired trials per property, 30000 total. Raw draws/outcomes saved in intermediate/sim_A.csv, sim_B.csv, sim_C.csv.
+CHECKPOINT: 20000 complete paired trials per property, 60000 total. Raw draws/outcomes saved in intermediate/sim_A.csv, sim_B.csv, sim_C.csv.
+CHECKPOINT: 30000 complete paired trials per property, 90000 total. Raw draws/outcomes saved in intermediate/sim_A.csv, sim_B.csv, sim_C.csv.
+CHECKPOINT: 40000 complete paired trials per property, 120000 total. Raw draws/outcomes saved in intermediate/sim_A.csv, sim_B.csv, sim_C.csv.
+CHECKPOINT: 50000 complete paired trials per property, 150000 total. Raw draws/outcomes saved in intermediate/sim_A.csv, sim_B.csv, sim_C.csv.
+SIMULATION COMPLETE: exactly50000 per property,150000 total; costs, rent, occupancy, debt pricing, readiness, exit cap, growth and opex vary together; negative outcomes retained.
+Summaries saved; exact8-portfolio enumeration and sensitivity/horizon/price ceilings completed. All main workbook formulas evaluated with zero errors; streaming150000 raw trial rows into simulation worksheets.
+COMPLETE {"start_epoch": 1793256167.3104398, "limit_seconds": 420, "task": "group13", "prompt": "prompt_Thomas.txt", "end_epoch": 1793256461.2660239, "elapsed_seconds": 293.95558524131775, "completed": true, "outputs": ["model.xlsx", "Investment_Report.pdf", "completion_summary.txt"], "trials_per_property": 50000, "total_trials": 150000, "limitations": ["No actual property data or legal clearance", "Synthetic costs, rents, demand and shock parameters are assumptions", "Static simulation and sensitivity; regeneration required", "Simplified tax basis/loss/interest rules", "No dynamic reinvestment strategy", "No native Excel desktop test", "Report charts not reproduced; workbook charts provided"]}

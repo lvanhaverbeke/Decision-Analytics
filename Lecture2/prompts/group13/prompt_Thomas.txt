@@ -1,0 +1,21 @@
+Act as a senior real estate investment analyst and quantitative financial modeler. Using the provided spreadsheet, develop an advanced investment model to identify and optimize the most profitable student housing opportunities in Brussels.
+
+The objective is to maximize risk-adjusted profitability, considering acquisition costs, renovation expenses, financing, rental income, regulatory compliance, and the time required before each property can generate rental revenue.
+
+The analysis must include:
+
+1. Financial modeling: Calculate total investment costs, net rental yields, cash flows, NPV, IRR, ROI, payback periods, and expected profits over different investment horizons. Account for financing, taxes, vacancy, maintenance, and property appreciation.
+2. Regulatory compliance: Verify applicable Brussels student housing regulations, including minimum room sizes, sanitary facilities, fire safety, energy standards, and required permits. Estimate compliance costs and exclude properties that cannot realistically meet legal requirements.
+3. Project timelines: Estimate acquisition, permitting, renovation, and rental-readiness timelines. Quantify the financial impact of delays, missed academic rental cycles, and capital tied up before generating income.
+4. Monte Carlo simulations: Run at least 50,000 simulations per viable property, incorporating uncertainty in costs, rental income, occupancy, interest rates, timelines, and property values. Calculate expected returns, probability of losses, probability of achieving target returns, and downside risk.
+5. Scenario and sensitivity analysis: Evaluate multiple downside, baseline, upside, and extreme scenarios, including their estimated probabilities. Identify the variables most affecting profitability through sensitivity matrices, stress tests, and tornado charts. Determine break-even points and maximum profitable purchase prices.
+6. Investment optimization: Apply advanced mathematical and statistical methods to identify the most profitable properties or combinations of properties, accounting for capital constraints, risk, project duration, and potential reinvestment opportunities. Prioritize expected economic profit rather than rental yield alone.
+7. Investment ranking: Rank opportunities based on expected profitability, risk-adjusted returns, probability of success, regulatory feasibility, and time to rental income. Independently determine which investments deserve recommendation and which should be excluded.
+
+Final deliverables:
+
+Produce a professional, structured investment report inspired by Vanguard research reports, featuring an executive summary, comparative investment rankings, detailed financial projections, Monte Carlo probability distributions, sensitivity charts, key risks, and clear investment recommendations.
+
+Also provide an auditable Excel financial model containing the underlying calculations, assumptions, simulations, and optimization results.
+
+Important: Use realistic, verifiable Brussels market data and current regulations. Clearly distinguish assumptions from facts, justify probability estimates, and never fabricate simulation results. The final recommendations must be mathematically rigorous, commercially realistic, and focused on maximizing expected profit while managing downside risk.

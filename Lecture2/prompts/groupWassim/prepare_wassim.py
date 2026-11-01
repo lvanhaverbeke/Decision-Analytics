@@ -1,0 +1,33 @@
+from pathlib import Path
+p=Path('build_model.py');t=p.read_text()
+t=t.replace("i=sheet('Inputs'", "inputs += [('Selected_Strategy',2,'1=A 2=B 3=C','control','Discrete development concept'),('Selected_Capex_Premium','=INDEX(Strategy_Alternatives!B2:B4,Selected_Strategy)','fraction','calculated','Strategy premium'),('Strategy_Demand_Factor','=INDEX(Strategy_Alternatives!D2:D4,Selected_Strategy)','multiplier','assumption','Sustainability demand response uncalibrated'),('Required_Affordable_Share','=INDEX(Strategy_Alternatives!E2:E4,Selected_Strategy)','fraction','constraint','At least 10%; C reserves 20%')]\ni=sheet('Inputs'")
+t=t.replace("# Development, demand", "sa=sheet('Strategy_Alternatives',['Strategy','Capex premium','Energy kWh/room','Demand appeal factor','Affordable fraction'])\nfor row in [('A Conventional',0,2400,.95,.1),('B Efficient',.06,1800,1,.1),('C Ambitious',.12,1100,1.05,.2)]:sa.append(row)\ni.cell(refs['Energy_kWh_Per_Room'],2,'=INDEX(Strategy_Alternatives!C2:C4,Selected_Strategy)')\ni.cell(refs['Affordable_Units_Count'],2,'=INT(Total_Rooms*Required_Affordable_Share+0.999999)')\n# Development, demand")
+t=t.replace('Hard_Cost_Per_m2*Cost_Multiplier', 'Hard_Cost_Per_m2*Cost_Multiplier*(1+Selected_Capex_Premium)')
+t=t.replace('Reference_Demand*Demand_Multiplier*EXP','Reference_Demand*Demand_Multiplier*Strategy_Demand_Factor*EXP')
+t=t.replace("'Project NPV','Feasible'])", "'Project NPV','Feasible','Premium','Energy kWh','Appeal','Elasticity','Annual growth','Affordable share','Strategy index'])")
+t=t.replace("aff=None):", "aff=None,strategy='=Selected_Strategy',elasticity='=Demand_Elasticity',growth='=Annual_Growth',energy_factor=1):")
+t=t.replace('r=e.max_row+1','r=e._current_row+1')
+t=t.replace("aff=f'=INT((B{r}+9)/10)'", "aff=f'=INT(B{r}*V{r}+0.999999)'")
+t=t.replace('*D{r}*(1+Soft_Cost_Rate)', '*D{r}*(1+Q{r})*(1+Soft_Cost_Rate)')
+t=t.replace('Reference_Demand*E{r}*EXP(-Demand_Elasticity*', 'Reference_Demand*E{r}*S{r}*EXP(-T{r}*')
+t=t.replace('Energy_kWh_Per_Room*Energy_Price))*F{r}', 'R{r}*Energy_Price))*F{r}')
+t=t.replace('Project_Discount_Rate=Annual_Growth','Project_Discount_Rate=U{r}').replace('(1+Annual_Growth)/(1+Project_Discount_Rate)','(1+U{r})/(1+Project_Discount_Rate)').replace('(Project_Discount_Rate-Annual_Growth)','(Project_Discount_Rate-U{r})').replace('(1+Annual_Growth)^Investment_Horizon_Years/G{r}', '(1+U{r})^Investment_Horizon_Years/G{r}')
+t=t.replace('H{r}>=B{r}*0.1','H{r}>=B{r}*V{r}')
+t=t.replace(' return r\nbase=', " e.cell(r,17,f'=INDEX(Strategy_Alternatives!B2:B4,W{r})');e.cell(r,18,f'=INDEX(Strategy_Alternatives!C2:C4,W{r})*{energy_factor}');e.cell(r,19,f'=INDEX(Strategy_Alternatives!D2:D4,W{r})');e.cell(r,20,elasticity);e.cell(r,21,growth);e.cell(r,22,f'=INDEX(Strategy_Alternatives!E2:E4,W{r})');e.cell(r,23,strategy)\n return r\nbase=")
+# Iterate all three strategies, rent EUR10 increments, exact on this finite domain.
+t=t.replace('for n in range(40,141):\n for rent in range(400,651,5):\n  rr=engine_row(\'optimization\',n,rent);r=opt.max_row+1',"for candidate in range(3*101*26):\n strategy=1+candidate//(101*26);within=candidate%(101*26);n=40+within//26;rent=400+10*(within%26)\n if True:\n  rr=engine_row('optimization',n,rent,strategy=strategy);r=opt._current_row+1")
+t=t.replace("opt['H8']='Scope:","opt['H9']='Best built strategy';opt['I9']=f'=INDEX(Analysis_Engine!W1:W20000,INDEX(A1:A{end},I4))';opt['H8']='Scope:")
+t=t.replace('EUR 5 rent','EUR 10 rent').replace('EUR5','EUR10')
+t=t.replace('1001','5001').replace('1000','5000').replace('mc.max_row+1','mc._current_row+1')
+t=t.replace("'Exit cap','NPV EUR']", "'Exit cap','NPV EUR','Rent / opex growth']")
+t=t.replace("rng.triangular(.045,.07,.055)]", "rng.triangular(.045,.07,.055),rng.triangular(.005,.035,.02)]")
+t=t.replace("f'=Monte_Carlo!E{r}',aff='=Affordable_Units_Count')", "f'=Monte_Carlo!E{r}',aff='=Affordable_Units_Count',growth=f'=Monte_Carlo!G{r}')")
+t=t.replace("mc.append([trial]+draws+[f'=Analysis_Engine!O{rr}'])", "mc.append([trial]+draws[:4]+[f'=Analysis_Engine!O{rr}',draws[4]])")
+t=t.replace('Independent persistent triangular shocks, subjective endpoints;', 'Five independent persistent triangular shocks, subjective endpoints; growth min/mode/max 0.5/2/3.5%;')
+t=t.replace("[('Financial feasibility?'", "[('Financial feasibility?'")
+# Replace generic summary with the exactly five requested managerial questions in extension.
+t=t.replace("t=Path('../groupMSN/recalculate.py').read_text()", "t=Path('../groupInas/recalculate.py').read_text()")
+# Generic evaluator already has print section removed; don't search for it again.
+a=t.index(";a=t.index('for sheet,refs in ')");b=t.index("\nPath('recalculate.py')",a)
+t=t[:a]+t[b:]
+p.write_text(t)

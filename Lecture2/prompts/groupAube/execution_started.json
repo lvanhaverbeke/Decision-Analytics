@@ -1,0 +1,6 @@
+{
+  "start_epoch": 1793254790.748617,
+  "limit_seconds": 420,
+  "task": "groupAube",
+  "prompt": "prompt_Aube.txt"
+}

@@ -1,0 +1,6 @@
+2026-10-29T06:19:50.748970+00:00 START groupAube: read prompt; seven-minute execution budget; all intermediate artifacts retained locally.
+2026-10-29T06:23:07.945360+00:00 Core model built: named inputs, distinct project/equity finance, horizontal years 0-20, with/without sale KPI paths. Saving checkpoint.
+2026-10-29T06:23:11.831968+00:00 Saved model.xlsx: 1000 simulations, 121 room-mix candidates, one/two-way sensitivities, location comparison, legal register and charts. Starting formula evaluation.
+2026-10-29T06:25:07.569318+00:00 VALIDATION: formula evaluator reported zero errors. Independently reconciled annual DCF, terminal exclusion, integer optimization, first 50 MC trials, acquisition ceiling and debt. Quota approval correctly remains FALSE.
+2026-10-29T06:25:07.587050+00:00 OUTPUTS: model.xlsx, Executive_Report.pdf, completion_summary.txt, intermediate/model_core.xlsx, model_analysis.xlsx, model_validated.xlsx, Monte_Carlo_trials.csv, calculated_values.json, independent_validation.json and formula_validation.txt. No source inputs overwritten.
+2026-10-29T06:25:07.587439+00:00 COMPLETE in 316.84 seconds (limit 420).

@@ -1,0 +1,10 @@
+2026-10-29T06:25:46.598759+00:00 START: execute MarieLaure prompt; horizontal 20-year model, commune land comparison and 3 analytical worksheets. Seven-minute limit.
+2026-10-29T06:26:31.786127+00:00 Core model built: named inputs, distinct project/equity finance, horizontal years 0-20, with/without sale KPI paths. Saving checkpoint.
+2026-10-29T06:26:33.665501+00:00 Saved model.xlsx: 1000 simulations, 121 room-mix candidates, one/two-way sensitivities, location comparison, legal register and charts. Starting formula evaluation.
+2026-10-29T06:26:52.951059+00:00 VALIDATION: formula evaluator reported zero errors. Independently reconciled annual DCF, terminal exclusion, integer optimization, first 50 MC trials, acquisition ceiling and debt. Quota approval correctly remains FALSE.
+2026-10-29T06:26:52.967851+00:00 OUTPUTS: model.xlsx, Executive_Report.pdf, completion_summary.txt, intermediate/model_core.xlsx, model_analysis.xlsx, model_validated.xlsx, Monte_Carlo_trials.csv, calculated_values.json, independent_validation.json and formula_validation.txt. No source inputs overwritten.
+2026-10-29T06:26:52.968208+00:00 COMPLETE in 66.37 seconds (limit 420).
+2026-10-29T06:28:54.655591+00:00 Enhanced MarieLaure model with commune land-driven acquisition/NPV comparison, current guidance publication source, debt-rate/leverage equity heatmap, 20-year affordability path, three scenarios, sale-dependence chart, risk register and additional named outputs.
+2026-10-29T06:29:15.581813+00:00 VALIDATION: formula evaluator reported zero errors. Independently reconciled annual DCF, terminal exclusion, integer optimization, first 50 MC trials, acquisition ceiling and debt. Quota approval correctly remains FALSE.
+2026-10-29T06:29:15.599641+00:00 OUTPUTS: model.xlsx, Executive_Report.pdf, completion_summary.txt, intermediate/model_core.xlsx, model_analysis.xlsx, model_validated.xlsx, Monte_Carlo_trials.csv, calculated_values.json, independent_validation.json and formula_validation.txt. No source inputs overwritten.
+2026-10-29T06:29:15.600061+00:00 COMPLETE in 209.00 seconds (limit 420).

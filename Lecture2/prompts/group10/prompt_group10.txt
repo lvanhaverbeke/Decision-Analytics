@@ -1,0 +1,259 @@
+Act as an expert in real estate investment, student housing, and financial modelling in Ixelles/Elsene, Brussels, Belgium.
+Develop a decision-support model to evaluate a student housing investment over a 20-year horizon, balancing financial viability with affordable student housing.
+Your objective is to determine whether to invest, under which conditions, and what would need to change if the project is not viable.
+Use plain English while maintaining professional analytical standards. Define technical terms, explain formulas, cite sources, and distinguish verified facts from assumptions and professional judgement. 
+Don't take negative inputs into account to make the calculations,
+
+Define the investment and collect essential inputs
+Take into account theses 3 variables Constant, Control variables ---> help to take decisions, and Uncertain variables. 
+First, establish whether the project involves:
+Purchasing an existing student residence.
+Converting an existing building into student accommodation.
+Constructing a new student residence.
+Do not combine these project types into one set of assumptions.
+Request essential missing information, including:
+Property address, acquisition price, current permitted use, and condition.
+Total building area, usable area, proposed rooms, and shared facilities.
+Target student population and accommodation standard.
+Development budget and expected schedule.
+Available equity and proposed financing.
+Ownership structure and applicable tax treatment.
+Investor return requirements and risk tolerance.
+Intended affordability ceiling.
+If no property has been selected, define a clearly labelled illustrative project and calculate the maximum acquisition price it could support.
+If information is unavailable, proceed with transparent assumptions and justified ranges. Do not present illustrative values as verified market evidence.
+Maintain a register of missing information and explain how each gap affects confidence in the conclusions.
+2. Define the horizon, timeline, and decision criteria
+Measure the 20-year investment horizon from the initial investment, including acquisition, permitting, construction, and operations.
+Present separate estimates for:
+Acquisition and due diligence.
+Design and permitting.
+Construction or renovation.
+Opening and occupancy stabilization.
+Operating period.
+Investment payback.
+Sale or continued operation at the end of year 20.
+Explain how delays reduce the operating period within the fixed horizon.
+Before evaluating results, request or propose justified acceptance criteria for:
+Minimum equity return.
+Appropriate project and equity discount rates.
+Maximum equity contribution.
+Minimum debt service coverage ratio.
+Maximum acceptable payback period.
+Minimum liquidity reserve.
+Maximum affordable total housing cost per student.
+Label proposed thresholds as assumptions until confirmed. Do not use universal investment thresholds without justification.
+3. Verify legal and technical feasibility
+Research current requirements using authoritative Belgian, Brussels-Capital Region, and Ixelles/Elsene sources. Provide links and verification dates.
+Assess, where applicable:
+Planning permission, permitted use, and conversion requirements.
+Rules applicable to individual student accommodation versus collective residences.
+Housing quality, room sizes, occupancy limits, sanitation, and shared facilities.
+Fire safety, accessibility, and energy performance.
+Student leases, deposits, charges, and rent adjustments.
+Applicable rent regulation and reference-rent mechanisms.
+Acquisition duties, VAT, income taxes, property charges, and municipal taxes.
+Potential subsidies, grants, and financing incentives.
+Distinguish binding requirements, voluntary standards, and proposed rules. Identify matters requiring confirmation from the municipality or a qualified local professional.
+Do not assume that the proposed room count is legally achievable or that an incentive is available.
+Translate requirements into their effects on capacity, costs, timing, and revenue. Treat unresolved issues that could prevent development as explicit feasibility conditions.
+4. Establish an enforceable affordability constraint
+Define affordability using verified local evidence, such as student budgets, relevant housing benchmarks, and comparable accommodation. Explain the limitations of each benchmark.
+Distinguish:
+Base monthly rent.
+Utilities and mandatory service charges.
+Total monthly housing cost per student.
+Deposits and other upfront payments.
+Propose a measurable maximum total monthly housing cost per student, and explain how it evolves over 20 years in line with applicable rules and the affordability objective.
+Apply this constraint in all scenarios. Do not assume that market rents are necessarily affordable.
+Do not achieve financial viability by raising student housing costs above the agreed ceiling.
+If the project fails financially, assess alternatives such as a lower acquisition price, design changes, grants, different financing, or operating efficiencies. Do not reduce legally required standards or essential housing quality.
+5. Build a transparent financial model
+Create an editable Excel model with separate sections for:
+Inputs and sources.
+Development budget and schedule.
+Financing.
+Operating performance.
+Project and equity cash flows.
+Exit valuation.
+Scenarios and sensitivities.
+KPI dashboard and model checks.
+Use monthly or quarterly development cash flows where needed to capture delays and financing costs, with annual summaries across the full 20 years.
+Include:
+Initial and development expenditure
+Acquisition price and transaction costs.
+Due diligence, design, permits, and professional fees.
+Construction or renovation.
+Furniture, equipment, and initial marketing.
+Contingency and working capital.
+Financing fees and construction-period interest.
+Operations
+Number of legally rentable rooms.
+Rent, lease length, occupancy, and summer vacancy.
+Arrears, collection losses, and tenant turnover.
+Management, maintenance, insurance, utilities, taxes, and administration.
+Periodic refurbishment and equipment replacement.
+Required liquidity reserves.
+Financing and exit
+Equity contributions and loan drawdowns.
+Interest rates, repayment schedules, maturity, and outstanding debt.
+Refinancing assumptions and associated risks, if applicable.
+Applicable taxes.
+Year-20 sale value, selling costs, taxes, and debt repayment.
+Net proceeds available to equity investors.
+Keep nominal and real assumptions consistent. Explain inflation, rent growth, and expense growth separately.
+Separate unlevered project cash flows from levered equity cash flows, using appropriate discount rates for each. Define the treatment of taxes consistently and avoid double-counting costs, reserves, or financing flows.
+6. Calculate and explain the investment KPIs
+For every KPI, show its definition, formula, interpretation, relevant acceptance criterion, and limitations.
+Include:
+KPI
+Decision purpose
+Project and equity net present value (NPV)
+Value created relative to the required return
+Project and equity internal rate of return (IRR)
+Annualised investment returns
+Simple and discounted payback period (PBP)
+Time required to recover the investment
+Net operating income (NOI)
+Operating performance before financing and income taxes
+Yield on cost
+Stabilised NOI relative to total development cost
+Debt service coverage ratio (DSCR)
+Ability to cover scheduled debt payments
+Loan-to-cost and loan-to-value
+Financing exposure relative to cost and value
+Cash-on-cash return
+Annual cash distributions relative to invested equity
+Equity multiple
+Total equity proceeds relative to equity contributed
+Break-even occupancy
+Occupancy needed to cover defined costs
+Maximum funding requirement
+Peak cash requirement, including liquidity needs
+Development cost per student bed
+Capital efficiency
+Total monthly housing cost per student
+Compliance with the affordability objective
+Show break-even occupancy both before and after debt service. Report minimum annual DSCR as well as its evolution during operations.
+If payback does not occur, state “not achieved within 20 years.” Distinguish payback through operating cash flows from recovery dependent on a sale.
+Identify cases where IRR is undefined or potentially misleading.
+7. Develop three coherent scenarios
+Model:
+Bad/downside scenario.
+Intermediate/base scenario.
+Optimal/upside scenario.
+Use evidence-based assumptions or clearly justified ranges rather than arbitrary percentage adjustments.
+Consider differences in:
+Acquisition and construction costs.
+Permitting and construction duration.
+Borrowing costs and financing availability.
+Occupancy, summer vacancy, and arrears.
+Operating expenses and refurbishment needs.
+Exit valuation and selling conditions.
+Keep assumptions internally consistent. The upside scenario must remain realistic. All scenarios must respect the same legal requirements and affordability framework.
+Include a combined downside stress test involving an opening delay, a construction overrun, and lower occupancy occurring together.
+Do not assign scenario probabilities without supporting evidence. If illustrative probabilities are used, label and explain them.
+For each scenario, report the main financial KPIs, affordability results, project duration, operating years, and conditions that pass or fail.
+8. Analyse market complexity and qualitative factors
+Evaluate:
+Local student demand and competing accommodation.
+University proximity and public transport.
+Seasonality and lease patterns.
+Student preferences and ability to pay.
+Management demands and tenant turnover.
+Neighbourhood acceptance.
+Regulatory uncertainty.
+Building adaptability and alternative uses.
+Student wellbeing, accessibility, and housing quality.
+Energy costs, environmental performance, and long-term maintenance.
+Create a risk matrix showing likelihood, impact, mitigation, and implications for the decision.
+Use a weighted decision matrix for relevant qualitative factors. Explain and justify the weights, and test whether reasonable changes would alter the recommendation.
+Legal feasibility and affordability are mandatory conditions. A strong score on other factors must not compensate for failing either condition.
+9. Conduct sensitivity and break-even analysis
+Distinguish:
+Scenario analysis: several assumptions change together.
+Sensitivity analysis: one assumption changes at a time.
+Two-variable analysis: two assumptions change simultaneously.
+Identify which variables most affect NPV and equity returns.
+Calculate:
+Maximum acquisition price compatible with the target return and affordable housing costs.
+Maximum supportable construction cost.
+Minimum viable occupancy.
+Effect of a 12-month opening delay.
+Effect of higher borrowing costs.
+Effect of higher operating costs.
+Funding or subsidy gap, if the project is otherwise unviable.
+Assess dependence on the year-20 sale:
+Justify the exit valuation method and assumptions.
+Show the share of discounted inflows attributable to terminal value.
+Report results with and without terminal sale proceeds.
+Compare selling in year 20 with continued operation, clearly explaining any assumptions extending beyond the evaluation horizon.
+Do not treat the no-sale-proceeds calculation as a complete valuation of an asset that remains owned.
+10. Produce an executive report with clear graphs and tables
+Prepare a professional report that an investor without a financial background can understand.
+A. Executive summary — maximum two pages
+Include:
+Project concept and affordability objective.
+Total investment, equity requirement, and financing.
+Development schedule and opening date.
+Main results across the three scenarios.
+Major risks and unresolved uncertainties.
+Recommendation: proceed, redesign, or reject.
+Conditions required for the recommendation to hold.
+B. One-page investment dashboard
+Provide a side-by-side scenario table showing:
+Total development cost and required equity.
+Base rent and total monthly housing cost per student.
+Occupancy and break-even occupancy.
+Project and equity NPV and IRR.
+Simple and discounted payback.
+Minimum DSCR.
+Equity multiple.
+Development duration and operating years.
+Compliance with affordability and investment criteria.
+Show units, define abbreviations, and use text labels alongside colours.
+C. Graphs
+Generate:
+Cost breakdown: acquisition, construction, professional fees, financing, and contingency.
+Project Gantt chart: acquisition, permitting, construction, opening, and stabilisation.
+Annual equity cash flows: contributions and distributions, with sale proceeds identified separately.
+Cumulative equity cash flows: payback under each scenario.
+Scenario comparison: separate NPV and IRR charts showing acceptance thresholds.
+Affordability comparison: total monthly student housing cost against the affordability ceiling and relevant benchmarks.
+Sensitivity tornado chart: variables with the greatest impact on NPV.
+Two-variable heatmap: acquisition price and occupancy effects on NPV, highlighting the viable region.
+Use consistent scenario colours, readable labels, and clearly marked axes. Avoid 3D effects and incompatible units on one axis.
+Under each graph, explain what it shows, why it matters, and any important limitation.
+D. Supporting tables and appendix
+Include:
+Assumptions, sources, verification dates, and confidence levels.
+Regulatory feasibility checklist.
+Full 20-year cash-flow summary.
+KPI definitions and formulas.
+Risk matrix and qualitative assessment.
+Sensitivity results.
+Outstanding information and due-diligence steps.
+11. Deliver usable files and validate consistency
+Provide:
+A polished PDF executive report.
+An editable Excel financial model with formulas, input cells, scenario controls, and charts linked to the calculations.
+A concise written summary of the recommendation and principal findings.
+Validate that:
+Sources and uses of funds reconcile.
+Debt balances and repayments reconcile.
+Cash flows, KPIs, tables, and charts agree.
+Scenario changes flow through the model.
+Affordability is tested throughout the horizon.
+Missing information and assumptions are visible.
+If file generation is unavailable, provide the structured report and Excel-ready tables and formulas. Do not claim to have created files that do not exist.
+12. Apply the final decision framework
+Evaluate the project in this order: Include Optimistic and pessimistic scenario. 
+Legal and technical feasibility: can the proposed accommodation lawfully and practically be delivered?
+Affordability and operating resilience: can affordable housing costs cover operations, maintenance, and financing?
+Investment attractiveness: do the resulting cash flows meet the investor’s return and risk requirements?
+For every scenario, identify which conditions pass or fail.
+Conclude with a justified proceed, redesign, or reject recommendation. If redesign is needed, quantify what must change to make the project viable without exceeding the affordability ceiling.
+Avoid false precision. Make clear how the quality of the available evidence affects confidence in the recommendation.
+13. Outputs to show, NPV is the most important and also show cashflows and also PBP.  
+
+

@@ -1,0 +1,153 @@
+%PDF-1.4
+1 0 obj
+<< /Type /Catalog /Pages 2 0 R >>
+endobj
+2 0 obj
+<< /Type /Pages /Count 4 /Kids [4 0 R 6 0 R 8 0 R 10 0 R] >>
+endobj
+3 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>
+endobj
+4 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 3 0 R >> >> /Contents 5 0 R >>
+endobj
+5 0 obj
+<< /Length 1010 >>
+stream
+BT /F1 10 Tf 45 795 Td 12 TL
+(Student housing decision - executive summary) Tj T*
+() Tj T*
+(Base project NPV: EUR 973,486; project IRR 9.13%.) Tj T*
+() Tj T*
+(NPV excluding terminal sale: EUR -1,775,874. Excluding sale omits a residual asset that) Tj T*
+(remains owned.) Tj T*
+() Tj T*
+(Maximum zero-NPV acquisition price: EUR 5,365,321.) Tj T*
+() Tj T*
+(Best social allocation: 24 of 120 rooms; NPV EUR 973,486.) Tj T*
+() Tj T*
+(Probability negative NPV under subjective independent triangular inputs: 45.2%.) Tj T*
+() Tj T*
+(Recommendation: HOLD pending legal/site clearance; financial recommendation is conditional on) Tj T*
+(the model assumptions and DSCR.) Tj T*
+() Tj T*
+(Legal quota reference: City of Brussels 2021 guidance 20% from 30 units; applicability to) Tj T*
+(selected municipality Ixelles remains unverified.) Tj T*
+() Tj T*
+(Limitations: pre-tax, no construction delay schedule; no native Solver/Data Table/Excel test.) Tj T*
+(Travel times and land prices are illustrative.) Tj T*
+() Tj T*
+ET
+endstream
+endobj
+6 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 3 0 R >> >> /Contents 7 0 R >>
+endobj
+7 0 obj
+<< /Length 856 >>
+stream
+BT /F1 10 Tf 45 795 Td 12 TL
+(Financial model and audit) Tj T*
+() Tj T*
+(Year 0 contains acquisition, duties, works, professional fees, contingency, works VAT,) Tj T*
+(furniture and working capital. Operations run years 1-20. Nominal rent growth and expense) Tj T*
+(inflation are separate inputs.) Tj T*
+() Tj T*
+(Project cash flows exclude debt financing. Equity cash flows deduct interest and principal;) Tj T*
+(remaining debt repaid on sale. Working capital is released at exit.) Tj T*
+() Tj T*
+(Simple and discounted payback are presented separately with/without terminal sale. Negative) Tj T*
+(financial outcomes are preserved.) Tj T*
+() Tj T*
+(Monte Carlo uses 1000 seeded independent triangular draws for works, rent, occupancy and exit) Tj T*
+(value. Parameters are management assumptions, not calibrated empirical probabilities.) Tj T*
+() Tj T*
+ET
+endstream
+endobj
+8 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 3 0 R >> >> /Contents 9 0 R >>
+endobj
+9 0 obj
+<< /Length 1652 >>
+stream
+BT /F1 10 Tf 45 795 Td 12 TL
+(Sources and outstanding legal checks) Tj T*
+() Tj T*
+(City of Brussels reference: 20% social student units from 30 created units. Guidance not) Tj T*
+(transplanted to Ixelles. https://www.bruxelles.be/sites/default/files/bxl/Recommandations_loge) Tj T*
+(ments_etudiants_VBX_17juin2021.pdf) Tj T*
+() Tj T*
+(Standard room EUR449.30/month including services in 2026-27. https://www.vub.be/en/studying-) Tj T*
+(vub/practical-info-for-students/student-housing/practical-housing-information) Tj T*
+() Tj T*
+(Brukot ordinary room median EUR500 base / EUR590 incl charges.) Tj T*
+(https://www.brukot.be/en/student-guide/rent-stats) Tj T*
+() Tj T*
+(General Brussels acquisition duty 12.5%; VAT regime may replace duty for particular) Tj T*
+(transactions. https://be.brussels/en/taxes-finances/taxes/property-related-taxes/registration-) Tj T*
+(duties) Tj T*
+() Tj T*
+(Regional safety, sanitary and equipment requirements apply; 2026 rules must be checked against) Tj T*
+(measured plans. https://be.brussels/fr/logement/location/conformite-logement/normes-et-) Tj T*
+(securite) Tj T*
+() Tj T*
+(Reference disclosure and qualified excessive-rent framework; no universal price cap assumed.) Tj T*
+(https://be.brussels/fr/logement/location/bail-dhabitation/loyers-de-reference) Tj T*
+() Tj T*
+(IBSA publishes commune dwelling sale prices, not verified buildable land EUR/m2 for our sites.) Tj T*
+(https://ibsa.brussels/themes/logement/prix-des-logements) Tj T*
+() Tj T*
+(Selected building planning permit, university agreement, fire/accessibility review, tax) Tj T*
+(assessment and measured layout remain outstanding.) Tj T*
+() Tj T*
+ET
+endstream
+endobj
+10 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 3 0 R >> >> /Contents 11 0 R >>
+endobj
+11 0 obj
+<< /Length 777 >>
+stream
+BT /F1 10 Tf 45 795 Td 12 TL
+(Validation and next actions) Tj T*
+() Tj T*
+(Annual NPV with/without sale; all 121 mix alternatives; 50 MC trials; zero-NPV purchase) Tj T*
+(ceiling; input direction and debt reconciliation passed) Tj T*
+() Tj T*
+(Quota applicability unverified; no site legal clearance) Tj T*
+() Tj T*
+(No native Excel desktop or Solver execution) Tj T*
+() Tj T*
+(Pre-tax: corporate income taxes excluded) Tj T*
+() Tj T*
+(Commute times and land budgets unverified) Tj T*
+() Tj T*
+(Occupancy independent of rent in this basic course model; no demand elasticity calibration) Tj T*
+() Tj T*
+(Obtain actual offers and an address, verify municipal permit conditions, replace assumed) Tj T*
+(travel/land budgets, and secure finance before committing.) Tj T*
+() Tj T*
+ET
+endstream
+endobj
+xref
+0 12
+0000000000 65535 f 
+0000000009 00000 n 
+0000000058 00000 n 
+0000000134 00000 n 
+0000000204 00000 n 
+0000000330 00000 n 
+0000001392 00000 n 
+0000001518 00000 n 
+0000002425 00000 n 
+0000002551 00000 n 
+0000004255 00000 n 
+0000004383 00000 n 
+trailer
+<< /Size 12 /Root 1 0 R >>
+startxref
+5212
+%%EOF

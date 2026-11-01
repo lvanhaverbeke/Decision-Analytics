@@ -1,0 +1,140 @@
+%PDF-1.4
+1 0 obj
+<< /Type /Catalog /Pages 2 0 R >>
+endobj
+2 0 obj
+<< /Type /Pages /Count 4 /Kids [4 0 R 6 0 R 8 0 R 10 0 R] >>
+endobj
+3 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>
+endobj
+4 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 3 0 R >> >> /Contents 5 0 R >>
+endobj
+5 0 obj
+<< /Length 799 >>
+stream
+BT /F1 10 Tf 45 795 Td 12 TL
+(Student housing in City of Brussels - iterative decision) Tj T*
+() Tj T*
+(Illustrative office conversion: 120 rooms, including 24 social rooms in final design. All) Tj T*
+(prices and project-specific feasibility are assumptions.) Tj T*
+() Tj T*
+(Municipal distinction: City of Brussels publishes 2021 guidance for 20% social student housing) Tj T*
+(from 30 created units. Current guidance listing checked; exact permit conditions and) Tj T*
+(university agreement remain outstanding. No corresponding universal regional quota or) Tj T*
+(different Ixelles threshold has been verified.) Tj T*
+() Tj T*
+(The statement that Brussels is Belgium's most expensive student city was not independently) Tj T*
+(established; it is not used as a calculation input.) Tj T*
+() Tj T*
+ET
+endstream
+endobj
+6 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 3 0 R >> >> /Contents 7 0 R >>
+endobj
+7 0 obj
+<< /Length 1329 >>
+stream
+BT /F1 10 Tf 45 795 Td 12 TL
+(Three evaluated model iterations) Tj T*
+() Tj T*
+({"iteration": "iteration_1", "social_rooms": 12, "required_quota": 0.1, "acquisition":) Tj T*
+(3000000, "works": 2200000, "NPV": 1407448.3116851114, "loss_probability": 0.326, "NPV_P10":) Tj T*
+(-805803.7673382424, "equity_funded": 3541715.0}) Tj T*
+() Tj T*
+({"iteration": "iteration_2", "social_rooms": 24, "required_quota": 0.2, "acquisition":) Tj T*
+(3000000, "works": 2200000, "NPV": 1130336.3875134084, "loss_probability": 0.394, "NPV_P10":) Tj T*
+(-887018.5419626865, "equity_funded": 3541715.0}) Tj T*
+() Tj T*
+({"iteration": "iteration_3", "social_rooms": 24, "required_quota": 0.2, "acquisition":) Tj T*
+(2211539.073810945, "works": 2200000, "NPV": 2017354.9294760954, "loss_probability": 0.1,) Tj T*
+("NPV_P10": 4.602043190971017e-10, "equity_funded": 3098205.7290186565}) Tj T*
+() Tj T*
+(Iteration 1 is preliminary and not compliant with the adopted 20% design requirement.) Tj T*
+(Iteration 2 reserves 20%. Iteration 3 changes only acquisition price to improve downside risk,) Tj T*
+(preserving housing cost ceilings.) Tj T*
+() Tj T*
+(The 90% probability target and triangular shock distributions are investor assumptions.) Tj T*
+(Reusing the same seeded draws makes model changes comparable, not empirically certain.) Tj T*
+() Tj T*
+ET
+endstream
+endobj
+8 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 3 0 R >> >> /Contents 9 0 R >>
+endobj
+9 0 obj
+<< /Length 938 >>
+stream
+BT /F1 10 Tf 45 795 Td 12 TL
+(Decision and limitations) Tj T*
+() Tj T*
+(Conditional negotiated acquisition ceiling: EUR 2,211,539. Final NPV EUR 2,017,355; simulated) Tj T*
+(loss probability 10.0%.) Tj T*
+() Tj T*
+(Do not commit without a vendor agreeing to the price, verified conversion costs, planning) Tj T*
+(permission, university/social allocation terms and loan underwriting.) Tj T*
+() Tj T*
+(The equity amount in the iteration ledger is a prospective funding requirement. No real) Tj T*
+(capital was invested or reinvested.) Tj T*
+() Tj T*
+(Inputs are classified as constants, controls and uncertain inputs, with approximate versus) Tj T*
+(inherent uncertainty. Sensitivity, risk distributions and iteration charts support decisions.) Tj T*
+() Tj T*
+(Pre-tax financial model; unknown exact transaction VAT/tax treatment, static rent-occupancy) Tj T*
+(relation, and unverified physical capacity limit confidence.) Tj T*
+() Tj T*
+ET
+endstream
+endobj
+10 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 3 0 R >> >> /Contents 11 0 R >>
+endobj
+11 0 obj
+<< /Length 866 >>
+stream
+BT /F1 10 Tf 45 795 Td 12 TL
+(References) Tj T*
+() Tj T*
+(https://www.bruxelles.be/sites/default/files/bxl/Recommandations_logements_etudiants_VBX_17jui) Tj T*
+(n2021.pdf) Tj T*
+() Tj T*
+(https://www.vub.be/en/studying-vub/practical-info-for-students/student-housing/practical-) Tj T*
+(housing-information) Tj T*
+() Tj T*
+(https://www.brukot.be/en/student-guide/rent-stats) Tj T*
+() Tj T*
+(https://be.brussels/en/taxes-finances/taxes/property-related-taxes/registration-duties) Tj T*
+() Tj T*
+(https://be.brussels/fr/logement/location/conformite-logement/normes-et-securite) Tj T*
+() Tj T*
+(https://be.brussels/fr/logement/location/bail-dhabitation/loyers-de-reference) Tj T*
+() Tj T*
+(https://ibsa.brussels/themes/logement/prix-des-logements) Tj T*
+() Tj T*
+(Current municipal guidance listing: https://www.bruxelles.be/plans-reglements-urbanisme) Tj T*
+() Tj T*
+ET
+endstream
+endobj
+xref
+0 12
+0000000000 65535 f 
+0000000009 00000 n 
+0000000058 00000 n 
+0000000134 00000 n 
+0000000204 00000 n 
+0000000330 00000 n 
+0000001180 00000 n 
+0000001306 00000 n 
+0000002687 00000 n 
+0000002813 00000 n 
+0000003802 00000 n 
+0000003930 00000 n 
+trailer
+<< /Size 12 /Root 1 0 R >>
+startxref
+4848
+%%EOF

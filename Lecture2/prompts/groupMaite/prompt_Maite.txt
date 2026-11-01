@@ -1,0 +1,13 @@
+*Design a spreadsheet model and executive report for our decision analytics course on student housing investments in Brussels.*
+
+*Problem: Today, Brussels is the most expensive city in Belgium for students to find housing. Students struggle to find affordable places to rent, while more luxury housing is emerging.*
+
+*(1) Check which municipality in Brussels has a different minimum threshold for new housing that must be affordable and apply it to the model. *
+
+*(2) Use an agile development strategy in which you go through multiple model iterations, each of which is evaluated and invested in the next iteration. Take into account uncertainty. *
+
+*(3) Include useful visuals to enhance the decision-making process and to ensure clear communication.*
+
+*(4) Make sure to perform a sensitivity and uncertainty analysis to show the trustworthiness of the model. *
+
+*(5) Classify each input into its applicable type, being: constant inputs, control or decision variables, and uncertain inputs. Uncertain inputs can be further divided into approximate and inherently uncertain. *

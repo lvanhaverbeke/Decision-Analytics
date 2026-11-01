@@ -1,0 +1,21 @@
+{
+  "start_epoch": 1793254790.748617,
+  "limit_seconds": 420,
+  "task": "groupAube",
+  "prompt": "prompt_Aube.txt",
+  "end_epoch": 1793255107.587248,
+  "elapsed_seconds": 316.8386311531067,
+  "completed": true,
+  "outputs": [
+    "model.xlsx",
+    "Executive_Report.pdf",
+    "completion_summary.txt"
+  ],
+  "limitations": [
+    "Quota applicability unverified; no site legal clearance",
+    "No native Excel desktop or Solver execution",
+    "Pre-tax: corporate income taxes excluded",
+    "Commute times and land budgets unverified",
+    "Occupancy independent of rent in this basic course model; no demand elasticity calibration"
+  ]
+}

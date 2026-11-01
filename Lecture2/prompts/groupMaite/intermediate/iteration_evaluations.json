@@ -1,0 +1,35 @@
+[
+  {
+    "iteration": "iteration_1",
+    "social_rooms": 12,
+    "required_quota": 0.1,
+    "acquisition": 3000000,
+    "works": 2200000,
+    "NPV": 1407448.3116851114,
+    "loss_probability": 0.326,
+    "NPV_P10": -805803.7673382424,
+    "equity_funded": 3541715.0
+  },
+  {
+    "iteration": "iteration_2",
+    "social_rooms": 24,
+    "required_quota": 0.2,
+    "acquisition": 3000000,
+    "works": 2200000,
+    "NPV": 1130336.3875134084,
+    "loss_probability": 0.394,
+    "NPV_P10": -887018.5419626865,
+    "equity_funded": 3541715.0
+  },
+  {
+    "iteration": "iteration_3",
+    "social_rooms": 24,
+    "required_quota": 0.2,
+    "acquisition": 2211539.073810945,
+    "works": 2200000,
+    "NPV": 2017354.9294760954,
+    "loss_probability": 0.1,
+    "NPV_P10": 4.602043190971017e-10,
+    "equity_funded": 3098205.7290186565
+  }
+]

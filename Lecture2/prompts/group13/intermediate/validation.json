@@ -1,0 +1,19 @@
+{
+  "source_spreadsheet": "MISSING",
+  "trials_per_property": 50000,
+  "total_trials": 150000,
+  "excluded_D_trials": 0,
+  "main_formulas": "Evaluated zero errors; independently compared with Python DCF",
+  "trial_reproduction": "First10 per property reproduced from stored draws",
+  "stored_rows": "Exactly50000 simulation rows per worksheet verified by XML stream",
+  "optimization": "All8 portfolios enumerated with paired joint scenarios",
+  "limitations": [
+    "No actual property data or legal clearance",
+    "Synthetic costs, rents, demand and shock parameters are assumptions",
+    "Static simulation and sensitivity; regeneration required",
+    "Simplified tax basis/loss/interest rules",
+    "No dynamic reinvestment strategy",
+    "No native Excel desktop test",
+    "Report charts not reproduced; workbook charts provided"
+  ]
+}

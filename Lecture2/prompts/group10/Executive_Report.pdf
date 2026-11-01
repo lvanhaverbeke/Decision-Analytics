@@ -1,0 +1,202 @@
+%PDF-1.4
+1 0 obj
+<< /Type /Catalog /Pages 2 0 R >>
+endobj
+2 0 obj
+<< /Type /Pages /Count 5 /Kids [4 0 R 6 0 R 8 0 R 10 0 R 12 0 R] >>
+endobj
+3 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>
+endobj
+4 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 3 0 R >> >> /Contents 5 0 R >>
+endobj
+5 0 obj
+<< /Length 1115 >>
+stream
+BT /F1 10 Tf 45 795 Td 12 TL
+(Executive summary - Ixelles office conversion) Tj T*
+() Tj T*
+(Illustrative 120-room office conversion; no property selected or legal clearance. Initial) Tj T*
+(acquisition, design/permitting, works and opening all fall inside a fixed20-year horizon.) Tj T*
+() Tj T*
+(Recommendation: HOLD / REDESIGN. All three constructed cases have negative pre-tax project) Tj T*
+(NPV; even upside is below the proposed8% hurdle. No investment is approved.) Tj T*
+() Tj T*
+(All-inclusive monthly cost EUR570 is below proposed590 ceiling and above VUB449.30) Tj T*
+(institutional comparator. This is a price benchmark, not a validated income-affordability) Tj T*
+(measure.) Tj T*
+() Tj T*
+(Base project NPV EUR -3,054,754. Maximum acquisition compatible with zero NPV is EUR) Tj T*
+(1,284,663; maximum works package EUR 1,496,228 exVAT. Neither is a verified available offer.) Tj T*
+() Tj T*
+(At unchanged acquisition, the upfront grant-equivalent gap is EUR 3,054,754. No subsidy award) Tj T*
+(is assumed. Do not raise housing costs above the ceiling or reduce required standards.) Tj T*
+() Tj T*
+ET
+endstream
+endobj
+6 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 3 0 R >> >> /Contents 7 0 R >>
+endobj
+7 0 obj
+<< /Length 1245 >>
+stream
+BT /F1 10 Tf 45 795 Td 12 TL
+(One-page scenario investment dashboard) Tj T*
+() Tj T*
+(Downside: project NPV EUR -6,543,326; equity NPV EUR -5,919,057; capex EUR 12,270,764;) Tj T*
+(operations 17.0 years; min DSCR 0.49.) Tj T*
+() Tj T*
+(Base: project NPV EUR -3,054,754; equity NPV EUR -2,696,877; capex EUR 10,657,470; operations) Tj T*
+(18.0 years; min DSCR 1.05.) Tj T*
+() Tj T*
+(Upside: project NPV EUR -1,158,620; equity NPV EUR -953,804; capex EUR 9,625,823; operations) Tj T*
+(18.5 years; min DSCR 1.02.) Tj T*
+() Tj T*
+(Base project IRR 5.04%; equity IRR 5.23%. Simple project payback 19.12 years, dependent on) Tj T*
+(sale; discounted payback: not achieved within 20 years.) Tj T*
+() Tj T*
+(Base peak equity requirement EUR 5,673,432; equity multiple 2.44. Debt remaining at year20 EUR) Tj T*
+(771,396, deducted once from equity sale proceeds.) Tj T*
+() Tj T*
+(Legal gate: UNVERIFIED all scenarios. Affordability price policy: PASS all. NPV threshold:) Tj T*
+(FAIL all. Minimum DSCR1.2: FAIL all \(partial opening can bind\).) Tj T*
+() Tj T*
+(NPV means value above the chosen discount hurdle; IRR is the annual break-even discount rate;) Tj T*
+(DSCR is NOI / scheduled debt service; PBP is cumulative capital recovery.) Tj T*
+() Tj T*
+ET
+endstream
+endobj
+8 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 3 0 R >> >> /Contents 9 0 R >>
+endobj
+9 0 obj
+<< /Length 1100 >>
+stream
+BT /F1 10 Tf 45 795 Td 12 TL
+(Timeline, cost and financing) Tj T*
+() Tj T*
+(Base acquisition/diligence quarter0-1; permitting quarters1-4; works quarters5-8; opening) Tj T*
+(quarter9 with ramp-up. Downside opens after quarter12; upside after quarter6. Assumed) Tj T*
+(timelines, not permits or contractor promises.) Tj T*
+() Tj T*
+(Development capex is drawn across the actual quarterly schedule. Equity pays construction-) Tj T*
+(period interest and1% debt facility fee. Quarterly loan amortization begins only after) Tj T*
+(opening; balance at year20 is repaid at sale.) Tj T*
+() Tj T*
+(Works, professional fees, contingency and assumed nonrecoverable VAT are separate. Deposits) Tj T*
+(belong to tenants and are excluded from project revenues. Working capital100000 is retained) Tj T*
+(then recovered at exit.) Tj T*
+() Tj T*
+(Nominal rent growth2% and expense growth2.5% differ, reducing margin over time. Pre-tax) Tj T*
+(financial screening excludes corporate taxes, depreciation shields and gain taxes; obtain a) Tj T*
+(transaction-specific after-tax model before commitment.) Tj T*
+() Tj T*
+ET
+endstream
+endobj
+10 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 3 0 R >> >> /Contents 11 0 R >>
+endobj
+11 0 obj
+<< /Length 946 >>
+stream
+BT /F1 10 Tf 45 795 Td 12 TL
+(Sensitivity and break-even) Tj T*
+() Tj T*
+(12month delay project NPV EUR -3,256,424; borrowing at6% equity NPV EUR -3,158,125.) Tj T*
+() Tj T*
+(Minimum occupancy required for project NPV0: 122.5%. Values above100% mean physically) Tj T*
+(infeasible under other assumptions.) Tj T*
+() Tj T*
+(NPV without sale EUR -5,652,007. This excludes the value of an asset still owned; it is not a) Tj T*
+(complete continued-operation valuation.) Tj T*
+() Tj T*
+(Terminal value uses sustainable year21 NOI / assumed capitalization yield, net of sale fee.) Tj T*
+(Continued-operation comparison uses retained residual value without sale fee; it does not) Tj T*
+(assume realized proceeds or resolve debt refinancing.) Tj T*
+() Tj T*
+(Sensitivity snapshots use the same quarterly financial engine; rerun finish.py after edits.) Tj T*
+(Dynamic quarterly and annual scenario formulas update automatically in Excel.) Tj T*
+() Tj T*
+ET
+endstream
+endobj
+12 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 3 0 R >> >> /Contents 13 0 R >>
+endobj
+13 0 obj
+<< /Length 2777 >>
+stream
+BT /F1 10 Tf 45 795 Td 12 TL
+(Legal, risk and decision framework) Tj T*
+() Tj T*
+(Planning and office conversion: Use change and proposed student capacity require site-specific) Tj T*
+(permit assessment; no address or lawful-use certificate provided.) Tj T*
+(https://urban.brussels/storage/uploads/7782bb55-caef-4a03-9780-aac7547d23f5/Vademecum---) Tj T*
+(changements-utilisation-soumis-permis.pdf) Tj T*
+() Tj T*
+(Housing quality: Regional safety/sanitation/equipment rules apply. 2026 student housing area) Tj T*
+(framework includes 12m2 for one person; collective calculations and RRU/permit can add) Tj T*
+(requirements. https://be.brussels/fr/logement/location/conformite-logement/normes-et-securite) Tj T*
+() Tj T*
+(Deposits: General regional cap two months rent for leases concluded/renewed from 1 Nov 2024;) Tj T*
+(actual lease scope to verify. Deposits are client funds, not project revenue.) Tj T*
+(https://be.brussels/fr/logement/location/bail-dhabitation/garantie-locative) Tj T*
+() Tj T*
+(Acquisition duty: General Brussels acquisition duty 12.5%; no owner-occupier abatement) Tj T*
+(assumed. Exact transaction VAT regime requires tax advice. https://be.brussels/en/taxes-) Tj T*
+(finances/taxes/property-related-taxes/registration-duties) Tj T*
+() Tj T*
+(Rent rules: Reference rent disclosure and qualified excessive-rent test apply; no invented) Tj T*
+(statutory ceiling. https://be.brussels/fr/logement/location/bail-dhabitation/loyers-de-) Tj T*
+(reference) Tj T*
+() Tj T*
+(Affordability benchmark: Brukot ordinary room median EUR590 inclusive of charges, updated28) Tj T*
+(Oct2026; asking statistic not income affordability. https://www.brukot.be/en/student-) Tj T*
+(guide/rent-stats) Tj T*
+() Tj T*
+(University comparator: VUB institutional room449.30 all-inclusive 2026-27; restricted supply.) Tj T*
+(https://www.vub.be/en/studying-vub/practical-info-for-students/student-housing/practical-) Tj T*
+(housing-information) Tj T*
+() Tj T*
+(PEB/fire/accessibility: Energy/fire/accessibility scope depends on building and works;) Tj T*
+(inspections and approvals pending.) Tj T*
+(https://environnement.brussels/citoyen/reglementation/obligations-et-autorisations) Tj T*
+() Tj T*
+(Unresolved planning, measured capacity, shared facilities, fire/accessibility, municipal) Tj T*
+(charges and PEB conditions block commitment. No exact grant eligibility or tax exemption is) Tj T*
+(asserted.) Tj T*
+() Tj T*
+(Qualitative weights are management assumptions. Good transport or wellbeing scores cannot) Tj T*
+(offset a failed legal or affordability condition.) Tj T*
+() Tj T*
+(Request address, permitted use, measured plans, contractor bids, owner tax assessment,) Tj T*
+(financing term sheet, investor risk tolerance and income-affordability evidence.) Tj T*
+() Tj T*
+ET
+endstream
+endobj
+xref
+0 14
+0000000000 65535 f 
+0000000009 00000 n 
+0000000058 00000 n 
+0000000141 00000 n 
+0000000211 00000 n 
+0000000337 00000 n 
+0000001504 00000 n 
+0000001630 00000 n 
+0000002927 00000 n 
+0000003053 00000 n 
+0000004205 00000 n 
+0000004333 00000 n 
+0000005331 00000 n 
+0000005459 00000 n 
+trailer
+<< /Size 14 /Root 1 0 R >>
+startxref
+8289
+%%EOF

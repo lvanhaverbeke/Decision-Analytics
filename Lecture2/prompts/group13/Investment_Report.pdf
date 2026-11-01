@@ -1,0 +1,216 @@
+%PDF-1.4
+1 0 obj
+<< /Type /Catalog /Pages 2 0 R >>
+endobj
+2 0 obj
+<< /Type /Pages /Count 6 /Kids [4 0 R 6 0 R 8 0 R 10 0 R 12 0 R 14 0 R] >>
+endobj
+3 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>
+endobj
+4 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 3 0 R >> >> /Contents 5 0 R >>
+endobj
+5 0 obj
+<< /Length 905 >>
+stream
+BT /F1 10 Tf 45 795 Td 12 TL
+(Brussels student housing - conditional research screening) Tj T*
+() Tj T*
+(Executive conclusion: no actual property purchase is recommended. The source spreadsheet is) Tj T*
+(missing and none of the example sites has legal, pricing or condition verification. Synthetic) Tj T*
+(A/B/C illustrate the decision-support method only.) Tj T*
+() Tj T*
+(Exactly150000 simulations completed:50000 per conditionally feasible example. An8m2 no-) Tj T*
+(reconfiguration exampleD is excluded before simulation. Financial portfolio score selects No) Tj T*
+(investment under the assumed risk and funding constraints.) Tj T*
+() Tj T*
+(The analysis emphasizes expected economic value, downside cash losses, peak capital at risk,) Tj T*
+(time to letting and compliance conditions. It does not manufacture live opportunities or) Tj T*
+(market-calibrated success probabilities.) Tj T*
+() Tj T*
+ET
+endstream
+endobj
+6 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 3 0 R >> >> /Contents 7 0 R >>
+endobj
+7 0 obj
+<< /Length 1299 >>
+stream
+BT /F1 10 Tf 45 795 Td 12 TL
+(Comparative investment ranking) Tj T*
+() Tj T*
+(A: {"trials": 50000, "mean": -954694.2608708977, "P5": -1213207.0819239472, "P50":) Tj T*
+(-952932.8237957094, "P95": -700726.533393171, "P_negative": 1.0, "P_target": 0.0,) Tj T*
+("P_nominal_loss": 0.18518, "mean_profit": 544666.0304699469, "P95_funding":) Tj T*
+(1547698.7587493611, "CVaR5": 1277962.0091414503}) Tj T*
+() Tj T*
+(B: {"trials": 50000, "mean": -1146348.9755670996, "P5": -1502561.24588548, "P50":) Tj T*
+(-1145200.4667999502, "P95": -796458.6351194727, "P_negative": 1.0, "P_target": 0.0,) Tj T*
+("P_nominal_loss": 0.06422, "mean_profit": 1242260.27869828, "P95_funding": 1877811.3054972903,) Tj T*
+("CVaR5": 1589708.1966336092}) Tj T*
+() Tj T*
+(C: {"trials": 50000, "mean": -1295679.2717979902, "P5": -1744974.5380283515, "P50":) Tj T*
+(-1292869.6168830143, "P95": -859359.7673377057, "P_negative": 1.0, "P_target": 0.0,) Tj T*
+("P_nominal_loss": 0.03088, "mean_profit": 1895779.6881812888, "P95_funding":) Tj T*
+(2229479.275988769, "CVaR5": 1854260.027160081}) Tj T*
+() Tj T*
+(Metrics are equity after simplified corporate/gain taxes. P\(target\) is nonnegative equity NPV) Tj T*
+(at10% hurdle. Positive expected NPV alone does not imply acceptable downside or legal) Tj T*
+(approval.) Tj T*
+() Tj T*
+ET
+endstream
+endobj
+8 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 3 0 R >> >> /Contents 9 0 R >>
+endobj
+9 0 obj
+<< /Length 1088 >>
+stream
+BT /F1 10 Tf 45 795 Td 12 TL
+(Financial projections and timing) Tj T*
+() Tj T*
+(Acquisition, works, fees, assumed duty and VAT, furniture and liquidity are funded at time0.) Tj T*
+(Annual rent, variable and fixed costs, taxes, replacement capex, loan amortization and) Tj T*
+(terminal property sale are separate.) Tj T*
+() Tj T*
+(Readiness is rounded to the next September letting cycle. A project ready after September may) Tj T*
+(miss almost a full academic year. Opening month21 means only one quarter of year2 generates) Tj T*
+(rent; horizon still ends at year20.) Tj T*
+() Tj T*
+(Standard corporate rate25% and general Brussels acquisition duty12.5% were verified from) Tj T*
+(official sources. Depreciation lives, tax basis, company regime and interest deduction) Tj T*
+(treatment are simplified assumptions; no loss carryforwards.) Tj T*
+() Tj T*
+(Property value is capitalized year21 NOI at simulated exit cap. Income growth and exit cap) Tj T*
+(capture appreciation; an additional appreciation uplift is not double-counted. Debt is repaid) Tj T*
+(once at exit.) Tj T*
+() Tj T*
+ET
+endstream
+endobj
+10 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 3 0 R >> >> /Contents 11 0 R >>
+endobj
+11 0 obj
+<< /Length 1072 >>
+stream
+BT /F1 10 Tf 45 795 Td 12 TL
+(Simulation, dependence and risk) Tj T*
+() Tj T*
+(Nine uncertain quantities vary simultaneously: acquisition cost, works, rent, occupancy, rate,) Tj T*
+(readiness, exit cap, rent growth and operating cost. Seed29102026; all150000 input/output rows) Tj T*
+(in Excel and CSV.) Tj T*
+() Tj T*
+(Triangular min/mode/max: acquisition0.95/1/1.1; works0.85/1/1.25; rent0.85/1/1.1;) Tj T*
+(occupancy0.75/0.95/0.99; rate3/4.5/7%; readiness6/12/24 months; exit cap4.5/5.5/7.5%;) Tj T*
+(growth0.5/2/3.5%; opex0.9/1/1.2. These are assumptions, not estimated distributions.) Tj T*
+() Tj T*
+(Shared cost/delay and credit/exit factors create assumed cross-property dependence. Portfolio) Tj T*
+(outcomes use paired same-trial values rather than adding unrelated percentiles. All valid) Tj T*
+(negative outcomes retained.) Tj T*
+() Tj T*
+(Main dynamic Excel cash-flow formulas are checked; simulation and sensitivity outputs are) Tj T*
+(static and must be regenerated from the supplied source script after changing input) Tj T*
+(definitions.) Tj T*
+() Tj T*
+ET
+endstream
+endobj
+12 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 3 0 R >> >> /Contents 13 0 R >>
+endobj
+13 0 obj
+<< /Length 1739 >>
+stream
+BT /F1 10 Tf 45 795 Td 12 TL
+(Optimization and managerial decision) Tj T*
+() Tj T*
+(['No investment', 0, 0, 0.0, True, 0.0, 0.0, 'No acquisition']) Tj T*
+() Tj T*
+(['A', -954694.2608708977, 1277962.0091414503, 1547698.7587493611, True, -1274184.7631562604,) Tj T*
+(1.0, 'Unverified']) Tj T*
+() Tj T*
+(['B', -1146348.9755670996, 1589708.1966336092, 1877811.3054972903, True, -1543776.024725502,) Tj T*
+(1.0, 'Unverified']) Tj T*
+() Tj T*
+(['A+B', -2101043.2364379973, 2713062.256543218, 3342220.3464802178, False,) Tj T*
+(-2779308.8005738016, 1.0, 'Unverified']) Tj T*
+() Tj T*
+(['C', -1295679.2717979902, 1854260.027160081, 2229479.275988769, True, -1759244.2785880105,) Tj T*
+(1.0, 'Unverified']) Tj T*
+() Tj T*
+(['A+C', -2250373.532668888, 2965415.101129441, 3698314.287913019, False, -2991727.3079512483,) Tj T*
+(1.0, 'Unverified']) Tj T*
+() Tj T*
+(['B+C', -2442028.24736509, 3234292.256875606, 4061700.013074379, False, -3250601.3115839916,) Tj T*
+(1.0, 'Unverified']) Tj T*
+() Tj T*
+(['A+B+C', -3396722.5082359877, 4346446.097225458, 5504228.523915927, False,) Tj T*
+(-4483334.032542353, 1.0, 'Unverified']) Tj T*
+() Tj T*
+(Objective: mean equity NPV minus0.25 times the mean worst5% NPV loss. Constraint:95th) Tj T*
+(percentile funding<=EUR3m. Both are investor assumptions. All8 subsets including no investment) Tj T*
+(were evaluated.) Tj T*
+() Tj T*
+(Legal approval is mandatory. Under actual evidence available, no candidate is legally cleared;) Tj T*
+(this overrides financial ranking. Dynamic reinvestment was not implemented.) Tj T*
+() Tj T*
+(Compare maximum supportable acquisition prices, readiness9 versus12 month outcomes) Tj T*
+(and10/15/20-year horizons in the workbook before negotiating a real asset.) Tj T*
+() Tj T*
+ET
+endstream
+endobj
+14 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 3 0 R >> >> /Contents 15 0 R >>
+endobj
+15 0 obj
+<< /Length 858 >>
+stream
+BT /F1 10 Tf 45 795 Td 12 TL
+(Sources and outstanding diligence) Tj T*
+() Tj T*
+(Brukot market asking rents: https://www.brukot.be/en/student-guide/rent-stats) Tj T*
+() Tj T*
+(2026 quality text: https://be.brussels/fr/logement/location/conformite-logement/normes-et-) Tj T*
+(securite) Tj T*
+() Tj T*
+(Corporate tax: https://finances.belgium.be/fr/entreprises/impot_des_societes/declaration) Tj T*
+() Tj T*
+(Acquisition duty: https://be.brussels/en/taxes-finances/taxes/property-related-) Tj T*
+(taxes/registration-duties) Tj T*
+() Tj T*
+(Ixelles planning: https://www.ixelles.be/site/81-Service-de-l-Urbanisme-et-de-l-Environnement) Tj T*
+() Tj T*
+(All checked29 October2026. Obtain actual spreadsheet, addresses, measured net areas, permitted) Tj T*
+(use, fire/sanitary/PEB assessments, rent comparables, quotes, financing and tax advice.) Tj T*
+() Tj T*
+ET
+endstream
+endobj
+xref
+0 16
+0000000000 65535 f 
+0000000009 00000 n 
+0000000058 00000 n 
+0000000148 00000 n 
+0000000218 00000 n 
+0000000344 00000 n 
+0000001300 00000 n 
+0000001426 00000 n 
+0000002777 00000 n 
+0000002903 00000 n 
+0000004043 00000 n 
+0000004171 00000 n 
+0000005296 00000 n 
+0000005424 00000 n 
+0000007216 00000 n 
+0000007344 00000 n 
+trailer
+<< /Size 16 /Root 1 0 R >>
+startxref
+8254
+%%EOF

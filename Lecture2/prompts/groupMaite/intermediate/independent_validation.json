@@ -1,0 +1,20 @@
+{
+  "base_project_NPV": 2017354.929476095,
+  "no_sale_NPV": -732005.1595958332,
+  "project_IRR": 0.10606019428683366,
+  "equity_NPV": 1469424.0171896825,
+  "simple_payback": 11.551648005549882,
+  "discounted_payback": 19.30824508946132,
+  "best_mix_NPV": 2017354.929476095,
+  "best_social_rooms": 24,
+  "maximum_acquisition": 4004743.4555674735,
+  "MC_negative_probability": 0.1,
+  "independent_checks": "Annual NPV with/without sale; all 121 mix alternatives; 50 MC trials; zero-NPV purchase ceiling; input direction and debt reconciliation passed",
+  "limits": [
+    "Quota applicability unverified; no site legal clearance",
+    "No native Excel desktop or Solver execution",
+    "Pre-tax: corporate income taxes excluded",
+    "Commute times and land budgets unverified",
+    "Occupancy independent of rent in this basic course model; no demand elasticity calibration"
+  ]
+}

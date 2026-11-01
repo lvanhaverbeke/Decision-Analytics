@@ -1,0 +1,14 @@
+{
+  "start_epoch": 1793252640.14,
+  "limit_seconds": 420,
+  "task": "groupMSN",
+  "end_epoch": 1793252744.834265,
+  "elapsed_seconds": 104.69426488876343,
+  "completed": true,
+  "output": "model.xlsx",
+  "limitations": [
+    "No interactive Excel test",
+    "Illustrative price response",
+    "Tax/legal/site validation outstanding"
+  ]
+}

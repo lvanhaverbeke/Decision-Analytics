@@ -1,0 +1,13 @@
+{
+  "start_epoch": 1793252777.562604,
+  "limit_seconds": 420,
+  "task": "groupInas",
+  "end_epoch": 1793253077.5969129,
+  "elapsed_seconds": 300.0343098640442,
+  "completed": true,
+  "outputs": [
+    "model.xlsx",
+    "Executive_Report.docx"
+  ],
+  "validation": "intermediate/independent_validation.json"
+}

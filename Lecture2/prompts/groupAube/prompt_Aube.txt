@@ -1,0 +1,38 @@
+Build an auditable Excel workbook, saved as model.xlsx, for the VUB master course *Decision Analytics*: a basic student housing investment in Brussels over 20 years.
+
+Model conventions
+
+- Time runs across the columns (Year 0 = investment, Years 1-20 = operations). Inputs and line items run down the rows.
+- All inputs are positive numbers. Costs are subtracted in the formulas, and the sign convention is stated on the Inputs tab.
+- Use named ranges for key inputs, blue input cells and black formula cells, no hard-coded numbers in formulas, and check cells with a master “model OK” flag.
+- Give a numeric baseline scenario, but keep every formula editable.
+
+Tabs
+
+1. README / Assumptions log: one row per assumption with value, unit, source and status (*Verified / Unverified / Assumption*).
+2. Inputs, in separate blocks: market rooms, social rooms, rents, occupancy, escalation, acquisition, works, transaction costs, management, maintenance, taxes, replacement capex, working capital, terminal sale, discount rate and financing.
+3. Cost summary: Year 0 investment and recurring annual costs.
+4. Cash flow: annual cash flow with cumulative and discounted cash flow.
+5. Financing: loan schedule and equity cash flows. Keep unlevered project returns clearly separate from financed equity returns.
+6. Results: NPV, IRR, simple payback and discounted payback, shown with and without the terminal sale.
+7. Locations: compare candidate locations using student-weighted commute times to the VUB and ULB campuses. The weights are editable. Mark unverified travel times as “Unverified”.
+8. Legal & sources: see below.
+9. Sensitivity, Optimization, Monte Carlo: see below.
+10. Conclusion.
+
+Legal assumptions
+
+- Give every legal or tax assumption an official source and a status. Do not invent figures. Mark anything you cannot verify as “Unverified”.
+- The City of Brussels 2021 student housing recommendations specify a 20% social share from 30 units. Treat this as a reference only. Provide a separate editable “required social quota” input and a verification flag (applies / does not apply / to be confirmed) for the selected municipality and permit.
+- List the project-specific checks still needed: planning permit conditions and the agreement with the university.
+
+Analysis
+
+- Sensitivity: one-way tables and a tornado chart on NPV (rent, occupancy, discount rate, capex, exit value), plus a two-way table (rent × occupancy).
+- Optimization: Solver setup that maximizes NPV through the social/market room mix. Constraints are the legal quota and a budget limit. State the objective, variables and constraints.
+- Monte Carlo: at least 1,000 runs without macros, with stated distributions. Report the mean, standard deviation, P(NPV<0) and percentiles.
+
+Output\
+End with an analytic conclusion: an investment recommendation that is conditional on the financial and legal assumptions, with the main risks and break-even values, and show the impact of excluding the terminal sale.
+
+Optimize for: structure, named cells, formulas, complexity, and relevant, non-trivial managerial questions (question → technique).

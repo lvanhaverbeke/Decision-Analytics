@@ -1,0 +1,151 @@
+**PROJECT XL – Student Housing Investment in Brussels**
+
+We are developing an investment project focused on affordable student housing near the Vrije Universiteit Brussel (VUB), Etterbeek campus.
+
+Our objective is to determine whether investing in student accommodation near VUB is financially feasible while keeping rental prices affordable for students and complying with Brussels housing regulations.
+
+We previously developed a basic financial model, but it was too simplistic, relied heavily on hypothetical assumptions, and lacked sufficient analytical depth. We want to significantly improve this model using the principles of Decision Analytics.
+
+**Your task is to develop a comprehensive, data-driven, dynamic Excel investment model and a concise executive report.**
+
+**1. Data Collection and Model Development**
+
+First, research and collect reliable, preferably recent data regarding:
+
+- Student housing demand and rental prices near VUB and in Brussels.
+- Legal rent regulations and reference rental prices.
+- Property acquisition and construction or renovation costs.
+- Student occupancy rates and rental affordability.
+- Interest rates, financing conditions and operating expenses.
+
+Use multiple credible sources, document them in the spreadsheet and clearly distinguish real data from estimates.
+
+Do not invent data. If information is unavailable, explicitly identify the missing information and use transparent, justified assumptions.
+
+Develop a sufficiently complex mathematical model that captures meaningful relationships between variables.
+
+For example, rental price should influence student demand and occupancy, which subsequently affects rental revenue, cash flow and profitability. Do not automatically assume that increasing rent increases total revenue.
+
+Organize the workbook into clearly structured input, intermediate calculation and key output sections. Use understandable cell names, linked formulas and automatic recalculation.
+
+Calculate at least NPV, IRR, payback period, annual cash flow, total investment costs and expected return.
+
+**2. Sensitivity Analysis**
+
+Perform meaningful sensitivity analyses to evaluate how robust and trustworthy the investment decision is.
+
+Investigate the impact of changes in:
+
+- Monthly rental prices.
+- Student demand and occupancy rates.
+- Construction and renovation costs.
+- Interest rates and operating expenses.
+
+Include one-way and two-way sensitivity analyses using Excel Data Tables or equivalent dynamic calculations.
+
+Select realistic minimum and maximum values supported by available evidence, rather than arbitrary percentage changes.
+
+Identify which input variables have the greatest impact on NPV and determine the break-even conditions under which the investment becomes unprofitable.
+
+Include relevant visualizations and managerial interpretations.
+
+**3. Optimization**
+
+Develop an optimization model to identify the most financially attractive investment configuration.
+
+**Objective:** Maximize NPV while respecting affordability and operational constraints.
+
+Consider the following decision variables:
+
+- Number of student rooms.
+- Monthly rental price.
+- Investment allocation and room configuration, where appropriate.
+
+Include realistic constraints regarding:
+
+- Maximum available investment budget.
+- Legal rental requirements.
+- Student affordability.
+- Building capacity and available space.
+- Minimum acceptable financial performance.
+
+Use Excel Solver or an equivalent mathematical optimization method.
+
+Clearly explain the objective function, decision variables, constraints and optimal solution.
+
+Do not simply compare a few predefined alternatives and call this optimization.
+
+**4. Monte Carlo Simulation**
+
+Introduce uncertainty into the model by performing at least 1,000 Monte Carlo simulations.
+
+Use suitable probability distributions for uncertain variables such as occupancy rates, construction costs and operating expenses.
+
+Justify the selected distributions and their parameters using available evidence.
+
+Evaluate:
+
+- The distribution of possible NPV outcomes.
+- The probability of a negative NPV.
+- Expected financial returns and downside risks.
+- Which uncertain variables contribute most to investment risk.
+
+Present the results using appropriate graphs and explain their managerial implications.
+
+**5. Managerial Analysis and Executive Report**
+
+The model should answer the following business questions:
+
+1. What is the minimum investment required to develop a financially feasible student housing project?
+2. What rental price is affordable for students while remaining financially sustainable?
+3. How many rooms should be developed to maximize financial performance?
+4. How long will it take to recover the investment?
+5. Which factors have the strongest influence on profitability?
+6. How likely is the project to generate a negative NPV?
+7. Would you recommend this investment to potential investors, and under which conditions?
+
+For each major analysis, follow this structure:
+
+**Managerial Question → Analytical Technique → Results → Interpretation → Recommendation**
+
+Explain not only the financial results but also their reliability, limitations and consequences for investment decisions.
+
+**6. Required Deliverables**
+
+**Deliverable 1: Excel Spreadsheet (.xlsx)**
+
+Create a functional and professionally structured workbook containing:
+
+- Documented data sources and assumptions.
+- Clearly identified input variables, intermediate calculations and key outputs.
+- Dynamic Excel formulas.
+- Investment and financial performance calculations.
+- One-way and two-way sensitivity analysis.
+- Optimization model and results.
+- Monte Carlo simulation and charts.
+- A summary dashboard presenting the most important managerial findings.
+
+**Deliverable 2: Executive Report (.docx)**
+
+Provide a concise professional report explaining the methodology, most important results, limitations, investment risks and final recommendation.
+
+**7. Quality Requirements and Time Constraint**
+
+Prioritize the evaluation criteria for our Decision Analytics course:
+
+- Model quality: structure, cell names, formulas and complexity (8 points).
+- Sensitivity analysis: relevance and structure (4 points).
+- Optimization: solution, relevance and report (4 points).
+- Monte Carlo analysis: implementation and relevance (4 points).
+
+The model must demonstrate genuine analytical depth rather than simply producing numerous financial indicators.
+
+Verify calculations, test the model's behavior when assumptions change and avoid unsupported conclusions.
+
+**You have a maximum execution time of 7 minutes.**
+
+Save a functional Excel model as early as possible and progressively improve it. Prioritize correct formulas, meaningful analyses and working deliverables over extensive background research or unnecessary explanations.
+
+If a requested analysis cannot be completed reliably within the time limit, clearly document what remains incomplete rather than presenting it as finished.
+
+The final objective is to develop a reliable Decision Analytics model that supports a well-founded investment decision under uncertainty.

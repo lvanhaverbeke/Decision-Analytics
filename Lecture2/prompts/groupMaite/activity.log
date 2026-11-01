@@ -1,0 +1,11 @@
+2026-10-29T06:30:03.213542+00:00 START Maite: research municipal social threshold; evaluate successive model iterations, classify uncertainty; workbook and executive report; seven-minute cap.
+2026-10-29T06:30:47.230835+00:00 Core model built: named inputs, distinct project/equity finance, horizontal years 0-20, with/without sale KPI paths. Saving checkpoint.
+2026-10-29T06:30:49.122680+00:00 Saved model.xlsx: 1000 simulations, 121 room-mix candidates, one/two-way sensitivities, location comparison, legal register and charts. Starting formula evaluation.
+2026-10-29T06:32:44.606998+00:00 EVALUATED {"iteration": "iteration_1", "social_rooms": 12, "required_quota": 0.1, "acquisition": 3000000, "works": 2200000, "NPV": 1407448.3116851114, "loss_probability": 0.326, "NPV_P10": -805803.7673382424, "equity_funded": 3541715.0}
+2026-10-29T06:33:06.149853+00:00 EVALUATED {"iteration": "iteration_2", "social_rooms": 24, "required_quota": 0.2, "acquisition": 3000000, "works": 2200000, "NPV": 1130336.3875134084, "loss_probability": 0.394, "NPV_P10": -887018.5419626865, "equity_funded": 3541715.0}
+2026-10-29T06:33:27.414346+00:00 EVALUATED {"iteration": "iteration_3", "social_rooms": 24, "required_quota": 0.2, "acquisition": 2211539.073810945, "works": 2200000, "NPV": 2017354.9294760954, "loss_probability": 0.1, "NPV_P10": 4.602043190971017e-10, "equity_funded": 3098205.7290186565}
+2026-10-29T06:33:27.842782+00:00 VALIDATION: formula evaluator reported zero errors. Independently reconciled annual DCF, terminal exclusion, integer optimization, first 50 MC trials, acquisition ceiling and debt. Quota approval correctly remains FALSE.
+2026-10-29T06:33:27.859571+00:00 OUTPUTS: model.xlsx, Executive_Report.pdf, completion_summary.txt, intermediate/model_core.xlsx, model_analysis.xlsx, model_validated.xlsx, Monte_Carlo_trials.csv, calculated_values.json, independent_validation.json and formula_validation.txt. No source inputs overwritten.
+2026-10-29T06:33:27.860036+00:00 COMPLETE in 204.65 seconds (limit 420).
+2026-10-29T06:33:27.932121+00:00 REPORT: final Executive_Report.pdf explains all three iterations, source status, uncertainty classification, capital decision ledger, risk-adjusted negotiation ceiling and unresolved permit conditions.
+2026-10-29T06:33:27.932393+00:00 FINAL COMPLETE 204.72s

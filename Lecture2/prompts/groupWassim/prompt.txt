@@ -1,0 +1,3716 @@
+ULTIMATE MASTER PROMPT — DECISION ANALYTICS
+Sustainable and Affordable Student Housing Investment in Brussels, Belgium
+ROLE AND EXPECTED LEVEL
+Act as a senior Decision Analytics consultant, real estate investment analyst, financial modeler, sustainability specialist, Excel expert, and academic project advisor.
+Apply rigorous quantitative reasoning, advanced financial modeling, optimization, risk analysis, and managerial decision-making. Think critically, challenge weak assumptions, and use the methods taught in a university Decision Analytics course.
+Your objective is to create a complete, original, integrated, and professionally presented investment case study for developing and operating sustainable student housing in Brussels, Belgium.
+Do not stop at explaining what should be done. Build the actual Excel workbook, perform the analyses, generate the executive report, prepare the presentation, and package the deliverables wherever the available tools permit.
+Never pretend a workbook feature, formula, Solver optimization, simulation, or result exists unless it has actually been implemented and verified.
+The final work must be sufficiently sophisticated to achieve a strong evaluation for model structure, cell naming, formulas, analytical complexity, sensitivity analysis, optimization, Monte Carlo simulation, visualization, managerial relevance, and reporting.
+PART 1 — THE BUSINESS CASE
+1.1 Investment opportunity
+Develop a realistic investment model for a sustainable student housing facility in Brussels, Belgium.
+The investor is considering acquiring, developing, or renovating a property to provide student accommodation over a long-term investment horizon.
+The project must balance four objectives:
+Generate an attractive and financially sustainable investment return.
+Provide genuinely affordable accommodation to students.
+Minimize environmental impact and improve energy efficiency.
+Remain resilient to uncertain demand, construction costs, financing conditions, energy prices, and market developments.
+The project must include at least 10% affordable student housing units.
+Define affordability precisely. Specify:
+The reference rent or affordability benchmark.
+How the benchmark is calculated and sourced.
+The maximum permitted affordable rent.
+The eligibility assumptions for affordable housing.
+The minimum number and proportion of affordable units.
+How affordability compliance is checked in the financial model and under uncertainty.
+Treat the 10% requirement as a binding constraint, not simply a recommendation.
+Where appropriate, compare three development alternatives:
+Alternative A: Conventional student housing.
+Alternative B: Energy-efficient and sustainable student housing.
+Alternative C: A more ambitious sustainable and affordable housing concept.
+Ensure the alternatives differ meaningfully in capital expenditure, operating costs, achievable rents, energy consumption, demand, affordability, and environmental performance.
+1.2 Geographic and market context
+Use Brussels-specific information wherever possible, including:
+Student population and housing demand.
+Existing student accommodation supply.
+Market rents by room type.
+Affordable student accommodation benchmarks.
+Property acquisition and construction costs.
+Renovation costs.
+Energy prices.
+Construction inflation.
+Interest rates and financing conditions.
+Applicable property taxes and charges.
+Relevant planning, housing, energy, and environmental requirements.
+Relevant regional and municipal policies.
+Prioritize credible, recent, verifiable sources such as official Belgian and Brussels government publications, statistical agencies, universities, property-market reports, energy sources, and financial institutions.
+Record the source URL, publication date, retrieval date where relevant, unit, and how each source informs the model.
+If reliable information is unavailable, use explicitly labeled estimates and explain why they are reasonable. Never invent market data, citations, legal requirements, or research findings.
+Distinguish verified facts, management assumptions, illustrative inputs, and calculated outputs.
+1.3 Project scope
+Use a justified investment horizon, preferably 20 years within a reasonable 15–25-year range.
+State:
+The project start date and operating commencement date.
+Construction and renovation periods.
+The total development capacity.
+The room types and total number of units.
+The ownership and operating structure.
+The financing structure.
+The valuation date.
+The tax treatment.
+The inflation assumptions.
+The discount-rate methodology.
+The terminal valuation approach.
+Use euros (€) consistently throughout the workbook, report, and presentation.
+Show financial values in euros, rent in euros per room per month, annual cash flows in euros per year, rates in percentages, and sustainability indicators in appropriate physical units.
+Clearly distinguish nominal and real cash flows and discount rates.
+Include VAT treatment, recoverable and non-recoverable VAT where applicable, taxes, financing fees, working capital, replacement capital expenditure, and transaction costs where relevant.
+PART 2 — DEFINE THE DECISION PROBLEM
+2.1 Problem statement
+Start by explaining the investment decision in plain language.
+Identify:
+The decision-maker.
+The investment alternatives.
+The economic opportunity.
+The social and environmental objectives.
+The financial and regulatory constraints.
+The principal uncertainties.
+The available management decisions.
+The consequences of making the wrong investment decision.
+Explain why student housing is a particularly relevant Decision Analytics case: investment costs are largely committed upfront, rental demand is uncertain, rents affect demand, affordable housing limits some revenue opportunities, and sustainability investments can increase initial expenditure while lowering future operating costs.
+2.2 Define the variables
+Create a variable dictionary with at least the following categories.
+A. Control variables
+Variables management can choose or influence, such as:
+Total number of rooms, within site capacity.
+Number of rooms by room type.
+Number and proportion of affordable rooms.
+Market rent.
+Affordable rent.
+Sustainability investment level.
+Energy-efficiency strategy.
+Debt-to-equity ratio.
+Construction or renovation strategy.
+Potentially the project phasing, if the case supports it.
+B. Uncertain variables
+Variables that management cannot fully control, such as:
+Construction-cost overrun.
+Construction delays.
+Market occupancy or student demand.
+Rent growth.
+Interest-rate changes.
+Energy-price changes.
+Operating-cost inflation.
+Terminal capitalization rate or resale value.
+C. Calculated variables
+Variables calculated by formulas, including:
+Effective demand.
+Occupancy.
+Annual revenue.
+Operating expenditure.
+Net operating income.
+Debt service.
+Annual project cash flow.
+Annual equity cash flow.
+NPV.
+IRR.
+Payback period.
+Carbon emissions.
+Affordable housing compliance.
+Simulation results.
+D. Constraints
+Conditions that must be satisfied:
+At least 10% affordable rooms.
+Maximum property capacity.
+Minimum and maximum room sizes or room mix, where applicable.
+Development budget.
+Financing limits.
+Minimum student demand.
+Sustainability standards.
+Legal and planning requirements.
+Feasible non-negative room counts.
+Any debt-service or liquidity requirements selected for the case.
+For every important variable, provide its name, definition, category, unit, base value, source or justification, uncertainty range if relevant, and Excel cell reference.
+Explain the difference between a control variable and an uncertain variable using a student housing example.
+PART 3 — EXCEL WORKBOOK ARCHITECTURE
+Create a professional, easy-to-navigate Excel workbook.
+Use the following worksheets, or an equivalent structure that preserves all required functionality.
+Read_Me
+Sources
+Inputs
+Demand_Model
+Development_Costs
+Operating_Model
+Financing
+Cash_Flows
+KPI_Dashboard
+Sensitivity_Analysis
+Optimization_Solver
+Monte_Carlo
+Decision_Criteria
+Visualizations
+Management_Conclusions
+Model_Checks
+Do not create empty sheets merely to satisfy a checklist. Each worksheet must contain its actual analysis and calculations.
+3.1 Read Me worksheet
+Include:
+Project purpose.
+Workbook navigation.
+Worksheet descriptions.
+Instructions for changing assumptions.
+Input, formula, linked-cell, and output color conventions.
+Units and sign conventions.
+Instructions for recalculation.
+Solver instructions.
+Monte Carlo instructions.
+Sensitivity Data Table instructions.
+Model limitations.
+Version and calculation date.
+3.2 Named cells — mandatory requirement
+Meaningfully name important input, control, uncertainty, and output cells using Excel's Name Manager.
+Examples:
+Total_Rooms
+Affordable_Units_Count
+Affordable_Unit_Share
+Base_Rent_EUR_Month
+Affordable_Rent_EUR_Month
+Reference_Affordability_Rent_EUR
+Potential_Student_Demand
+Occupancy_Rate
+Demand_Elasticity
+Initial_Investment_EUR
+Construction_Cost_EUR
+Construction_Overrun
+Sustainability_Investment_EUR
+Annual_Energy_Cost_EUR
+Annual_Rent_Growth
+Debt_Interest_Rate
+Debt_Ratio
+Equity_Discount_Rate
+Project_Discount_Rate
+Investment_Horizon_Years
+Terminal_Value_EUR
+Annual_Revenue_EUR
+Net_Operating_Income_EUR
+Project_NPV_EUR
+Project_IRR
+Equity_NPV_EUR
+Equity_IRR
+Payback_Period_Years
+Break_Even_Occupancy
+Carbon_Emissions_TCO2e
+Probability_Negative_NPV
+NPV_P5_EUR
+NPV_P50_EUR
+NPV_P95_EUR
+Create a named-cell dictionary showing:
+Name.
+Worksheet.
+Cell reference.
+Definition.
+Unit.
+Variable category.
+Source or calculation.
+Use names in formulas where they improve readability. Ensure names are valid, unique, consistent, and correctly linked to their cells.
+3.3 Formula quality and auditability
+Use formulas rather than hardcoded results.
+Store assumptions in dedicated input cells instead of embedding unexplained numbers inside formulas.
+Use consistent signs for cash inflows and outflows. Use appropriate Excel functions such as NPV, XNPV, IRR, or XIRR depending on the timing and structure of cash flows. Explain the choice.
+Remember that Excel's NPV function generally discounts cash flows beginning at period 1; the initial period-0 investment must be added separately. Avoid off-by-one discounting errors.
+Use the appropriate discount rate for project or equity cash flows. Do not calculate project NPV using equity cash flows with a project discount rate.
+Avoid double-counting interest expense in unlevered project cash flows, double-counting depreciation as a cash cost, or counting terminal value twice.
+Avoid unnecessary duplicated formulas, excessively nested logic, unexplained circular references, and volatile functions unless justified.
+Use Excel Tables where suitable and keep formulas consistent across years.
+Add:
+Input validation.
+Conditional formatting.
+Error messages.
+Reconciliation checks.
+Feasibility flags.
+Clear units and year labels.
+A check that the affordability requirement is satisfied.
+A check that all model outputs update when inputs change.
+Include a worked formula example with numerical values and explain the calculation step by step.
+PART 4 — FINANCIAL INVESTMENT MODEL
+4.1 Initial investment and development costs
+Include, where relevant:
+Land or property acquisition.
+Transaction and legal fees.
+Construction.
+Renovation.
+Architecture and engineering.
+Permits and professional fees.
+Furniture and equipment.
+Sustainable building technologies.
+Contingency.
+Construction financing costs.
+Initial working capital.
+Construction-period expenditure.
+Replacement capital expenditure.
+Model development delays and construction-cost overruns as uncertainties.
+Separate one-time investment costs from recurring operating expenditure.
+4.2 Revenue model
+Include:
+Market-rate rooms.
+Affordable rooms.
+Different room types if useful.
+Monthly rent by room type.
+Annual rent growth.
+Potential ancillary income where justified.
+Vacancy and collection losses.
+Student demand.
+Occupancy.
+Rental concessions where relevant.
+Calculate revenue from actual occupied units, not from total capacity.
+Ensure affordable rooms generate affordable rents in the model and are not incorrectly assigned market rents.
+4.3 Operating expenditure
+Include:
+Property management.
+Maintenance and repairs.
+Cleaning.
+Security and common-area services.
+Energy.
+Water.
+Insurance.
+Property taxes and applicable charges.
+Administration.
+Waste management.
+Replacement capital expenditure.
+Other justified expenses.
+Differentiate fixed and variable costs where relevant.
+Model inflation and energy-price changes consistently.
+4.4 Financing
+Include:
+Debt funding.
+Equity funding.
+Debt-to-equity ratio.
+Interest rate.
+Loan term.
+Loan repayment structure.
+Interest expense.
+Principal repayments.
+Financing fees.
+Debt service.
+Relevant debt covenants.
+Show annual opening debt, new borrowing, interest, repayments, and closing debt.
+Ensure the loan balance cannot become negative and that the debt schedule reconciles.
+4.5 Taxes and depreciation
+Model applicable taxes only where the necessary assumptions can be supported.
+Distinguish accounting depreciation from cash expenditure.
+Explain how depreciation affects taxable income without treating depreciation as a direct cash outflow.
+Clearly state whether tax losses, loss carryforwards, tax shields, and other tax effects are included.
+If exact tax treatment is uncertain, identify it as a limitation and provide a transparent simplified approach.
+4.6 Cash flows and terminal value
+Produce annual cash flows over the selected investment horizon.
+Separate:
+Unlevered project cash flow.
+Leveraged equity cash flow.
+Financing cash flows.
+Terminal-year proceeds.
+Estimate terminal property value using a justified method, such as a capitalization rate applied to a sustainable terminal net operating income, or a documented alternative.
+Deduct selling costs and outstanding debt where appropriate.
+Avoid mixing terminal property value with operating income or double-counting debt repayment.
+PART 5 — PRICE, DEMAND, AND OCCUPANCY
+A price-demand relationship is mandatory.
+Do not assume that occupancy stays constant when rents change.
+5.1 Develop the demand function
+Use an economically defensible function supported by data or transparent assumptions.
+For example, an illustrative exponential demand function is:
+Demand(r) = D₀ × EXP[-ε × (r/r₀ − 1)]
+where:
+D₀ = potential demand at the reference rent.
+r = proposed monthly rent in euros.
+r₀ = reference monthly rent in euros.
+ε = demand-response parameter.
+This is an illustrative functional form, not a verified Brussels demand curve. Justify the selected function and calibrate it using available data where possible.
+If reliable data support another functional form, compare alternatives.
+5.2 Convert demand into occupancy
+Ensure:
+Occupancy is between 0% and 100%.
+Occupied rooms never exceed available rooms.
+Market and affordable demand are treated consistently.
+Room types and prices are modeled correctly.
+Changes in rent affect demand and revenue.
+Affordable rents are consistent with the affordability requirement.
+For example, explain how a higher monthly rent can increase potential revenue per occupied room but reduce occupancy and total revenue.
+Show a numerical example in euros, including:
+Monthly rent.
+Effective demand.
+Occupancy.
+Annual rental revenue.
+Operating costs.
+Annual cash flow.
+Impact on NPV.
+Test alternative elasticity values to show whether the recommended rent is robust.
+PART 6 — FINANCIAL, SOCIAL, AND ENVIRONMENTAL KPIs
+Calculate the following indicators wherever applicable.
+6.1 Financial KPIs
+Project NPV (€).
+Equity NPV (€).
+Project IRR (%).
+Equity IRR (%).
+Simple payback period.
+Discounted payback period.
+Profitability index.
+Annual revenue (€).
+Net operating income (€).
+Operating margin (%).
+Debt service coverage ratio.
+Break-even occupancy (%).
+Break-even monthly rent (€).
+Maximum feasible acquisition or development cost (€).
+Minimum required equity return.
+Annual debt service (€).
+Explain the interpretation and limitations of each indicator.
+If there are multiple IRRs or no meaningful IRR, disclose the problem rather than reporting a misleading number.
+6.2 Affordability and social KPIs
+Total rooms.
+Affordable rooms.
+Affordable-room percentage.
+Affordable monthly rent (€).
+Affordable rent as a percentage of the chosen benchmark.
+Annual rent savings per eligible student (€).
+Total annual rent savings (€).
+Affordable housing delivered over the investment period.
+Incremental cost of affordability.
+Financial trade-off between affordability and investment value.
+Use a precise and consistent affordability definition.
+6.3 Sustainability KPIs
+Energy consumption per room.
+Energy consumption per square metre, where floor-area data are available.
+Annual energy cost (€).
+Operational carbon emissions.
+Carbon emissions per occupied room.
+Sustainable construction premium (€).
+Annual energy savings (€).
+Energy-cost savings over the investment horizon.
+Payback on sustainable investments.
+Environmental outcomes relative to the conventional alternative.
+Use justified assumptions for emissions factors and energy performance.
+Do not claim that an investment is environmentally sustainable merely because it has a sustainability label.
+PART 7 — FIVE MANAGERIAL DECISION QUESTIONS
+Formulate exactly five relevant, non-trivial managerial questions.
+Every question must use the structure:
+Decision question → Technique → Results → Interpretation → Management action.
+The five questions must be integrated into the same case and collectively use sensitivity analysis, optimization, Monte Carlo simulation, decision criteria, and visualization.
+Question 1: What is the optimal rental strategy?
+Determine the rent levels that maximize investment value while preserving sufficient student demand and complying with the affordable-housing requirement.
+Use:
+Price-demand modeling.
+One-way sensitivity analysis.
+Two-variable Data Tables.
+Break-even analysis.
+Relevant charts.
+Report the recommended market rent and affordable rent, expected occupancy, revenue, NPV, and affordability implications.
+Question 2: Which development strategy should be selected?
+Compare conventional, energy-efficient, and ambitious sustainable housing strategies.
+Use:
+Financial KPIs.
+Scenario analysis.
+Solver optimization.
+Sustainability indicators.
+Visualization.
+Report the preferred feasible strategy and explain the trade-off between initial capital expenditure, operating costs, investment returns, affordability, and environmental outcomes.
+Question 3: How robust is the investment under uncertainty?
+Determine the probability that the project:
+Has a positive NPV.
+Meets its required return.
+Remains within budget.
+Satisfies affordability constraints.
+Meets defined sustainability objectives.
+Use:
+Monte Carlo simulation.
+Simultaneous uncertain inputs.
+Percentiles and probability distributions.
+Downside risk measures.
+Scenario comparisons.
+Report the probability of success, key downside risks, and recommended mitigation measures.
+Question 4: Which variables drive investment risk?
+Determine which assumptions have the greatest effect on NPV, IRR, affordability, occupancy, and the likelihood of project failure.
+Use:
+One-variable sensitivity analysis.
+Two-variable Excel Data Tables.
+Scenario analysis.
+Monte Carlo risk-driver analysis.
+Tornado charts and heatmaps.
+Identify the most influential variables, break-even values, and thresholds that management should monitor.
+Question 5: Which investment alternative should management choose when objectives conflict?
+Compare alternatives under different economic conditions and different levels of risk tolerance.
+Use:
+Expected Value.
+Maximax.
+Maximin.
+Hurwicz criterion.
+Minimax Regret.
+Multi-criteria analysis where appropriate.
+Visual comparison.
+Consider financial performance, affordability, sustainability, and downside risk.
+Provide a final recommendation and explain under which assumptions a different alternative would become preferable.
+For every question, document the exact input cells, output cells, formulas, analytical technique, quantitative result, and management conclusion.
+Do not invent results before the model is calculated.
+PART 8 — SENSITIVITY ANALYSIS AND TWO-VARIABLE DATA TABLES
+Sensitivity analysis is mandatory and must be implemented in Excel.
+8.1 One-variable sensitivity analysis
+Analyze the impact of changes in:
+Market rent.
+Affordable rent.
+Construction cost.
+Construction-cost overrun.
+Occupancy.
+Demand elasticity.
+Interest rate.
+Energy prices.
+Discount rate.
+Terminal capitalization rate.
+Sustainability investment.
+For each analysis, calculate the impact on relevant KPIs, especially NPV.
+Identify break-even points and economically meaningful thresholds.
+8.2 Two-variable Excel Data Table — construction cost and rent
+Create a genuine Excel What-If Analysis two-variable Data Table.
+Use:
+Market rent as the column variable.
+Construction-cost overrun as the row variable.
+Project NPV as the output.
+Include a clearly linked NPV formula in the top-left corner of the table.
+Configure the correct Row input cell and Column input cell in Excel's Data Table dialog.
+Apply conditional formatting to identify:
+Positive-NPV combinations.
+Negative-NPV combinations.
+The break-even boundary.
+Attractive and unattractive investment regions.
+8.3 Second two-variable Excel Data Table — occupancy and rent
+Create a second two-variable Data Table using:
+Market rent as one input.
+Demand elasticity or occupancy-related assumptions as the other input.
+NPV as the output.
+Explain the economic interpretation of the results.
+8.4 Excel implementation instructions
+For each Data Table, specify:
+The input variable cells.
+The row input cell.
+The column input cell.
+The output formula cell.
+The range of values.
+The location of the table.
+The interpretation of the results.
+Explain how to implement the Data Table using:
+Excel → Data → What-If Analysis → Data Table.
+Do not create a static matrix and falsely describe it as a native Excel Data Table.
+If the workbook-generation tool cannot create a functioning native Data Table, disclose this limitation and provide the exact steps needed to configure it manually.
+Check that the Data Tables update when their input values change.
+PART 9 — SOLVER OPTIMIZATION
+Implement a functioning Excel Solver optimization model.
+9.1 Define the optimization problem
+Use a primary objective such as:
+Maximize project NPV, subject to affordability, budget, capacity, financing, and sustainability constraints.
+Identify:
+Objective cell.
+Decision-variable cells.
+Variable bounds.
+Integer restrictions.
+Constraints.
+Solver method.
+Initial feasible solution.
+Optimized solution.
+9.2 Potential decision variables
+Where appropriate, allow Solver to determine:
+Room counts by type.
+Number of affordable rooms.
+Market rent.
+Affordable rent within the permitted affordability ceiling.
+Sustainability investment.
+Financing structure.
+Development strategy.
+Do not allow Solver to manipulate uncontrollable uncertain inputs as if management could choose them.
+Separate strategic decision variables from environmental and market uncertainties.
+9.3 Constraints
+Implement the applicable constraints:
+Affordable rooms must be at least 10% of total rooms.
+Room counts must be feasible integers.
+Total rooms cannot exceed property capacity.
+Total development expenditure cannot exceed the approved budget.
+Debt cannot exceed permitted financing limits.
+Required sustainability standards must be satisfied.
+Demand and occupancy must remain feasible.
+Applicable legal and planning requirements must be respected.
+All financial and operational restrictions must be met.
+Use exact integer or linear constraints where appropriate.
+9.4 Solver method
+Explain whether Simplex LP, GRG Nonlinear, or Evolutionary is appropriate.
+Choose the method based on the actual mathematical formulation.
+Do not claim that Solver has been run if it has not.
+9.5 Required optimization outputs
+Compare:
+Original/base-case solution.
+Optimized solution.
+Change in NPV.
+Change in IRR.
+Change in affordable housing.
+Change in occupancy.
+Change in energy consumption.
+Change in carbon emissions.
+Change in financing risk.
+Constraint compliance.
+Show the solution in a clearly labeled table.
+Explain why the solution is feasible, why it is better according to the objective, and which trade-offs remain.
+If Solver cannot be executed automatically, build the optimization model completely, document the Solver settings, and provide instructions for obtaining the actual result.
+PART 10 — MONTE CARLO SIMULATION
+Implement a genuine Monte Carlo simulation with at least five uncertain inputs modeled simultaneously.
+The minimum requirement of three uncertain inputs must be exceeded.
+10.1 Uncertain inputs
+Consider:
+Construction-cost overrun.
+Student demand or occupancy.
+Market rent growth.
+Interest-rate changes.
+Energy-price changes.
+Construction delays.
+Terminal capitalization rate or resale value.
+Operating-cost inflation.
+Choose at least five and justify their inclusion.
+10.2 Probability distributions
+Use appropriate distributions, such as:
+Triangular distributions for uncertain costs when minimum, most likely, and maximum values are available.
+Bounded distributions for occupancy.
+Normal or truncated normal distributions for rates when justified.
+Lognormal or other positive distributions for non-negative quantities where appropriate.
+Explain why each distribution fits the variable.
+Support the parameters with evidence where possible. Otherwise, label them as assumptions and test their influence.
+Avoid impossible outcomes such as negative room counts, occupancy above 100%, or implausible negative energy prices.
+Model correlations where economically justified, such as:
+Construction-cost increases and delays.
+Market rents and occupancy.
+Interest rates and property valuations.
+Energy prices and operating costs.
+Do not introduce arbitrary correlations without explaining their rationale.
+10.3 Simulation implementation
+Run at least 5,000 simulation trials and preferably 10,000 or more when computationally practical.
+For each trial:
+Generate all uncertain inputs.
+Apply them simultaneously.
+Recalculate demand and occupancy.
+Recalculate revenue and operating costs.
+Recalculate financing and cash flows where applicable.
+Calculate project NPV and relevant outputs.
+Check budget, affordability, and sustainability compliance.
+Store the results.
+Use a reproducible random-number approach or seed where supported.
+A simulation must recalculate the actual integrated model. Do not simulate independent NPV values unrelated to the cash-flow formulas.
+10.4 Required simulation outputs
+Calculate:
+Mean NPV.
+Median NPV.
+NPV standard deviation.
+NPV P5.
+NPV P10.
+NPV P50.
+NPV P90.
+NPV P95.
+Probability of negative NPV.
+Probability of meeting the required return.
+Probability of exceeding the development budget.
+Probability of failing financing constraints.
+Probability of failing affordability constraints.
+Probability of meeting all required objectives simultaneously.
+IRR distribution and treatment of undefined IRRs.
+Main drivers of downside risk.
+Clearly explain how to interpret the percentile values and probabilities.
+10.5 Monte Carlo visualization
+Create:
+NPV histogram.
+Cumulative probability curve.
+Downside risk summary.
+Comparison of expected NPV across alternatives.
+Risk-driver chart.
+Probability-of-success chart.
+Base-case versus optimized strategy comparison.
+Explain the difference between a static simulation and a dynamic simulation and state which implementation is used.
+If Excel Data Tables, VBA, or an external simulation engine are used, document the method. If VBA is required, explain how to run it and disclose any macro-security implications.
+Never claim that 10,000 trials were executed if they were not.
+PART 11 — DECISION CRITERIA AND RISK ATTITUDES
+Use decision criteria to compare the investment alternatives under uncertainty.
+Define at least four coherent scenarios:
+Optimistic.
+Base case.
+Pessimistic.
+Severe downside.
+Use probabilities only when there is a defensible basis for them.
+Apply the following methods where appropriate:
+Expected Value: Calculate the probability-weighted expected NPV.
+Maximax: Identify the alternative with the best possible outcome.
+Maximin: Identify the alternative with the best worst-case outcome.
+Hurwicz criterion: Combine the best and worst outcome using an explicitly defined optimism coefficient.
+Minimax Regret: Calculate regret relative to the best outcome in each scenario and select the alternative minimizing maximum regret.
+Use a consistent payoff metric, preferably NPV, for the main comparison.
+Provide a decision table with:
+Alternatives.
+Scenario outcomes.
+Scenario probabilities where applicable.
+Expected NPV.
+Best-case and worst-case NPV.
+Hurwicz scores.
+Maximum regret.
+Recommended decision.
+Perform a sensitivity analysis on the Hurwicz optimism coefficient.
+Explain how risk tolerance changes the preferred strategy.
+Do not confuse scenario-based decision criteria with Monte Carlo probabilities. Explain the difference between the methods.
+Because the project also has social and environmental objectives, explain where financial NPV alone is insufficient and how affordability and sustainability constraints affect the final decision.
+PART 12 — VISUALIZATION AND EXECUTIVE DASHBOARD
+Build an attractive, professional, functional dashboard.
+Include:
+Key investment KPIs.
+Project and equity NPV.
+Project and equity IRR.
+Payback period.
+Annual net operating income.
+Affordable-room percentage.
+Energy consumption.
+Carbon emissions.
+Debt service coverage.
+Base-case versus optimized solution.
+Alternative development strategies.
+Create meaningful charts:
+Annual project cash flow.
+Cumulative discounted cash flow.
+Revenue and operating costs.
+Rent versus demand.
+Rent versus NPV.
+Two-variable sensitivity heatmap.
+Monte Carlo NPV histogram.
+Cumulative NPV probability curve.
+Risk-driver comparison.
+Affordable versus market-rate room allocation.
+Sustainability investment versus energy savings.
+Scenario comparison by decision criterion.
+Each chart must:
+Have a clear title.
+Include units.
+Identify axes and series.
+Use readable legends.
+Support a specific managerial conclusion.
+Agree with the underlying calculations.
+Avoid decorative visualizations that do not contribute to the analysis.
+Use consistent formatting, restrained colors, readable labels, and conditional formatting.
+PART 13 — NUMERICAL EXAMPLE AND FORMULA EXPLANATION
+Provide a fully worked numerical example.
+Use clearly labeled illustrative assumptions and euros.
+For example:
+A hypothetical monthly market rent.
+A reference rent.
+A demand elasticity.
+A potential number of students.
+A room capacity.
+An occupancy rate.
+An initial development investment.
+Annual operating costs.
+Calculate:
+Effective demand.
+Occupancy.
+Annual revenue.
+Net operating income.
+Annual cash flow.
+NPV.
+The effect of a change in rent or construction costs.
+Show each formula and substitute the values step by step.
+Explain what the calculation means economically.
+Use similar formulas and methods to those taught in class wherever possible. If course materials have not been supplied, use standard Decision Analytics methods and identify the assumptions that should be checked against the lectures.
+Include a formula dictionary listing:
+Formula name.
+Mathematical formula.
+Excel implementation.
+Input variables.
+Output variable.
+Unit.
+Economic interpretation.
+Explain key financial and analytical formulas in student-friendly language so that all three group members can defend them during the oral examination.
+PART 14 — EXECUTIVE REPORT
+Generate a professional report in PDF format, preferably approximately 6–10 pages excluding any necessary appendix.
+The report must be concise, analytical, and focused on decisions.
+Use this structure:
+Executive summary.
+Problem definition.
+Brussels market context.
+Sources, data, assumptions, and limitations.
+Business model and price-demand relationship.
+Base-case investment results.
+The five managerial decision questions.
+Sensitivity analysis.
+Solver optimization.
+Monte Carlo simulation.
+Decision criteria and risk attitude.
+Affordability and sustainability.
+Final recommendation.
+Limitations and implementation considerations.
+References and technical appendix.
+For each managerial question, explain:
+What the question is.
+Why it matters.
+Which technique is used and why.
+Which inputs and outputs are involved.
+The quantitative result.
+The managerial interpretation.
+The recommended action.
+Use the actual model outputs, not invented numbers.
+Include the most relevant tables and graphs from the workbook.
+Clearly distinguish verified market facts, assumptions, calculations, and recommendations.
+Include the most important limitations and explain how uncertain assumptions affect the final recommendation.
+Do not merely describe how sensitivity analysis, Solver, or Monte Carlo works. Explain what the results imply for this specific investment.
+PART 15 — PRESENTATION FOR THE FINAL EXAM
+Create a professional PowerPoint presentation of approximately 10–12 slides.
+Suggested structure:
+Title, team, and investment opportunity.
+Problem definition and business case.
+Brussels market evidence and assumptions.
+Business model and rent-demand relationship.
+Base-case financial performance.
+Sensitivity analysis and break-even findings.
+Solver optimization and recommended solution.
+Monte Carlo simulation and investment risk.
+Decision criteria and scenario comparison.
+Sustainability and affordability.
+Final recommendation and implementation roadmap.
+Limitations, individual contributions, and discussion.
+Use clear charts and concise text.
+Ensure the presentation figures match the Excel model and report.
+Prepare a brief set of likely examination questions and suggested answers covering:
+Why the selected demand function is appropriate.
+Why the discount rate was chosen.
+Why the selected distributions are appropriate.
+How correlations affect Monte Carlo results.
+Why Solver's objective and constraints are appropriate.
+How the Data Tables work.
+What happens if the affordability threshold changes.
+What assumptions most strongly affect NPV.
+Why a positive expected NPV may not imply an acceptable investment.
+How the group verified the model.
+How AI was used and what the students checked independently.
+PART 16 — ACADEMIC INTEGRITY AND AI TRANSPARENCY
+This project must be original group work by exactly three students.
+Use AI as an analytical assistant, not as a substitute for understanding the model.
+Provide an AI-use disclosure describing:
+Which tasks were AI-assisted.
+Which data sources were researched and verified.
+Which assumptions were chosen by the group.
+Which formulas and outputs were independently checked.
+Which limitations remain.
+Which conclusions were evaluated by the students.
+Do not fabricate citations, data, model outputs, Solver solutions, or Monte Carlo results.
+Do not claim that the workbook is fully functional unless it has been tested.
+All three students must understand the model and actively contribute to the presentation and defense.
+Provide a suggested division of responsibilities:
+Student 1: Market research, business case, inputs, and financial model.
+Student 2: Sensitivity analysis, Solver optimization, and decision criteria.
+Student 3: Monte Carlo simulation, visualizations, report integration, and presentation.
+All three students should review the complete model and jointly verify the conclusions. The suggested division does not replace shared responsibility.
+PART 17 — EVALUATION RUBRIC: DESIGN FOR THE HIGHEST QUALITY
+Use the following evaluation criteria as a final quality-control framework.
+17.1 Practical requirements
+Deadlines: Prepare a complete submission before January 6, 2027, at 14:00.
+FAIR AI use: Document AI assistance and verify all results.
+17.2 Model score — 8 points
+Structure
+Clear worksheets.
+Logical progression from inputs to outputs.
+Consistent layout.
+Easy navigation.
+Cell names
+Meaningful named ranges.
+Named input and output cells.
+Named-cell dictionary.
+Names used consistently in formulas.
+Formulas
+Correct financial calculations.
+Consistent cash-flow timing.
+Appropriate discounting.
+No unexplained hardcoding.
+No double-counting.
+Appropriate error checks.
+Correct and transparent calculations.
+Complexity
+Sufficiently detailed cash flows.
+Price-demand relationship.
+Multiple uncertainties.
+Financing and terminal value.
+Integrated financial, social, and environmental objectives.
+Working sensitivity, optimization, and simulation analyses.
+17.3 Analysis score — 12 points
+Sensitivity analysis — 4 points
+Relevant managerial questions.
+Clear structure: question → technique → response.
+One-way and two-way analysis.
+Actual Excel Data Tables.
+Break-even analysis.
+Useful heatmaps and management conclusions.
+Optimization — 4 points
+Relevant objective function.
+Correct decision variables.
+Feasible constraints.
+Appropriate Solver method.
+Comparison of initial and optimized results.
+Practical managerial recommendation.
+Monte Carlo simulation — 4 points
+Multiple uncertain inputs.
+Simultaneous uncertainty.
+Justified distributions.
+Sufficient simulation trials.
+Correct output distributions.
+Probability of failure and downside risk.
+Static or dynamic implementation clearly explained.
+Overall analysis quality
+Five relevant, non-trivial decision questions.
+Correct decision criteria.
+Integrated visualization.
+Defensible management conclusions.
+Clear assumptions and limitations.
+Use this rubric as an explicit checklist and identify any criteria that remain incomplete.
+PART 18 — MODEL VALIDATION
+Before delivery, test the model systematically.
+Verify that:
+All named ranges point to the correct cells.
+All formulas calculate correctly.
+Input changes propagate through the entire model.
+Revenue changes when rent changes.
+Occupancy responds to the price-demand relationship.
+Occupancy remains between 0% and 100%.
+Affordable rooms remain at least 10% of the total.
+Affordable rents satisfy the defined benchmark.
+Room counts respect capacity and integer restrictions.
+Development costs reconcile.
+Debt balances reconcile.
+Cash flows reconcile.
+Discounting is consistent.
+NPV and IRR use the correct cash-flow perspective.
+Terminal value is not double-counted.
+Sensitivity Data Tables reference the correct input cells.
+Data Tables recalculate correctly.
+Solver constraints are feasible.
+The optimized solution is reproducible.
+Monte Carlo trials vary all selected uncertain inputs simultaneously.
+Simulation outputs are based on the integrated model.
+Decision criteria are calculated consistently.
+All charts use the correct data.
+The report and presentation agree with the workbook.
+All sources and assumptions are documented.
+The workbook can be opened and recalculated in Excel.
+Any VBA, add-ins, manual settings, or compatibility limitations are disclosed.
+Include a Model_Checks worksheet with a clear status for each test.
+Never label a test as passed unless it has actually been performed.
+PART 19 — REQUIRED FILES AND SUBMISSION
+Create these deliverables:
+Student_Housing_Brussels_Model.xlsx
+Student_Housing_Brussels_Executive_Report.pdf
+Student_Housing_Brussels_Presentation.pptx
+Student_Housing_Brussels_Submission.zip
+The ZIP file must contain the Excel model, PDF report, and PowerPoint presentation.
+If appropriate, also include supporting source data, a technical appendix, or a clearly documented VBA module.
+Before delivery:
+Open or validate each generated file.
+Verify that the ZIP contains all required deliverables.
+Ensure the report and presentation use actual model results.
+Check formulas and workbook structure.
+Disclose any Excel features requiring manual setup.
+Provide direct links to the created files where supported.
+The deadline is January 6, 2027, at 14:00. Do not postpone essential functionality in favor of decorative features.
+PART 20 — FINAL RESPONSE FORMAT
+After creating and validating the deliverables, provide a concise completion summary with:
+A short description of the investment case.
+The five managerial questions and their answers.
+ULTIMATE MASTER PROMPT — DECISION ANALYTICS
+Sustainable and Affordable Student Housing Investment in Brussels, Belgium
+ROLE AND EXPECTED LEVEL
+Act as a senior Decision Analytics consultant, real estate investment analyst, financial modeler, sustainability specialist, Excel expert, and academic project advisor.
+Apply rigorous quantitative reasoning, advanced financial modeling, optimization, risk analysis, and managerial decision-making. Think critically, challenge weak assumptions, and use the methods taught in a university Decision Analytics course.
+Your objective is to create a complete, original, integrated, and professionally presented investment case study for developing and operating sustainable student housing in Brussels, Belgium.
+Do not stop at explaining what should be done. Build the actual Excel workbook, perform the analyses, generate the executive report, prepare the presentation, and package the deliverables wherever the available tools permit.
+Never pretend a workbook feature, formula, Solver optimization, simulation, or result exists unless it has actually been implemented and verified.
+The final work must be sufficiently sophisticated to achieve a strong evaluation for model structure, cell naming, formulas, analytical complexity, sensitivity analysis, optimization, Monte Carlo simulation, visualization, managerial relevance, and reporting.
+PART 1 — THE BUSINESS CASE
+1.1 Investment opportunity
+Develop a realistic investment model for a sustainable student housing facility in Brussels, Belgium.
+The investor is considering acquiring, developing, or renovating a property to provide student accommodation over a long-term investment horizon.
+The project must balance four objectives:
+Generate an attractive and financially sustainable investment return.
+Provide genuinely affordable accommodation to students.
+Minimize environmental impact and improve energy efficiency.
+Remain resilient to uncertain demand, construction costs, financing conditions, energy prices, and market developments.
+The project must include at least 10% affordable student housing units.
+Define affordability precisely. Specify:
+The reference rent or affordability benchmark.
+How the benchmark is calculated and sourced.
+The maximum permitted affordable rent.
+The eligibility assumptions for affordable housing.
+The minimum number and proportion of affordable units.
+How affordability compliance is checked in the financial model and under uncertainty.
+Treat the 10% requirement as a binding constraint, not simply a recommendation.
+Where appropriate, compare three development alternatives:
+Alternative A: Conventional student housing.
+Alternative B: Energy-efficient and sustainable student housing.
+Alternative C: A more ambitious sustainable and affordable housing concept.
+Ensure the alternatives differ meaningfully in capital expenditure, operating costs, achievable rents, energy consumption, demand, affordability, and environmental performance.
+1.2 Geographic and market context
+Use Brussels-specific information wherever possible, including:
+Student population and housing demand.
+Existing student accommodation supply.
+Market rents by room type.
+Affordable student accommodation benchmarks.
+Property acquisition and construction costs.
+Renovation costs.
+Energy prices.
+Construction inflation.
+Interest rates and financing conditions.
+Applicable property taxes and charges.
+Relevant planning, housing, energy, and environmental requirements.
+Relevant regional and municipal policies.
+Prioritize credible, recent, verifiable sources such as official Belgian and Brussels government publications, statistical agencies, universities, property-market reports, energy sources, and financial institutions.
+Record the source URL, publication date, retrieval date where relevant, unit, and how each source informs the model.
+If reliable information is unavailable, use explicitly labeled estimates and explain why they are reasonable. Never invent market data, citations, legal requirements, or research findings.
+Distinguish verified facts, management assumptions, illustrative inputs, and calculated outputs.
+1.3 Project scope
+Use a justified investment horizon, preferably 20 years within a reasonable 15–25-year range.
+State:
+The project start date and operating commencement date.
+Construction and renovation periods.
+The total development capacity.
+The room types and total number of units.
+The ownership and operating structure.
+The financing structure.
+The valuation date.
+The tax treatment.
+The inflation assumptions.
+The discount-rate methodology.
+The terminal valuation approach.
+Use euros (€) consistently throughout the workbook, report, and presentation.
+Show financial values in euros, rent in euros per room per month, annual cash flows in euros per year, rates in percentages, and sustainability indicators in appropriate physical units.
+Clearly distinguish nominal and real cash flows and discount rates.
+Include VAT treatment, recoverable and non-recoverable VAT where applicable, taxes, financing fees, working capital, replacement capital expenditure, and transaction costs where relevant.
+PART 2 — DEFINE THE DECISION PROBLEM
+2.1 Problem statement
+Start by explaining the investment decision in plain language.
+Identify:
+The decision-maker.
+The investment alternatives.
+The economic opportunity.
+The social and environmental objectives.
+The financial and regulatory constraints.
+The principal uncertainties.
+The available management decisions.
+The consequences of making the wrong investment decision.
+Explain why student housing is a particularly relevant Decision Analytics case: investment costs are largely committed upfront, rental demand is uncertain, rents affect demand, affordable housing limits some revenue opportunities, and sustainability investments can increase initial expenditure while lowering future operating costs.
+2.2 Define the variables
+Create a variable dictionary with at least the following categories.
+A. Control variables
+Variables management can choose or influence, such as:
+Total number of rooms, within site capacity.
+Number of rooms by room type.
+Number and proportion of affordable rooms.
+Market rent.
+Affordable rent.
+Sustainability investment level.
+Energy-efficiency strategy.
+Debt-to-equity ratio.
+Construction or renovation strategy.
+Potentially the project phasing, if the case supports it.
+B. Uncertain variables
+Variables that management cannot fully control, such as:
+Construction-cost overrun.
+Construction delays.
+Market occupancy or student demand.
+Rent growth.
+Interest-rate changes.
+Energy-price changes.
+Operating-cost inflation.
+Terminal capitalization rate or resale value.
+C. Calculated variables
+Variables calculated by formulas, including:
+Effective demand.
+Occupancy.
+Annual revenue.
+Operating expenditure.
+Net operating income.
+Debt service.
+Annual project cash flow.
+Annual equity cash flow.
+NPV.
+IRR.
+Payback period.
+Carbon emissions.
+Affordable housing compliance.
+Simulation results.
+D. Constraints
+Conditions that must be satisfied:
+At least 10% affordable rooms.
+Maximum property capacity.
+Minimum and maximum room sizes or room mix, where applicable.
+Development budget.
+Financing limits.
+Minimum student demand.
+Sustainability standards.
+Legal and planning requirements.
+Feasible non-negative room counts.
+Any debt-service or liquidity requirements selected for the case.
+For every important variable, provide its name, definition, category, unit, base value, source or justification, uncertainty range if relevant, and Excel cell reference.
+Explain the difference between a control variable and an uncertain variable using a student housing example.
+PART 3 — EXCEL WORKBOOK ARCHITECTURE
+Create a professional, easy-to-navigate Excel workbook.
+Use the following worksheets, or an equivalent structure that preserves all required functionality.
+Read_Me
+Sources
+Inputs
+Demand_Model
+Development_Costs
+Operating_Model
+Financing
+Cash_Flows
+KPI_Dashboard
+Sensitivity_Analysis
+Optimization_Solver
+Monte_Carlo
+Decision_Criteria
+Visualizations
+Management_Conclusions
+Model_Checks
+Do not create empty sheets merely to satisfy a checklist. Each worksheet must contain its actual analysis and calculations.
+3.1 Read Me worksheet
+Include:
+Project purpose.
+Workbook navigation.
+Worksheet descriptions.
+Instructions for changing assumptions.
+Input, formula, linked-cell, and output color conventions.
+Units and sign conventions.
+Instructions for recalculation.
+Solver instructions.
+Monte Carlo instructions.
+Sensitivity Data Table instructions.
+Model limitations.
+Version and calculation date.
+3.2 Named cells — mandatory requirement
+Meaningfully name important input, control, uncertainty, and output cells using Excel's Name Manager.
+Examples:
+Total_Rooms
+Affordable_Units_Count
+Affordable_Unit_Share
+Base_Rent_EUR_Month
+Affordable_Rent_EUR_Month
+Reference_Affordability_Rent_EUR
+Potential_Student_Demand
+Occupancy_Rate
+Demand_Elasticity
+Initial_Investment_EUR
+Construction_Cost_EUR
+Construction_Overrun
+Sustainability_Investment_EUR
+Annual_Energy_Cost_EUR
+Annual_Rent_Growth
+Debt_Interest_Rate
+Debt_Ratio
+Equity_Discount_Rate
+Project_Discount_Rate
+Investment_Horizon_Years
+Terminal_Value_EUR
+Annual_Revenue_EUR
+Net_Operating_Income_EUR
+Project_NPV_EUR
+Project_IRR
+Equity_NPV_EUR
+Equity_IRR
+Payback_Period_Years
+Break_Even_Occupancy
+Carbon_Emissions_TCO2e
+Probability_Negative_NPV
+NPV_P5_EUR
+NPV_P50_EUR
+NPV_P95_EUR
+Create a named-cell dictionary showing:
+Name.
+Worksheet.
+Cell reference.
+Definition.
+Unit.
+Variable category.
+Source or calculation.
+Use names in formulas where they improve readability. Ensure names are valid, unique, consistent, and correctly linked to their cells.
+3.3 Formula quality and auditability
+Use formulas rather than hardcoded results.
+Store assumptions in dedicated input cells instead of embedding unexplained numbers inside formulas.
+Use consistent signs for cash inflows and outflows. Use appropriate Excel functions such as NPV, XNPV, IRR, or XIRR depending on the timing and structure of cash flows. Explain the choice.
+Remember that Excel's NPV function generally discounts cash flows beginning at period 1; the initial period-0 investment must be added separately. Avoid off-by-one discounting errors.
+Use the appropriate discount rate for project or equity cash flows. Do not calculate project NPV using equity cash flows with a project discount rate.
+Avoid double-counting interest expense in unlevered project cash flows, double-counting depreciation as a cash cost, or counting terminal value twice.
+Avoid unnecessary duplicated formulas, excessively nested logic, unexplained circular references, and volatile functions unless justified.
+Use Excel Tables where suitable and keep formulas consistent across years.
+Add:
+Input validation.
+Conditional formatting.
+Error messages.
+Reconciliation checks.
+Feasibility flags.
+Clear units and year labels.
+A check that the affordability requirement is satisfied.
+A check that all model outputs update when inputs change.
+Include a worked formula example with numerical values and explain the calculation step by step.
+PART 4 — FINANCIAL INVESTMENT MODEL
+4.1 Initial investment and development costs
+Include, where relevant:
+Land or property acquisition.
+Transaction and legal fees.
+Construction.
+Renovation.
+Architecture and engineering.
+Permits and professional fees.
+Furniture and equipment.
+Sustainable building technologies.
+Contingency.
+Construction financing costs.
+Initial working capital.
+Construction-period expenditure.
+Replacement capital expenditure.
+Model development delays and construction-cost overruns as uncertainties.
+Separate one-time investment costs from recurring operating expenditure.
+4.2 Revenue model
+Include:
+Market-rate rooms.
+Affordable rooms.
+Different room types if useful.
+Monthly rent by room type.
+Annual rent growth.
+Potential ancillary income where justified.
+Vacancy and collection losses.
+Student demand.
+Occupancy.
+Rental concessions where relevant.
+Calculate revenue from actual occupied units, not from total capacity.
+Ensure affordable rooms generate affordable rents in the model and are not incorrectly assigned market rents.
+4.3 Operating expenditure
+Include:
+Property management.
+Maintenance and repairs.
+Cleaning.
+Security and common-area services.
+Energy.
+Water.
+Insurance.
+Property taxes and applicable charges.
+Administration.
+Waste management.
+Replacement capital expenditure.
+Other justified expenses.
+Differentiate fixed and variable costs where relevant.
+Model inflation and energy-price changes consistently.
+4.4 Financing
+Include:
+Debt funding.
+Equity funding.
+Debt-to-equity ratio.
+Interest rate.
+Loan term.
+Loan repayment structure.
+Interest expense.
+Principal repayments.
+Financing fees.
+Debt service.
+Relevant debt covenants.
+Show annual opening debt, new borrowing, interest, repayments, and closing debt.
+Ensure the loan balance cannot become negative and that the debt schedule reconciles.
+4.5 Taxes and depreciation
+Model applicable taxes only where the necessary assumptions can be supported.
+Distinguish accounting depreciation from cash expenditure.
+Explain how depreciation affects taxable income without treating depreciation as a direct cash outflow.
+Clearly state whether tax losses, loss carryforwards, tax shields, and other tax effects are included.
+If exact tax treatment is uncertain, identify it as a limitation and provide a transparent simplified approach.
+4.6 Cash flows and terminal value
+Produce annual cash flows over the selected investment horizon.
+Separate:
+Unlevered project cash flow.
+Leveraged equity cash flow.
+Financing cash flows.
+Terminal-year proceeds.
+Estimate terminal property value using a justified method, such as a capitalization rate applied to a sustainable terminal net operating income, or a documented alternative.
+Deduct selling costs and outstanding debt where appropriate.
+Avoid mixing terminal property value with operating income or double-counting debt repayment.
+PART 5 — PRICE, DEMAND, AND OCCUPANCY
+A price-demand relationship is mandatory.
+Do not assume that occupancy stays constant when rents change.
+5.1 Develop the demand function
+Use an economically defensible function supported by data or transparent assumptions.
+For example, an illustrative exponential demand function is:
+Demand(r) = D₀ × EXP[-ε × (r/r₀ − 1)]
+where:
+D₀ = potential demand at the reference rent.
+r = proposed monthly rent in euros.
+r₀ = reference monthly rent in euros.
+ε = demand-response parameter.
+This is an illustrative functional form, not a verified Brussels demand curve. Justify the selected function and calibrate it using available data where possible.
+If reliable data support another functional form, compare alternatives.
+5.2 Convert demand into occupancy
+Ensure:
+Occupancy is between 0% and 100%.
+Occupied rooms never exceed available rooms.
+Market and affordable demand are treated consistently.
+Room types and prices are modeled correctly.
+Changes in rent affect demand and revenue.
+Affordable rents are consistent with the affordability requirement.
+For example, explain how a higher monthly rent can increase potential revenue per occupied room but reduce occupancy and total revenue.
+Show a numerical example in euros, including:
+Monthly rent.
+Effective demand.
+Occupancy.
+Annual rental revenue.
+Operating costs.
+Annual cash flow.
+Impact on NPV.
+Test alternative elasticity values to show whether the recommended rent is robust.
+PART 6 — FINANCIAL, SOCIAL, AND ENVIRONMENTAL KPIs
+Calculate the following indicators wherever applicable.
+6.1 Financial KPIs
+Project NPV (€).
+Equity NPV (€).
+Project IRR (%).
+Equity IRR (%).
+Simple payback period.
+Discounted payback period.
+Profitability index.
+Annual revenue (€).
+Net operating income (€).
+Operating margin (%).
+Debt service coverage ratio.
+Break-even occupancy (%).
+Break-even monthly rent (€).
+Maximum feasible acquisition or development cost (€).
+Minimum required equity return.
+Annual debt service (€).
+Explain the interpretation and limitations of each indicator.
+If there are multiple IRRs or no meaningful IRR, disclose the problem rather than reporting a misleading number.
+6.2 Affordability and social KPIs
+Total rooms.
+Affordable rooms.
+Affordable-room percentage.
+Affordable monthly rent (€).
+Affordable rent as a percentage of the chosen benchmark.
+Annual rent savings per eligible student (€).
+Total annual rent savings (€).
+Affordable housing delivered over the investment period.
+Incremental cost of affordability.
+Financial trade-off between affordability and investment value.
+Use a precise and consistent affordability definition.
+6.3 Sustainability KPIs
+Energy consumption per room.
+Energy consumption per square metre, where floor-area data are available.
+Annual energy cost (€).
+Operational carbon emissions.
+Carbon emissions per occupied room.
+Sustainable construction premium (€).
+Annual energy savings (€).
+Energy-cost savings over the investment horizon.
+Payback on sustainable investments.
+Environmental outcomes relative to the conventional alternative.
+Use justified assumptions for emissions factors and energy performance.
+Do not claim that an investment is environmentally sustainable merely because it has a sustainability label.
+PART 7 — FIVE MANAGERIAL DECISION QUESTIONS
+Formulate exactly five relevant, non-trivial managerial questions.
+Every question must use the structure:
+Decision question → Technique → Results → Interpretation → Management action.
+The five questions must be integrated into the same case and collectively use sensitivity analysis, optimization, Monte Carlo simulation, decision criteria, and visualization.
+Question 1: What is the optimal rental strategy?
+Determine the rent levels that maximize investment value while preserving sufficient student demand and complying with the affordable-housing requirement.
+Use:
+Price-demand modeling.
+One-way sensitivity analysis.
+Two-variable Data Tables.
+Break-even analysis.
+Relevant charts.
+Report the recommended market rent and affordable rent, expected occupancy, revenue, NPV, and affordability implications.
+Question 2: Which development strategy should be selected?
+Compare conventional, energy-efficient, and ambitious sustainable housing strategies.
+Use:
+Financial KPIs.
+Scenario analysis.
+Solver optimization.
+Sustainability indicators.
+Visualization.
+Report the preferred feasible strategy and explain the trade-off between initial capital expenditure, operating costs, investment returns, affordability, and environmental outcomes.
+Question 3: How robust is the investment under uncertainty?
+Determine the probability that the project:
+Has a positive NPV.
+Meets its required return.
+Remains within budget.
+Satisfies affordability constraints.
+Meets defined sustainability objectives.
+Use:
+Monte Carlo simulation.
+Simultaneous uncertain inputs.
+Percentiles and probability distributions.
+Downside risk measures.
+Scenario comparisons.
+Report the probability of success, key downside risks, and recommended mitigation measures.
+Question 4: Which variables drive investment risk?
+Determine which assumptions have the greatest effect on NPV, IRR, affordability, occupancy, and the likelihood of project failure.
+Use:
+One-variable sensitivity analysis.
+Two-variable Excel Data Tables.
+Scenario analysis.
+Monte Carlo risk-driver analysis.
+Tornado charts and heatmaps.
+Identify the most influential variables, break-even values, and thresholds that management should monitor.
+Question 5: Which investment alternative should management choose when objectives conflict?
+Compare alternatives under different economic conditions and different levels of risk tolerance.
+Use:
+Expected Value.
+Maximax.
+Maximin.
+Hurwicz criterion.
+Minimax Regret.
+Multi-criteria analysis where appropriate.
+Visual comparison.
+Consider financial performance, affordability, sustainability, and downside risk.
+Provide a final recommendation and explain under which assumptions a different alternative would become preferable.
+For every question, document the exact input cells, output cells, formulas, analytical technique, quantitative result, and management conclusion.
+Do not invent results before the model is calculated.
+PART 8 — SENSITIVITY ANALYSIS AND TWO-VARIABLE DATA TABLES
+Sensitivity analysis is mandatory and must be implemented in Excel.
+8.1 One-variable sensitivity analysis
+Analyze the impact of changes in:
+Market rent.
+Affordable rent.
+Construction cost.
+Construction-cost overrun.
+Occupancy.
+Demand elasticity.
+Interest rate.
+Energy prices.
+Discount rate.
+Terminal capitalization rate.
+Sustainability investment.
+For each analysis, calculate the impact on relevant KPIs, especially NPV.
+Identify break-even points and economically meaningful thresholds.
+8.2 Two-variable Excel Data Table — construction cost and rent
+Create a genuine Excel What-If Analysis two-variable Data Table.
+Use:
+Market rent as the column variable.
+Construction-cost overrun as the row variable.
+Project NPV as the output.
+Include a clearly linked NPV formula in the top-left corner of the table.
+Configure the correct Row input cell and Column input cell in Excel's Data Table dialog.
+Apply conditional formatting to identify:
+Positive-NPV combinations.
+Negative-NPV combinations.
+The break-even boundary.
+Attractive and unattractive investment regions.
+8.3 Second two-variable Excel Data Table — occupancy and rent
+Create a second two-variable Data Table using:
+Market rent as one input.
+Demand elasticity or occupancy-related assumptions as the other input.
+NPV as the output.
+Explain the economic interpretation of the results.
+8.4 Excel implementation instructions
+For each Data Table, specify:
+The input variable cells.
+The row input cell.
+The column input cell.
+The output formula cell.
+The range of values.
+The location of the table.
+The interpretation of the results.
+Explain how to implement the Data Table using:
+Excel → Data → What-If Analysis → Data Table.
+Do not create a static matrix and falsely describe it as a native Excel Data Table.
+If the workbook-generation tool cannot create a functioning native Data Table, disclose this limitation and provide the exact steps needed to configure it manually.
+Check that the Data Tables update when their input values change.
+PART 9 — SOLVER OPTIMIZATION
+Implement a functioning Excel Solver optimization model.
+9.1 Define the optimization problem
+Use a primary objective such as:
+Maximize project NPV, subject to affordability, budget, capacity, financing, and sustainability constraints.
+Identify:
+Objective cell.
+Decision-variable cells.
+Variable bounds.
+Integer restrictions.
+Constraints.
+Solver method.
+Initial feasible solution.
+Optimized solution.
+9.2 Potential decision variables
+Where appropriate, allow Solver to determine:
+Room counts by type.
+Number of affordable rooms.
+Market rent.
+Affordable rent within the permitted affordability ceiling.
+Sustainability investment.
+Financing structure.
+Development strategy.
+Do not allow Solver to manipulate uncontrollable uncertain inputs as if management could choose them.
+Separate strategic decision variables from environmental and market uncertainties.
+9.3 Constraints
+Implement the applicable constraints:
+Affordable rooms must be at least 10% of total rooms.
+Room counts must be feasible integers.
+Total rooms cannot exceed property capacity.
+Total development expenditure cannot exceed the approved budget.
+Debt cannot exceed permitted financing limits.
+Required sustainability standards must be satisfied.
+Demand and occupancy must remain feasible.
+Applicable legal and planning requirements must be respected.
+All financial and operational restrictions must be met.
+Use exact integer or linear constraints where appropriate.
+9.4 Solver method
+Explain whether Simplex LP, GRG Nonlinear, or Evolutionary is appropriate.
+Choose the method based on the actual mathematical formulation.
+Do not claim that Solver has been run if it has not.
+9.5 Required optimization outputs
+Compare:
+Original/base-case solution.
+Optimized solution.
+Change in NPV.
+Change in IRR.
+Change in affordable housing.
+Change in occupancy.
+Change in energy consumption.
+Change in carbon emissions.
+Change in financing risk.
+Constraint compliance.
+Show the solution in a clearly labeled table.
+Explain why the solution is feasible, why it is better according to the objective, and which trade-offs remain.
+If Solver cannot be executed automatically, build the optimization model completely, document the Solver settings, and provide instructions for obtaining the actual result.
+PART 10 — MONTE CARLO SIMULATION
+Implement a genuine Monte Carlo simulation with at least five uncertain inputs modeled simultaneously.
+The minimum requirement of three uncertain inputs must be exceeded.
+10.1 Uncertain inputs
+Consider:
+Construction-cost overrun.
+Student demand or occupancy.
+Market rent growth.
+Interest-rate changes.
+Energy-price changes.
+Construction delays.
+Terminal capitalization rate or resale value.
+Operating-cost inflation.
+Choose at least five and justify their inclusion.
+10.2 Probability distributions
+Use appropriate distributions, such as:
+Triangular distributions for uncertain costs when minimum, most likely, and maximum values are available.
+Bounded distributions for occupancy.
+Normal or truncated normal distributions for rates when justified.
+Lognormal or other positive distributions for non-negative quantities where appropriate.
+Explain why each distribution fits the variable.
+Support the parameters with evidence where possible. Otherwise, label them as assumptions and test their influence.
+Avoid impossible outcomes such as negative room counts, occupancy above 100%, or implausible negative energy prices.
+Model correlations where economically justified, such as:
+Construction-cost increases and delays.
+Market rents and occupancy.
+Interest rates and property valuations.
+Energy prices and operating costs.
+Do not introduce arbitrary correlations without explaining their rationale.
+10.3 Simulation implementation
+Run at least 5,000 simulation trials and preferably 10,000 or more when computationally practical.
+For each trial:
+Generate all uncertain inputs.
+Apply them simultaneously.
+Recalculate demand and occupancy.
+Recalculate revenue and operating costs.
+Recalculate financing and cash flows where applicable.
+Calculate project NPV and relevant outputs.
+Check budget, affordability, and sustainability compliance.
+Store the results.
+Use a reproducible random-number approach or seed where supported.
+A simulation must recalculate the actual integrated model. Do not simulate independent NPV values unrelated to the cash-flow formulas.
+10.4 Required simulation outputs
+Calculate:
+Mean NPV.
+Median NPV.
+NPV standard deviation.
+NPV P5.
+NPV P10.
+NPV P50.
+NPV P90.
+NPV P95.
+Probability of negative NPV.
+Probability of meeting the required return.
+Probability of exceeding the development budget.
+Probability of failing financing constraints.
+Probability of failing affordability constraints.
+Probability of meeting all required objectives simultaneously.
+IRR distribution and treatment of undefined IRRs.
+Main drivers of downside risk.
+Clearly explain how to interpret the percentile values and probabilities.
+10.5 Monte Carlo visualization
+Create:
+NPV histogram.
+Cumulative probability curve.
+Downside risk summary.
+Comparison of expected NPV across alternatives.
+Risk-driver chart.
+Probability-of-success chart.
+Base-case versus optimized strategy comparison.
+Explain the difference between a static simulation and a dynamic simulation and state which implementation is used.
+If Excel Data Tables, VBA, or an external simulation engine are used, document the method. If VBA is required, explain how to run it and disclose any macro-security implications.
+Never claim that 10,000 trials were executed if they were not.
+PART 11 — DECISION CRITERIA AND RISK ATTITUDES
+Use decision criteria to compare the investment alternatives under uncertainty.
+Define at least four coherent scenarios:
+Optimistic.
+Base case.
+Pessimistic.
+Severe downside.
+Use probabilities only when there is a defensible basis for them.
+Apply the following methods where appropriate:
+Expected Value: Calculate the probability-weighted expected NPV.
+Maximax: Identify the alternative with the best possible outcome.
+Maximin: Identify the alternative with the best worst-case outcome.
+Hurwicz criterion: Combine the best and worst outcome using an explicitly defined optimism coefficient.
+Minimax Regret: Calculate regret relative to the best outcome in each scenario and select the alternative minimizing maximum regret.
+Use a consistent payoff metric, preferably NPV, for the main comparison.
+Provide a decision table with:
+Alternatives.
+Scenario outcomes.
+Scenario probabilities where applicable.
+Expected NPV.
+Best-case and worst-case NPV.
+Hurwicz scores.
+Maximum regret.
+Recommended decision.
+Perform a sensitivity analysis on the Hurwicz optimism coefficient.
+Explain how risk tolerance changes the preferred strategy.
+Do not confuse scenario-based decision criteria with Monte Carlo probabilities. Explain the difference between the methods.
+Because the project also has social and environmental objectives, explain where financial NPV alone is insufficient and how affordability and sustainability constraints affect the final decision.
+PART 12 — VISUALIZATION AND EXECUTIVE DASHBOARD
+Build an attractive, professional, functional dashboard.
+Include:
+Key investment KPIs.
+Project and equity NPV.
+Project and equity IRR.
+Payback period.
+Annual net operating income.
+Affordable-room percentage.
+Energy consumption.
+Carbon emissions.
+Debt service coverage.
+Base-case versus optimized solution.
+Alternative development strategies.
+Create meaningful charts:
+Annual project cash flow.
+Cumulative discounted cash flow.
+Revenue and operating costs.
+Rent versus demand.
+Rent versus NPV.
+Two-variable sensitivity heatmap.
+Monte Carlo NPV histogram.
+Cumulative NPV probability curve.
+Risk-driver comparison.
+Affordable versus market-rate room allocation.
+Sustainability investment versus energy savings.
+Scenario comparison by decision criterion.
+Each chart must:
+Have a clear title.
+Include units.
+Identify axes and series.
+Use readable legends.
+Support a specific managerial conclusion.
+Agree with the underlying calculations.
+Avoid decorative visualizations that do not contribute to the analysis.
+Use consistent formatting, restrained colors, readable labels, and conditional formatting.
+PART 13 — NUMERICAL EXAMPLE AND FORMULA EXPLANATION
+Provide a fully worked numerical example.
+Use clearly labeled illustrative assumptions and euros.
+For example:
+A hypothetical monthly market rent.
+A reference rent.
+A demand elasticity.
+A potential number of students.
+A room capacity.
+An occupancy rate.
+An initial development investment.
+Annual operating costs.
+Calculate:
+Effective demand.
+Occupancy.
+Annual revenue.
+Net operating income.
+Annual cash flow.
+NPV.
+The effect of a change in rent or construction costs.
+Show each formula and substitute the values step by step.
+Explain what the calculation means economically.
+Use similar formulas and methods to those taught in class wherever possible. If course materials have not been supplied, use standard Decision Analytics methods and identify the assumptions that should be checked against the lectures.
+Include a formula dictionary listing:
+Formula name.
+Mathematical formula.
+Excel implementation.
+Input variables.
+Output variable.
+Unit.
+Economic interpretation.
+Explain key financial and analytical formulas in student-friendly language so that all three group members can defend them during the oral examination.
+PART 14 — EXECUTIVE REPORT
+Generate a professional report in PDF format, preferably approximately 6–10 pages excluding any necessary appendix.
+The report must be concise, analytical, and focused on decisions.
+Use this structure:
+Executive summary.
+Problem definition.
+Brussels market context.
+Sources, data, assumptions, and limitations.
+Business model and price-demand relationship.
+Base-case investment results.
+The five managerial decision questions.
+Sensitivity analysis.
+Solver optimization.
+Monte Carlo simulation.
+Decision criteria and risk attitude.
+Affordability and sustainability.
+Final recommendation.
+Limitations and implementation considerations.
+References and technical appendix.
+For each managerial question, explain:
+What the question is.
+Why it matters.
+Which technique is used and why.
+Which inputs and outputs are involved.
+The quantitative result.
+The managerial interpretation.
+The recommended action.
+Use the actual model outputs, not invented numbers.
+Include the most relevant tables and graphs from the workbook.
+Clearly distinguish verified market facts, assumptions, calculations, and recommendations.
+Include the most important limitations and explain how uncertain assumptions affect the final recommendation.
+Do not merely describe how sensitivity analysis, Solver, or Monte Carlo works. Explain what the results imply for this specific investment.
+PART 15 — PRESENTATION FOR THE FINAL EXAM
+Create a professional PowerPoint presentation of approximately 10–12 slides.
+Suggested structure:
+Title, team, and investment opportunity.
+Problem definition and business case.
+Brussels market evidence and assumptions.
+Business model and rent-demand relationship.
+Base-case financial performance.
+Sensitivity analysis and break-even findings.
+Solver optimization and recommended solution.
+Monte Carlo simulation and investment risk.
+Decision criteria and scenario comparison.
+Sustainability and affordability.
+Final recommendation and implementation roadmap.
+Limitations, individual contributions, and discussion.
+Use clear charts and concise text.
+Ensure the presentation figures match the Excel model and report.
+Prepare a brief set of likely examination questions and suggested answers covering:
+Why the selected demand function is appropriate.
+Why the discount rate was chosen.
+Why the selected distributions are appropriate.
+How correlations affect Monte Carlo results.
+Why Solver's objective and constraints are appropriate.
+How the Data Tables work.
+What happens if the affordability threshold changes.
+What assumptions most strongly affect NPV.
+Why a positive expected NPV may not imply an acceptable investment.
+How the group verified the model.
+How AI was used and what the students checked independently.
+PART 16 — ACADEMIC INTEGRITY AND AI TRANSPARENCY
+This project must be original group work by exactly three students.
+Use AI as an analytical assistant, not as a substitute for understanding the model.
+Provide an AI-use disclosure describing:
+Which tasks were AI-assisted.
+Which data sources were researched and verified.
+Which assumptions were chosen by the group.
+Which formulas and outputs were independently checked.
+Which limitations remain.
+Which conclusions were evaluated by the students.
+Do not fabricate citations, data, model outputs, Solver solutions, or Monte Carlo results.
+Do not claim that the workbook is fully functional unless it has been tested.
+All three students must understand the model and actively contribute to the presentation and defense.
+Provide a suggested division of responsibilities:
+Student 1: Market research, business case, inputs, and financial model.
+Student 2: Sensitivity analysis, Solver optimization, and decision criteria.
+Student 3: Monte Carlo simulation, visualizations, report integration, and presentation.
+All three students should review the complete model and jointly verify the conclusions. The suggested division does not replace shared responsibility.
+PART 17 — EVALUATION RUBRIC: DESIGN FOR THE HIGHEST QUALITY
+Use the following evaluation criteria as a final quality-control framework.
+17.1 Practical requirements
+Deadlines: Prepare a complete submission before January 6, 2027, at 14:00.
+FAIR AI use: Document AI assistance and verify all results.
+17.2 Model score — 8 points
+Structure
+Clear worksheets.
+Logical progression from inputs to outputs.
+Consistent layout.
+Easy navigation.
+Cell names
+Meaningful named ranges.
+Named input and output cells.
+Named-cell dictionary.
+Names used consistently in formulas.
+Formulas
+Correct financial calculations.
+Consistent cash-flow timing.
+Appropriate discounting.
+No unexplained hardcoding.
+No double-counting.
+Appropriate error checks.
+Correct and transparent calculations.
+Complexity
+Sufficiently detailed cash flows.
+Price-demand relationship.
+Multiple uncertainties.
+Financing and terminal value.
+Integrated financial, social, and environmental objectives.
+Working sensitivity, optimization, and simulation analyses.
+17.3 Analysis score — 12 points
+Sensitivity analysis — 4 points
+Relevant managerial questions.
+Clear structure: question → technique → response.
+One-way and two-way analysis.
+Actual Excel Data Tables.
+Break-even analysis.
+Useful heatmaps and management conclusions.
+Optimization — 4 points
+Relevant objective function.
+Correct decision variables.
+Feasible constraints.
+Appropriate Solver method.
+Comparison of initial and optimized results.
+Practical managerial recommendation.
+Monte Carlo simulation — 4 points
+Multiple uncertain inputs.
+Simultaneous uncertainty.
+Justified distributions.
+Sufficient simulation trials.
+Correct output distributions.
+Probability of failure and downside risk.
+Static or dynamic implementation clearly explained.
+Overall analysis quality
+Five relevant, non-trivial decision questions.
+Correct decision criteria.
+Integrated visualization.
+Defensible management conclusions.
+Clear assumptions and limitations.
+Use this rubric as an explicit checklist and identify any criteria that remain incomplete.
+PART 18 — MODEL VALIDATION
+Before delivery, test the model systematically.
+Verify that:
+All named ranges point to the correct cells.
+All formulas calculate correctly.
+Input changes propagate through the entire model.
+Revenue changes when rent changes.
+Occupancy responds to the price-demand relationship.
+Occupancy remains between 0% and 100%.
+Affordable rooms remain at least 10% of the total.
+Affordable rents satisfy the defined benchmark.
+Room counts respect capacity and integer restrictions.
+Development costs reconcile.
+Debt balances reconcile.
+Cash flows reconcile.
+Discounting is consistent.
+NPV and IRR use the correct cash-flow perspective.
+Terminal value is not double-counted.
+Sensitivity Data Tables reference the correct input cells.
+Data Tables recalculate correctly.
+Solver constraints are feasible.
+The optimized solution is reproducible.
+Monte Carlo trials vary all selected uncertain inputs simultaneously.
+Simulation outputs are based on the integrated model.
+Decision criteria are calculated consistently.
+All charts use the correct data.
+The report and presentation agree with the workbook.
+All sources and assumptions are documented.
+The workbook can be opened and recalculated in Excel.
+Any VBA, add-ins, manual settings, or compatibility limitations are disclosed.
+Include a Model_Checks worksheet with a clear status for each test.
+Never label a test as passed unless it has actually been performed.
+PART 19 — REQUIRED FILES AND SUBMISSION
+Create these deliverables:
+Student_Housing_Brussels_Model.xlsx
+Student_Housing_Brussels_Executive_Report.pdf
+Student_Housing_Brussels_Presentation.pptx
+Student_Housing_Brussels_Submission.zip
+The ZIP file must contain the Excel model, PDF report, and PowerPoint presentation.
+If appropriate, also include supporting source data, a technical appendix, or a clearly documented VBA module.
+Before delivery:
+Open or validate each generated file.
+Verify that the ZIP contains all required deliverables.
+Ensure the report and presentation use actual model results.
+Check formulas and workbook structure.
+Disclose any Excel features requiring manual setup.
+Provide direct links to the created files where supported.
+The deadline is January 6, 2027, at 14:00. Do not postpone essential functionality in favor of decorative features.
+PART 20 — FINAL RESPONSE FORMAT
+After creating and validating the deliverables, provide a concise completion summary with:
+A short description of the investment case.
+The five managerial questions and their answers.
+Base-case financial performance.
+The recommended optimized investment strategy.
+The principal sensitivity findings.
+Monte Carlo downside risks and probability of success.
+Affordability and sustainability performance.
+The key management recommendation.
+Any limitations or features requiring manual Excel configuration.
+Links to the Excel workbook, executive report, PowerPoint presentation, and ZIP file.
+If the calculations reveal that the project is financially unattractive, report that conclusion honestly and explain which assumptions or strategic changes could improve its feasibility.
+Do not manufacture attractive results merely to make the project appear successful.
+FINAL OBJECTIVE: Deliver an integrated, auditable, reproducible, financially rigorous, socially responsible, sustainable, and academically defensible Decision Analytics project that demonstrates how Excel modeling, sensitivity analysis, Solver optimization, Monte Carlo simulation, decision criteria, and visualization can support a real investment decision about affordable student housing in Brussels.
+ULTIMATE MASTER PROMPT — DECISION ANALYTICS
+Sustainable and Affordable Student Housing Investment in Brussels, Belgium
+ROLE AND EXPECTED LEVEL
+Act as a senior Decision Analytics consultant, real estate investment analyst, financial modeler, sustainability specialist, Excel expert, and academic project advisor.
+Apply rigorous quantitative reasoning, advanced financial modeling, optimization, risk analysis, and managerial decision-making. Think critically, challenge weak assumptions, and use the methods taught in a university Decision Analytics course.
+Your objective is to create a complete, original, integrated, and professionally presented investment case study for developing and operating sustainable student housing in Brussels, Belgium.
+Do not stop at explaining what should be done. Build the actual Excel workbook, perform the analyses, generate the executive report, prepare the presentation, and package the deliverables wherever the available tools permit.
+Never pretend a workbook feature, formula, Solver optimization, simulation, or result exists unless it has actually been implemented and verified.
+The final work must be sufficiently sophisticated to achieve a strong evaluation for model structure, cell naming, formulas, analytical complexity, sensitivity analysis, optimization, Monte Carlo simulation, visualization, managerial relevance, and reporting.
+PART 1 — THE BUSINESS CASE
+1.1 Investment opportunity
+Develop a realistic investment model for a sustainable student housing facility in Brussels, Belgium.
+The investor is considering acquiring, developing, or renovating a property to provide student accommodation over a long-term investment horizon.
+The project must balance four objectives:
+Generate an attractive and financially sustainable investment return.
+Provide genuinely affordable accommodation to students.
+Minimize environmental impact and improve energy efficiency.
+Remain resilient to uncertain demand, construction costs, financing conditions, energy prices, and market developments.
+The project must include at least 10% affordable student housing units.
+Define affordability precisely. Specify:
+The reference rent or affordability benchmark.
+How the benchmark is calculated and sourced.
+The maximum permitted affordable rent.
+The eligibility assumptions for affordable housing.
+The minimum number and proportion of affordable units.
+How affordability compliance is checked in the financial model and under uncertainty.
+Treat the 10% requirement as a binding constraint, not simply a recommendation.
+Where appropriate, compare three development alternatives:
+Alternative A: Conventional student housing.
+Alternative B: Energy-efficient and sustainable student housing.
+Alternative C: A more ambitious sustainable and affordable housing concept.
+Ensure the alternatives differ meaningfully in capital expenditure, operating costs, achievable rents, energy consumption, demand, affordability, and environmental performance.
+1.2 Geographic and market context
+Use Brussels-specific information wherever possible, including:
+Student population and housing demand.
+Existing student accommodation supply.
+Market rents by room type.
+Affordable student accommodation benchmarks.
+Property acquisition and construction costs.
+Renovation costs.
+Energy prices.
+Construction inflation.
+Interest rates and financing conditions.
+Applicable property taxes and charges.
+Relevant planning, housing, energy, and environmental requirements.
+Relevant regional and municipal policies.
+Prioritize credible, recent, verifiable sources such as official Belgian and Brussels government publications, statistical agencies, universities, property-market reports, energy sources, and financial institutions.
+Record the source URL, publication date, retrieval date where relevant, unit, and how each source informs the model.
+If reliable information is unavailable, use explicitly labeled estimates and explain why they are reasonable. Never invent market data, citations, legal requirements, or research findings.
+Distinguish verified facts, management assumptions, illustrative inputs, and calculated outputs.
+1.3 Project scope
+Use a justified investment horizon, preferably 20 years within a reasonable 15–25-year range.
+State:
+The project start date and operating commencement date.
+Construction and renovation periods.
+The total development capacity.
+The room types and total number of units.
+The ownership and operating structure.
+The financing structure.
+The valuation date.
+The tax treatment.
+The inflation assumptions.
+The discount-rate methodology.
+The terminal valuation approach.
+Use euros (€) consistently throughout the workbook, report, and presentation.
+Show financial values in euros, rent in euros per room per month, annual cash flows in euros per year, rates in percentages, and sustainability indicators in appropriate physical units.
+Clearly distinguish nominal and real cash flows and discount rates.
+Include VAT treatment, recoverable and non-recoverable VAT where applicable, taxes, financing fees, working capital, replacement capital expenditure, and transaction costs where relevant.
+PART 2 — DEFINE THE DECISION PROBLEM
+2.1 Problem statement
+Start by explaining the investment decision in plain language.
+Identify:
+The decision-maker.
+The investment alternatives.
+The economic opportunity.
+The social and environmental objectives.
+The financial and regulatory constraints.
+The principal uncertainties.
+The available management decisions.
+The consequences of making the wrong investment decision.
+Explain why student housing is a particularly relevant Decision Analytics case: investment costs are largely committed upfront, rental demand is uncertain, rents affect demand, affordable housing limits some revenue opportunities, and sustainability investments can increase initial expenditure while lowering future operating costs.
+2.2 Define the variables
+Create a variable dictionary with at least the following categories.
+A. Control variables
+Variables management can choose or influence, such as:
+Total number of rooms, within site capacity.
+Number of rooms by room type.
+Number and proportion of affordable rooms.
+Market rent.
+Affordable rent.
+Sustainability investment level.
+Energy-efficiency strategy.
+Debt-to-equity ratio.
+Construction or renovation strategy.
+Potentially the project phasing, if the case supports it.
+B. Uncertain variables
+Variables that management cannot fully control, such as:
+Construction-cost overrun.
+Construction delays.
+Market occupancy or student demand.
+Rent growth.
+Interest-rate changes.
+Energy-price changes.
+Operating-cost inflation.
+Terminal capitalization rate or resale value.
+C. Calculated variables
+Variables calculated by formulas, including:
+Effective demand.
+Occupancy.
+Annual revenue.
+Operating expenditure.
+Net operating income.
+Debt service.
+Annual project cash flow.
+Annual equity cash flow.
+NPV.
+IRR.
+Payback period.
+Carbon emissions.
+Affordable housing compliance.
+Simulation results.
+D. Constraints
+Conditions that must be satisfied:
+At least 10% affordable rooms.
+Maximum property capacity.
+Minimum and maximum room sizes or room mix, where applicable.
+Development budget.
+Financing limits.
+Minimum student demand.
+Sustainability standards.
+Legal and planning requirements.
+Feasible non-negative room counts.
+Any debt-service or liquidity requirements selected for the case.
+For every important variable, provide its name, definition, category, unit, base value, source or justification, uncertainty range if relevant, and Excel cell reference.
+Explain the difference between a control variable and an uncertain variable using a student housing example.
+PART 3 — EXCEL WORKBOOK ARCHITECTURE
+Create a professional, easy-to-navigate Excel workbook.
+Use the following worksheets, or an equivalent structure that preserves all required functionality.
+Read_Me
+Sources
+Inputs
+Demand_Model
+Development_Costs
+Operating_Model
+Financing
+Cash_Flows
+KPI_Dashboard
+Sensitivity_Analysis
+Optimization_Solver
+Monte_Carlo
+Decision_Criteria
+Visualizations
+Management_Conclusions
+Model_Checks
+Do not create empty sheets merely to satisfy a checklist. Each worksheet must contain its actual analysis and calculations.
+3.1 Read Me worksheet
+Include:
+Project purpose.
+Workbook navigation.
+Worksheet descriptions.
+Instructions for changing assumptions.
+Input, formula, linked-cell, and output color conventions.
+Units and sign conventions.
+Instructions for recalculation.
+Solver instructions.
+Monte Carlo instructions.
+Sensitivity Data Table instructions.
+Model limitations.
+Version and calculation date.
+3.2 Named cells — mandatory requirement
+Meaningfully name important input, control, uncertainty, and output cells using Excel's Name Manager.
+Examples:
+Total_Rooms
+Affordable_Units_Count
+Affordable_Unit_Share
+Base_Rent_EUR_Month
+Affordable_Rent_EUR_Month
+Reference_Affordability_Rent_EUR
+Potential_Student_Demand
+Occupancy_Rate
+Demand_Elasticity
+Initial_Investment_EUR
+Construction_Cost_EUR
+Construction_Overrun
+Sustainability_Investment_EUR
+Annual_Energy_Cost_EUR
+Annual_Rent_Growth
+Debt_Interest_Rate
+Debt_Ratio
+Equity_Discount_Rate
+Project_Discount_Rate
+Investment_Horizon_Years
+Terminal_Value_EUR
+Annual_Revenue_EUR
+Net_Operating_Income_EUR
+Project_NPV_EUR
+Project_IRR
+Equity_NPV_EUR
+Equity_IRR
+Payback_Period_Years
+Break_Even_Occupancy
+Carbon_Emissions_TCO2e
+Probability_Negative_NPV
+NPV_P5_EUR
+NPV_P50_EUR
+NPV_P95_EUR
+Create a named-cell dictionary showing:
+Name.
+Worksheet.
+Cell reference.
+Definition.
+Unit.
+Variable category.
+Source or calculation.
+Use names in formulas where they improve readability. Ensure names are valid, unique, consistent, and correctly linked to their cells.
+3.3 Formula quality and auditability
+Use formulas rather than hardcoded results.
+Store assumptions in dedicated input cells instead of embedding unexplained numbers inside formulas.
+Use consistent signs for cash inflows and outflows. Use appropriate Excel functions such as NPV, XNPV, IRR, or XIRR depending on the timing and structure of cash flows. Explain the choice.
+Remember that Excel's NPV function generally discounts cash flows beginning at period 1; the initial period-0 investment must be added separately. Avoid off-by-one discounting errors.
+Use the appropriate discount rate for project or equity cash flows. Do not calculate project NPV using equity cash flows with a project discount rate.
+Avoid double-counting interest expense in unlevered project cash flows, double-counting depreciation as a cash cost, or counting terminal value twice.
+Avoid unnecessary duplicated formulas, excessively nested logic, unexplained circular references, and volatile functions unless justified.
+Use Excel Tables where suitable and keep formulas consistent across years.
+Add:
+Input validation.
+Conditional formatting.
+Error messages.
+Reconciliation checks.
+Feasibility flags.
+Clear units and year labels.
+A check that the affordability requirement is satisfied.
+A check that all model outputs update when inputs change.
+Include a worked formula example with numerical values and explain the calculation step by step.
+PART 4 — FINANCIAL INVESTMENT MODEL
+4.1 Initial investment and development costs
+Include, where relevant:
+Land or property acquisition.
+Transaction and legal fees.
+Construction.
+Renovation.
+Architecture and engineering.
+Permits and professional fees.
+Furniture and equipment.
+Sustainable building technologies.
+Contingency.
+Construction financing costs.
+Initial working capital.
+Construction-period expenditure.
+Replacement capital expenditure.
+Model development delays and construction-cost overruns as uncertainties.
+Separate one-time investment costs from recurring operating expenditure.
+4.2 Revenue model
+Include:
+Market-rate rooms.
+Affordable rooms.
+Different room types if useful.
+Monthly rent by room type.
+Annual rent growth.
+Potential ancillary income where justified.
+Vacancy and collection losses.
+Student demand.
+Occupancy.
+Rental concessions where relevant.
+Calculate revenue from actual occupied units, not from total capacity.
+Ensure affordable rooms generate affordable rents in the model and are not incorrectly assigned market rents.
+4.3 Operating expenditure
+Include:
+Property management.
+Maintenance and repairs.
+Cleaning.
+Security and common-area services.
+Energy.
+Water.
+Insurance.
+Property taxes and applicable charges.
+Administration.
+Waste management.
+Replacement capital expenditure.
+Other justified expenses.
+Differentiate fixed and variable costs where relevant.
+Model inflation and energy-price changes consistently.
+4.4 Financing
+Include:
+Debt funding.
+Equity funding.
+Debt-to-equity ratio.
+Interest rate.
+Loan term.
+Loan repayment structure.
+Interest expense.
+Principal repayments.
+Financing fees.
+Debt service.
+Relevant debt covenants.
+Show annual opening debt, new borrowing, interest, repayments, and closing debt.
+Ensure the loan balance cannot become negative and that the debt schedule reconciles.
+4.5 Taxes and depreciation
+Model applicable taxes only where the necessary assumptions can be supported.
+Distinguish accounting depreciation from cash expenditure.
+Explain how depreciation affects taxable income without treating depreciation as a direct cash outflow.
+Clearly state whether tax losses, loss carryforwards, tax shields, and other tax effects are included.
+If exact tax treatment is uncertain, identify it as a limitation and provide a transparent simplified approach.
+4.6 Cash flows and terminal value
+Produce annual cash flows over the selected investment horizon.
+Separate:
+Unlevered project cash flow.
+Leveraged equity cash flow.
+Financing cash flows.
+Terminal-year proceeds.
+Estimate terminal property value using a justified method, such as a capitalization rate applied to a sustainable terminal net operating income, or a documented alternative.
+Deduct selling costs and outstanding debt where appropriate.
+Avoid mixing terminal property value with operating income or double-counting debt repayment.
+PART 5 — PRICE, DEMAND, AND OCCUPANCY
+A price-demand relationship is mandatory.
+Do not assume that occupancy stays constant when rents change.
+5.1 Develop the demand function
+Use an economically defensible function supported by data or transparent assumptions.
+For example, an illustrative exponential demand function is:
+Demand(r) = D₀ × EXP[-ε × (r/r₀ − 1)]
+where:
+D₀ = potential demand at the reference rent.
+r = proposed monthly rent in euros.
+r₀ = reference monthly rent in euros.
+ε = demand-response parameter.
+This is an illustrative functional form, not a verified Brussels demand curve. Justify the selected function and calibrate it using available data where possible.
+If reliable data support another functional form, compare alternatives.
+5.2 Convert demand into occupancy
+Ensure:
+Occupancy is between 0% and 100%.
+Occupied rooms never exceed available rooms.
+Market and affordable demand are treated consistently.
+Room types and prices are modeled correctly.
+Changes in rent affect demand and revenue.
+Affordable rents are consistent with the affordability requirement.
+For example, explain how a higher monthly rent can increase potential revenue per occupied room but reduce occupancy and total revenue.
+Show a numerical example in euros, including:
+Monthly rent.
+Effective demand.
+Occupancy.
+Annual rental revenue.
+Operating costs.
+Annual cash flow.
+Impact on NPV.
+Test alternative elasticity values to show whether the recommended rent is robust.
+PART 6 — FINANCIAL, SOCIAL, AND ENVIRONMENTAL KPIs
+Calculate the following indicators wherever applicable.
+6.1 Financial KPIs
+Project NPV (€).
+Equity NPV (€).
+Project IRR (%).
+Equity IRR (%).
+Simple payback period.
+Discounted payback period.
+Profitability index.
+Annual revenue (€).
+Net operating income (€).
+Operating margin (%).
+Debt service coverage ratio.
+Break-even occupancy (%).
+Break-even monthly rent (€).
+Maximum feasible acquisition or development cost (€).
+Minimum required equity return.
+Annual debt service (€).
+Explain the interpretation and limitations of each indicator.
+If there are multiple IRRs or no meaningful IRR, disclose the problem rather than reporting a misleading number.
+6.2 Affordability and social KPIs
+Total rooms.
+Affordable rooms.
+Affordable-room percentage.
+Affordable monthly rent (€).
+Affordable rent as a percentage of the chosen benchmark.
+Annual rent savings per eligible student (€).
+Total annual rent savings (€).
+Affordable housing delivered over the investment period.
+Incremental cost of affordability.
+Financial trade-off between affordability and investment value.
+Use a precise and consistent affordability definition.
+6.3 Sustainability KPIs
+Energy consumption per room.
+Energy consumption per square metre, where floor-area data are available.
+Annual energy cost (€).
+Operational carbon emissions.
+Carbon emissions per occupied room.
+Sustainable construction premium (€).
+Annual energy savings (€).
+Energy-cost savings over the investment horizon.
+Payback on sustainable investments.
+Environmental outcomes relative to the conventional alternative.
+Use justified assumptions for emissions factors and energy performance.
+Do not claim that an investment is environmentally sustainable merely because it has a sustainability label.
+PART 7 — FIVE MANAGERIAL DECISION QUESTIONS
+Formulate exactly five relevant, non-trivial managerial questions.
+Every question must use the structure:
+Decision question → Technique → Results → Interpretation → Management action.
+The five questions must be integrated into the same case and collectively use sensitivity analysis, optimization, Monte Carlo simulation, decision criteria, and visualization.
+Question 1: What is the optimal rental strategy?
+Determine the rent levels that maximize investment value while preserving sufficient student demand and complying with the affordable-housing requirement.
+Use:
+Price-demand modeling.
+One-way sensitivity analysis.
+Two-variable Data Tables.
+Break-even analysis.
+Relevant charts.
+Report the recommended market rent and affordable rent, expected occupancy, revenue, NPV, and affordability implications.
+Question 2: Which development strategy should be selected?
+Compare conventional, energy-efficient, and ambitious sustainable housing strategies.
+Use:
+Financial KPIs.
+Scenario analysis.
+Solver optimization.
+Sustainability indicators.
+Visualization.
+Report the preferred feasible strategy and explain the trade-off between initial capital expenditure, operating costs, investment returns, affordability, and environmental outcomes.
+Question 3: How robust is the investment under uncertainty?
+Determine the probability that the project:
+Has a positive NPV.
+Meets its required return.
+Remains within budget.
+Satisfies affordability constraints.
+Meets defined sustainability objectives.
+Use:
+Monte Carlo simulation.
+Simultaneous uncertain inputs.
+Percentiles and probability distributions.
+Downside risk measures.
+Scenario comparisons.
+Report the probability of success, key downside risks, and recommended mitigation measures.
+Question 4: Which variables drive investment risk?
+Determine which assumptions have the greatest effect on NPV, IRR, affordability, occupancy, and the likelihood of project failure.
+Use:
+One-variable sensitivity analysis.
+Two-variable Excel Data Tables.
+Scenario analysis.
+Monte Carlo risk-driver analysis.
+Tornado charts and heatmaps.
+Identify the most influential variables, break-even values, and thresholds that management should monitor.
+Question 5: Which investment alternative should management choose when objectives conflict?
+Compare alternatives under different economic conditions and different levels of risk tolerance.
+Use:
+Expected Value.
+Maximax.
+Maximin.
+Hurwicz criterion.
+Minimax Regret.
+Multi-criteria analysis where appropriate.
+Visual comparison.
+Consider financial performance, affordability, sustainability, and downside risk.
+Provide a final recommendation and explain under which assumptions a different alternative would become preferable.
+For every question, document the exact input cells, output cells, formulas, analytical technique, quantitative result, and management conclusion.
+Do not invent results before the model is calculated.
+PART 8 — SENSITIVITY ANALYSIS AND TWO-VARIABLE DATA TABLES
+Sensitivity analysis is mandatory and must be implemented in Excel.
+8.1 One-variable sensitivity analysis
+Analyze the impact of changes in:
+Market rent.
+Affordable rent.
+Construction cost.
+Construction-cost overrun.
+Occupancy.
+Demand elasticity.
+Interest rate.
+Energy prices.
+Discount rate.
+Terminal capitalization rate.
+Sustainability investment.
+For each analysis, calculate the impact on relevant KPIs, especially NPV.
+Identify break-even points and economically meaningful thresholds.
+8.2 Two-variable Excel Data Table — construction cost and rent
+Create a genuine Excel What-If Analysis two-variable Data Table.
+Use:
+Market rent as the column variable.
+Construction-cost overrun as the row variable.
+Project NPV as the output.
+Include a clearly linked NPV formula in the top-left corner of the table.
+Configure the correct Row input cell and Column input cell in Excel's Data Table dialog.
+Apply conditional formatting to identify:
+Positive-NPV combinations.
+Negative-NPV combinations.
+The break-even boundary.
+Attractive and unattractive investment regions.
+8.3 Second two-variable Excel Data Table — occupancy and rent
+Create a second two-variable Data Table using:
+Market rent as one input.
+Demand elasticity or occupancy-related assumptions as the other input.
+NPV as the output.
+Explain the economic interpretation of the results.
+8.4 Excel implementation instructions
+For each Data Table, specify:
+The input variable cells.
+The row input cell.
+The column input cell.
+The output formula cell.
+The range of values.
+The location of the table.
+The interpretation of the results.
+Explain how to implement the Data Table using:
+Excel → Data → What-If Analysis → Data Table.
+Do not create a static matrix and falsely describe it as a native Excel Data Table.
+If the workbook-generation tool cannot create a functioning native Data Table, disclose this limitation and provide the exact steps needed to configure it manually.
+Check that the Data Tables update when their input values change.
+PART 9 — SOLVER OPTIMIZATION
+Implement a functioning Excel Solver optimization model.
+9.1 Define the optimization problem
+Use a primary objective such as:
+Maximize project NPV, subject to affordability, budget, capacity, financing, and sustainability constraints.
+Identify:
+Objective cell.
+Decision-variable cells.
+Variable bounds.
+Integer restrictions.
+Constraints.
+Solver method.
+Initial feasible solution.
+Optimized solution.
+9.2 Potential decision variables
+Where appropriate, allow Solver to determine:
+Room counts by type.
+Number of affordable rooms.
+Market rent.
+Affordable rent within the permitted affordability ceiling.
+Sustainability investment.
+Financing structure.
+Development strategy.
+Do not allow Solver to manipulate uncontrollable uncertain inputs as if management could choose them.
+Separate strategic decision variables from environmental and market uncertainties.
+9.3 Constraints
+Implement the applicable constraints:
+Affordable rooms must be at least 10% of total rooms.
+Room counts must be feasible integers.
+Total rooms cannot exceed property capacity.
+Total development expenditure cannot exceed the approved budget.
+Debt cannot exceed permitted financing limits.
+Required sustainability standards must be satisfied.
+Demand and occupancy must remain feasible.
+Applicable legal and planning requirements must be respected.
+All financial and operational restrictions must be met.
+Use exact integer or linear constraints where appropriate.
+9.4 Solver method
+Explain whether Simplex LP, GRG Nonlinear, or Evolutionary is appropriate.
+Choose the method based on the actual mathematical formulation.
+Do not claim that Solver has been run if it has not.
+9.5 Required optimization outputs
+Compare:
+Original/base-case solution.
+Optimized solution.
+Change in NPV.
+Change in IRR.
+Change in affordable housing.
+Change in occupancy.
+Change in energy consumption.
+Change in carbon emissions.
+Change in financing risk.
+Constraint compliance.
+Show the solution in a clearly labeled table.
+Explain why the solution is feasible, why it is better according to the objective, and which trade-offs remain.
+If Solver cannot be executed automatically, build the optimization model completely, document the Solver settings, and provide instructions for obtaining the actual result.
+PART 10 — MONTE CARLO SIMULATION
+Implement a genuine Monte Carlo simulation with at least five uncertain inputs modeled simultaneously.
+The minimum requirement of three uncertain inputs must be exceeded.
+10.1 Uncertain inputs
+Consider:
+Construction-cost overrun.
+Student demand or occupancy.
+Market rent growth.
+Interest-rate changes.
+Energy-price changes.
+Construction delays.
+Terminal capitalization rate or resale value.
+Operating-cost inflation.
+Choose at least five and justify their inclusion.
+10.2 Probability distributions
+Use appropriate distributions, such as:
+Triangular distributions for uncertain costs when minimum, most likely, and maximum values are available.
+Bounded distributions for occupancy.
+Normal or truncated normal distributions for rates when justified.
+Lognormal or other positive distributions for non-negative quantities where appropriate.
+Explain why each distribution fits the variable.
+Support the parameters with evidence where possible. Otherwise, label them as assumptions and test their influence.
+Avoid impossible outcomes such as negative room counts, occupancy above 100%, or implausible negative energy prices.
+Model correlations where economically justified, such as:
+Construction-cost increases and delays.
+Market rents and occupancy.
+Interest rates and property valuations.
+Energy prices and operating costs.
+Do not introduce arbitrary correlations without explaining their rationale.
+10.3 Simulation implementation
+Run at least 5,000 simulation trials and preferably 10,000 or more when computationally practical.
+For each trial:
+Generate all uncertain inputs.
+Apply them simultaneously.
+Recalculate demand and occupancy.
+Recalculate revenue and operating costs.
+Recalculate financing and cash flows where applicable.
+Calculate project NPV and relevant outputs.
+Check budget, affordability, and sustainability compliance.
+Store the results.
+Use a reproducible random-number approach or seed where supported.
+A simulation must recalculate the actual integrated model. Do not simulate independent NPV values unrelated to the cash-flow formulas.
+10.4 Required simulation outputs
+Calculate:
+Mean NPV.
+Median NPV.
+NPV standard deviation.
+NPV P5.
+NPV P10.
+NPV P50.
+NPV P90.
+NPV P95.
+Probability of negative NPV.
+Probability of meeting the required return.
+Probability of exceeding the development budget.
+Probability of failing financing constraints.
+Probability of failing affordability constraints.
+Probability of meeting all required objectives simultaneously.
+IRR distribution and treatment of undefined IRRs.
+Main drivers of downside risk.
+Clearly explain how to interpret the percentile values and probabilities.
+10.5 Monte Carlo visualization
+Create:
+NPV histogram.
+Cumulative probability curve.
+Downside risk summary.
+Comparison of expected NPV across alternatives.
+Risk-driver chart.
+Probability-of-success chart.
+Base-case versus optimized strategy comparison.
+Explain the difference between a static simulation and a dynamic simulation and state which implementation is used.
+If Excel Data Tables, VBA, or an external simulation engine are used, document the method. If VBA is required, explain how to run it and disclose any macro-security implications.
+Never claim that 10,000 trials were executed if they were not.
+PART 11 — DECISION CRITERIA AND RISK ATTITUDES
+Use decision criteria to compare the investment alternatives under uncertainty.
+Define at least four coherent scenarios:
+Optimistic.
+Base case.
+Pessimistic.
+Severe downside.
+Use probabilities only when there is a defensible basis for them.
+Apply the following methods where appropriate:
+Expected Value: Calculate the probability-weighted expected NPV.
+Maximax: Identify the alternative with the best possible outcome.
+Maximin: Identify the alternative with the best worst-case outcome.
+Hurwicz criterion: Combine the best and worst outcome using an explicitly defined optimism coefficient.
+Minimax Regret: Calculate regret relative to the best outcome in each scenario and select the alternative minimizing maximum regret.
+Use a consistent payoff metric, preferably NPV, for the main comparison.
+Provide a decision table with:
+Alternatives.
+Scenario outcomes.
+Scenario probabilities where applicable.
+Expected NPV.
+Best-case and worst-case NPV.
+Hurwicz scores.
+Maximum regret.
+Recommended decision.
+Perform a sensitivity analysis on the Hurwicz optimism coefficient.
+Explain how risk tolerance changes the preferred strategy.
+Do not confuse scenario-based decision criteria with Monte Carlo probabilities. Explain the difference between the methods.
+Because the project also has social and environmental objectives, explain where financial NPV alone is insufficient and how affordability and sustainability constraints affect the final decision.
+PART 12 — VISUALIZATION AND EXECUTIVE DASHBOARD
+Build an attractive, professional, functional dashboard.
+Include:
+Key investment KPIs.
+Project and equity NPV.
+Project and equity IRR.
+Payback period.
+Annual net operating income.
+Affordable-room percentage.
+Energy consumption.
+Carbon emissions.
+Debt service coverage.
+Base-case versus optimized solution.
+Alternative development strategies.
+Create meaningful charts:
+Annual project cash flow.
+Cumulative discounted cash flow.
+Revenue and operating costs.
+Rent versus demand.
+Rent versus NPV.
+Two-variable sensitivity heatmap.
+Monte Carlo NPV histogram.
+Cumulative NPV probability curve.
+Risk-driver comparison.
+Affordable versus market-rate room allocation.
+Sustainability investment versus energy savings.
+Scenario comparison by decision criterion.
+Each chart must:
+Have a clear title.
+Include units.
+Identify axes and series.
+Use readable legends.
+Support a specific managerial conclusion.
+Agree with the underlying calculations.
+Avoid decorative visualizations that do not contribute to the analysis.
+Use consistent formatting, restrained colors, readable labels, and conditional formatting.
+PART 13 — NUMERICAL EXAMPLE AND FORMULA EXPLANATION
+Provide a fully worked numerical example.
+Use clearly labeled illustrative assumptions and euros.
+For example:
+A hypothetical monthly market rent.
+A reference rent.
+A demand elasticity.
+A potential number of students.
+A room capacity.
+An occupancy rate.
+An initial development investment.
+Annual operating costs.
+Calculate:
+Effective demand.
+Occupancy.
+Annual revenue.
+Net operating income.
+Annual cash flow.
+NPV.
+The effect of a change in rent or construction costs.
+Show each formula and substitute the values step by step.
+Explain what the calculation means economically.
+Use similar formulas and methods to those taught in class wherever possible. If course materials have not been supplied, use standard Decision Analytics methods and identify the assumptions that should be checked against the lectures.
+Include a formula dictionary listing:
+Formula name.
+Mathematical formula.
+Excel implementation.
+Input variables.
+Output variable.
+Unit.
+Economic interpretation.
+Explain key financial and analytical formulas in student-friendly language so that all three group members can defend them during the oral examination.
+PART 14 — EXECUTIVE REPORT
+Generate a professional report in PDF format, preferably approximately 6–10 pages excluding any necessary appendix.
+The report must be concise, analytical, and focused on decisions.
+Use this structure:
+Executive summary.
+Problem definition.
+Brussels market context.
+Sources, data, assumptions, and limitations.
+Business model and price-demand relationship.
+Base-case investment results.
+The five managerial decision questions.
+Sensitivity analysis.
+Solver optimization.
+Monte Carlo simulation.
+Decision criteria and risk attitude.
+Affordability and sustainability.
+Final recommendation.
+Limitations and implementation considerations.
+References and technical appendix.
+For each managerial question, explain:
+What the question is.
+Why it matters.
+Which technique is used and why.
+Which inputs and outputs are involved.
+The quantitative result.
+The managerial interpretation.
+The recommended action.
+Use the actual model outputs, not invented numbers.
+Include the most relevant tables and graphs from the workbook.
+Clearly distinguish verified market facts, assumptions, calculations, and recommendations.
+Include the most important limitations and explain how uncertain assumptions affect the final recommendation.
+Do not merely describe how sensitivity analysis, Solver, or Monte Carlo works. Explain what the results imply for this specific investment.
+PART 15 — PRESENTATION FOR THE FINAL EXAM
+Create a professional PowerPoint presentation of approximately 10–12 slides.
+Suggested structure:
+Title, team, and investment opportunity.
+Problem definition and business case.
+Brussels market evidence and assumptions.
+Business model and rent-demand relationship.
+Base-case financial performance.
+Sensitivity analysis and break-even findings.
+Solver optimization and recommended solution.
+Monte Carlo simulation and investment risk.
+Decision criteria and scenario comparison.
+Sustainability and affordability.
+Final recommendation and implementation roadmap.
+Limitations, individual contributions, and discussion.
+Use clear charts and concise text.
+Ensure the presentation figures match the Excel model and report.
+Prepare a brief set of likely examination questions and suggested answers covering:
+Why the selected demand function is appropriate.
+Why the discount rate was chosen.
+Why the selected distributions are appropriate.
+How correlations affect Monte Carlo results.
+Why Solver's objective and constraints are appropriate.
+How the Data Tables work.
+What happens if the affordability threshold changes.
+What assumptions most strongly affect NPV.
+Why a positive expected NPV may not imply an acceptable investment.
+How the group verified the model.
+How AI was used and what the students checked independently.
+PART 16 — ACADEMIC INTEGRITY AND AI TRANSPARENCY
+This project must be original group work by exactly three students.
+Use AI as an analytical assistant, not as a substitute for understanding the model.
+Provide an AI-use disclosure describing:
+Which tasks were AI-assisted.
+Which data sources were researched and verified.
+Which assumptions were chosen by the group.
+Which formulas and outputs were independently checked.
+Which limitations remain.
+Which conclusions were evaluated by the students.
+Do not fabricate citations, data, model outputs, Solver solutions, or Monte Carlo results.
+Do not claim that the workbook is fully functional unless it has been tested.
+All three students must understand the model and actively contribute to the presentation and defense.
+Provide a suggested division of responsibilities:
+Student 1: Market research, business case, inputs, and financial model.
+Student 2: Sensitivity analysis, Solver optimization, and decision criteria.
+Student 3: Monte Carlo simulation, visualizations, report integration, and presentation.
+All three students should review the complete model and jointly verify the conclusions. The suggested division does not replace shared responsibility.
+PART 17 — EVALUATION RUBRIC: DESIGN FOR THE HIGHEST QUALITY
+Use the following evaluation criteria as a final quality-control framework.
+17.1 Practical requirements
+Deadlines: Prepare a complete submission before January 6, 2027, at 14:00.
+FAIR AI use: Document AI assistance and verify all results.
+17.2 Model score — 8 points
+Structure
+Clear worksheets.
+Logical progression from inputs to outputs.
+Consistent layout.
+Easy navigation.
+Cell names
+Meaningful named ranges.
+Named input and output cells.
+Named-cell dictionary.
+Names used consistently in formulas.
+Formulas
+Correct financial calculations.
+Consistent cash-flow timing.
+Appropriate discounting.
+No unexplained hardcoding.
+No double-counting.
+Appropriate error checks.
+Correct and transparent calculations.
+Complexity
+Sufficiently detailed cash flows.
+Price-demand relationship.
+Multiple uncertainties.
+Financing and terminal value.
+Integrated financial, social, and environmental objectives.
+Working sensitivity, optimization, and simulation analyses.
+17.3 Analysis score — 12 points
+Sensitivity analysis — 4 points
+Relevant managerial questions.
+Clear structure: question → technique → response.
+One-way and two-way analysis.
+Actual Excel Data Tables.
+Break-even analysis.
+Useful heatmaps and management conclusions.
+Optimization — 4 points
+Relevant objective function.
+Correct decision variables.
+Feasible constraints.
+Appropriate Solver method.
+Comparison of initial and optimized results.
+Practical managerial recommendation.
+Monte Carlo simulation — 4 points
+Multiple uncertain inputs.
+Simultaneous uncertainty.
+Justified distributions.
+Sufficient simulation trials.
+Correct output distributions.
+Probability of failure and downside risk.
+Static or dynamic implementation clearly explained.
+Overall analysis quality
+Five relevant, non-trivial decision questions.
+Correct decision criteria.
+Integrated visualization.
+Defensible management conclusions.
+Clear assumptions and limitations.
+Use this rubric as an explicit checklist and identify any criteria that remain incomplete.
+PART 18 — MODEL VALIDATION
+Before delivery, test the model systematically.
+Verify that:
+All named ranges point to the correct cells.
+All formulas calculate correctly.
+Input changes propagate through the entire model.
+Revenue changes when rent changes.
+Occupancy responds to the price-demand relationship.
+Occupancy remains between 0% and 100%.
+Affordable rooms remain at least 10% of the total.
+Affordable rents satisfy the defined benchmark.
+Room counts respect capacity and integer restrictions.
+Development costs reconcile.
+Debt balances reconcile.
+Cash flows reconcile.
+Discounting is consistent.
+NPV and IRR use the correct cash-flow perspective.
+Terminal value is not double-counted.
+Sensitivity Data Tables reference the correct input cells.
+Data Tables recalculate correctly.
+Solver constraints are feasible.
+The optimized solution is reproducible.
+Monte Carlo trials vary all selected uncertain inputs simultaneously.
+Simulation outputs are based on the integrated model.
+Decision criteria are calculated consistently.
+All charts use the correct data.
+The report and presentation agree with the workbook.
+All sources and assumptions are documented.
+The workbook can be opened and recalculated in Excel.
+Any VBA, add-ins, manual settings, or compatibility limitations are disclosed.
+Include a Model_Checks worksheet with a clear status for each test.
+Never label a test as passed unless it has actually been performed.
+PART 19 — REQUIRED FILES AND SUBMISSION
+Create these deliverables:
+Student_Housing_Brussels_Model.xlsx
+Student_Housing_Brussels_Executive_Report.pdf
+Student_Housing_Brussels_Presentation.pptx
+Student_Housing_Brussels_Submission.zip
+The ZIP file must contain the Excel model, PDF report, and PowerPoint presentation.
+If appropriate, also include supporting source data, a technical appendix, or a clearly documented VBA module.
+Before delivery:
+Open or validate each generated file.
+Verify that the ZIP contains all required deliverables.
+Ensure the report and presentation use actual model results.
+Check formulas and workbook structure.
+Disclose any Excel features requiring manual setup.
+Provide direct links to the created files where supported.
+The deadline is January 6, 2027, at 14:00. Do not postpone essential functionality in favor of decorative features.
+PART 20 — FINAL RESPONSE FORMAT
+After creating and validating the deliverables, provide a concise completion summary with:
+A short description of the investment case.
+The five managerial questions and their answers.
+Base-case financial performance.
+The recommended optimized investment strategy.
+The principal sensitivity findings.
+Monte Carlo downside risks and probability of success.
+Affordability and sustainability performance.
+The key management recommendation.
+Any limitations or features requiring manual Excel configuration.
+Links to the Excel workbook, executive report, PowerPoint presentation, and ZIP file.
+If the calculations reveal that the project is financially unattractive, report that conclusion honestly and explain which assumptions or strategic changes could improve its feasibility.
+Do not manufacture attractive results merely to make the project appear successful.
+FINAL OBJECTIVE: Deliver an integrated, auditable, reproducible, financially rigorous, socially responsible, sustainable, and academically defensible Decision Analytics project that demonstrates how Excel modeling, sensitivity analysis, Solver optimization, Monte Carlo simulation, decision criteria, and visualization can support a real investment decision about affordable student housing in Brussels.
+ULTIMATE MASTER PROMPT — DECISION ANALYTICS
+Sustainable and Affordable Student Housing Investment in Brussels, Belgium
+ROLE AND EXPECTED LEVEL
+Act as a senior Decision Analytics consultant, real estate investment analyst, financial modeler, sustainability specialist, Excel expert, and academic project advisor.
+Apply rigorous quantitative reasoning, advanced financial modeling, optimization, risk analysis, and managerial decision-making. Think critically, challenge weak assumptions, and use the methods taught in a university Decision Analytics course.
+Your objective is to create a complete, original, integrated, and professionally presented investment case study for developing and operating sustainable student housing in Brussels, Belgium.
+Do not stop at explaining what should be done. Build the actual Excel workbook, perform the analyses, generate the executive report, prepare the presentation, and package the deliverables wherever the available tools permit.
+Never pretend a workbook feature, formula, Solver optimization, simulation, or result exists unless it has actually been implemented and verified.
+The final work must be sufficiently sophisticated to achieve a strong evaluation for model structure, cell naming, formulas, analytical complexity, sensitivity analysis, optimization, Monte Carlo simulation, visualization, managerial relevance, and reporting.
+PART 1 — THE BUSINESS CASE
+1.1 Investment opportunity
+Develop a realistic investment model for a sustainable student housing facility in Brussels, Belgium.
+The investor is considering acquiring, developing, or renovating a property to provide student accommodation over a long-term investment horizon.
+The project must balance four objectives:
+Generate an attractive and financially sustainable investment return.
+Provide genuinely affordable accommodation to students.
+Minimize environmental impact and improve energy efficiency.
+Remain resilient to uncertain demand, construction costs, financing conditions, energy prices, and market developments.
+The project must include at least 10% affordable student housing units.
+Define affordability precisely. Specify:
+The reference rent or affordability benchmark.
+How the benchmark is calculated and sourced.
+The maximum permitted affordable rent.
+The eligibility assumptions for affordable housing.
+The minimum number and proportion of affordable units.
+How affordability compliance is checked in the financial model and under uncertainty.
+Treat the 10% requirement as a binding constraint, not simply a recommendation.
+Where appropriate, compare three development alternatives:
+Alternative A: Conventional student housing.
+Alternative B: Energy-efficient and sustainable student housing.
+Alternative C: A more ambitious sustainable and affordable housing concept.
+Ensure the alternatives differ meaningfully in capital expenditure, operating costs, achievable rents, energy consumption, demand, affordability, and environmental performance.
+1.2 Geographic and market context
+Use Brussels-specific information wherever possible, including:
+Student population and housing demand.
+Existing student accommodation supply.
+Market rents by room type.
+Affordable student accommodation benchmarks.
+Property acquisition and construction costs.
+Renovation costs.
+Energy prices.
+Construction inflation.
+Interest rates and financing conditions.
+Applicable property taxes and charges.
+Relevant planning, housing, energy, and environmental requirements.
+Relevant regional and municipal policies.
+Prioritize credible, recent, verifiable sources such as official Belgian and Brussels government publications, statistical agencies, universities, property-market reports, energy sources, and financial institutions.
+Record the source URL, publication date, retrieval date where relevant, unit, and how each source informs the model.
+If reliable information is unavailable, use explicitly labeled estimates and explain why they are reasonable. Never invent market data, citations, legal requirements, or research findings.
+Distinguish verified facts, management assumptions, illustrative inputs, and calculated outputs.
+1.3 Project scope
+Use a justified investment horizon, preferably 20 years within a reasonable 15–25-year range.
+State:
+The project start date and operating commencement date.
+Construction and renovation periods.
+The total development capacity.
+The room types and total number of units.
+The ownership and operating structure.
+The financing structure.
+The valuation date.
+The tax treatment.
+The inflation assumptions.
+The discount-rate methodology.
+The terminal valuation approach.
+Use euros (€) consistently throughout the workbook, report, and presentation.
+Show financial values in euros, rent in euros per room per month, annual cash flows in euros per year, rates in percentages, and sustainability indicators in appropriate physical units.
+Clearly distinguish nominal and real cash flows and discount rates.
+Include VAT treatment, recoverable and non-recoverable VAT where applicable, taxes, financing fees, working capital, replacement capital expenditure, and transaction costs where relevant.
+PART 2 — DEFINE THE DECISION PROBLEM
+2.1 Problem statement
+Start by explaining the investment decision in plain language.
+Identify:
+The decision-maker.
+The investment alternatives.
+The economic opportunity.
+The social and environmental objectives.
+The financial and regulatory constraints.
+The principal uncertainties.
+The available management decisions.
+The consequences of making the wrong investment decision.
+Explain why student housing is a particularly relevant Decision Analytics case: investment costs are largely committed upfront, rental demand is uncertain, rents affect demand, affordable housing limits some revenue opportunities, and sustainability investments can increase initial expenditure while lowering future operating costs.
+2.2 Define the variables
+Create a variable dictionary with at least the following categories.
+A. Control variables
+Variables management can choose or influence, such as:
+Total number of rooms, within site capacity.
+Number of rooms by room type.
+Number and proportion of affordable rooms.
+Market rent.
+Affordable rent.
+Sustainability investment level.
+Energy-efficiency strategy.
+Debt-to-equity ratio.
+Construction or renovation strategy.
+Potentially the project phasing, if the case supports it.
+B. Uncertain variables
+Variables that management cannot fully control, such as:
+Construction-cost overrun.
+Construction delays.
+Market occupancy or student demand.
+Rent growth.
+Interest-rate changes.
+Energy-price changes.
+Operating-cost inflation.
+Terminal capitalization rate or resale value.
+C. Calculated variables
+Variables calculated by formulas, including:
+Effective demand.
+Occupancy.
+Annual revenue.
+Operating expenditure.
+Net operating income.
+Debt service.
+Annual project cash flow.
+Annual equity cash flow.
+NPV.
+IRR.
+Payback period.
+Carbon emissions.
+Affordable housing compliance.
+Simulation results.
+D. Constraints
+Conditions that must be satisfied:
+At least 10% affordable rooms.
+Maximum property capacity.
+Minimum and maximum room sizes or room mix, where applicable.
+Development budget.
+Financing limits.
+Minimum student demand.
+Sustainability standards.
+Legal and planning requirements.
+Feasible non-negative room counts.
+Any debt-service or liquidity requirements selected for the case.
+For every important variable, provide its name, definition, category, unit, base value, source or justification, uncertainty range if relevant, and Excel cell reference.
+Explain the difference between a control variable and an uncertain variable using a student housing example.
+PART 3 — EXCEL WORKBOOK ARCHITECTURE
+Create a professional, easy-to-navigate Excel workbook.
+Use the following worksheets, or an equivalent structure that preserves all required functionality.
+Read_Me
+Sources
+Inputs
+Demand_Model
+Development_Costs
+Operating_Model
+Financing
+Cash_Flows
+KPI_Dashboard
+Sensitivity_Analysis
+Optimization_Solver
+Monte_Carlo
+Decision_Criteria
+Visualizations
+Management_Conclusions
+Model_Checks
+Do not create empty sheets merely to satisfy a checklist. Each worksheet must contain its actual analysis and calculations.
+3.1 Read Me worksheet
+Include:
+Project purpose.
+Workbook navigation.
+Worksheet descriptions.
+Instructions for changing assumptions.
+Input, formula, linked-cell, and output color conventions.
+Units and sign conventions.
+Instructions for recalculation.
+Solver instructions.
+Monte Carlo instructions.
+Sensitivity Data Table instructions.
+Model limitations.
+Version and calculation date.
+3.2 Named cells — mandatory requirement
+Meaningfully name important input, control, uncertainty, and output cells using Excel's Name Manager.
+Examples:
+Total_Rooms
+Affordable_Units_Count
+Affordable_Unit_Share
+Base_Rent_EUR_Month
+Affordable_Rent_EUR_Month
+Reference_Affordability_Rent_EUR
+Potential_Student_Demand
+Occupancy_Rate
+Demand_Elasticity
+Initial_Investment_EUR
+Construction_Cost_EUR
+Construction_Overrun
+Sustainability_Investment_EUR
+Annual_Energy_Cost_EUR
+Annual_Rent_Growth
+Debt_Interest_Rate
+Debt_Ratio
+Equity_Discount_Rate
+Project_Discount_Rate
+Investment_Horizon_Years
+Terminal_Value_EUR
+Annual_Revenue_EUR
+Net_Operating_Income_EUR
+Project_NPV_EUR
+Project_IRR
+Equity_NPV_EUR
+Equity_IRR
+Payback_Period_Years
+Break_Even_Occupancy
+Carbon_Emissions_TCO2e
+Probability_Negative_NPV
+NPV_P5_EUR
+NPV_P50_EUR
+NPV_P95_EUR
+Create a named-cell dictionary showing:
+Name.
+Worksheet.
+Cell reference.
+Definition.
+Unit.
+Variable category.
+Source or calculation.
+Use names in formulas where they improve readability. Ensure names are valid, unique, consistent, and correctly linked to their cells.
+3.3 Formula quality and auditability
+Use formulas rather than hardcoded results.
+Store assumptions in dedicated input cells instead of embedding unexplained numbers inside formulas.
+Use consistent signs for cash inflows and outflows. Use appropriate Excel functions such as NPV, XNPV, IRR, or XIRR depending on the timing and structure of cash flows. Explain the choice.
+Remember that Excel's NPV function generally discounts cash flows beginning at period 1; the initial period-0 investment must be added separately. Avoid off-by-one discounting errors.
+Use the appropriate discount rate for project or equity cash flows. Do not calculate project NPV using equity cash flows with a project discount rate.
+Avoid double-counting interest expense in unlevered project cash flows, double-counting depreciation as a cash cost, or counting terminal value twice.
+Avoid unnecessary duplicated formulas, excessively nested logic, unexplained circular references, and volatile functions unless justified.
+Use Excel Tables where suitable and keep formulas consistent across years.
+Add:
+Input validation.
+Conditional formatting.
+Error messages.
+Reconciliation checks.
+Feasibility flags.
+Clear units and year labels.
+A check that the affordability requirement is satisfied.
+A check that all model outputs update when inputs change.
+Include a worked formula example with numerical values and explain the calculation step by step.
+PART 4 — FINANCIAL INVESTMENT MODEL
+4.1 Initial investment and development costs
+Include, where relevant:
+Land or property acquisition.
+Transaction and legal fees.
+Construction.
+Renovation.
+Architecture and engineering.
+Permits and professional fees.
+Furniture and equipment.
+Sustainable building technologies.
+Contingency.
+Construction financing costs.
+Initial working capital.
+Construction-period expenditure.
+Replacement capital expenditure.
+Model development delays and construction-cost overruns as uncertainties.
+Separate one-time investment costs from recurring operating expenditure.
+4.2 Revenue model
+Include:
+Market-rate rooms.
+Affordable rooms.
+Different room types if useful.
+Monthly rent by room type.
+Annual rent growth.
+Potential ancillary income where justified.
+Vacancy and collection losses.
+Student demand.
+Occupancy.
+Rental concessions where relevant.
+Calculate revenue from actual occupied units, not from total capacity.
+Ensure affordable rooms generate affordable rents in the model and are not incorrectly assigned market rents.
+4.3 Operating expenditure
+Include:
+Property management.
+Maintenance and repairs.
+Cleaning.
+Security and common-area services.
+Energy.
+Water.
+Insurance.
+Property taxes and applicable charges.
+Administration.
+Waste management.
+Replacement capital expenditure.
+Other justified expenses.
+Differentiate fixed and variable costs where relevant.
+Model inflation and energy-price changes consistently.
+4.4 Financing
+Include:
+Debt funding.
+Equity funding.
+Debt-to-equity ratio.
+Interest rate.
+Loan term.
+Loan repayment structure.
+Interest expense.
+Principal repayments.
+Financing fees.
+Debt service.
+Relevant debt covenants.
+Show annual opening debt, new borrowing, interest, repayments, and closing debt.
+Ensure the loan balance cannot become negative and that the debt schedule reconciles.
+4.5 Taxes and depreciation
+Model applicable taxes only where the necessary assumptions can be supported.
+Distinguish accounting depreciation from cash expenditure.
+Explain how depreciation affects taxable income without treating depreciation as a direct cash outflow.
+Clearly state whether tax losses, loss carryforwards, tax shields, and other tax effects are included.
+If exact tax treatment is uncertain, identify it as a limitation and provide a transparent simplified approach.
+4.6 Cash flows and terminal value
+Produce annual cash flows over the selected investment horizon.
+Separate:
+Unlevered project cash flow.
+Leveraged equity cash flow.
+Financing cash flows.
+Terminal-year proceeds.
+Estimate terminal property value using a justified method, such as a capitalization rate applied to a sustainable terminal net operating income, or a documented alternative.
+Deduct selling costs and outstanding debt where appropriate.
+Avoid mixing terminal property value with operating income or double-counting debt repayment.
+PART 5 — PRICE, DEMAND, AND OCCUPANCY
+A price-demand relationship is mandatory.
+Do not assume that occupancy stays constant when rents change.
+5.1 Develop the demand function
+Use an economically defensible function supported by data or transparent assumptions.
+For example, an illustrative exponential demand function is:
+Demand(r) = D₀ × EXP[-ε × (r/r₀ − 1)]
+where:
+D₀ = potential demand at the reference rent.
+r = proposed monthly rent in euros.
+r₀ = reference monthly rent in euros.
+ε = demand-response parameter.
+This is an illustrative functional form, not a verified Brussels demand curve. Justify the selected function and calibrate it using available data where possible.
+If reliable data support another functional form, compare alternatives.
+5.2 Convert demand into occupancy
+Ensure:
+Occupancy is between 0% and 100%.
+Occupied rooms never exceed available rooms.
+Market and affordable demand are treated consistently.
+Room types and prices are modeled correctly.
+Changes in rent affect demand and revenue.
+Affordable rents are consistent with the affordability requirement.
+For example, explain how a higher monthly rent can increase potential revenue per occupied room but reduce occupancy and total revenue.
+Show a numerical example in euros, including:
+Monthly rent.
+Effective demand.
+Occupancy.
+Annual rental revenue.
+Operating costs.
+Annual cash flow.
+Impact on NPV.
+Test alternative elasticity values to show whether the recommended rent is robust.
+PART 6 — FINANCIAL, SOCIAL, AND ENVIRONMENTAL KPIs
+Calculate the following indicators wherever applicable.
+6.1 Financial KPIs
+Project NPV (€).
+Equity NPV (€).
+Project IRR (%).
+Equity IRR (%).
+Simple payback period.
+Discounted payback period.
+Profitability index.
+Annual revenue (€).
+Net operating income (€).
+Operating margin (%).
+Debt service coverage ratio.
+Break-even occupancy (%).
+Break-even monthly rent (€).
+Maximum feasible acquisition or development cost (€).
+Minimum required equity return.
+Annual debt service (€).
+Explain the interpretation and limitations of each indicator.
+If there are multiple IRRs or no meaningful IRR, disclose the problem rather than reporting a misleading number.
+6.2 Affordability and social KPIs
+Total rooms.
+Affordable rooms.
+Affordable-room percentage.
+Affordable monthly rent (€).
+Affordable rent as a percentage of the chosen benchmark.
+Annual rent savings per eligible student (€).
+Total annual rent savings (€).
+Affordable housing delivered over the investment period.
+Incremental cost of affordability.
+Financial trade-off between affordability and investment value.
+Use a precise and consistent affordability definition.
+6.3 Sustainability KPIs
+Energy consumption per room.
+Energy consumption per square metre, where floor-area data are available.
+Annual energy cost (€).
+Operational carbon emissions.
+Carbon emissions per occupied room.
+Sustainable construction premium (€).
+Annual energy savings (€).
+Energy-cost savings over the investment horizon.
+Payback on sustainable investments.
+Environmental outcomes relative to the conventional alternative.
+Use justified assumptions for emissions factors and energy performance.
+Do not claim that an investment is environmentally sustainable merely because it has a sustainability label.
+PART 7 — FIVE MANAGERIAL DECISION QUESTIONS
+Formulate exactly five relevant, non-trivial managerial questions.
+Every question must use the structure:
+Decision question → Technique → Results → Interpretation → Management action.
+The five questions must be integrated into the same case and collectively use sensitivity analysis, optimization, Monte Carlo simulation, decision criteria, and visualization.
+Question 1: What is the optimal rental strategy?
+Determine the rent levels that maximize investment value while preserving sufficient student demand and complying with the affordable-housing requirement.
+Use:
+Price-demand modeling.
+One-way sensitivity analysis.
+Two-variable Data Tables.
+Break-even analysis.
+Relevant charts.
+Report the recommended market rent and affordable rent, expected occupancy, revenue, NPV, and affordability implications.
+Question 2: Which development strategy should be selected?
+Compare conventional, energy-efficient, and ambitious sustainable housing strategies.
+Use:
+Financial KPIs.
+Scenario analysis.
+Solver optimization.
+Sustainability indicators.
+Visualization.
+Report the preferred feasible strategy and explain the trade-off between initial capital expenditure, operating costs, investment returns, affordability, and environmental outcomes.
+Question 3: How robust is the investment under uncertainty?
+Determine the probability that the project:
+Has a positive NPV.
+Meets its required return.
+Remains within budget.
+Satisfies affordability constraints.
+Meets defined sustainability objectives.
+Use:
+Monte Carlo simulation.
+Simultaneous uncertain inputs.
+Percentiles and probability distributions.
+Downside risk measures.
+Scenario comparisons.
+Report the probability of success, key downside risks, and recommended mitigation measures.
+Question 4: Which variables drive investment risk?
+Determine which assumptions have the greatest effect on NPV, IRR, affordability, occupancy, and the likelihood of project failure.
+Use:
+One-variable sensitivity analysis.
+Two-variable Excel Data Tables.
+Scenario analysis.
+Monte Carlo risk-driver analysis.
+Tornado charts and heatmaps.
+Identify the most influential variables, break-even values, and thresholds that management should monitor.
+Question 5: Which investment alternative should management choose when objectives conflict?
+Compare alternatives under different economic conditions and different levels of risk tolerance.
+Use:
+Expected Value.
+Maximax.
+Maximin.
+Hurwicz criterion.
+Minimax Regret.
+Multi-criteria analysis where appropriate.
+Visual comparison.
+Consider financial performance, affordability, sustainability, and downside risk.
+Provide a final recommendation and explain under which assumptions a different alternative would become preferable.
+For every question, document the exact input cells, output cells, formulas, analytical technique, quantitative result, and management conclusion.
+Do not invent results before the model is calculated.
+PART 8 — SENSITIVITY ANALYSIS AND TWO-VARIABLE DATA TABLES
+Sensitivity analysis is mandatory and must be implemented in Excel.
+8.1 One-variable sensitivity analysis
+Analyze the impact of changes in:
+Market rent.
+Affordable rent.
+Construction cost.
+Construction-cost overrun.
+Occupancy.
+Demand elasticity.
+Interest rate.
+Energy prices.
+Discount rate.
+Terminal capitalization rate.
+Sustainability investment.
+For each analysis, calculate the impact on relevant KPIs, especially NPV.
+Identify break-even points and economically meaningful thresholds.
+8.2 Two-variable Excel Data Table — construction cost and rent
+Create a genuine Excel What-If Analysis two-variable Data Table.
+Use:
+Market rent as the column variable.
+Construction-cost overrun as the row variable.
+Project NPV as the output.
+Include a clearly linked NPV formula in the top-left corner of the table.
+Configure the correct Row input cell and Column input cell in Excel's Data Table dialog.
+Apply conditional formatting to identify:
+Positive-NPV combinations.
+Negative-NPV combinations.
+The break-even boundary.
+Attractive and unattractive investment regions.
+8.3 Second two-variable Excel Data Table — occupancy and rent
+Create a second two-variable Data Table using:
+Market rent as one input.
+Demand elasticity or occupancy-related assumptions as the other input.
+NPV as the output.
+Explain the economic interpretation of the results.
+8.4 Excel implementation instructions
+For each Data Table, specify:
+The input variable cells.
+The row input cell.
+The column input cell.
+The output formula cell.
+The range of values.
+The location of the table.
+The interpretation of the results.
+Explain how to implement the Data Table using:
+Excel → Data → What-If Analysis → Data Table.
+Do not create a static matrix and falsely describe it as a native Excel Data Table.
+If the workbook-generation tool cannot create a functioning native Data Table, disclose this limitation and provide the exact steps needed to configure it manually.
+Check that the Data Tables update when their input values change.
+PART 9 — SOLVER OPTIMIZATION
+Implement a functioning Excel Solver optimization model.
+9.1 Define the optimization problem
+Use a primary objective such as:
+Maximize project NPV, subject to affordability, budget, capacity, financing, and sustainability constraints.
+Identify:
+Objective cell.
+Decision-variable cells.
+Variable bounds.
+Integer restrictions.
+Constraints.
+Solver method.
+Initial feasible solution.
+Optimized solution.
+9.2 Potential decision variables
+Where appropriate, allow Solver to determine:
+Room counts by type.
+Number of affordable rooms.
+Market rent.
+Affordable rent within the permitted affordability ceiling.
+Sustainability investment.
+Financing structure.
+Development strategy.
+Do not allow Solver to manipulate uncontrollable uncertain inputs as if management could choose them.
+Separate strategic decision variables from environmental and market uncertainties.
+9.3 Constraints
+Implement the applicable constraints:
+Affordable rooms must be at least 10% of total rooms.
+Room counts must be feasible integers.
+Total rooms cannot exceed property capacity.
+Total development expenditure cannot exceed the approved budget.
+Debt cannot exceed permitted financing limits.
+Required sustainability standards must be satisfied.
+Demand and occupancy must remain feasible.
+Applicable legal and planning requirements must be respected.
+All financial and operational restrictions must be met.
+Use exact integer or linear constraints where appropriate.
+9.4 Solver method
+Explain whether Simplex LP, GRG Nonlinear, or Evolutionary is appropriate.
+Choose the method based on the actual mathematical formulation.
+Do not claim that Solver has been run if it has not.
+9.5 Required optimization outputs
+Compare:
+Original/base-case solution.
+Optimized solution.
+Change in NPV.
+Change in IRR.
+Change in affordable housing.
+Change in occupancy.
+Change in energy consumption.
+Change in carbon emissions.
+Change in financing risk.
+Constraint compliance.
+Show the solution in a clearly labeled table.
+Explain why the solution is feasible, why it is better according to the objective, and which trade-offs remain.
+If Solver cannot be executed automatically, build the optimization model completely, document the Solver settings, and provide instructions for obtaining the actual result.
+PART 10 — MONTE CARLO SIMULATION
+Implement a genuine Monte Carlo simulation with at least five uncertain inputs modeled simultaneously.
+The minimum requirement of three uncertain inputs must be exceeded.
+10.1 Uncertain inputs
+Consider:
+Construction-cost overrun.
+Student demand or occupancy.
+Market rent growth.
+Interest-rate changes.
+Energy-price changes.
+Construction delays.
+Terminal capitalization rate or resale value.
+Operating-cost inflation.
+Choose at least five and justify their inclusion.
+10.2 Probability distributions
+Use appropriate distributions, such as:
+Triangular distributions for uncertain costs when minimum, most likely, and maximum values are available.
+Bounded distributions for occupancy.
+Normal or truncated normal distributions for rates when justified.
+Lognormal or other positive distributions for non-negative quantities where appropriate.
+Explain why each distribution fits the variable.
+Support the parameters with evidence where possible. Otherwise, label them as assumptions and test their influence.
+Avoid impossible outcomes such as negative room counts, occupancy above 100%, or implausible negative energy prices.
+Model correlations where economically justified, such as:
+Construction-cost increases and delays.
+Market rents and occupancy.
+Interest rates and property valuations.
+Energy prices and operating costs.
+Do not introduce arbitrary correlations without explaining their rationale.
+10.3 Simulation implementation
+Run at least 5,000 simulation trials and preferably 10,000 or more when computationally practical.
+For each trial:
+Generate all uncertain inputs.
+Apply them simultaneously.
+Recalculate demand and occupancy.
+Recalculate revenue and operating costs.
+Recalculate financing and cash flows where applicable.
+Calculate project NPV and relevant outputs.
+Check budget, affordability, and sustainability compliance.
+Store the results.
+Use a reproducible random-number approach or seed where supported.
+A simulation must recalculate the actual integrated model. Do not simulate independent NPV values unrelated to the cash-flow formulas.
+10.4 Required simulation outputs
+Calculate:
+Mean NPV.
+Median NPV.
+NPV standard deviation.
+NPV P5.
+NPV P10.
+NPV P50.
+NPV P90.
+NPV P95.
+Probability of negative NPV.
+Probability of meeting the required return.
+Probability of exceeding the development budget.
+Probability of failing financing constraints.
+Probability of failing affordability constraints.
+Probability of meeting all required objectives simultaneously.
+IRR distribution and treatment of undefined IRRs.
+Main drivers of downside risk.
+Clearly explain how to interpret the percentile values and probabilities.
+10.5 Monte Carlo visualization
+Create:
+NPV histogram.
+Cumulative probability curve.
+Downside risk summary.
+Comparison of expected NPV across alternatives.
+Risk-driver chart.
+Probability-of-success chart.
+Base-case versus optimized strategy comparison.
+Explain the difference between a static simulation and a dynamic simulation and state which implementation is used.
+If Excel Data Tables, VBA, or an external simulation engine are used, document the method. If VBA is required, explain how to run it and disclose any macro-security implications.
+Never claim that 10,000 trials were executed if they were not.
+PART 11 — DECISION CRITERIA AND RISK ATTITUDES
+Use decision criteria to compare the investment alternatives under uncertainty.
+Define at least four coherent scenarios:
+Optimistic.
+Base case.
+Pessimistic.
+Severe downside.
+Use probabilities only when there is a defensible basis for them.
+Apply the following methods where appropriate:
+Expected Value: Calculate the probability-weighted expected NPV.
+Maximax: Identify the alternative with the best possible outcome.
+Maximin: Identify the alternative with the best worst-case outcome.
+Hurwicz criterion: Combine the best and worst outcome using an explicitly defined optimism coefficient.
+Minimax Regret: Calculate regret relative to the best outcome in each scenario and select the alternative minimizing maximum regret.
+Use a consistent payoff metric, preferably NPV, for the main comparison.
+Provide a decision table with:
+Alternatives.
+Scenario outcomes.
+Scenario probabilities where applicable.
+Expected NPV.
+Best-case and worst-case NPV.
+Hurwicz scores.
+Maximum regret.
+Recommended decision.
+Perform a sensitivity analysis on the Hurwicz optimism coefficient.
+Explain how risk tolerance changes the preferred strategy.
+Do not confuse scenario-based decision criteria with Monte Carlo probabilities. Explain the difference between the methods.
+Because the project also has social and environmental objectives, explain where financial NPV alone is insufficient and how affordability and sustainability constraints affect the final decision.
+PART 12 — VISUALIZATION AND EXECUTIVE DASHBOARD
+Build an attractive, professional, functional dashboard.
+Include:
+Key investment KPIs.
+Project and equity NPV.
+Project and equity IRR.
+Payback period.
+Annual net operating income.
+Affordable-room percentage.
+Energy consumption.
+Carbon emissions.
+Debt service coverage.
+Base-case versus optimized solution.
+Alternative development strategies.
+Create meaningful charts:
+Annual project cash flow.
+Cumulative discounted cash flow.
+Revenue and operating costs.
+Rent versus demand.
+Rent versus NPV.
+Two-variable sensitivity heatmap.
+Monte Carlo NPV histogram.
+Cumulative NPV probability curve.
+Risk-driver comparison.
+Affordable versus market-rate room allocation.
+Sustainability investment versus energy savings.
+Scenario comparison by decision criterion.
+Each chart must:
+Have a clear title.
+Include units.
+Identify axes and series.
+Use readable legends.
+Support a specific managerial conclusion.
+Agree with the underlying calculations.
+Avoid decorative visualizations that do not contribute to the analysis.
+Use consistent formatting, restrained colors, readable labels, and conditional formatting.
+PART 13 — NUMERICAL EXAMPLE AND FORMULA EXPLANATION
+Provide a fully worked numerical example.
+Use clearly labeled illustrative assumptions and euros.
+For example:
+A hypothetical monthly market rent.
+A reference rent.
+A demand elasticity.
+A potential number of students.
+A room capacity.
+An occupancy rate.
+An initial development investment.
+Annual operating costs.
+Calculate:
+Effective demand.
+Occupancy.
+Annual revenue.
+Net operating income.
+Annual cash flow.
+NPV.
+The effect of a change in rent or construction costs.
+Show each formula and substitute the values step by step.
+Explain what the calculation means economically.
+Use similar formulas and methods to those taught in class wherever possible. If course materials have not been supplied, use standard Decision Analytics methods and identify the assumptions that should be checked against the lectures.
+Include a formula dictionary listing:
+Formula name.
+Mathematical formula.
+Excel implementation.
+Input variables.
+Output variable.
+Unit.
+Economic interpretation.
+Explain key financial and analytical formulas in student-friendly language so that all three group members can defend them during the oral examination.
+PART 14 — EXECUTIVE REPORT
+Generate a professional report in PDF format, preferably approximately 6–10 pages excluding any necessary appendix.
+The report must be concise, analytical, and focused on decisions.
+Use this structure:
+Executive summary.
+Problem definition.
+Brussels market context.
+Sources, data, assumptions, and limitations.
+Business model and price-demand relationship.
+Base-case investment results.
+The five managerial decision questions.
+Sensitivity analysis.
+Solver optimization.
+Monte Carlo simulation.
+Decision criteria and risk attitude.
+Affordability and sustainability.
+Final recommendation.
+Limitations and implementation considerations.
+References and technical appendix.
+For each managerial question, explain:
+What the question is.
+Why it matters.
+Which technique is used and why.
+Which inputs and outputs are involved.
+The quantitative result.
+The managerial interpretation.
+The recommended action.
+Use the actual model outputs, not invented numbers.
+Include the most relevant tables and graphs from the workbook.
+Clearly distinguish verified market facts, assumptions, calculations, and recommendations.
+Include the most important limitations and explain how uncertain assumptions affect the final recommendation.
+Do not merely describe how sensitivity analysis, Solver, or Monte Carlo works. Explain what the results imply for this specific investment.
+PART 15 — PRESENTATION FOR THE FINAL EXAM
+Create a professional PowerPoint presentation of approximately 10–12 slides.
+Suggested structure:
+Title, team, and investment opportunity.
+Problem definition and business case.
+Brussels market evidence and assumptions.
+Business model and rent-demand relationship.
+Base-case financial performance.
+Sensitivity analysis and break-even findings.
+Solver optimization and recommended solution.
+Monte Carlo simulation and investment risk.
+Decision criteria and scenario comparison.
+Sustainability and affordability.
+Final recommendation and implementation roadmap.
+Limitations, individual contributions, and discussion.
+Use clear charts and concise text.
+Ensure the presentation figures match the Excel model and report.
+Prepare a brief set of likely examination questions and suggested answers covering:
+Why the selected demand function is appropriate.
+Why the discount rate was chosen.
+Why the selected distributions are appropriate.
+How correlations affect Monte Carlo results.
+Why Solver's objective and constraints are appropriate.
+How the Data Tables work.
+What happens if the affordability threshold changes.
+What assumptions most strongly affect NPV.
+Why a positive expected NPV may not imply an acceptable investment.
+How the group verified the model.
+How AI was used and what the students checked independently.
+PART 16 — ACADEMIC INTEGRITY AND AI TRANSPARENCY
+This project must be original group work by exactly three students.
+Use AI as an analytical assistant, not as a substitute for understanding the model.
+Provide an AI-use disclosure describing:
+Which tasks were AI-assisted.
+Which data sources were researched and verified.
+Which assumptions were chosen by the group.
+Which formulas and outputs were independently checked.
+Which limitations remain.
+Which conclusions were evaluated by the students.
+Do not fabricate citations, data, model outputs, Solver solutions, or Monte Carlo results.
+Do not claim that the workbook is fully functional unless it has been tested.
+All three students must understand the model and actively contribute to the presentation and defense.
+Provide a suggested division of responsibilities:
+Student 1: Market research, business case, inputs, and financial model.
+Student 2: Sensitivity analysis, Solver optimization, and decision criteria.
+Student 3: Monte Carlo simulation, visualizations, report integration, and presentation.
+All three students should review the complete model and jointly verify the conclusions. The suggested division does not replace shared responsibility.
+PART 17 — EVALUATION RUBRIC: DESIGN FOR THE HIGHEST QUALITY
+Use the following evaluation criteria as a final quality-control framework.
+17.1 Practical requirements
+Deadlines: Prepare a complete submission before January 6, 2027, at 14:00.
+FAIR AI use: Document AI assistance and verify all results.
+17.2 Model score — 8 points
+Structure
+Clear worksheets.
+Logical progression from inputs to outputs.
+Consistent layout.
+Easy navigation.
+Cell names
+Meaningful named ranges.
+Named input and output cells.
+Named-cell dictionary.
+Names used consistently in formulas.
+Formulas
+Correct financial calculations.
+Consistent cash-flow timing.
+Appropriate discounting.
+No unexplained hardcoding.
+No double-counting.
+Appropriate error checks.
+Correct and transparent calculations.
+Complexity
+Sufficiently detailed cash flows.
+Price-demand relationship.
+Multiple uncertainties.
+Financing and terminal value.
+Integrated financial, social, and environmental objectives.
+Working sensitivity, optimization, and simulation analyses.
+17.3 Analysis score — 12 points
+Sensitivity analysis — 4 points
+Relevant managerial questions.
+Clear structure: question → technique → response.
+One-way and two-way analysis.
+Actual Excel Data Tables.
+Break-even analysis.
+Useful heatmaps and management conclusions.
+Optimization — 4 points
+Relevant objective function.
+Correct decision variables.
+Feasible constraints.
+Appropriate Solver method.
+Comparison of initial and optimized results.
+Practical managerial recommendation.
+Monte Carlo simulation — 4 points
+Multiple uncertain inputs.
+Simultaneous uncertainty.
+Justified distributions.
+Sufficient simulation trials.
+Correct output distributions.
+Probability of failure and downside risk.
+Static or dynamic implementation clearly explained.
+Overall analysis quality
+Five relevant, non-trivial decision questions.
+Correct decision criteria.
+Integrated visualization.
+Defensible management conclusions.
+Clear assumptions and limitations.
+Use this rubric as an explicit checklist and identify any criteria that remain incomplete.
+PART 18 — MODEL VALIDATION
+Before delivery, test the model systematically.
+Verify that:
+All named ranges point to the correct cells.
+All formulas calculate correctly.
+Input changes propagate through the entire model.
+Revenue changes when rent changes.
+Occupancy responds to the price-demand relationship.
+Occupancy remains between 0% and 100%.
+Affordable rooms remain at least 10% of the total.
+Affordable rents satisfy the defined benchmark.
+Room counts respect capacity and integer restrictions.
+Development costs reconcile.
+Debt balances reconcile.
+Cash flows reconcile.
+Discounting is consistent.
+NPV and IRR use the correct cash-flow perspective.
+Terminal value is not double-counted.
+Sensitivity Data Tables reference the correct input cells.
+Data Tables recalculate correctly.
+Solver constraints are feasible.
+The optimized solution is reproducible.
+Monte Carlo trials vary all selected uncertain inputs simultaneously.
+Simulation outputs are based on the integrated model.
+Decision criteria are calculated consistently.
+All charts use the correct data.
+The report and presentation agree with the workbook.
+All sources and assumptions are documented.
+The workbook can be opened and recalculated in Excel.
+Any VBA, add-ins, manual settings, or compatibility limitations are disclosed.
+Include a Model_Checks worksheet with a clear status for each test.
+Never label a test as passed unless it has actually been performed.
+PART 19 — REQUIRED FILES AND SUBMISSION
+Create these deliverables:
+Student_Housing_Brussels_Model.xlsx
+Student_Housing_Brussels_Executive_Report.pdf
+Student_Housing_Brussels_Presentation.pptx
+Student_Housing_Brussels_Submission.zip
+The ZIP file must contain the Excel model, PDF report, and PowerPoint presentation.
+If appropriate, also include supporting source data, a technical appendix, or a clearly documented VBA module.
+Before delivery:
+Open or validate each generated file.
+Verify that the ZIP contains all required deliverables.
+Ensure the report and presentation use actual model results.
+Check formulas and workbook structure.
+Disclose any Excel features requiring manual setup.
+Provide direct links to the created files where supported.
+The deadline is January 6, 2027, at 14:00. Do not postpone essential functionality in favor of decorative features.
+PART 20 — FINAL RESPONSE FORMAT
+After creating and validating the deliverables, provide a concise completion summary with:
+A short description of the investment case.
+The five managerial questions and their answers.
+Base-case financial performance.
+The recommended optimized investment strategy.
+The principal sensitivity findings.
+Monte Carlo downside risks and probability of success.
+Affordability and sustainability performance.
+The key management recommendation.
+Any limitations or features requiring manual Excel configuration.
+Links to the Excel workbook, executive report, PowerPoint presentation, and ZIP file.
+If the calculations reveal that the project is financially unattractive, report that conclusion honestly and explain which assumptions or strategic changes could improve its feasibility.
+Do not manufacture attractive results merely to make the project appear successful.
+FINAL OBJECTIVE: Deliver an integrated, auditable, reproducible, financially rigorous, socially responsible, sustainable, and academically defensible Decision Analytics project that demonstrates how Excel modeling, sensitivity analysis, Solver optimization, Monte Carlo simulation, decision criteria, and visualization can support a real investment decision about affordable student housing in Brussels.
+Base-case financial performance.
+The recommended optimized investment strategy.
+The principal sensitivity findings.
+Monte Carlo downside risks and probability of success.
+Affordability and sustainability performance.
+The key management recommendation.
+Any limitations or features requiring manual Excel configuration.
+Links to the Excel workbook, executive report, PowerPoint presentation, and ZIP file.
+If the calculations reveal that the project is financially unattractive, report that conclusion honestly and explain which assumptions or strategic changes could improve its feasibility.
+Do not manufacture attractive results merely to make the project appear successful.
+FINAL OBJECTIVE: Deliver an integrated, auditable, reproducible, financially rigorous, socially responsible, sustainable, and academically defensible Decision Analytics project that demonstrates how Excel modeling, sensitivity analysis, Solver optimization, Monte Carlo simulation, decision criteria, and visualization can support a real investment decision about affordable student housing in Brussels.

@@ -1,0 +1,6 @@
+{
+  "start_epoch": 1793255403.2132962,
+  "limit_seconds": 420,
+  "task": "groupMaite",
+  "prompt": "prompt_Maite.txt"
+}

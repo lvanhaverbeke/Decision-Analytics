@@ -1,0 +1,25 @@
+{
+  "start_epoch": 1793256167.3104398,
+  "limit_seconds": 420,
+  "task": "group13",
+  "prompt": "prompt_Thomas.txt",
+  "end_epoch": 1793256461.2660239,
+  "elapsed_seconds": 293.95558524131775,
+  "completed": true,
+  "outputs": [
+    "model.xlsx",
+    "Investment_Report.pdf",
+    "completion_summary.txt"
+  ],
+  "trials_per_property": 50000,
+  "total_trials": 150000,
+  "limitations": [
+    "No actual property data or legal clearance",
+    "Synthetic costs, rents, demand and shock parameters are assumptions",
+    "Static simulation and sensitivity; regeneration required",
+    "Simplified tax basis/loss/interest rules",
+    "No dynamic reinvestment strategy",
+    "No native Excel desktop test",
+    "Report charts not reproduced; workbook charts provided"
+  ]
+}

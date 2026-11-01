@@ -1,0 +1,24 @@
+{
+  "base_NPV": -4384561.61509067,
+  "best_constructed": [
+    -2769705.66876331,
+    110,
+    650,
+    1
+  ],
+  "negative_NPV_probability": 1.0,
+  "joint_success_probability": 0.0,
+  "formula_tests": "Zero supported-function formula errors",
+  "independent_tests": "Base annual cash flow; all finite grid candidates; first 60 Monte Carlo draws; rent demand and cost monotonicity; debt/affordability/histogram reconciled",
+  "limits": [
+    "Tax and delays excluded",
+    "No native Excel/Solver/Data Tables test",
+    "Finite EUR10 rent grid",
+    "Scenario weights and shock distributions subjective",
+    "Charts are in workbook; reports/slides text-based",
+    "Finance DSCR and sustainability treated as approval gates; finite project-NPV search does not enforce these gates"
+  ],
+  "IRR_mean": 0.044522374935724134,
+  "IRR_undefined_trials": 0,
+  "IRR_meeting_8pct": 0.0
+}

@@ -1,0 +1,6 @@
+{
+  "start_epoch": 1793255146.59842,
+  "limit_seconds": 420,
+  "task": "groupMarieLaure",
+  "prompt": "prompt_AnneLaure.txt"
+}

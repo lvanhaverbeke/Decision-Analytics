@@ -1,0 +1,9 @@
+Illustrative Brussels student residence investment
+Base project NPV: EUR 2,017,355; project IRR 10.61%.
+NPV excluding terminal sale: EUR -732,005. Excluding sale omits a residual asset that remains owned.
+Maximum zero-NPV acquisition price: EUR 4,004,743.
+Best social allocation: 24 of 120 rooms; NPV EUR 2,017,355.
+Probability negative NPV under subjective independent triangular inputs: 10.0%.
+Recommendation: HOLD pending legal/site clearance; financial recommendation is conditional on the model assumptions and DSCR.
+Legal quota reference: City of Brussels 2021 guidance 20% from 30 units; applicability to selected municipality City of Brussels remains unverified.
+Limitations: pre-tax, no construction delay schedule; no native Solver/Data Table/Excel test. Travel times and land prices are illustrative.

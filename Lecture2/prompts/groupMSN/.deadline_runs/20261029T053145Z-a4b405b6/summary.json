@@ -1,0 +1,11 @@
+{
+  "exit_code": 1,
+  "timed_out": false,
+  "elapsed_seconds": 0.32,
+  "checkpoint_worker_finished": true,
+  "checkpoint_errors": [],
+  "restored": [],
+  "changed_outputs": [],
+  "missing_outputs": [],
+  "note": "Structural validation only. Originals are backups, not generated results. A saved file is not a guarantee of task completeness or calculation accuracy."
+}

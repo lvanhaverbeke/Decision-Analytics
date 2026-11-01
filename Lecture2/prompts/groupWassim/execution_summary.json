@@ -1,0 +1,22 @@
+{
+  "start_epoch": 1793253077.5972748,
+  "limit_seconds": 420,
+  "task": "groupWassim",
+  "end_epoch": 1793253422.929803,
+  "elapsed_seconds": 345.33252811431885,
+  "completed": true,
+  "limitations": [
+    "Tax and delays excluded",
+    "No native Excel/Solver/Data Tables test",
+    "Finite EUR10 rent grid",
+    "Scenario weights and shock distributions subjective",
+    "Charts are in workbook; reports/slides text-based",
+    "Finance DSCR and sustainability treated as approval gates; finite project-NPV search does not enforce these gates"
+  ],
+  "outputs": [
+    "Student_Housing_Brussels_Model.xlsx",
+    "Student_Housing_Brussels_Executive_Report.pdf",
+    "Student_Housing_Brussels_Presentation.pptx",
+    "Student_Housing_Brussels_Submission.zip"
+  ]
+}

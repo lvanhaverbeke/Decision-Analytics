@@ -1,0 +1,254 @@
+# DECISION ANALYTICS
+
+You are an expert in Decision Analytics, investment modelling, financial analysis and advanced Excel.
+
+For our Decision Analytics course, we previously asked AI to create an Excel investment model evaluating the construction of a new student housing building near the Vrije Universiteit Brussel (VUB) campus in Brussels.
+
+We now want you to **improve and complete the existing model**, following the grading criteria of our course and using the Excel document from class as a methodological reference.
+
+**Attached files:**
+
+1. **model.xlsx** — The previously generated student housing investment model. Improve this existing workbook rather than unnecessarily rebuilding it.
+2. **Chapter 1 - New road analysis model.xls** — The example used during our Decision Analytics classes. Examine its structure, formulas, decision variables and analytical methods, and apply relevant principles to our investment project.
+
+## CRITICAL: 7-MINUTE EXECUTION LIMIT
+
+You have a maximum of **7 minutes** to complete this task.
+
+Your priority is to deliver a fully functional and downloadable Excel workbook within this time.
+
+- Inspect both attached files immediately.
+- Reuse existing calculations, worksheets and assumptions whenever appropriate.
+- Prioritize functionality, mathematical correctness and grading criteria over appearance.
+- Avoid unnecessary web research, lengthy explanations and computationally expensive operations.
+- Work efficiently and do not ask clarification questions.
+- If time is limited, prioritize completing the missing analytical methods instead of redesigning existing worksheets.
+- Ensure the Excel workbook is saved and delivered before the execution limit expires.
+
+## 1. INVESTMENT CONTEXT
+
+We want to assess the financial viability of constructing a new student housing building near the VUB campus in Brussels.
+
+The model should consider:
+
+- Actual demand for student accommodation near the university.
+- Existing and planned competing student housing developments.
+- Realistic building capacity.
+- Land acquisition and construction costs.
+- Operating, maintenance and financing costs.
+- Realistic occupancy rates.
+- Applicable Brussels housing and rental regulations.
+- Long-term investment profitability.
+
+The building should offer three accommodation types:
+
+1. Standard student rooms.
+2. Shared studios.
+3. Individual studios.
+
+Determine an economically and operationally reasonable mix of these accommodation types.
+
+**Important:** Clearly distinguish verified market information from estimates and assumptions. Do not invent official government price thresholds or present unverified figures as facts. Where information is unavailable, introduce reasonable and editable assumptions, explicitly marked as unverified.
+
+## 2. EXCEL MODEL QUALITY — 8 POINTS
+
+Improve the original workbook to ensure:
+
+- Clear and logically organized worksheets.
+- Descriptive labels and meaningful cell names.
+- Clearly identified input cells.
+- Dynamic formulas linked to inputs.
+- Minimal unnecessary hardcoding.
+- Correct calculations and consistent units.
+- Detailed investment and operating cash flows.
+- NPV, IRR and payback period calculations where appropriate.
+- A clear overview of the investment decision.
+- Realistic complexity without unnecessary complications.
+
+Inputs must dynamically affect the financial outputs.
+
+Verify that there are no broken cell references, calculation inconsistencies or circular dependencies.
+
+Use the attached class example to guide the structure and analytical approach wherever relevant.
+
+## 3. SENSITIVITY ANALYSIS — 4 POINTS
+
+Implement a meaningful sensitivity analysis measuring how changes in important assumptions affect the investment decision.
+
+At minimum, analyze:
+
+- Construction costs.
+- Occupancy rates.
+- Monthly rental prices.
+
+Calculate how changes influence NPV and, where relevant, IRR.
+
+Include:
+
+- Sensitivity tables.
+- At least one appropriate visualization.
+- Identification of the most influential assumptions.
+- A short interpretation of the results.
+
+Explain under which conditions the investment becomes financially attractive or unattractive.
+
+Keep negative NPV values visible.
+
+## 4. OPTIMIZATION — 4 POINTS
+
+Implement an actual optimization model.
+
+**Objective:** Maximize project NPV subject to realistic investment and operational constraints.
+
+**Decision variables:**
+
+- Total building capacity.
+- Number of standard rooms.
+- Number of shared studios.
+- Number of individual studios.
+
+**Constraints:**
+
+- Available building or floor space.
+- Maximum construction budget.
+- Realistic demand and occupancy assumptions.
+- Applicable rental regulations where verified.
+- Non-negative integer quantities for the different accommodation types.
+
+Use Excel Solver if feasible.
+
+If Solver cannot be configured reliably within the execution limit, create a transparent Excel-based optimization by systematically evaluating feasible room allocations and capacities.
+
+Clearly display:
+
+- Optimal capacity.
+- Optimal accommodation mix.
+- Financial results of the preferred alternative.
+- Binding or important constraints, where identifiable.
+- A brief explanation of the optimal decision.
+
+**Important:** Include a "do not invest" alternative with an NPV of zero. If all feasible construction projects generate negative NPVs, the correct recommendation may be not to invest. Do not force an investment recommendation.
+
+## 5. MONTE CARLO SIMULATION — 4 POINTS
+
+Add a functional Monte Carlo simulation to evaluate uncertainty and financial risk.
+
+Consider uncertainty in:
+
+- Construction costs.
+- Occupancy rates.
+- Rental income or operating costs.
+
+Select appropriate probability distributions and explicitly state their assumptions.
+
+Conduct approximately **300 simulations**, or more if the execution time permits.
+
+Calculate:
+
+- Mean NPV.
+- Median NPV.
+- Minimum and maximum simulated NPV.
+- 5th and 95th percentile NPV.
+- Probability of negative NPV.
+- Distribution of simulated NPV outcomes.
+
+Include a histogram and a concise interpretation of the investment risk.
+
+Ensure the simulation uses the actual financial model rather than an unrelated simplified calculation.
+
+Preserve all valid negative financial outcomes. Do not remove unsuccessful simulations or replace negative NPVs with zero.
+
+Prioritize a mathematically correct and transparent simulation over a very large number of iterations.
+
+## 6. TREATMENT OF NEGATIVE VALUES
+
+This requirement applies to the entire workbook.
+
+**Do not exclude, replace, hide, truncate or artificially adjust negative financial outcomes.**
+
+In particular:
+
+- Negative NPVs must remain visible.
+- Negative cash flows are allowed and expected during construction.
+- Negative profits or losses must be displayed where they occur.
+- Sensitivity analysis must include unfavorable scenarios.
+- Monte Carlo simulations must retain negative results.
+- Optimization must evaluate economically unfavorable alternatives correctly.
+
+Only impose non-negativity constraints on variables that logically cannot be negative, such as room quantities, physical capacity, construction costs and occupancy rates.
+
+The objective is to make an **economically justified investment decision**, not to produce artificially positive results.
+
+## 7. FINAL DECISION SUMMARY
+
+Create a clearly structured **Decision Summary** worksheet answering:
+
+1. Is the student housing investment financially attractive?
+2. What building capacity is recommended?
+3. What accommodation mix is optimal?
+4. Which assumptions most strongly influence profitability?
+5. What does the sensitivity analysis reveal?
+6. What solution does the optimization identify?
+7. What does the Monte Carlo simulation reveal about financial risk?
+8. Under what conditions should the investment be accepted or rejected?
+9. Which assumptions or external data still require validation?
+
+Present results using the Decision Analytics approach:
+
+**Decision problem → Analytical method → Numerical results → Interpretation → Recommendation.**
+
+Conclusions must be based on the model's calculations, even if the investment is not financially attractive.
+
+## 8. FINAL QUALITY CONTROL AND DELIVERABLE
+
+Deliver **one improved, downloadable Excel workbook (.xlsx)** containing:
+
+- An integrated and dynamic investment model.
+- A functional sensitivity analysis.
+- An optimization model with decision variables and constraints.
+- A Monte Carlo risk analysis.
+- A clear investment decision summary.
+
+Before delivery, verify:
+
+- Formulas calculate correctly.
+- Input changes influence the appropriate outputs.
+- Assumptions and units are consistent.
+- Optimization results satisfy the defined constraints.
+- Monte Carlo results reflect the model's financial logic.
+- Negative outcomes are preserved.
+- Tables and charts represent the correct calculations.
+- The workbook opens correctly in Excel.
+
+If an analytical technique cannot be fully implemented, clearly disclose the limitation rather than presenting a simplified analysis as a complete implementation.
+
+**FINAL PRIORITIES:**
+
+1. Deliver a working Excel file within 7 minutes.
+2. Ensure accurate calculations and linked formulas.
+3. Complete the sensitivity analysis.
+4. Implement optimization.
+5. Implement Monte Carlo simulation.
+6. Provide an evidence-based investment recommendation.
+7. Improve formatting only if time remains.
+
+Do not spend time producing a long written explanation outside the spreadsheet.
+
+**Start immediately, use both attachments, improve the existing workbook and deliver the completed Excel model before the time limit expires.**
+
+
+--- LAUNCHER: LOCAL FILES AND DEADLINE ---
+Working folder: /Users/lvanhaverbeke/Decision Analytics/prompts/groupMSN
+Documents available directly in this folder (JSON filenames):
+[
+  "Chapter 1 - New road analysis model.xls",
+  "model.xlsx"
+]
+References to attached documents in the task mean these local files. Read the actual relevant files immediately, using suitable local tools. If a format cannot be read, disclose the limitation. Do not invent its contents.
+Required output paths (relative to the working folder): ["model.xlsx"]
+Save a minimally usable result immediately, then update it incrementally. Write each update to a temporary file of the same format and use os.replace to publish it atomically. Preserve input documents except required output files.
+Save deadline UTC: 2026-10-29T05:39:22.327163+00:00
+Hard deadline UTC: 2026-10-29T05:39:52.327163+00:00
+Finish substantive work and save all outputs before the save deadline. Use the remaining time only to validate and finalize. The launcher will stop the process before the hard deadline to allow recovery.
+After every step check: /Users/lvanhaverbeke/Decision Analytics/prompts/groupMSN/.deadline_runs/20261029T053252Z-5d40d38f/SAVE_NOW.txt
+When that file exists, save immediately and finish. Do not alter the .deadline_runs directory. Do not ask clarification questions. Report incomplete work honestly; do not describe an unchanged input as a completed result.
